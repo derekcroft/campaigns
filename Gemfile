@@ -5,6 +5,9 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# for deployment on Heroku
+gem 'heroku'
+
 gem 'pg'
 
 
@@ -22,8 +25,22 @@ end
 
 gem 'jquery-rails'
 
+group :development, :test do
+  gem 'rspec-rails', '>= 2.8.1'
+  gem 'sqlite3'
+end
+
 group :test do
-  gem 'rspec-rails'
+  gem "factory_girl_rails", ">= 1.6.0"
+  gem "cucumber-rails", ">= 1.2.1"
+  gem "capybara", ">= 1.1.2"
+  gem "database_cleaner"
+  gem "launchy"
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
