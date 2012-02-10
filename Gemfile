@@ -25,6 +25,12 @@ end
 gem 'jquery-rails'
 gem 'haml-rails'
 
+group :development do
+  gem 'guard'
+  gem 'guard-cucumber'
+  gem 'ruby_gntp'
+end
+
 group :development, :test do
   gem 'rspec-rails', '>= 2.8.1'
   gem 'sqlite3'
