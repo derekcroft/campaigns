@@ -1,3 +1,564 @@
 // Place all the styles related to the Campaigns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "UTF-8";
+
+/* CSS Document */
+body {
+background-color:#FFF;
+font-family:Nunito, arial, sans-serif;
+font-weight:300;
+font-size:14px;
+line-height:20px;
+text-align:left;
+color:#FFF;
+width:100%;
+background-image:url(../images/bg-short-top.gif);
+background-repeat:repeat-x;
+background-position:top;
+margin:0;
+padding:0;
+}
+
+div {
+vertical-align:top;
+}
+
+p,h1,h2,h3 {
+text-align:left;
+font-family:Nunito, arial, sans-serif;
+}
+
+b,strong {
+color:#DDD;
+font-weight:700;
+}
+
+a {
+font-family:Nunito, arial, sans-serif;
+text-decoration:none;
+color:#fff;
+}
+
+#bodycontent {
+width:970px;
+align:center;
+margin:0 auto;
+}
+
+#titlebar {
+width:970px;
+height:70px;
+background-image:url(../images/roundshadow-titlebar.png);
+background-repeat:no-repeat;
+background-position:center bottom;
+}
+
+#titlebarlogo {
+background-image:url(../images/kiindlycom-title-logo.png);
+background-repeat:no-repeat;
+width:187px;
+height:52px;
+float:left;
+margin:9px 0 0;
+padding:0;
+}
+
+#righttopnav {
+float:right;
+font-size:10px;
+text-align:right;
+width:250px;
+height:40px;
+padding:20px 0 0;
+}
+
+#righttopnav .help {
+color:#FFF;
+text-transform:uppercase;
+font-weight:300;
+}
+
+#righttopnav .startcampaign {
+color:#4fba69;
+text-transform:uppercase;
+font-weight:300;
+}
+
+#mainbodycontent {
+width:970px;
+clear:both;
+margin:10px 0 0;
+padding:0;
+}
+
+#leftmain {
+width:540px;
+float:left;
+}
+
+#hero {
+width:500px;
+height:330px;
+background-color:#4fba69;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+border:1px solid;
+position:relative;
+overflow:hidden;
+background-image:url(../images/loading.png);
+background-position:center;
+background-repeat:no-repeat;
+border-color:#5ed88a #15562d #15562d #5ed88a;
+padding:20px;
+}
+
+#heroContent {
+width:500px;
+height:330px;
+position:absolute;
+top:0;
+margin-left:0;
+padding:0;
+}
+
+#heroContent li {
+list-style-type:none;
+}
+
+.heroImage {
+float:left;
+position:relative;
+display:none;
+}
+
+.heroImage span {
+position:absolute;
+font:10px;
+width:480px;
+background-color:#000;
+left:0;
+color:#fff;
+display:none;
+filter:alpha(opacity=70);
+-moz-opacity:.7;
+-khtml-opacity:.7;
+opacity:.7;
+bottom:0;
+padding:10px;
+}
+
+.texttop {
+top:0;
+left:0;
+}
+
+.textbottom {
+bottom:0;
+left:0;
+text-transform:uppercase;
+color:#fff;
+}
+
+.textleft {
+top:0;
+left:0;
+width:110px!important;
+height:280px;
+}
+
+.textright {
+right:0;
+bottom:0;
+width:90px!important;
+height:290px;
+}
+
+#campaignlogo {
+float:left;
+clear:both;
+padding:20px 0;
+}
+
+#campaignlogo img {
+border:0;
+margin:0;
+padding:0;
+}
+
+#socialthin {
+width:520px;
+height:30px;
+background-color:#898989;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+border:1px solid;
+clear:both;
+border-color:#a2a2a2 #393939 #393939 #a2a2a2;
+padding:10px 0 0 20px;
+}
+
+#progress {
+width:500px;
+height:60px;
+background-color:#898989;
+-webkit-border-radius:10px 10px 0 0;
+-moz-border-radius:10px 10px 0 0;
+border-radius:10px 10px 0 0;
+border:1px solid;
+clear:both;
+border-color:#a2a2a2 #393939 #898989 #a2a2a2;
+margin:5px 0 0;
+padding:13px 20px 0;
+}
+
+#progress .progresstext {
+width:500px;
+height:30px;
+overflow:hidden;
+margin:0 auto;
+}
+
+#progress .progresstext .progress1 {
+width:33%;
+float:left;
+font-size:11px;
+line-height:14px;
+text-align:left;
+text-transform:uppercase;
+padding:0;
+}
+
+#progress .progresstext .progress2 {
+width:34%;
+float:left;
+font-size:11px;
+line-height:14px;
+text-align:center;
+text-transform:uppercase;
+margin:auto;
+}
+
+#progress .progresstext .progress3 {
+width:33%;
+float:left;
+font-size:11px;
+line-height:14px;
+text-align:right;
+text-transform:uppercase;
+padding:0;
+}
+
+#progress .progressbar {
+width:500px;
+height:10px;
+background-image:url(../images/progressbar-back2.png);
+background-repeat:no-repeat;
+clear:both;
+text-align:left;
+margin:5px 0;
+padding:0;
+}
+
+#progress .progressbar .progressoverlay {
+width:0;
+height:10px;
+float:left;
+background-image:url(../images/progressbar-right.png);
+background-repeat:no-repeat;
+background-position:top right;
+margin:0 0 0 5px;
+padding:0;
+}
+
+#navtabs {
+width:520px;
+height:30px;
+background-color:#898989;
+border:1px solid;
+clear:both;
+overflow:hidden;
+cursor:pointer;
+border-color:#898989 #393939 #525252 #a2a2a2;
+margin:0 auto;
+padding:0 0 0 20px;
+}
+
+.navtab {
+height:30px;
+width:auto;
+background-color:#525252;
+-webkit-border-radius:10px 10px 0 0;
+-moz-border-radius:10px 10px 0 0;
+border-radius:10px 10px 0 0;
+border:0;
+float:left;
+font-size:13px;
+font-family:Nunito, arial, sans-serif;
+margin:0 5px 0 0;
+padding:6px 10px 0;
+}
+
+.navtab a {
+color:fff!important;
+font-weight:700;
+}
+
+#campaigninfo {
+width:500px;
+background-color:#525252;
+-webkit-border-radius:0 0 10px 10px;
+-moz-border-radius:0 0 10px 10px;
+border-radius:0 0 10px 10px;
+border:1px solid;
+clear:both;
+text-align:left;
+border-color:#525252 #393939 #222 #777;
+margin:0 0 20px;
+padding:10px 20px 0;
+}
+
+#rightmain {
+width:420px;
+float:right;
+}
+
+#video {
+width:380px;
+height:220px;
+background-color:#898989;
+-webkit-border-radius:10px 10px 0 0;
+-moz-border-radius:10px 10px 0 0;
+border-radius:10px 10px 0 0;
+border:1px solid;
+border-bottom:0;
+clear:both;
+background-image:url(../images/video-shadow.png);
+background-repeat:no-repeat;
+background-position:bottom;
+border-color:#a2a2a2 #393939 #898989 #a2a2a2;
+margin:0;
+padding:20px 19px 0;
+}
+
+#diduknow {
+width:378px;
+background-color:#525252;
+-webkit-border-radius:0 0 10px 10px;
+-moz-border-radius:0 0 10px 10px;
+border-radius:0 0 10px 10px;
+border:1px solid;
+clear:both;
+text-align:left;
+color:#FFF;
+background-image:url(../images/diduknow-shadow.png);
+background-repeat:no-repeat;
+background-position:top;
+border-color:#525252 #393939 #222 #777;
+margin:0 0 10px;
+padding:20px 20px 10px;
+}
+
+#diduknow h3 {
+color:#FFF;
+font-size:18px;
+font-weight:700;
+text-transform:uppercase;
+margin:0;
+padding:0;
+}
+
+#supporters {
+width:370px;
+clear:both;
+text-align:left;
+margin:20px 0 20px 10px;
+padding:0;
+}
+
+#supporters h3 {
+color:#4fba69;
+font-size:18px;
+font-weight:700;
+text-transform:uppercase;
+margin:0;
+padding:0;
+}
+
+#footer {
+background-color:#282828;
+width:100%;
+clear:both;
+margin:0;
+padding:0;
+}
+
+#footercontainer {
+width:970px;
+min-height:120px;
+font-size:9px;
+margin:0 auto;
+padding:20px 0;
+}
+
+#footercontainer .footerlinks-l {
+float:left;
+width:150px;
+text-align:left;
+}
+
+#footercontainer .footerlinks-r {
+float:right;
+width:150px;
+text-align:left;
+}
+
+#footercontainer a {
+color:#9f9f9f;
+text-decoration:none;
+}
+
+#footercontainer a:hover {
+color:#898989;
+text-decoration:underline;
+}
+
+#goldbox {
+width:380px;
+background-color:#e0c92b;
+border:1px 0 1px 0 solid;
+clear:both;
+background-image:url(../images/gold-back.jpg);
+background-repeat:repeat-y;
+border-color:#dcd180 #393939 #4c440d #a2a2a2;
+margin:0;
+padding:20px 20px 10px;
+}
+
+#donate {
+width:340px;
+background-color:#FFF;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+margin-bottom:5px;
+border:1px solid;
+border-color:#6b6b6b #98978e #98978e #6b6b6b;
+clear:both;
+padding:20px;
+}
+
+#donate .radio {
+width:20px;
+vertical-align:top;
+height:50px;
+float:left;
+text-align:left;
+margin:0;
+padding:0;
+}
+
+#donate .payment-text {
+width:310px;
+float:left;
+font-size:11px;
+line-height:15px;
+color:#3a3a3a;
+text-align:left;
+margin:0 0 0 10px;
+padding:0;
+}
+
+#donate .payment-text h3 {
+color:#4fba69;
+font-size:22px;
+font-weight:700;
+text-transform:uppercase;
+margin:0;
+padding:0;
+}
+
+#donate .payment-text .learnmore {
+border:0;
+padding:10px 0 5px;
+}
+
+.donation_input {
+width:100%;
+margin:7px 0 10px;
+padding:0;
+}
+
+.donation_left {
+width:140px;
+text-align:left;
+float:left;
+margin:0;
+padding:0;
+}
+
+.donation_right {
+width:auto;
+text-align:right;
+float:right;
+color:#1a9f4a;
+font-size:12px;
+font-weight:700;
+margin:0;
+padding:0;
+}
+
+#display5 {
+border:0;
+color:#1a9f4a;
+font-size:14px;
+font-weight:700;
+float:right;
+clear:none;
+width:30px;
+margin:0 0 3px;
+padding:0;
+}
+
+.fixedamount {
+border:1px solid;
+color:#1a9f4a;
+font-size:20px;
+font-weight:700;
+text-align:right;
+clear:none;
+width:45px;
+border-color:#1a9f4a;
+margin:0;
+padding:0;
+}
+
+.x10 {
+font-size:10px!important;
+}
+
+.x12 {
+font-size:12px!important;
+}
+
+.x14 {
+font-size:14px!important;
+}
+
+.x16 {
+font-size:16px!important;
+}
+
+.stack {
+display:none;
+}
+
+input,textarea {
+font-family:Nunito, arial, sans-serif;
+}
+
+.paymentoption,.clear {
+clear:both;
+}
