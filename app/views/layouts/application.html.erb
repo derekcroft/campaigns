@@ -16,9 +16,11 @@
 
 <div id="bodycontent">
   <%=  render 'titlebar' %>
+  
+  <div id="mainbodycontent">
+    <%= yield %>
+  </div>
 </div>
-
-<%= yield %>
 
 <%= render 'footer' %>
 
