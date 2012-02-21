@@ -1,4 +1,7 @@
 class CampaignsController < ApplicationController
-  def show
+  def pay
+  end
+
+  def share
   end
 end

@@ -1,5 +1,10 @@
 KiindlyCom::Application.routes.draw do
-  resources :campaigns, only: :show
+  resources :campaigns, only: [] do
+    member do
+      get 'share'
+      get 'pay'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
