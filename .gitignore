@@ -16,3 +16,6 @@
 
 # Ignore cached stuff
 .sass-cache/
+
+# Ignore RubyMine files
+.idea/
