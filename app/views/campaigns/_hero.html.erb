@@ -1,5 +1,5 @@
 <!-- ** JQuery/Hero Slideshow ** -->
-<%=  javascript_include_tag "carpe/s3Slider" %>
+<%= javascript_include_tag "carpe" %>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#hero').hero({
@@ -9,7 +9,6 @@
 </script>
 
 <!-- ** $ slider in donation box ** -->
-<%= javascript_include_tag "carpe/carpe_common", "carpe/carpe_slider" %>
 <%= stylesheet_link_tag "carpe/carpe_slider" %>
 
 
@@ -17,11 +16,8 @@
 body {background-image:url(<%= asset_path "bg-main-top.gif" %>) !important; background: repeat-x;}
 </style>
 <!-- ** Content scroller ** -->
-<%=  stylesheet_link_tag "carpe/jquery.mCustomScrollbar" %>
-<%=
-    javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js",
-        "carpe/jquery.easing.1.3", "carpe/jquery.mousewheel.min"
-%>
+<%= stylesheet_link_tag "carpe/jquery.mCustomScrollbar" %>
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" %>
 
 <script>
 $(window).load(function() {
@@ -48,5 +44,4 @@ function LoadNewContent(id,file){
 	});
 }
 </script>
-<%=  javascript_include_tag "carpe/jquery.mCustomScrollbar" %>
 
