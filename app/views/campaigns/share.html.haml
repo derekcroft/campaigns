@@ -1,5 +1,10 @@
 - content_for :page_css do
   = stylesheet_link_tag "sharepage"
+- content_for :titlebar_nav do
+  %strong How was your donation experience today?
+  %br
+  = link_to "Click here", ""
+  to take a short survey.
 
 .widegreenbox
   .sharebox-left

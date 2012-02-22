@@ -1,5 +1,7 @@
 - content_for :page_css do
   = stylesheet_link_tag "paymentpage"
+- content_for :titlebar_nav do
+  = link_to "Help", "#", class: "help"
 
 #paymentmain
   .campaignlogoblock
