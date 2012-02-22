@@ -1,3 +1,10 @@
+- content_for :show_functions do
+  = render "hero"
+- content_for :titlebar_nav do
+  = link_to "Help", "#", class: "help"
+  &nbsp; | &nbsp;
+  = link_to "Start my own Campaign", "#", class: "startcampaign"
+
 #leftmain
   #hero
     %ul#heroContent
@@ -158,5 +165,3 @@
     .fb-facepile{"data-href" => "kiindly.com/index.php", "data-max-rows" => "2", "data-width" => "400"}
 / End right block
 
-- content_for :show_functions do
-  = render "hero"
