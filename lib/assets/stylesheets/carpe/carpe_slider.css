@@ -1,0 +1,99 @@
+/*	Default stylesheet for the Carpe Slider 2
+    By Tom Hermansson Snickars              
+    2011-09-21 version 2.1
+    Copyright CARPE Design                     
+    carpe.ambiprospect.com
+*/
+
+.carpe-slider-panel {
+	box-sizing: content-box;
+	color: #333;
+	padding:3px;
+	display: block;
+	line-height: 0;
+	height: 12px;
+	font-size: 0;
+	text-align: left;
+	float: none;
+	border:0;
+	position: relative;
+	top: 0;
+	overflow: hidden;
+	opacity: 1;
+	cursor: default;
+}
+.carpe-slider-panel:hover {
+	background-color: #eee;
+}
+.carpe-slider-panel:focus {
+	background-color: #fff;
+}
+.orientation-horizontal {
+	width: 120px;
+	padding:0;
+}
+/* The Slider Slit */
+.carpe-slider-slit {
+	background-color: #999;
+	position: relative;
+	line-height: 0;
+	border: 1px solid;
+	border-color: #7d7d7d #7d7d7d #dbdbdb #dbdbdb;
+	font-size: 0;
+	cursor: default;
+}
+.carpe-slider-slit[disabled] {
+	background-color: #999;
+}
+.carpe-slider-panel:focus .carpe-slider-slit {
+	background-color: #1a9f4a; /* Green color of slit in focused slider. */
+}
+.carpe-slider-panel:focus .carpe-slider-slit[disabled] {
+	background-color: #aaa; /*  */
+}
+.carpe-slider-panel:hover .carpe-slider-slit {
+	background-color: #1a9f4a; /* Blue color of slit in 'hovered' slider. */
+}
+.carpe-slider-panel:hover .carpe-slider-slit[disabled] {
+	background-color: #aaa; /*  . */
+}
+.carpe-slider-panel:focus:hover .carpe-slider-slit {
+	background-color: #1a9f4a; /* Green color of slit in focused and 'hovered' slider. */
+}
+.carpe-slider-panel:focus:hover .carpe-slider-slit[disabled] {
+	background-color: #aaa; /* Blue color of slit in focused and 'hovered' slider. */
+}
+.orientation-horizontal .carpe-slider-slit {
+	height: 2px;
+	margin: 4px 2px 2px 2px;
+	top: -12px;
+}
+.orientation-vertical .carpe-slider-slit {
+	width: 2px;
+	margin: 2px 4px 4px 4px;
+	top: -20px;
+}
+/* The Slider Knob */
+.carpe-slider-knob {
+	background-color: #1a9f4a;
+	position: relative;
+	z-index: 2;
+	line-height: 0;
+	font-size: 0;
+	border: 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.carpe-slider-knob:hover {
+	background-color: #127837;
+}
+.orientation-horizontal .carpe-slider-knob {
+	width: 12px;
+	margin: 0;
+	height: 12px;
+	cursor: e-resize;
+}
+.carpe-slider-knob[disabled] {
+	cursor: default;
+}

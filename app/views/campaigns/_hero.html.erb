@@ -1,0 +1,52 @@
+<!-- ** JQuery/Hero Slideshow ** -->
+<%=  javascript_include_tag "carpe/s3Slider" %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#hero').hero({
+            timeOut: 6000
+        });
+    });
+</script>
+
+<!-- ** $ slider in donation box ** -->
+<%= javascript_include_tag "carpe/carpe_common", "carpe/carpe_slider" %>
+<%= stylesheet_link_tag "carpe/carpe_slider" %>
+
+
+<style>
+body {background-image:url(<%= asset_path "bg-main-top.gif" %>) !important; background: repeat-x;}
+</style>
+<!-- ** Content scroller ** -->
+<%=  stylesheet_link_tag "carpe/jquery.mCustomScrollbar" %>
+<%=
+    javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js",
+        "carpe/jquery.easing.1.3", "carpe/jquery.mousewheel.min"
+%>
+
+<script>
+$(window).load(function() {
+	mCustomScrollbars();
+});
+
+function mCustomScrollbars(){
+	$("#mcs_container").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);
+}
+
+/* function to fix the -10000 pixel limit of jquery.animate */
+$.fx.prototype.cur = function(){
+    if ( this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null) ) {
+      return this.elem[ this.prop ];
+    }
+    var r = parseFloat( jQuery.css( this.elem, this.prop ) );
+    return typeof r == 'undefined' ? 0 : r;
+}
+
+/* function to load new content dynamically */
+function LoadNewContent(id,file){
+	$("#"+id+" .customScrollBox .content").load(file,function(){
+		mCustomScrollbars();
+	});
+}
+</script>
+<%=  javascript_include_tag "carpe/jquery.mCustomScrollbar" %>
+

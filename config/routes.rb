@@ -1,5 +1,5 @@
 KiindlyCom::Application.routes.draw do
-  resources :campaigns, only: [] do
+  resources :campaigns, only: :show do
     member do
       get 'share'
       get 'pay'
