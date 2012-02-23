@@ -6,7 +6,7 @@
 #paymentmain
   .campaignlogoblock
     = image_tag "sites/townsquarecares/logo.png", height: "80", width: "540", class: "campaignlogoimg"
-  %form{:action => "share.php"}
+  = form_tag share_campaign_url(@campaign), method: :get do
     .paymentcontentblock
       %h3 Fantastic! Now we just need a few details...
       %p You're just 1 step away from completing your contribution.
@@ -15,20 +15,20 @@
         %li#billing-fname
           First Name
           %br
-          %input{:type => "text", :value => "123"}
+          %input{:type => "text", :value => "123", :id => "first_name"}
         %li#billing-lname
           Last Name
           %br
-          %input{:type => "text"}
+          %input{:type => "text", :id => "last_name"}
         %li#billing-email{:style => "width:500px;"}
           Email Address
           %span.x10 (so we can send you a receipt)
           %br
-          %input.long{:type => "text"}
+          %input.long{:type => "text", :id => "email"}
         %li#billing-zip
           ZIP Code
           %br
-          %input.short{:maxlength => "5", :type => "text"}
+          %input.short{:maxlength => "5", :type => "text", :id => "zip"}
         %li#billing-phone
           Phone
           %span.x10 (optional)
@@ -41,7 +41,7 @@
         %li#payment-type{:style => "width:500px;"}
           Select payment type
           %br
-          %input.rad{:name => "cardtype", :type => "radio", :value => "1"}
+          %input.rad{:name => "cardtype", :type => "radio", :value => "1", :id => "card_type_visa"}
           = image_tag "visa_32.png", height: 32, width: 32, alt: "Visa"
           %input.rad{:name => "cardtype", :type => "radio", :value => "2"}
           = image_tag "mastercard_32.png", height: 32, width: 32, alt: "Mastercard"
@@ -55,19 +55,19 @@
           Card Number
           %span.x10 (no spaces please)
           %br
-          %input{:type => "text"}
+          %input{:type => "text", :id => "card_number"}
         %li#payment-zip
           CVC
           %span.x10
             %a{:href => ""} what is this?
           %br
-          %input.short{:maxlength => "4", :type => "text"}
+          %input.short{:maxlength => "4", :type => "text", :id => "cvc"}
         %li#payment-zip
           Expiration
           %span.x10 (mm/yy)
           %br
-          %input.short{:maxlength => "2", :type => "text"}
-          %input.short{:maxlength => "2", :type => "text"}
+          %input.short{:maxlength => "2", :type => "text", :id => "expiration_month"}
+          %input.short{:maxlength => "2", :type => "text", :id => "expiration_year"}
       %hr.clear
     .paymentcontentblock
       .optincheck
@@ -77,12 +77,12 @@
         %a{:href => ""} Terms &amp; Conditions
         of Kiindly.com.
       .optincheck
-        %input.rad{:type => "checkbox", :value => "1"}
+        %input.rad{:type => "checkbox", :value => "1", :id => "agree_to_terms"}
       .optintext
         I would like to receive emails regarding new projects, special events, news
         and information from TownSquare Cares.
       %p
-        %button.submitbtn{:type => "submit"} SUBMIT
+        %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
       %hr.clear
 / End left block
 / Start right block
