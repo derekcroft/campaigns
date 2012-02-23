@@ -16,3 +16,19 @@ end
 Then /^I should see a Vimeo video embedded in the page$/ do
   page.should have_css('#video') 
 end
+
+Then /^I should see the Facebook like button$/ do
+  page.should have_css('.addthis_button_facebook_like')
+end
+
+Then /^I should see a forward to a friend via email icon \(opens email client\)$/ do
+  page.should have_css('.addthis_button_email')
+end
+
+Then /^I should see the google \+ button$/ do
+  page.should have_css('.addthis_button_google_plusone')
+end
+
+Then /^I should see a Twitter tweet\/share button$/ do
+  page.should have_css('.addthis_button_tweet')
+end

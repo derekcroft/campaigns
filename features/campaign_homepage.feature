@@ -13,3 +13,11 @@ Feature: Campaign Homepage
     Given a campaign exists
     When I go to that campaign's index page
     Then I should see a Vimeo video embedded in the page
+
+  Scenario: Widgets displayed on top of campaign section
+    Given a campaign exists
+    When I go to that campaign's index page
+    Then I should see the Facebook like button
+    And I should see a forward to a friend via email icon (opens email client)
+    And I should see the google + button
+    And I should see a Twitter tweet/share button
