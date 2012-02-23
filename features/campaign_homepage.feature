@@ -4,18 +4,14 @@ Feature: Campaign Homepage
   I would like to be able to see the campaign homepage
   So I can get information about the current state of that campaign
 
-  Scenario: Go to campaign's home page
+  Background:
     Given a campaign exists
-    When I go to that campaign's index page
-    Then I should see the page correctly
 
   Scenario: Play video
-    Given a campaign exists
     When I go to that campaign's index page
     Then I should see a Vimeo video embedded in the page
 
   Scenario: Widgets displayed on top of campaign section
-    Given a campaign exists
     When I go to that campaign's index page
     Then I should see the Facebook like button
     And I should see a forward to a friend via email icon (opens email client)
@@ -23,8 +19,7 @@ Feature: Campaign Homepage
     And I should see a Twitter tweet/share button
 
   Scenario Outline: View status of campaign
-    Given a campaign exists
-    And the donors have pledged <donation_total>
+    Given the donors have pledged <donation_total>
     And the pledge target is <donation_target>
     And there are <num_donors> donors
     When I go to that campaign's index page

@@ -8,9 +8,18 @@ When /^I go to that campaign's index page$/ do
   visit(url_for(that_campaign))
 end
 
+When /^I go to the Kiindly homepage$/ do
+  visit(root_url)
+end
+
+Then /^I should see that campaign's index page$/ do
+  that_campaign = Campaign.first
+  current_path.should == campaign_path(that_campaign)
+end
+
 Then /^I should see the page correctly$/ do
   that_campaign = Campaign.first
-  current_path.should == campaign_path(that_campaign) 
+  current_path.should == campaign_path(that_campaign)
 end
 
 Then /^I should see a Vimeo video embedded in the page$/ do
