@@ -5,6 +5,8 @@
   &nbsp; | &nbsp;
   = link_to "Start my own Campaign", "#", class: "startcampaign"
 
+= javascript_include_tag 'campaigns'
+
 #leftmain
   #hero
     %ul#heroContent
@@ -138,7 +140,7 @@
               %input#display5{:name => "capname", :tabindex => "-1", :value => "10"}
       .paymentoption{:style => "padding-top:25px; "}
         .radio
-          %input{:name => "donation-type", :type => "radio", :value => "fixedamount"}
+          %input#fixed_pledge_type{:name => "donation-type", :type => "radio", :value => "fixedamount"}
         .payment-text
           %h3 Donate a fixed amount
           %a{:href => ""}
@@ -149,7 +151,7 @@
             .donation_right
               $
               = succeed ".00" do
-                %input.fixedamount{:type => "text", :value => "50"}
+                = text_field 'fixedamount', nil, disabled: true, class: "fixedamount"
       %br{:style => "clear:both;"}
     %a{:href => "payment.php"}
       = image_tag "btn_submitdonation.png"

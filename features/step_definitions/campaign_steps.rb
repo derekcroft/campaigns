@@ -8,11 +8,11 @@ Given /^a campaign exists$/ do
 end
 
 When /^I go to (that campaign)'s index page$/ do |that_campaign|
-  visit(url_for(that_campaign))
+  visit(campaign_path(that_campaign))
 end
 
 When /^I go to the Kiindly homepage$/ do
-  visit(root_url)
+  visit(root_path)
 end
 
 Then /^I should see (that campaign)'s index page$/ do |that_campaign|
