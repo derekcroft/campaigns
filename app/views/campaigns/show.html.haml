@@ -31,17 +31,17 @@
         Current level
         %br
         %span.x14
-          %strong $2,342
+          %strong.donation_total= number_to_currency(@campaign.donation_total)
       .progress2
         Number of donors
         %br
-        %strong.x14 432
+        %strong.x14.number_of_donors= @campaign.number_of_donors
       .progress3
         Target
         %br
-        %strong.x14 $10,000
+        %strong.donation_target.x14= number_to_currency(@campaign.donation_target)
     .progressbar
-      .progressoverlay{:style => "width:23% !important"}
+      .progressoverlay{:style => "width:#{@campaign.percent_complete}% !important"}
         %span.stack Campaign name has raised $2,342 out of $10,000 from 432 donors.
   #navtabs
     #tab1.navtab
