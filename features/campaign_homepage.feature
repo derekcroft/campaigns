@@ -8,3 +8,8 @@ Feature: Campaign Homepage
     Given a campaign exists
     When I go to that campaign's index page
     Then I should see the page correctly
+
+  Scenario: Play video
+    Given a campaign exists
+    When I go to that campaign's index page
+    Then I should see a Vimeo video embedded in the page
