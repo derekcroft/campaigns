@@ -9,7 +9,7 @@ Feature: Routing
     When I go to that campaign's index page
     Then I should see the page correctly
 
-  Scenario: Go to Kiindly's home page
+  Scenario: Go to Kiindly's home page when a campaign exists
     Given a campaign exists
     When I go to the Kiindly homepage
     Then I should see that campaign's index page

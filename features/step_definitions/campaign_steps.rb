@@ -58,7 +58,7 @@ end
 Then /^I should see a green bar with a pledge target of (\$[\d,]+)$/ do |amount|
   page.should have_css('.donation_target')
   within('.donation_target') do
-    page.should have_content(amount)
+    page.text.should == amount
   end
 end
 
@@ -72,7 +72,7 @@ end
 Then /^I should see that the Current Level is (\$[\d,]+)$/ do |amount|
   page.should have_css('.donation_total')
   within('.donation_total') do
-    page.should have_content(amount)
+    page.text.should == amount
   end
 end
 
