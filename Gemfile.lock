@@ -78,6 +78,8 @@ GEM
     guard-cucumber (0.7.5)
       cucumber (>= 0.10)
       guard (>= 0.8.3)
+    guard-rspec (0.6.0)
+      guard (>= 0.10.0)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -192,12 +194,13 @@ DEPENDENCIES
   factory_girl_rails (>= 1.6.0)
   guard
   guard-cucumber
+  guard-rspec
   haml-rails
   heroku
   jquery-rails
   launchy
   pg
-  rails (= 3.2.1)
+  rails (~> 3.2.1)
   rspec-rails (>= 2.8.1)
   ruby_gntp
   sass-rails (~> 3.2.3)
