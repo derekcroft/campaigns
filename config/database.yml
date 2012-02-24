@@ -13,8 +13,12 @@
 # gem 'pg'
 #
 development:
-  adapter: sqlite3
-  database: db/kiindly_development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: kiindly_development
+  pool: 5
+  username: kiindly
+  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -35,15 +39,19 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  adapter: sqlite3
-  database: db/kiindly_test.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: kiindly_test
+  pool: 5
+  username: kiindly
+  password:
   
 production:
   adapter: postgresql
   encoding: unicode
   database: kiindly_production
   pool: 5
-  username: kiindly.com
+  username: kiindly
   password:
 
 cucumber:
