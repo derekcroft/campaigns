@@ -145,15 +145,16 @@
           %h3 Donate a fixed amount
           %a{:href => ""}
             = image_tag "learnmore.gif", border: 0, class: "learnmore"
+          .donation_error Fixed donation must be at least $5.00
           .donation_input
             .donation_left
               %b{:style => "color:#999; font-size:13px;"} ENTER AN AMOUNT:
             .donation_right
               $
               = succeed ".00" do
-                = text_field 'fixedamount', nil, disabled: true, class: "fixedamount"
+                = text_field_tag 'fixedamount', nil, disabled: true, class: 'fixedamount'
       %br{:style => "clear:both;"}
-    %a{:href => "payment.php"}
+    = link_to @campaign, {id: 'submit_donation'} do
       = image_tag "btn_submitdonation.png"
   / End Donation gold box
   / Did you know box
