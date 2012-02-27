@@ -14,6 +14,5 @@ Feature: Fixed Donation
   @javascript
   Scenario: Unlocked the Fixed Donation option
     When I go to that campaign's index page
-    When I click the "Donate A Fixed Amount" button
-    Then I should see text field move from grey to white
-    And I should see the text field unlock
+    And I click the "Donate A Fixed Amount" button
+    Then I should see that the text field is enabled
