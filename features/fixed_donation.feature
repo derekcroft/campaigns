@@ -6,13 +6,18 @@ Feature: Fixed Donation
 
   Background:
     Given a campaign exists
+    When I go to that campaign's index page
   
   Scenario: Fixed Donation text field is initially disabled
-    When I go to that campaign's index page
     Then I should see that the text field is disabled
 
   @javascript
   Scenario: Unlocked the Fixed Donation option
-    When I go to that campaign's index page
-    And I click the "Donate A Fixed Amount" button
+    When I click the "Donate A Fixed Amount" button
     Then I should see that the text field is enabled
+
+  Scenario: Entering an invalid fixed donation into the text box
+    Given I unlocked the Fixed Donation option
+    When I put in a number less than $5.00
+    Then I should be back on the same page
+    And i should see a message that tells me the minimum fixed donation is $5.00

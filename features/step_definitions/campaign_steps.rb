@@ -1,6 +1,6 @@
 ## Campaign Homepage
 Transform /^that campaign$/ do |c|
-  Campaign.first
+  @campaign
 end
 
 Given /^a campaign exists$/ do
@@ -44,22 +44,22 @@ Then /^I should see a Twitter tweet\/share button$/ do
 end
 
 ## Campaign donation setup steps
-Given /^the donors have pledged (\$[\d,]+)$/ do |amount|
-  @campaign.update_attribute(:donation_total, currency_to_i(amount))
+Given /^the donors have pledged (#{dollar_amount})$/ do |amount|
+  @campaign.update_attribute(:donation_total, amount)
 end
 
-Given /^the pledge target is (\$[\d,]+)$/ do |amount|
-  @campaign.update_attribute(:donation_target, currency_to_i(amount))
+Given /^the pledge target is (#{dollar_amount})$/ do |amount|
+  @campaign.update_attribute(:donation_target, amount)
 end
 
 Given /^there are (\d+) donors$/ do |number|
   @campaign.update_attribute(:number_of_donors, number)
 end
 
-Then /^I should see a green bar with a pledge target of (\$[\d,]+)$/ do |amount|
+Then /^I should see a green bar with a pledge target of (#{dollar_amount})$/ do |amount|
   page.should have_css('.donation_target')
   within('.donation_target') do
-    page.text.should == amount
+    currency_to_i(page.text).should == amount
   end
 end
 
@@ -70,15 +70,14 @@ Then /^I should see that the Number of Donors is (\d+)$/ do |number|
   end
 end
 
-Then /^I should see that the Current Level is (\$[\d,]+)$/ do |amount|
+Then /^I should see that the Current Level is (#{dollar_amount})$/ do |amount|
   page.should have_css('.donation_total')
   within('.donation_total') do
-    page.text.should == amount
+    currency_to_i(page.text).should == amount
   end
 end
 
-Then /^it should be highlighted up to (\$[\d,]+)$/ do |amount|
-  donation_total = currency_to_i(amount)
+Then /^it should be highlighted up to (#{dollar_amount})$/ do |donation_total|
   donation_target = @campaign.donation_target
   percent_complete = (donation_total/donation_target*100).to_i
   page.should have_css(".progressoverlay[style~='width:#{percent_complete}%']")
