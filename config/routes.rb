@@ -6,6 +6,8 @@ KiindlyCom::Application.routes.draw do
       get 'share'
       get 'pay'
     end
+
+    resources :pledges
   end
 
   # The priority is based upon order of creation:

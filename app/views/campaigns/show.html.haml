@@ -114,49 +114,7 @@
 #rightmain
   #video
     %iframe{:allowfullscreen => "", :frameborder => "0", :height => "208", :src => "http://player.vimeo.com/video/5317693?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff", :webkitallowfullscreen => "", :width => "370"}
-  / Donation gold box
-  #goldbox
-    #donate
-      .paymentoption
-        .radio
-          %input{:checked => "checked", :name => "donation-type", :type => "radio", :value => "pennypledge"}
-        .payment-text
-          %h3 The Penny Pledge
-          %a{:href => ""}
-            = image_tag "learnmore.gif", border: 0, class: "learnmore"
-          %br
-          Donate 1 penny for every person that donates.
-          %br
-          %b{:style => "color:#555;"} Watch the video above to learn more.
-          %br
-          .donation_input
-            .donation_left
-              %b{:style => "color:#999; font-size:13px;"} SET MY LIMIT TO:
-            .donation_right
-              %noscript
-                %p Please enter your pledge cap (between $10 and $60)
-              %input#slider2.carpe-slider.target-display5{:name => "slider1", :style => "float: left; clear: none; margin-right:10px;", :type => "text"}
-              $
-              %input#display5{:name => "capname", :tabindex => "-1", :value => "10"}
-      .paymentoption{:style => "padding-top:25px; "}
-        .radio
-          %input#fixed_pledge_type{:name => "donation-type", :type => "radio", :value => "fixedamount"}
-        .payment-text
-          %h3 Donate a fixed amount
-          %a{:href => ""}
-            = image_tag "learnmore.gif", border: 0, class: "learnmore"
-          .donation_error Fixed donation must be at least $5.00
-          .donation_input
-            .donation_left
-              %b{:style => "color:#999; font-size:13px;"} ENTER AN AMOUNT:
-            .donation_right
-              $
-              = succeed ".00" do
-                = text_field_tag 'fixedamount', nil, disabled: true, class: 'fixedamount'
-      %br{:style => "clear:both;"}
-    = link_to @campaign, {id: 'submit_donation'} do
-      = image_tag "btn_submitdonation.png"
-  / End Donation gold box
+  = render 'donation_gold_box'
   / Did you know box
   #diduknow
     %h3 Where does it go?

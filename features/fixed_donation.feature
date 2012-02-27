@@ -23,3 +23,11 @@ Feature: Fixed Donation
     And I click "Submit My Donation"
     Then I should be back on that campaign's index page
     And I should see a message that tells me the minimum fixed donation is $5.00
+
+  @javascript
+  Scenario: Entering a valid fixed donation into the text box
+    Given I unlocked the Fixed Donation option
+    Then I should not see an error message about the amount of my fixed donation
+    When I put in a number greater than $5.00
+    And I click on submit my donation button
+    Then I should be on the registration/payment page
