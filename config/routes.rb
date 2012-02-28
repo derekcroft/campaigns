@@ -2,11 +2,6 @@ KiindlyCom::Application.routes.draw do
   root :to => 'campaigns#index'
 
   resources :campaigns, only: :show do
-    member do
-      get 'share'
-      get 'pay'
-    end
-
     resources :pledges, only: [:create, :new]
   end
 

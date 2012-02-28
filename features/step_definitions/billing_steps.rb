@@ -32,6 +32,6 @@ When /^I click the complete donation button$/ do
 end
 
 Then /^I should be on the thank you page$/ do
-  current_path.should == share_campaign_path(@campaign)
+  current_path.should == campaign_pledges_path(@campaign)
 end
 

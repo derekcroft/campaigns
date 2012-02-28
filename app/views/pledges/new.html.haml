@@ -6,7 +6,7 @@
 #paymentmain
   .campaignlogoblock
     = image_tag "sites/townsquarecares/logo.png", height: "80", width: "540", class: "campaignlogoimg"
-  = form_tag share_campaign_url(@campaign), method: :get do
+  = form_for [@campaign, Pledge.new] do |p|
     .paymentcontentblock
       %h3 Fantastic! Now we just need a few details...
       %p You're just 1 step away from completing your contribution.
