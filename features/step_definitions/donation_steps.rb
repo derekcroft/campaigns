@@ -12,11 +12,11 @@ Then /^I should see that the text field is enabled$/ do
 end
 
 When /^I click the "Donate A Fixed Amount" button$/ do
-  choose('fixed_pledge_type')
+  choose('donation_type_fixed')
 end
 
 Given /^I unlocked the Fixed Donation option$/ do
-  choose('fixed_pledge_type')
+  choose('donation_type_fixed')
 end
 
 When /^I put in a number less than (#{dollar_amount})$/ do |amount|

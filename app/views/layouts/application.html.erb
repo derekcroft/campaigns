@@ -18,14 +18,14 @@
 <div id="fb-root"></div>
 
 <div id="bodycontent">
-  <%=  render 'titlebar' %>
+  <%=  render 'layouts/titlebar' %>
   
   <div id="mainbodycontent">
     <%= yield %>
   </div>
 </div>
 
-<%= render 'footer' %>
+<%= render 'layouts/footer' %>
 
 <%# TODO: Split this into a separate JS in the pipeline %>
 <script type="text/javascript">

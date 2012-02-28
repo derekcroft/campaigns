@@ -1,12 +1,11 @@
-= form_for [@campaign, Pledge.new] do |pledge|
+= form_tag new_campaign_pledge_path(@campaign), method: :get do
   #goldbox
     #donate
       .paymentoption
-        .radio
-          %input{:checked => "checked", :name => "donation-type", :type => "radio", :value => "pennypledge"}
+        .radio= radio_button_tag 'donation_type', 'matching', true
         .payment-text
           %h3 The Penny Pledge
-          %a{:href => ""}
+          = link_to "" do
             = image_tag "learnmore.gif", border: 0, class: "learnmore"
           %br
           Donate 1 penny for every person that donates.
@@ -23,11 +22,10 @@
               $
               %input#display5{:name => "capname", :tabindex => "-1", :value => "10"}
       .paymentoption{:style => "padding-top:25px; "}
-        .radio
-          %input#fixed_pledge_type{:name => "donation-type", :type => "radio", :value => "fixedamount"}
+        .radio= radio_button_tag 'donation_type', 'fixed'
         .payment-text
           %h3 Donate a fixed amount
-          %a{:href => ""}
+          = link_to "" do
             = image_tag "learnmore.gif", border: 0, class: "learnmore"
           .donation_error Fixed donation must be at least $5.00
           .donation_input
@@ -38,5 +36,4 @@
               = succeed ".00" do
                 = text_field_tag 'fixedamount', nil, disabled: true, class: 'fixedamount'
       %br{:style => "clear:both;"}
-    = link_to @campaign, {id: 'submit_donation'} do
-      = image_tag "btn_submitdonation.png"
+    = image_submit_tag "btn_submitdonation.png", id: "submit_donation"

@@ -7,7 +7,7 @@ KiindlyCom::Application.routes.draw do
       get 'pay'
     end
 
-    resources :pledges
+    resources :pledges, only: [:create, :new]
   end
 
   # The priority is based upon order of creation:
