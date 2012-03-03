@@ -4,6 +4,6 @@ class PledgesController < ApplicationController
   end
 
   def create
-
+    @campaign = params[:create]
   end
 end
