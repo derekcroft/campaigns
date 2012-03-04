@@ -18,7 +18,6 @@
   #campaignlogo
     = image_tag "sites/townsquarecares/logo.png", width: 540, height: 80
   #socialthin
-    / AddThis Button BEGIN
     .addthis_toolbox.addthis_default_style
       %a.addthis_button_facebook_like
       %a.addthis_button_facebook_send
@@ -26,7 +25,6 @@
       %a.addthis_button_google_plusone{"g:plusone:size" => "medium"}
       %a.addthis_button_email
     %script{:src => "http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4eb2fd3607617b32", :type => "text/javascript"}
-    / AddThis Button END
   #progress
     .progresstext
       .progress1
@@ -59,7 +57,6 @@
       %strong
         %a{:style => "color:#fff;"} Organization
   #campaigninfo
-    / content block
     #mcs_container
       .customScrollBox
         .container
@@ -103,26 +100,19 @@
           .dragger
         %a.scrollUpBtn{:href => "#"}
         %a.scrollDownBtn{:href => "#"}
-    / content to show if javascript is disabled
     %noscript
       :css
         #mcs_container .customScrollBox {overflow:auto;}
         #mcs_container .dragger_container {display:none;}
     %br{:style => "clear:both;"}
-/ End left block
-/ Start right block
 #rightmain
   #video
     %iframe{:allowfullscreen => "", :frameborder => "0", :height => "208", :src => "http://player.vimeo.com/video/5317693?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff", :webkitallowfullscreen => "", :width => "370"}
   = render 'donation_gold_box'
-  / Did you know box
   #diduknow
     %h3 Where does it go?
     %p Townsquare Cares makes every effort to keep operational costs to a minimum.
-  / End Did you know box
-  / Facepile
   #supporters
     %h3 Supporters
     .fb-facepile{"data-href" => "kiindly.com/index.php", "data-max-rows" => "2", "data-width" => "400"}
-/ End right block
 

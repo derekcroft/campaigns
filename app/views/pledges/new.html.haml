@@ -39,35 +39,28 @@
       %h3 Payment information
       %ul#paymentform
         %li#payment-type{:style => "width:500px;"}
-          Select payment type
-          %br
-          %input.rad{:name => "cardtype", :type => "radio", :value => "1", :id => "card_type_visa"}
           = image_tag "visa_32.png", height: 32, width: 32, alt: "Visa"
-          %input.rad{:name => "cardtype", :type => "radio", :value => "2"}
           = image_tag "mastercard_32.png", height: 32, width: 32, alt: "Mastercard"
-          %input.rad{:name => "cardtype", :type => "radio", :value => "3"}
           = image_tag "amex_32.png", height: 32, width: 32, alt: "American Express"
-          %input.rad{:name => "cardtype", :type => "radio", :value => "4"}
           = image_tag "discover_32.png", height: 32, width: 32, alt: "Discover"
-          %input.rad{:name => "cardtype", :type => "radio", :value => "5"}
           = image_tag "jcb_32.png", height: 32, width: 32, alt: "JCB"
         %li#payment-email
           Card Number
           %span.x10 (no spaces please)
           %br
-          %input{:type => "text", :id => "card_number"}
+          = text_field_tag :card_number, nil, name: nil, id: 'card_number'
         %li#payment-zip
           CVC
           %span.x10
             %a{:href => ""} what is this?
           %br
-          %input.short{:maxlength => "4", :type => "text", :id => "cvc"}
+          = text_field_tag :card_code, nil, name: nil, maxlength: 4, id: 'card_code', class: 'short'
         %li#payment-zip
           Expiration
           %span.x10 (mm/yy)
           %br
-          %input.short{:maxlength => "2", :type => "text", :id => "expiration_month"}
-          %input.short{:maxlength => "2", :type => "text", :id => "expiration_year"}
+          = select_month nil, { add_month_numbers_true: true }, { name: nil, id: 'card_month', maxlength: 2, class: 'short' }
+          = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", maxlength: 2, class: 'short'}
       %hr.clear
     .paymentcontentblock
       .optincheck
@@ -84,8 +77,6 @@
       %p
         %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
       %hr.clear
-/ End left block
-/ Start right block
 #rightprogress
   .rightcontentblock
     %h3 Donation Summary
@@ -104,4 +95,3 @@
     %h3 Matthew,
     %h4 You're making a difference...
     %p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna.
-/ End right block

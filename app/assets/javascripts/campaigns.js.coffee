@@ -1,4 +1,4 @@
-$ ->
-  $("#donation_type_fixed").click (thing) ->
-    amount = $(".fixedamount")
-    amount.attr("disabled", !amount.is(":disabled"))
+jQuery ->
+  $("input[type=radio]").click ->
+    alert $(this).find(".fixed_amount").is(":disabled")
+  #amount.attr("disabled", !amount.is(":disabled"))
