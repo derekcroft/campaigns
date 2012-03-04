@@ -5,7 +5,7 @@
   <title>Charity / Campaign - Kiindly.com Giving Together</title>
   <%= stylesheet_link_tag    "application", "http://fonts.googleapis.com/css?family=Nunito:300,700", :media => "all" %>
   <%= yield :page_css %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "https://js.stripe.com/v1/" %>
   <%= csrf_meta_tags %>
 
   <%= yield :show_functions %>
