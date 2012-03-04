@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 9178c63f089fa5709b32c989955133df83692be3
+  specs:
+    stripe (1.6.2)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -207,5 +214,6 @@ DEPENDENCIES
   rspec-rails (>= 2.8.1)
   ruby_gntp
   sass-rails (~> 3.2.3)
+  stripe!
   thin
   uglifier (>= 1.0.3)

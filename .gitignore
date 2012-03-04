@@ -23,3 +23,5 @@ public/assets/
 
 # Ignore Mac files
 .DS_Store
+
+bundler_stubs/

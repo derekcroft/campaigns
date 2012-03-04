@@ -25,6 +25,8 @@ end
 gem 'jquery-rails'
 gem 'haml-rails'
 
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+
 group :development do
   gem 'guard'
   gem 'guard-cucumber'
