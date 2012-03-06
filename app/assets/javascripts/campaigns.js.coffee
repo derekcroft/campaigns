@@ -1,4 +1,3 @@
 jQuery ->
-  $("input[type=radio]").click ->
-    alert $(this).find(".fixed_amount").is(":disabled")
-  #amount.attr("disabled", !amount.is(":disabled"))
+  $("#goldbox input[type=radio]").click ->
+    $("#fixedamount").attr("disabled", !$("#donation_type_fixed").is(":checked"))
