@@ -25,4 +25,5 @@ pledge =
     if status == 200
       alert(response.id)
     else
-      alert(response.error.message)
+      $("#stripe_error").text(response.error.message)
+      $("#submit_donation").prop('disabled', false)
