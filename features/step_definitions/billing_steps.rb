@@ -16,15 +16,14 @@ When /^I enter my zip code$/ do
 end
 
 When /^I enter my credit card information$/ do
-  choose('card_type_visa')
   fill_in('card_number', with: '4111111111111111')
-  fill_in('cvc', with: '123')
-  fill_in('expiration_month', with: '12')
-  fill_in('expiration_year', with: '20')
+  fill_in('card_code', with: '123')
+  select('April', from: 'card_month')
+  select('2017', from: 'card_year')
 end
 
 When /^I check the box "I agree to the terms and conditions"$/ do
-  check('agree_to_terms')
+  check('accept')
 end
 
 When /^I click the complete donation button$/ do

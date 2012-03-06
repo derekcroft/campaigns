@@ -7,6 +7,7 @@ Feature: Billing
   Background:
     Given a campaign exists
 
+  @javascript
   Scenario: Successfully completing billing/donation page
     Given I am on the billing/donation page
     When I enter an email address
@@ -16,5 +17,4 @@ Feature: Billing
     And I check the box "I agree to the terms and conditions"
     And I click the complete donation button
     Then I should be on the thank you page
-    And I should see a share pop up over the thank you page
  
