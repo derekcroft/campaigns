@@ -19,10 +19,9 @@ pledge =
       expMonth: $('#card_month').val()
       expYear: $('#card_year').val()
     Stripe.createToken(card, pledge.handleStripeResponse)
+    false
 
   handleStripeResponse: (status, response) ->
-    alert status
-    alert response
     if status == 200
       alert(response.id)
     else
