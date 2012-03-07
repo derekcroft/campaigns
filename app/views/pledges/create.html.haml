@@ -29,8 +29,15 @@
       %li= link_to "Learn more about US Empowered &raquo;".html_safe, ""
 
 .widegreenbox
-  social
-/ Start left block
+  :javascript
+    FB.init({
+      appId:'255484937866032', cookie:true, status:true, xfbml:true
+    });
+
+    FB.ui({
+      method: 'apprequests', message: 'Here is a new Requests dialog...'
+    });
+
 #leftmain
   #progress
     .progresstext
@@ -65,7 +72,6 @@
         %strong
           %a{:style => "color:#fff;"} Organization
     #campaigninfo
-      / content block
       #mcs_container
         .customScrollBox
           .container
@@ -109,24 +115,17 @@
             .dragger
           %a.scrollUpBtn{:href => "#"}
           %a.scrollDownBtn{:href => "#"}
-      / content to pay if javascript is disabled
       %noscript
         :css
           #mcs_container .customScrollBox {overflow:auto;}
           #mcs_container .dragger_container {display:none;}
     %br{:style => "clear:both;"}
-/ End left block
-/ Start right block
-/ End right block
-/ Did you know box
 #rightmain
   #diduknow
     %h3 TOP DONATIONS
     %ul
       %li Mary M. ($120)
       %li Simon E. ($50)
-  / End Did you know box
-  / Facepile
   #supporters
     %h3 Supporters
     .fb-facepile{"data-href" => "kiindly.com/index.php", "data-max-rows" => "2", "data-width" => "400"}
