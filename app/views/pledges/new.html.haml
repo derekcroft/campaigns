@@ -10,30 +10,46 @@
     .paymentcontentblock
       %h3 Fantastic! Now we just need a few details...
       %p You're just 1 step away from completing your contribution.
+      - unless params[:signed_request]
+        #fb-root
+        :javascript
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId: '255484937866032', status: true, 
+              cookie: true, xfbml: true, oauth: true
+            });
+          };
+          (function(d){
+             var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             d.getElementsByTagName('head')[0].appendChild(js);
+           }(document));
+        .fb-registration{"data-fields" => "[{'name':'name'}, {'name':'email'}, {'name':'phone','type':'text','description':'Phone Number'}, {'name':'zip','type':'text','description':'Zip Code'}]", "data-redirect-uri" => fb_campaign_pledges_url}
       %h3 Billing information
       %ul#billingform
         %li#billing-fname
           First Name
           %br
-          %input{:type => "text", :value => "123", :id => "first_name"}
+          %input{:type => "text", :value => @first_name, :id => "first_name"}
         %li#billing-lname
           Last Name
           %br
-          %input{:type => "text", :id => "last_name"}
+          %input{:type => "text", :value => @last_name, :id => "last_name"}
         %li#billing-email{:style => "width:500px;"}
           Email Address
           %span.x10 (so we can send you a receipt)
           %br
-          %input.long{:type => "text", :id => "email"}
+          %input.long{:type => "text", :value => @email, :id => "email"}
         %li#billing-zip
           ZIP Code
           %br
-          %input.short{:maxlength => "5", :type => "text", :id => "zip"}
+          %input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip"}
         %li#billing-phone
           Phone
           %span.x10 (optional)
           %br
-          %input{:type => "text"}
+          %input{:type => "text", :value => @phone}
       %hr.clear
     .paymentcontentblock
       %h3 Payment information
