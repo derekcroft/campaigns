@@ -8,9 +8,4 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.first
   end
 
-  def pay
-  end
-
-  def share
-  end
 end
