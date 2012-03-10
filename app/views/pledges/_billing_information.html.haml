@@ -1,0 +1,24 @@
+%h3 Billing information
+%ul#billingform
+  %li#billing-fname
+    First Name
+    %br
+    %input{:type => "text", :value => @first_name, :id => "first_name"}
+  %li#billing-lname
+    Last Name
+    %br
+    %input{:type => "text", :value => @last_name, :id => "last_name"}
+  %li#billing-email{:style => "width:500px;"}
+    Email Address
+    %span.x10 (so we can send you a receipt)
+    %br
+    %input.long{:type => "text", :value => @email, :id => "email"}
+  %li#billing-zip
+    ZIP Code
+    %br
+    %input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip"}
+  %li#billing-phone
+    Phone
+    %span.x10 (optional)
+    %br
+    %input{:type => "text", :value => @phone}
