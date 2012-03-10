@@ -34,3 +34,7 @@ end
 Then /^I should see a message that tells me the minimum fixed donation is (#{dollar_amount})$/ do |amount|
   page.should have_css('.donation_error')
 end
+
+Then /^I should not see an error message about the amount of my fixed donation$/ do
+  page.should have_no_css('.donation_error')
+end
