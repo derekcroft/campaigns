@@ -12,20 +12,7 @@
       %p You're just 1 step away from completing your contribution.
       - unless params[:signed_request]
         #fb-root
-        :javascript
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId: '255484937866032', status: true, 
-              cookie: true, xfbml: true, oauth: true
-            });
-          };
-          (function(d){
-             var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-             js = d.createElement('script'); js.id = id; js.async = true;
-             js.src = "//connect.facebook.net/en_US/all.js";
-             d.getElementsByTagName('head')[0].appendChild(js);
-           }(document));
-        .fb-registration{"data-fields" => "[{'name':'name'}, {'name':'email'}, {'name':'phone','type':'text','description':'Phone Number'}, {'name':'zip','type':'text','description':'Zip Code'}]", "data-redirect-uri" => fb_campaign_pledges_url}
+        %fb:registration{"fields" => "[{'name':'name'}, {'name':'email'}, {'name':'phone','type':'text','description':'Phone Number'}, {'name':'zip','type':'text','description':'Zip Code'}]", "redirect-uri" => fb_campaign_pledges_url, "width" => 450}
       - else
         = render 'billing_information'
       %hr.clear

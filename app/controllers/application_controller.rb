@@ -4,9 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :filter_subdomain
   
   def filter_subdomain
-    unless request.subdomain == 'dev'
-      redirect_to 'http://www.kiindly.net'
-      return false
+    if Rails.env.production?
+      unless request.subdomain == 'dev'
+        redirect_to 'http://www.kiindly.net'
+        return false
+      end
     end
   end
 end
