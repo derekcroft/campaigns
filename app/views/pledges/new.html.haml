@@ -12,7 +12,8 @@
       %p You're just 1 step away from completing your contribution.
       - unless params[:signed_request]
         #fb-root
-        %fb:registration{"fields" => "[{'name':'name'}, {'name':'email'}, {'name':'phone','type':'text','description':'Phone Number'}, {'name':'zip','type':'text','description':'Zip Code'}]", "redirect-uri" => fb_campaign_pledges_url, "width" => 450}
+        %fb:login-button{"registration-url" => "https://developers.facebook.com/docs/user_registration", "on-login" => "alert('shitballs')"}
+        -#%fb:registration{"fields" => "[{'name':'name'}, {'name':'email'}, {'name':'phone','type':'text','description':'Phone Number'}, {'name':'zip','type':'text','description':'Zip Code'}]", "redirect-uri" => fb_campaign_pledges_url, "width" => 450}
       - else
         = render 'billing_information'
       %hr.clear

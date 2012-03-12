@@ -5,6 +5,27 @@
 jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   pledge.setupForm()
+  FB.init({appId: '255484937866032', status: true, cookie: true, xfbml: true})
+  FB.getLoginStatus (response) ->
+    alert response.status
+    if response.status == 'connected'
+      #the user is logged in and has authenticated your
+      #app, and response.authResponse supplies
+      #the user's ID, a valid access token, a signed
+      #request, and the time the access token 
+      #and signed request each expire
+      uid = response.authResponse.userID
+      accessToken = response.authResponse.accessToken
+      alert uid
+      alert accessToken
+    else if response.status == 'not_authorized'
+      #the user is logged in to Facebook, 
+      #but has not authenticated your app
+      alert 'logged in but not registered'
+    else
+      alert 'not logged in'
+      #the user isn't logged in to Facebook.
+  , true
 
 pledge =
   setupForm: ->
