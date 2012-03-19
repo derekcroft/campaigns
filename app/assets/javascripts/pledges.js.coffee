@@ -2,12 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery ->
+$ ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   pledge.setupForm()
+
+window.fbAsyncInit = ->
   FB.init({appId: '255484937866032', status: true, cookie: true, xfbml: true})
   FB.getLoginStatus (response) ->
-    alert response.status
     if response.status == 'connected'
       #the user is logged in and has authenticated your
       #app, and response.authResponse supplies
@@ -24,8 +25,20 @@ jQuery ->
       alert 'logged in but not registered'
     else
       alert 'not logged in'
-      #the user isn't logged in to Facebook.
+      $("#fb-registration").remove
   , true
+
+# Load the SDK Asynchronously
+sdk = (d) ->
+  js = id = 'facebook-jssdk'
+  ref = d.getElementsByTagName('script')[0]
+  return if d.getElementById(id)
+  js = d.createElement('script')
+  js.id = id
+  js.async = true
+  js.src = "//connect.facebook.net/en_US/all.js"
+  ref.parentNode.insertBefore(js, ref)
+sdk document
 
 pledge =
   setupForm: ->
