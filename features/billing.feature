@@ -7,14 +7,14 @@ Feature: Billing
   Background:
     Given a campaign exists
 
-  @javascript
-  Scenario: Successfully completing billing/donation page
-    Given I am on the billing/donation page
-    When I enter an email address
-    And I enter a first name and a last name
-    And I enter my zip code
-    And I enter my credit card information
-    And I check the box "I agree to the terms and conditions"
-    And I click the complete donation button
-    Then I should be on the thank you page
+#  @javascript
+#  Scenario: Successfully completing billing/donation page
+#    Given I am on the billing/donation page
+#    When I enter an email address
+#    And I enter a first name and a last name
+#    And I enter my zip code
+#    And I enter my credit card information
+#    And I check the box "I agree to the terms and conditions"
+#    And I click the complete donation button
+#    Then I should be on the thank you page
  

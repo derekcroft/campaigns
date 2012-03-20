@@ -1,5 +1,5 @@
 Given /^I am on the billing\/donation page$/ do
-  visit(url_for(new_campaign_pledge_path(@campaign)))
+  visit(new_campaign_pledge_path(@campaign, fixedamount: 6))
 end
 
 When /^I enter an email address$/ do
