@@ -1,0 +1,32 @@
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId:'255484937866032',
+            status:true,
+            cookie:true,
+            xfbml:true,
+            oauth:true
+        });
+
+        FB.Event.subscribe('auth.statusChange', function(response) {
+          alert('The status of the session is: ' + response.status);
+        });
+    };
+    (function (d) {
+        var js, id = 'facebook-jssdk';
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+</script>
+<fb:login-button id="fb-login" registration-url="<%= request.url %>"></fb:login-button>
+<!--<div class="fb-registration"-->
+     <!--data-fields="[{'name':'name'}, {'name':'email'},{'name':'favorite_car', 'description':'What is your favorite car?','type':'text'}]"-->
+     <!--data-redirect-uri="<%= request.url %>">-->
+<!--</div>-->

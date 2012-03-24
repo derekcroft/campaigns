@@ -13,6 +13,7 @@ Feature: Facebook registration
   Background:
     Given a campaign exists
 
+  @javascript
   Scenario: Option to log in with Facebook
     Given I am not logged into Facebook
     When I go to the registration/payment page for that campaign
