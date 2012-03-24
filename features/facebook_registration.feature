@@ -20,9 +20,10 @@ Feature: Facebook registration
     Then I should see the Facebook login button
     But I should not see the Facebook registration frame
 
+  @javascript @firefox
   Scenario: Logging in with Facebook
     Given I am not logged into Facebook
-    When I go to the registration/payment page
+    When I go to the registration/payment page for that campaign
     And I click the Facebook login button
     Then I should see the Facebook login popup
 
