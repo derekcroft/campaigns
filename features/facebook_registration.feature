@@ -20,6 +20,16 @@ Feature: Facebook registration
     Then I should see the Facebook login button
     But I should not see the Facebook registration frame
 
+  Scenario: Option to enter information manually
+    Then I should the Billing Information section
+    And I should see the following fields:
+      | field |
+      | First Name |
+      | Last Name  |
+      | Email Address |
+      | ZIP Code      |
+      | Phone (optional) |
+
 #  @javascript @firefox
 #  Scenario: Logging in with Facebook
 #    When I click the Facebook login button

@@ -35,3 +35,15 @@ end
 And /^I click "Log in"$/ do
   find('#fb-login').should have_content('Register')
 end
+
+Then /^I should the Billing Information section$/ do
+  page.should have_css("#billingform")
+end
+
+And /^I should see the following fields:$/ do |table|
+  table.rows.each do |row|
+    within("#billingform") do
+      page.should have_content(row.first)
+    end
+  end
+end
