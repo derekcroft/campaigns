@@ -12,28 +12,25 @@ Feature: Facebook registration
 
   Background:
     Given a campaign exists
+    And I am not logged into Facebook
+    And I go to the registration/payment page for that campaign
 
   @javascript
   Scenario: Option to log in with Facebook
-    Given I am not logged into Facebook
-    When I go to the registration/payment page for that campaign
     Then I should see the Facebook login button
     But I should not see the Facebook registration frame
 
-  @javascript @firefox
-  Scenario: Logging in with Facebook
-    Given I am not logged into Facebook
-    When I go to the registration/payment page for that campaign
-    And I click the Facebook login button
-    Then I should see the Facebook login popup
+#  @javascript @firefox
+#  Scenario: Logging in with Facebook
+#    When I click the Facebook login button
+#    Then I should see the Facebook login popup
 
-  Scenario: Entering Facebook credentials
-    Given I am not logged into Facebook
-    When I go to the registration/payment page
-    And I click the Facebook login button
-    And I fill in the email and password of a test user
-    And I click "Log in"
-    Then I should be back on the registration/payment page
-    And I should see the Facebook registration frame
-    And I should see my first name, last name, and email prefilled
-    But I should see that my zip code and phone are not prefilled
+#  @javascript @firefox
+#  Scenario: Entering Facebook credentials
+#    When I click the Facebook login button
+#    And I fill in the email and password of a test user
+#    And I click "Log in"
+#    Then I should be back on the registration/payment page
+#    And I should see the Facebook registration frame
+#    And I should see my first name, last name, and email prefilled
+#    But I should see that my zip code and phone are not prefilled

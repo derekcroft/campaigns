@@ -22,6 +22,7 @@ Spork.prefork do
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
   Capybara.javascript_driver = :webkit
+  Capybara.default_wait_time = 20
 
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how

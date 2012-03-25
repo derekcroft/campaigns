@@ -23,3 +23,15 @@ Then /^I should see the Facebook login popup$/ do
     page.should have_css("html#facebook")
   end
 end
+
+And /^I fill in the email and password of a test user$/ do
+  within_window(page.driver.browser.window_handles.last) do
+    fill_in("email", with: "qkjbdps_lauescu_1332555043@tfbnw.net")
+    fill_in("pass", with: "password")
+    click_on("Log In")
+  end
+end
+
+And /^I click "Log in"$/ do
+  find('#fb-login').should have_content('Register')
+end
