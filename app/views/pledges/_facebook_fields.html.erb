@@ -1,5 +1,13 @@
 <div id="fb-root"></div>
 <script>
+    function fbPopulateFields(response) {
+        $('#first_name').val(response.first_name);
+        $('#last_name').val(response.last_name);
+        $('#email').val(response.email);
+        $('#facebook_billing').slideUp('slow');
+        $('#zip').focus();
+    };
+
     function fbLoginStatus(response) {
         if (response.status === 'connected') {
             // the user is logged in and has authenticated your
@@ -7,18 +15,13 @@
             // the user's ID, a valid access token, a signed
             // request, and the time the access token
             // and signed request each expire
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
-//            alert("uid " + uid + " accessToken " + accessToken);
+            FB.api('/me', fbPopulateFields);
         } else if (response.status === 'not_authorized') {
             // the user is logged in to Facebook,
             // but has not authenticated your app
-//            alert('not authorized');
-        } else {
-            // the user isn't logged in to Facebook.
-//            alert('not logged in');
-        }
-    }
+            alert('not authorized');
+        };
+    };
     window.fbAsyncInit = function () {
         FB.init({
             appId:'255484937866032',
@@ -41,5 +44,5 @@
         d.getElementsByTagName('head')[0].appendChild(js);
     }(document));
 </script>
-<div class="fb-login-button">Login with Facebook</div>
+<div class="fb-login-button" scope="email">Login with Facebook</div>
 

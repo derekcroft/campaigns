@@ -13,8 +13,9 @@
       -#= render params[:signed_request].present? ? 'billing_information' : 'facebook_fields'
       %p
         %h3 Billing Information
-      %p= render 'facebook_fields'
-      %p Or enter billing information manually:
+      #facebook_billing
+        %p= render 'facebook_fields'
+        %p Or enter billing information manually:
       %p= render 'billing_information'
       %hr.clear
     .paymentcontentblock
