@@ -1,7 +1,7 @@
 - content_for :page_css do
   = stylesheet_link_tag "paymentpage"
 - content_for :page_javascripts do
-  = javascript_include_tag "pledges"
+  = javascript_include_tag "pledges", "https://js.stripe.com/v1/"
 - content_for :titlebar_nav do
   = link_to "Help", "#", class: "help"
 

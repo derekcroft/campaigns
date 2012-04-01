@@ -59,18 +59,19 @@ facebook =
 #            alert('Post ID: ' + response.id);
 #          }
 
-window.fbAsyncInit = ->
-  FB.init { appId:'255484937866032', status:true, cookie:true, xfbml:true }
-  FB.Event.subscribe('auth.statusChange', facebook.loginStatus)
-  FB.getLoginStatus(facebook.loginStatus)
+$ ->
+  window.fbAsyncInit = ->
+    FB.init { appId:'255484937866032', status:true, cookie:true, xfbml:true }
+    FB.Event.subscribe('auth.statusChange', facebook.loginStatus)
+    FB.getLoginStatus(facebook.loginStatus)
 
-app = (d) ->
-  js = 'facebook-jssdk'
-  id = 'facebook-jssdk'
-  return if d.getElementById(id)
-  js = d.createElement('script')
-  js.id = id
-  js.async = true
-  js.src = "//connect.facebook.net/en_US/all.js"
-  d.getElementsByTagName('head')[0].appendChild(js)
-app(document)
+  app = (d) ->
+    js = 'facebook-jssdk'
+    id = 'facebook-jssdk'
+    return if d.getElementById(id)
+    js = d.createElement('script')
+    js.id = id
+    js.async = true
+    js.src = "//connect.facebook.net/en_US/all.js"
+    d.getElementsByTagName('head')[0].appendChild(js)
+  app(document)
