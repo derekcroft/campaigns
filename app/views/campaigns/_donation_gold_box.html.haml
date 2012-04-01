@@ -2,7 +2,7 @@
   #goldbox
     #donate
       .paymentoption
-        .radio= radio_button_tag 'donation_type', 'matching', true
+        .radio= radio_button_tag 'donation_type', 'matching', true, class: 'donation_button'
         .payment-text
           %h3 The Penny Pledge
           = link_to "" do
@@ -22,7 +22,7 @@
               $
               %input#display5{:name => "capname", :tabindex => "-1", :value => "10"}
       .paymentoption{:style => "padding-top:25px; "}
-        .radio= radio_button_tag 'donation_type', 'fixed'
+        .radio= radio_button_tag 'donation_type', 'fixed', false, class: 'donation_button'
         .payment-text
           %h3 Donate a fixed amount
           = link_to "" do
@@ -35,6 +35,6 @@
             .donation_right
               $
               = succeed ".00" do
-                = text_field_tag 'fixedamount', nil, disabled: true, class: 'fixedamount'
+                = text_field_tag 'fixedamount', nil, disabled: false, class: 'fixedamount'
       %br{:style => "clear:both;"}
     = image_submit_tag "btn_submitdonation.png", id: "submit_donation"
