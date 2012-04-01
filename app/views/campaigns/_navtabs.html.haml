@@ -1,0 +1,12 @@
+#tab1.navtab
+  %strong
+    %a{:style => "color:#fff;"} This Campaign
+#tab1x.navtab{:onclick => "document.getElementById('tab1-content').style.display = 'inline';\n    document.getElementById('tab2-content').style.display = 'none';\n    document.getElementById('tab1').style.display = 'inline';\n    document.getElementById('tab1x').style.display = 'none';\n    document.getElementById('tab2').style.display = 'inline';\n    document.getElementById('tab2x').style.display = 'none';", :style => "background-color:#737373; display:none;"}
+  %strong
+    %a#tab1b{:style => "color:#4fba69;"} This Campaign
+#tab2.navtab{:onclick => "document.getElementById('tab1-content').style.display = 'none';\n    document.getElementById('tab2-content').style.display = 'block';\n    document.getElementById('tab1').style.display = 'none';\n    document.getElementById('tab1x').style.display = 'inline';\n    document.getElementById('tab2').style.display = 'none';\n    document.getElementById('tab2x').style.display = 'inline';", :style => "background-color:#737373;"}
+  %strong
+    %a#tab2a{:style => "color:#4fba69;"} Organization
+#tab2x.navtab{:style => " display:none;"}
+  %strong
+    %a{:style => "color:#fff;"} Organization
