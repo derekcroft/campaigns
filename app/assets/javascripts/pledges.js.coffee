@@ -45,10 +45,6 @@ facebook =
       # request, and the time the access token
       # and signed request each expire
       FB.api('/me', facebook.populateFields)
-    else if response.status == 'not_authorized'
-      # the user is logged in to Facebook,
-      # but has not authenticated your app
-      alert 'not authorized'
 
 #  wallPost: ->
 #    body = 'Joined a Kiindly campaign'
@@ -63,7 +59,7 @@ $ ->
   window.fbAsyncInit = ->
     FB.init { appId:'255484937866032', status:true, cookie:true, xfbml:true }
     FB.Event.subscribe('auth.statusChange', facebook.loginStatus)
-    FB.getLoginStatus(facebook.loginStatus)
+    FB.getLoginStatus(facebook.loginStatus, true)
 
   app = (d) ->
     js = 'facebook-jssdk'
