@@ -1,4 +1,5 @@
 <div id="fb-root"></div>
+<meta http-equiv="content-script-type" content="text/javascript">
 <script>
     function fbPopulateFields(response) {
         $('#first_name').val(response.first_name);
@@ -6,6 +7,7 @@
         $('#email').val(response.email);
         $('#facebook_billing').slideUp('slow');
         $('#zip').focus();
+//        fbWallPost();
     };
 
     function fbLoginStatus(response) {
@@ -15,8 +17,8 @@
             // the user's ID, a valid access token, a signed
             // request, and the time the access token
             // and signed request each expire
+
             FB.api('/me', fbPopulateFields);
-            fbWallPost();
         } else if (response.status === 'not_authorized') {
             // the user is logged in to Facebook,
             // but has not authenticated your app
@@ -40,8 +42,8 @@
             cookie:true,
             xfbml:true
         });
-        FB.getLoginStatus(fbLoginStatus);
         FB.Event.subscribe('auth.statusChange', fbLoginStatus);
+        FB.getLoginStatus(fbLoginStatus);
     };
     (function (d) {
         var js, id = 'facebook-jssdk';
