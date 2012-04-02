@@ -10,15 +10,17 @@
 #leftmain
   #hero
     %ul#heroContent
+      -#%li.heroImage
+      -#  = image_tag "sites/ou/ou_hero1.jpg", width: 500, height: 330
+      -#  -#%span.textbottom Text overlay if needed
       %li.heroImage
-        = image_tag "hero1.jpg", width: 500, height: 330
-        %span.textbottom Text overlay if needed
+        = image_tag "sites/ou/ou_hero2.jpg", width: 500, height: 330
       %li.heroImage
-        = image_tag "hero2.jpg", width: 500, height: 330
+        = image_tag "sites/ou/ou_hero3.jpg", width: 500, height: 330
   #campaignlogo= image_tag "sites/ou/ou_logotitle.jpg", width: 520, height: 120
   #socialthin= render 'add_this'
   #progress= render 'progressbar'
-  #navtabs= render 'navtabs'
+  -##navtabs= render 'navtabs'
   #campaigninfo= render 'campaign_info'
 #rightmain
   #video
@@ -26,8 +28,8 @@
     -#%iframe{:allowfullscreen => "", :frameborder => "0", :height => "208", :src => "http://player.vimeo.com/video/5317693?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff", :webkitallowfullscreen => "", :width => "370"}
   = render 'donation_gold_box'
   #diduknow
-    %h3 Where does it go?
-    %p Townsquare Cares makes every effort to keep operational costs to a minimum.
+    %h3 Did you know...
+    %p Every donation makes a difference in the life of a college student.
   #supporters
     %h3 Supporters
     -#.fb-facepile{"data-href" => "kiindly.com/index.php", "data-max-rows" => "2", "data-width" => "400"}
