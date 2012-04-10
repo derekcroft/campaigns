@@ -7,8 +7,10 @@ class PledgesController < ApplicationController
     end
   end
 
+  require 'pp'
   def create
-    @campaign = params[:create]
+    @campaign = Campaign.find(params[:campaign_id])
+    customer = Stripe::Customer.create(description: "test_customer@gmail.com", card: params[:stripe_card_token])
   end
 
   def fb
