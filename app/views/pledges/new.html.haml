@@ -1,7 +1,7 @@
 - content_for :page_css do
   = stylesheet_link_tag "paymentpage"
 - content_for :page_javascripts do
-  = javascript_include_tag "pledges", "https://js.stripe.com/v1/"
+  = javascript_include_tag "pledges"
 - content_for :titlebar_nav do
   = link_to "Help", "#", class: "help"
 
@@ -9,6 +9,7 @@
   .campaignlogoblock
     = image_tag "sites/townsquarecares/logo.png", height: "80", width: "540", class: "campaignlogoimg"
   = form_for [@campaign, Pledge.new] do |p|
+    = hidden_field_tag :stripe_card_token
     .paymentcontentblock
       %h3 Fantastic! Now we just need a few details...
       %p You're just 1 step away from completing your contribution.
