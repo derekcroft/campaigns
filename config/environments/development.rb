@@ -34,4 +34,7 @@ KiindlyCom::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Silence the annoying sprockets log messages
+  config.assets.logger = false
 end
