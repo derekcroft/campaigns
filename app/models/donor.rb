@@ -3,6 +3,6 @@ class Donor < ActiveRecord::Base
   has_many :pledges
 
   def donation_amount
-    0
+    pledges.sum(:amount)
   end
 end
