@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413100602) do
+ActiveRecord::Schema.define(:version => 20120413102414) do
 
   create_table "campaigns", :force => true do |t|
     t.decimal  "donation_total",  :precision => 20, :scale => 2
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20120413100602) do
     t.integer  "campaign_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "pledge_type"
+    t.integer  "donor_id"
   end
 
 end

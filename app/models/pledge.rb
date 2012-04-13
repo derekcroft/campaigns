@@ -1,3 +1,4 @@
 class Pledge < ActiveRecord::Base
-  attr_accessible :stripe_card_token
+  belongs_to :donor
+  attr_accessible :stripe_card_token, :pledge_type
 end

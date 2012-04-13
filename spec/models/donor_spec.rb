@@ -6,5 +6,13 @@ describe Donor do
     it "is zero if they have no pledges" do
       donor.donation_amount.should == 0
     end
+
+    context "for a fixed pledge" do
+      before(:each) do
+        donor.pledges.create(pledge_type: 'fixed')
+      end
+
+      it { donor.pledges.count.should == 1 }
+    end
   end
 end
