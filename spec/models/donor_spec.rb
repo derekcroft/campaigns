@@ -46,16 +46,39 @@ describe Donor do
         end
 
         context "with another donor in the same campaign" do
-          before(:each) do
-            FactoryGirl.create :donor, campaign: donor.campaign
+          let(:other_donor) { FactoryGirl.create :donor, campaign: donor.campaign }
+
+          context "who has not made a pledge" do
+            it "should not affect my donation" do
+              donor.donation_amount.should == 0.01
+            end
           end
 
-          it { donor.donation_amount.should == 0.02 }
+          context "who makes one pledge" do
+            before(:each) do
+              other_donor.pledges.penny.create
+            end
+
+            it "should increase my donation by a penny" do
+              donor.donation_amount.should == 0.02
+            end
+
+            context "then another pledge" do
+              before(:each) do
+                other_donor.pledges.penny.create
+              end
+
+              it "should not increase my donation" do
+                donor.donation_amount.should == 0.02
+              end
+            end
+          end
         end
 
         context "with 4 other donors in the same campaign" do
           before(:each) do
-            FactoryGirl.create_list :donor, 4, campaign: donor.campaign
+            donors = FactoryGirl.create_list :donor, 4, campaign: donor.campaign
+            donors.each { |donor| donor.pledges.penny.create }
           end
 
           it { donor.donation_amount.should == 0.05 }
@@ -80,7 +103,8 @@ describe Donor do
 
         context "with two other penny pledge donors in the same campaign" do
           before(:each) do
-            FactoryGirl.create_list :donor, 2, campaign: donor.campaign
+            donors = FactoryGirl.create_list :donor, 2, campaign: donor.campaign
+            donors.each { |donor| donor.pledges.penny.create }
           end
 
           it { donor.donation_amount.should == 0.03 }
@@ -88,7 +112,8 @@ describe Donor do
 
         context "with three other penny pledge donors in the same campaign" do
           before(:each) do
-            FactoryGirl.create_list :donor, 3, campaign: donor.campaign
+            donors = FactoryGirl.create_list :donor, 3, campaign: donor.campaign
+            donors.each { |donor| donor.pledges.penny.create }
           end
 
           it "should still equal the cap of three cents" do
