@@ -6,4 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-Campaign.create(donation_total: 17958, donation_target: 55000, number_of_donors: 81)
+Donor.delete_all
+Campaign.delete_all
+c = Campaign.create(donation_total: 17958, donation_target: 55000)
+2.times { c.donors.create }
+
