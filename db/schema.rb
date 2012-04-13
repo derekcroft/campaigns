@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412200830) do
+ActiveRecord::Schema.define(:version => 20120413100045) do
 
   create_table "campaigns", :force => true do |t|
-    t.decimal  "donation_total",   :precision => 20, :scale => 2
-    t.decimal  "donation_target",  :precision => 20, :scale => 2
-    t.integer  "number_of_donors"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.decimal  "donation_total",  :precision => 20, :scale => 2
+    t.decimal  "donation_target", :precision => 20, :scale => 2
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
   end
 
   create_table "donors", :force => true do |t|
