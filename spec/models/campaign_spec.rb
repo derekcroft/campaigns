@@ -3,9 +3,17 @@ require 'spec_helper'
 describe Campaign do
   context "#donation_total" do
     let(:campaign) { FactoryGirl.create(:campaign) }
+    subject { campaign }
 
-    it "is 0.00 if no donors" do
-      campaign.donation_total.should == 0.00
+    its(:donation_total) { should == 0.00 }
+
+    context "with a fixed donor" do
+      before(:each) do
+        donor = campaign.donors.create!
+        donor.pledges.fixed.create(amount: 5.21)
+      end
+
+      its(:donation_total) { should == 5.21 }
     end
 
   end

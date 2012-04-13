@@ -1,6 +1,7 @@
 class Campaign < ActiveRecord::Base
 
   has_many :donors
+  has_many :pledges
 
   def number_of_eligible_pledges
     Campaign.where(id: self.id).joins(donors: :pledges).count(:donor_id, distinct: true)
@@ -12,7 +13,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def donation_total
-    0.00
+    pledges.first.try(:amount) || 0.00
   end
 
 end

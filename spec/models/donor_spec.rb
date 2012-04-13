@@ -9,7 +9,8 @@ describe Donor do
 
     context "for a fixed pledge" do
       before(:each) do
-        donor.pledges.create(pledge_type: 'fixed', amount: 52.50)
+        donor.pledges.create!(pledge_type: 'fixed', amount: 52.50)
+
       end
 
       it { donor.pledges.count.should == 1 }
