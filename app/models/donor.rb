@@ -15,10 +15,8 @@ class Donor < ActiveRecord::Base
   end
 
   def penny_pledge_amount
-    if pledges.where(pledge_type: 'penny').exists?
-      (0.01 * campaign.donors.count)
-    else
-      0
+    pledges.where(pledge_type: 'penny').inject(0) do |sum, pledge|
+      sum + [(0.01 * campaign.donors.count), (pledge.cap || 50.00)].min
     end
   end
 

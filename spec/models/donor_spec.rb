@@ -26,46 +26,74 @@ describe Donor do
     end
 
     context "for a penny pledge" do
-      before(:each) do
-        donor.pledges.create(pledge_type: 'penny')
-      end
-
-      it "is a penny" do
-        donor.donation_amount.should == 0.01
-      end
-
-      context "with another donor in a different campaign" do
+      context "with no cap" do
         before(:each) do
-          FactoryGirl.create :donor
+          donor.pledges.create(pledge_type: 'penny')
         end
 
-        it "does not count toward my penny pledge" do
+        it "is a penny" do
           donor.donation_amount.should == 0.01
         end
-      end
 
-      context "with another donor in the same campaign" do
-        before(:each) do
-          FactoryGirl.create :donor, campaign: donor.campaign
-        end
-
-        it { donor.donation_amount.should == 0.02 }
-      end
-
-      context "with 4 other donors in the same campaign" do
-        before(:each) do
-          FactoryGirl.create_list :donor, 4, campaign: donor.campaign
-        end
-
-        it { donor.donation_amount.should == 0.05 }
-
-        context "and I make an additional fixed donation of a buck o' five" do
+        context "with another donor in a different campaign" do
           before(:each) do
-            donor.pledges.create(pledge_type: 'fixed', amount: 1.05)
+            FactoryGirl.create :donor
           end
 
-          it { donor.pledges.count.should == 2 }
-          it { donor.donation_amount.should == 1.10 }
+          it "does not count toward my penny pledge" do
+            donor.donation_amount.should == 0.01
+          end
+        end
+
+        context "with another donor in the same campaign" do
+          before(:each) do
+            FactoryGirl.create :donor, campaign: donor.campaign
+          end
+
+          it { donor.donation_amount.should == 0.02 }
+        end
+
+        context "with 4 other donors in the same campaign" do
+          before(:each) do
+            FactoryGirl.create_list :donor, 4, campaign: donor.campaign
+          end
+
+          it { donor.donation_amount.should == 0.05 }
+
+          context "and I make an additional fixed donation of a buck o' five" do
+            before(:each) do
+              donor.pledges.create(pledge_type: 'fixed', amount: 1.05)
+            end
+
+            it { donor.pledges.count.should == 2 }
+            it { donor.donation_amount.should == 1.10 }
+          end
+        end
+      end
+
+      context "with a cap of three cents" do
+        before(:each) do
+          donor.pledges.create(pledge_type: 'penny', cap: 0.03)
+        end
+
+        it { donor.donation_amount.should == 0.01 }
+
+        context "with two other penny pledge donors in the same campaign" do
+          before(:each) do
+            FactoryGirl.create_list :donor, 2, campaign: donor.campaign
+          end
+
+          it { donor.donation_amount.should == 0.03 }
+        end
+
+        context "with three other penny pledge donors in the same campaign" do
+          before(:each) do
+            FactoryGirl.create_list :donor, 3, campaign: donor.campaign
+          end
+
+          it "should still equal the cap of three cents" do
+            donor.donation_amount.should == 0.03
+          end
         end
       end
     end
