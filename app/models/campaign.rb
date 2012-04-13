@@ -1,4 +1,5 @@
 class Campaign < ActiveRecord::Base
+
   has_many :donors
 
   def percent_complete

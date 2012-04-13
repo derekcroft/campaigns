@@ -15,13 +15,58 @@ describe Donor do
       it { donor.pledges.count.should == 1 }
       it { donor.donation_amount.should == 52.50 }
 
-      context "and then a second fixed pledge" do
+      context "and then a second fixed pledge of a buck o' five" do
         before(:each) do
           donor.pledges.create(pledge_type: 'fixed', amount: 1.05)
         end
 
         it { donor.pledges.count.should == 2 }
         it { donor.donation_amount.should == 53.55 }
+      end
+    end
+
+    context "for a penny pledge" do
+      before(:each) do
+        donor.pledges.create(pledge_type: 'penny')
+      end
+
+      it "is a penny" do
+        donor.donation_amount.should == 0.01
+      end
+
+      context "with another donor in a different campaign" do
+        before(:each) do
+          FactoryGirl.create :donor
+        end
+
+        it "does not count toward my penny pledge" do
+          donor.donation_amount.should == 0.01
+        end
+      end
+
+      context "with another donor in the same campaign" do
+        before(:each) do
+          FactoryGirl.create :donor, campaign: donor.campaign
+        end
+
+        it { donor.donation_amount.should == 0.02 }
+      end
+
+      context "with 4 other donors in the same campaign" do
+        before(:each) do
+          FactoryGirl.create_list :donor, 4, campaign: donor.campaign
+        end
+
+        it { donor.donation_amount.should == 0.05 }
+
+        context "and I make an additional fixed donation of a buck o' five" do
+          before(:each) do
+            donor.pledges.create(pledge_type: 'fixed', amount: 1.05)
+          end
+
+          it { donor.pledges.count.should == 2 }
+          it { donor.donation_amount.should == 1.10 }
+        end
       end
     end
   end

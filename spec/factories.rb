@@ -3,6 +3,6 @@ FactoryGirl.define do
   end
 
   factory :donor do
-
+    campaign
   end
 end
