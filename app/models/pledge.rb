@@ -7,4 +7,7 @@ class Pledge < ActiveRecord::Base
   validates :pledge_type, inclusion: { in: %w{fixed penny} }
   validates :donor, presence: true
 
+  scope :penny, where(pledge_type: 'penny')
+  scope :fixed, where(pledge_type: 'fixed')
+
 end

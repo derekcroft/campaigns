@@ -11,12 +11,12 @@ class Donor < ActiveRecord::Base
 
   private
   def fixed_pledge_amount
-    pledges.where(pledge_type: 'fixed').sum(:amount) || 0
+    pledges.fixed.sum(:amount) || 0
   end
 
   def penny_pledge_amount
-    pledges.where(pledge_type: 'penny').inject(0) do |sum, pledge|
-      sum + [(0.01 * campaign.donors.count), (pledge.cap || 50.00)].min
+    pledges.penny.sum do |pledge|
+      [(0.01 * campaign.donors.count), (pledge.cap || 50.00)].min
     end
   end
 
