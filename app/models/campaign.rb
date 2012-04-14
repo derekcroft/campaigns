@@ -13,7 +13,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def donation_total
-    pledges.first.try(:amount) || 0.00
+    donors.sum(&:donation_amount)
   end
 
 end

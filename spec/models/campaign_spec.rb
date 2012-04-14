@@ -8,12 +8,49 @@ describe Campaign do
     its(:donation_total) { should == 0.00 }
 
     context "with a fixed donor" do
+      let(:donor) { FactoryGirl.create :donor, campaign: campaign }
+
       before(:each) do
-        donor = campaign.donors.create!
-        donor.pledges.fixed.create(amount: 5.21)
+        donor.pledges.fixed.create!(amount: 5.21)
       end
 
       its(:donation_total) { should == 5.21 }
+
+      context "and a second fixed donor" do
+        before(:each) do
+          donor.pledges.fixed.create(amount: 1.05)
+        end
+
+        its(:donation_total) { should == 6.26 }
+      end
+    end
+
+    context "with a penny donor" do
+      let(:donor) { FactoryGirl.create :donor, campaign: campaign }
+
+      before(:each) do
+        donor.pledges.penny.create!
+      end
+
+      its(:donation_total) { should == 0.01 }
+
+      context "and three more penny donors" do
+        let(:donors) { FactoryGirl.create_list :donor, 3, campaign: campaign }
+
+        before(:each) do
+          donors.each { |donor| donor.pledges.penny.create! }
+        end
+
+        its(:donation_total) { should == 0.16 }
+
+        context "one of whom has a cap of $0.02" do
+          before(:each) do
+            donors.second.pledges.first.update_attribute(:cap, 0.02)
+          end
+
+          its(:donation_total) { should == 0.14 }
+        end
+      end
     end
 
   end
