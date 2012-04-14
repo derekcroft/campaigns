@@ -10,5 +10,5 @@ Donor.delete_all
 Campaign.delete_all
 Pledge.delete_all
 
-c = Campaign.create(donation_target: 55000)
+c = Campaign.create(donation_target: 50000)
 
