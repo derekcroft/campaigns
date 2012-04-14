@@ -65,19 +65,7 @@
         %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
       %hr.clear
 #rightprogress
-  .rightcontentblock
-    %h3 Donation Summary
-    %ul#donation-summary
-      %li Donation Type:
-      %li.donsum-right Penny Pledge
-      %li Pledge Cap:
-      %li.donsum-right $50
-      %li Campaign Ends:
-      %li.donsum-right April 15, 2011
-      %li
-        %a.x12{:href => ""} Edit Details
-    %hr.clear
-    %p By making a penny pledge, I am agreeing to donate one penny for every person who also donates to this campaign. If 1000 or more people donate, my donation will be remain at the $10 limit I selected.
+  .rightcontentblock= render 'donation_summary'
   .rightcontentblock
     %h3 Matthew,
     %h4 You're making a difference...
