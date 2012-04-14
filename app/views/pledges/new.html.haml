@@ -7,7 +7,7 @@
 
 #paymentmain
   .campaignlogoblock
-    = image_tag "sites/townsquarecares/logo.png", height: "80", width: "540", class: "campaignlogoimg"
+    = image_tag "sites/ou/ou_logotitle.jpg", height: "120", width: "520", class: "campaignlogoimg"
   = form_for [@campaign, Pledge.new] do |p|
     = hidden_field_tag :stripe_card_token
     .paymentcontentblock
