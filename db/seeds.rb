@@ -8,6 +8,7 @@
 #
 Donor.delete_all
 Campaign.delete_all
-c = Campaign.create(donation_total: 17958, donation_target: 55000)
-2.times { c.donors.create }
+Pledge.delete_all
+
+c = Campaign.create(donation_target: 55000)
 
