@@ -7,3 +7,5 @@ jQuery ->
 
   $('.slideshow').cycle {fx: 'fade', speed: 700, timeout: 5000}
 
+  $('.positive-integer').numeric { decimal: false, negative: false }
+

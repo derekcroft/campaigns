@@ -35,6 +35,6 @@
             .donation_right
               $
               = succeed ".00" do
-                = text_field_tag 'fixedamount', nil, disabled: false, class: 'fixedamount', maxlength: 5
+                = text_field_tag 'fixedamount', nil, disabled: false, class: 'fixedamount positive-integer', maxlength: 5
       %br{:style => "clear:both;"}
     = image_submit_tag "btn_submitdonation.png", id: "submit_donation"
