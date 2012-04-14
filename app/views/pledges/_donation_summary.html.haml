@@ -1,9 +1,13 @@
 %h3 Donation Summary
 %ul#donation-summary
   %li Donation Type:
-  %li.donsum-right Penny Pledge
-  %li Pledge Cap:
-  %li.donsum-right= "$#{params[:capname]}"
+  %li.donsum-right= donation_type_text
+  - if params[:donation_type] == 'matching'
+    %li Pledge Cap:
+    %li.donsum-right= "$#{params[:capname]}"
+  - else
+    %li Amount:
+    %li.donsum-right= "$#{params[:fixedamount]}"
   %li Campaign Ends:
   %li.donsum-right May 31, 2012
   %li
