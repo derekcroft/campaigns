@@ -19,5 +19,5 @@ jQuery ->
       $('#submit_donation').prop('disabled', true)
     else
       $('.donation_error').html('')
-      $('#submit_donation').prop('disabled', false)
+      $('#submit_donation').prop('disabled', false).focus()
 
