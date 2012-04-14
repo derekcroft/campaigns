@@ -45,7 +45,7 @@ end
 
 ## Campaign donation setup steps
 Given /^the donors have pledged (#{dollar_amount})$/ do |amount|
-  @campaign.update_attribute(:donation_total, amount)
+  @campaign.stub(:donation_total).and_return(amount)
 end
 
 Given /^the pledge target is (#{dollar_amount})$/ do |amount|
@@ -53,7 +53,7 @@ Given /^the pledge target is (#{dollar_amount})$/ do |amount|
 end
 
 Given /^there are (\d+) donors$/ do |number|
-  @campaign.update_attribute(:number_of_donors, number)
+  FactoryGirl.create_list :donor, number.to_i, campaign: @campaign
 end
 
 Then /^I should see a green bar with a pledge target of (#{dollar_amount})$/ do |amount|

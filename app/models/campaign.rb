@@ -3,6 +3,8 @@ class Campaign < ActiveRecord::Base
   has_many :donors
   has_many :pledges
 
+  validates :donation_target, presence: true
+
   def number_of_eligible_pledges
     Campaign.where(id: self.id).joins(donors: :pledges).count(:donor_id, distinct: true)
   end
@@ -13,7 +15,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def donation_total
-    donors.sum(&:donation_amount)
+    donors.sum(&:donation_amount) || 0
   end
 
 end
