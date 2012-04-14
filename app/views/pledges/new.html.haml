@@ -51,13 +51,13 @@
         %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
     .paymentcontentblock
       .optincheck
-        = check_box_tag "accept", 1, false
+        = check_box_tag "accept", 1, false, class: 'rad'
       .optintext
         I agree to the
         %a{:href => ""} Terms &amp; Conditions
         of Kiindly.com
       .optincheck
-        %input.rad{:type => "checkbox", :value => "1", :id => "agree_to_terms"}
+        = check_box_tag "agree_to_terms", 1, false, class: 'rad'
       .optintext
         I would like to receive email regarding news and special events
         from the Oakland University Alumni Association
