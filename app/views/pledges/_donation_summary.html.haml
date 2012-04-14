@@ -13,4 +13,9 @@
   %li
     %a.x12{:href => ""} Edit Details
 %hr.clear
-%p By making a penny pledge, I am agreeing to donate one penny for every person who also donates to this campaign. If 1000 or more people donate, my donation will be remain at the $10 limit I selected.
+%p
+  By making a penny pledge, I am agreeing to donate one penny for every person who also donates to this campaign. If
+  = (params[:capname].to_i * 100).to_s
+  or more people donate, my donation will be remain at the
+  = "$#{params[:capname]}"
+  limit I selected.
