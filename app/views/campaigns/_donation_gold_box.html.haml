@@ -27,8 +27,7 @@
           %h3 Donate a fixed amount
           = link_to "" do
             = image_tag "learnmore.gif", border: 0, class: "learnmore"
-          - if flash[:error]
-            .donation_error= flash[:error]
+          .donation_error= flash[:error].presence
           .donation_input
             .donation_left
               %b{:style => "color:#999; font-size:13px;"} ENTER AN AMOUNT:
