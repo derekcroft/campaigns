@@ -12,12 +12,24 @@
     %span.x10 (so we can send you a receipt)
     %br
     %input.long{:type => "text", :value => @email, :id => "email"}
+  %li#billing-address
+    Street Address
+    %br
+    %input{:type => "text", :id => "street_address"}
+  %li#billing-city
+    City
+    %br
+    %input{:type => "text", :id => "city"}
+  %li#billing-state
+    State
+    %br
+    = select_tag :state, options_for_select(us_states)
   %li#billing-zip
     ZIP Code
     %br
-    %input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip"}
+    %input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip", :class => "positive-integer"}
   %li#billing-phone
     Phone
     %span.x10 (optional)
     %br
-    %input{:type => "text", :value => @phone}
+    %input{:type => "text", :value => @phone, :class => "positive-integer", :maxlength => 10}
