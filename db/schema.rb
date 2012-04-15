@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415201558) do
+ActiveRecord::Schema.define(:version => 20120415214338) do
 
   create_table "campaigns", :force => true do |t|
     t.decimal  "donation_target", :precision => 20, :scale => 2
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120415201558) do
     t.string   "phone",            :limit => 10
     t.boolean  "terms_of_service"
     t.boolean  "email_opt_in"
+    t.text     "stripe_customer"
   end
 
   create_table "pledges", :force => true do |t|
