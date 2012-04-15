@@ -29,10 +29,8 @@
       ZIP Code
       %br
       = d.text_field :zip, class: 'positive-integer short', maxlength: 5
-      -#%input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip", :class => "positive-integer"}
     %li#billing-phone
       Phone
       %span.x10 (optional)
       %br
       = d.text_field :phone, class: 'positive-integer', maxlength: 10
-      -#%input{:type => "text", :value => @phone, :class => "positive-integer", :maxlength => 10}

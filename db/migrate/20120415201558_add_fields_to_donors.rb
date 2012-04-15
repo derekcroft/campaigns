@@ -16,5 +16,8 @@ class AddFieldsToDonors < ActiveRecord::Migration
 
     add_column :donors, :phone, :string, limit: 10
 
+    add_column :donors, :terms_of_service, :boolean
+
+    add_column :donors, :email_opt_in, :boolean
   end
 end

@@ -25,17 +25,7 @@
     .paymentcontentblock
       = render 'payment_information'
     .paymentcontentblock
-      .optincheck
-        = check_box_tag "accept", 1, false, class: 'rad'
-      .optintext
-        I agree to the
-        %a{:href => ""} Terms &amp; Conditions
-        of Kiindly.com
-      .optincheck
-        = check_box_tag "agree_to_terms", 1, false, class: 'rad'
-      .optintext
-        I would like to receive email regarding news and special events
-        from the Oakland University Alumni Association
+      = render partial: 'optin_information', locals: { p: p }
       %p
         %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
       %hr.clear

@@ -1,0 +1,12 @@
+= p.fields_for :donor do |d|
+  .optincheck
+    = d.check_box :terms_of_service, class: 'rad'
+  .optintext
+    I agree to the
+    %a{:href => ""} Terms &amp; Conditions
+    of Kiindly.com
+  .optincheck
+    = d.check_box :email_opt_in, class: 'rad'
+  .optintext
+    I would like to receive email regarding news and special events
+    from the Oakland University Alumni Association
