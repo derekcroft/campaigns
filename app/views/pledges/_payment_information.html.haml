@@ -1,0 +1,27 @@
+%h3 Payment information
+%ul#paymentform
+  %li#payment-type{:style => "width:500px;"}
+    = image_tag "visa_32.png", height: 32, width: 32, alt: "Visa"
+    = image_tag "mastercard_32.png", height: 32, width: 32, alt: "Mastercard"
+    = image_tag "amex_32.png", height: 32, width: 32, alt: "American Express"
+    = image_tag "discover_32.png", height: 32, width: 32, alt: "Discover"
+    = image_tag "jcb_32.png", height: 32, width: 32, alt: "JCB"
+  %li#payment-email
+    Card Number
+    %span.x10 (no spaces please)
+    %br
+    = text_field_tag :card_number, nil, name: nil, id: 'card_number'
+  %li#payment-zip
+    CVC
+    %span.x10
+      %a{:href => ""} what is this?
+    %br
+    = text_field_tag :card_code, nil, name: nil, maxlength: 4, id: 'card_code', class: 'short'
+  %li#payment-zip
+    Expiration
+    %span.x10 (mm/yy)
+    %br
+    = select_month nil, { add_month_numbers_true: true }, { name: nil, id: 'card_month', maxlength: 2, class: 'short' }
+    = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", maxlength: 2, class: 'short'}
+#stripe_error.donation_error
+  %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
