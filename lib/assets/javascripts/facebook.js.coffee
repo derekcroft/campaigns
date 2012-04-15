@@ -17,11 +17,11 @@ $ ->
 
 facebook =
   populateFields: (response) ->
-    $('#first_name').val(response.first_name)
-    $('#last_name').val(response.last_name)
-    $('#email').val(response.email)
+    $('#pledge_donor_attributes_first_name').val(response.first_name)
+    $('#pledge_donor_attributes_last_name').val(response.last_name)
+    $('#pledge_donor_attributes_email').val(response.email)
     $('#facebook_billing').slideUp('slow')
-    $('#zip').focus()
+    $('#pledge_donor_attributes_street_address').focus()
 
   loginStatus: (response) ->
     if response.status == 'connected'

@@ -1,35 +1,38 @@
-%ul#billingform
-  %li#billing-fname
-    First Name
-    %br
-    %input{:type => "text", :value => @first_name, :id => "first_name"}
-  %li#billing-lname
-    Last Name
-    %br
-    %input{:type => "text", :value => @last_name, :id => "last_name"}
-  %li#billing-email{:style => "width:500px;"}
-    Email Address
-    %span.x10 (so we can send you a receipt)
-    %br
-    %input.long{:type => "text", :value => @email, :id => "email"}
-  %li#billing-address
-    Street Address
-    %br
-    %input{:type => "text", :id => "street_address"}
-  %li#billing-city
-    City
-    %br
-    %input{:type => "text", :id => "city"}
-  %li#billing-state
-    State
-    %br
-    = select_tag :state, options_for_select(us_states)
-  %li#billing-zip
-    ZIP Code
-    %br
-    %input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip", :class => "positive-integer"}
-  %li#billing-phone
-    Phone
-    %span.x10 (optional)
-    %br
-    %input{:type => "text", :value => @phone, :class => "positive-integer", :maxlength => 10}
+= p.fields_for :donor do |d|
+  %ul#billingform
+    %li#billing-fname
+      First Name
+      %br
+      = d.text_field :first_name
+    %li#billing-lname
+      Last Name
+      %br
+      = d.text_field :last_name
+    %li#billing-email{:style => "width:500px;"}
+      Email Address
+      %span.x10 (so we can send you a receipt)
+      %br
+      = d.text_field :email, class: 'long'
+    %li#billing-address
+      Street Address
+      %br
+      = d.text_field :street_address
+    %li#billing-city
+      City
+      %br
+      = d.text_field :city
+    %li#billing-state
+      State
+      %br
+      = d.select :state, options_for_select(us_states)
+    %li#billing-zip
+      ZIP Code
+      %br
+      = d.text_field :zip, class: 'positive-integer short', maxlength: 5
+      -#%input.short{:maxlength => "5", :value => @zip, :type => "text", :id => "zip", :class => "positive-integer"}
+    %li#billing-phone
+      Phone
+      %span.x10 (optional)
+      %br
+      = d.text_field :phone, class: 'positive-integer', maxlength: 10
+      -#%input{:type => "text", :value => @phone, :class => "positive-integer", :maxlength => 10}
