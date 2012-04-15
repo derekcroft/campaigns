@@ -10,13 +10,13 @@
     Card Number
     %span.x10 (no spaces please)
     %br
-    = text_field_tag :card_number, nil, name: nil, id: 'card_number'
+    = text_field_tag :card_number, nil, name: nil, id: 'card_number', maxlength: 16, class: 'positive-integer'
   %li#payment-zip
     CVC
     %span.x10
       %a{:href => ""} what is this?
     %br
-    = text_field_tag :card_code, nil, name: nil, maxlength: 4, id: 'card_code', class: 'short'
+    = text_field_tag :card_code, nil, name: nil, maxlength: 4, id: 'card_code', class: 'short positive-integer'
   %li#payment-zip
     Expiration
     %span.x10 (mm/yy)
