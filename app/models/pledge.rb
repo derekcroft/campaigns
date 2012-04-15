@@ -11,8 +11,14 @@ class Pledge < ActiveRecord::Base
   scope :penny, where(pledge_type: 'penny')
   scope :fixed, where(pledge_type: 'fixed')
 
+  after_initialize :set_defaults
+  def set_defaults
+    self.pledge_type ||= 'penny'
+  end
+
   before_validation :set_campaign
   def set_campaign
     self.campaign ||= donor.campaign
   end
+
 end

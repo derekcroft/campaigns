@@ -1,22 +1,22 @@
 %h3 Donation Summary
 %ul#donation-summary
   %li Donation Type:
-  %li.donsum-right= donation_type_text
-  - if params[:donation_type] == 'matching'
+  %li.donsum-right= donation_type_text(@pledge)
+  - if @pledge.pledge_type == 'penny'
     %li Pledge Cap:
-    %li.donsum-right= "$#{params[:capname]}"
+    %li.donsum-right= number_to_currency @pledge.cap, precision: 0
   - else
     %li Amount:
-    %li.donsum-right= "$#{params[:fixedamount]}"
+    %li.donsum-right= number_to_currency @pledge.amount, precision: 0
   %li Campaign Ends:
   %li.donsum-right May 31, 2012
   %li
     = link_to 'Edit Details', campaign_path(params[:campaign_id]), class: 'x12'
 %hr.clear
-- if params[:donation_type] == 'matching'
+- if @pledge.pledge_type == 'penny'
   %p
     By making a penny pledge, I am agreeing to donate one penny for every person who also donates to this campaign. If
-    = (params[:capname].to_i * 100).to_s
+    = (@pledge.cap * 100).to_i
     or more people donate, my donation will be remain at the
-    = "$#{params[:capname]}"
+    = number_to_currency @pledge.cap, precision: 0
     limit I selected.

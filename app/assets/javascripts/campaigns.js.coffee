@@ -1,7 +1,7 @@
 jQuery ->
   # enable and disable fixed amount text field
   setFixedAmount = ->
-    $("#fixedamount").prop('disabled', !$("#donation_type_fixed").is(":checked"))
+    $("#pledge_amount").prop('disabled', !$("#pledge_pledge_type_fixed").is(":checked"))
 
   $(".donation_button").click setFixedAmount
   setFixedAmount()
@@ -13,11 +13,10 @@ jQuery ->
   $('.positive-integer').numeric { decimal: false, negative: false }
 
   # handle fixed donations under $5 on the client side
-  $('#fixedamount').blur ->
+  $('#pledge_amount').blur ->
     if parseInt(this.value) < 5
       $('.donation_error').html 'Fixed donation must be at least $5.00'
       $('#submit_donation').prop('disabled', true)
     else
       $('.donation_error').html('')
       $('#submit_donation').prop('disabled', false).focus()
-

@@ -1,10 +1,11 @@
 class PledgesController < ApplicationController
   def new
-    @campaign = Campaign.first
+    campaign = Campaign.find(params[:campaign_id])
     if params[:donation_type] == 'fixed' && params[:fixedamount].to_i < 5
       flash[:error] = "Fixed donation must be at least $5.00"
-      redirect_to campaign_path(@campaign)
+      redirect_to campaign_path(campaign)
     end
+    @pledge = campaign.pledges.build(params[:pledge])
   end
 
   def create

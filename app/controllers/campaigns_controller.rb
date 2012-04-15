@@ -5,7 +5,8 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.first
+    @campaign = Campaign.find(params[:id])
+    @pledge = @campaign.pledges.build
   end
 
 end

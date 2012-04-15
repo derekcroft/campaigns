@@ -8,18 +8,19 @@
 #paymentmain
   .campaignlogoblock
     = image_tag "sites/ou/ou_logotitle.jpg", height: "120", width: "520", class: "campaignlogoimg"
-  = form_for [@campaign, Pledge.new] do |p|
+  = form_for [@campaign, @pledge], url: new_campaign_pledge_path(@campaign) do |p|
     = hidden_field_tag :stripe_card_token
+    = p.hidden_field :pledge_type
+    = p.hidden_field :amount
     .paymentcontentblock
       %h3 Fantastic! Now we just need a few details...
       %p You're just 1 step away from completing your contribution.
-      -#= render params[:signed_request].present? ? 'billing_information' : 'facebook_fields'
       %p
         %h3 Billing Information
       #facebook_billing
         %p= render 'facebook_fields'
         %p Or enter billing information manually:
-      %p= render 'billing_information'
+      %p= render 'billing_information', locals: { p: p }
       %hr.clear
     .paymentcontentblock
       %h3 Payment information
