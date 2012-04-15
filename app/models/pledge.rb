@@ -5,7 +5,7 @@ class Pledge < ActiveRecord::Base
 
   accepts_nested_attributes_for :donor
 
-  attr_accessible :stripe_card_token, :pledge_type, :amount, :cap
+  attr_accessible :stripe_card_token, :pledge_type, :amount, :cap, :donor_attributes
 
   validates :pledge_type, inclusion: { in: %w{fixed penny} }
   validates :donor, :campaign, presence: true

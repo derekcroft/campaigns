@@ -1,4 +1,5 @@
 = p.fields_for :donor do |d|
+  = d.hidden_field :campaign_id, value: @pledge.campaign_id
   %ul#billingform
     %li#billing-fname
       First Name

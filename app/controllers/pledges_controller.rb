@@ -1,4 +1,6 @@
 class PledgesController < ApplicationController
+  respond_to :html
+
   def new
     campaign = Campaign.find(params[:campaign_id])
     if params[:donation_type] == 'fixed' && params[:fixedamount].to_i < 5
@@ -9,8 +11,11 @@ class PledgesController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.find(params[:campaign_id])
+    campaign = Campaign.find(params[:campaign_id])
     customer = Stripe::Customer.create(description: "test_customer@gmail.com", card: params[:stripe_card_token])
+    @pledge = campaign.pledges.create(params[:pledge])
+    @pledge.save
+    respond_with @pledge
   end
 
   def fb
