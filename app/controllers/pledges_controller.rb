@@ -12,10 +12,9 @@ class PledgesController < ApplicationController
 
   def create
     campaign = Campaign.find(params[:campaign_id])
-    @pledge = campaign.pledges.create(params[:pledge])
+    @pledge = campaign.pledges.build(params[:pledge])
     @pledge.donor.stripe_customer ||= Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
-    @pledge.save
-    respond_with @pledge
+    render action: 'new' unless @pledge.save
   end
 
   def fb
