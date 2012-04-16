@@ -2,34 +2,27 @@
   = d.hidden_field :campaign_id, value: @pledge.campaign_id
   %ul#billingform
     %li#billing-fname
-      First Name
-      %br
+      = d.label :first_name, 'First Name'
       = d.text_field :first_name
     %li#billing-lname
-      Last Name
-      %br
+      = d.label :last_name, 'Last Name'
       = d.text_field :last_name
     %li#billing-email{:style => "width:500px;"}
       = d.label :email, "Email Address #{content_tag(:span, class: 'x10') { '(so we can send you a receipt)' }}".html_safe
       = d.text_field :email, class: 'long'
     %li#billing-address
-      Street Address
-      %br
+      = d.label :street_address, 'Street Address'
       = d.text_field :street_address
     %li#billing-city
-      City
-      %br
+      = d.label :city, 'City'
       = d.text_field :city
     %li#billing-state
-      State
-      %br
+      = d.label :state, 'State'
       = d.select :state, options_for_select(us_states)
     %li#billing-zip
-      ZIP Code
-      %br
-      = d.text_field :zip, class: 'positive-integer short', maxlength: 5
+      .field
+        = d.label :zip, 'ZIP Code'
+        = d.text_field :zip, class: 'positive-integer short', maxlength: 5
     %li#billing-phone
-      Phone
-      %span.x10 (optional)
-      %br
+      = d.label :phone, "Phone #{content_tag(:span, class: 'x10') { '(optional)' }}".html_safe
       = d.text_field :phone, class: 'positive-integer', maxlength: 10

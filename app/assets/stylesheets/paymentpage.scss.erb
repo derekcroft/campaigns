@@ -177,10 +177,26 @@ hr {
     padding: 0;
 }
 
+.field_with_errors {
+    label,select,input {
+        color: red;
+        border-color: red;
+    }
+}
+
 #billingform li, #paymentform li {
     float: left;
     list-style: none;
+    label,select,input {
+        display: block;
+    }
     text-indent: inherit;
     width: 260px;
     padding: 0;
 }
+
+#paymentform li select {
+    display: inline;
+}
+
+
