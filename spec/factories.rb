@@ -5,5 +5,6 @@ FactoryGirl.define do
 
   factory :donor do
     campaign
+    email 'bob@emailville.com'
   end
 end

@@ -4,10 +4,12 @@ class Donor < ActiveRecord::Base
   has_many :pledges
 
   validates :campaign, presence: true
+  validates :email, format: { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
   def donation_amount
     fixed_pledge_amount + penny_pledge_amount
   end
+
 
   private
   def fixed_pledge_amount
