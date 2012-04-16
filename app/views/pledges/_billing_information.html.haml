@@ -10,9 +10,7 @@
       %br
       = d.text_field :last_name
     %li#billing-email{:style => "width:500px;"}
-      Email Address
-      %span.x10 (so we can send you a receipt)
-      %br
+      = d.label :email, "Email Address #{content_tag(:span, class: 'x10') { '(so we can send you a receipt)' }}".html_safe
       = d.text_field :email, class: 'long'
     %li#billing-address
       Street Address
