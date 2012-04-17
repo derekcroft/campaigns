@@ -5,11 +5,11 @@ class Donor < ActiveRecord::Base
 
   validates :campaign, :street_address, :city, :state, :zip, presence: true
   validates :email, format: { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }, presence: true
+  validates :stripe_customer, presence: true, message: "Error processing donor credit card information"
 
   def donation_amount
     fixed_pledge_amount + penny_pledge_amount
   end
-
 
   private
   def fixed_pledge_amount
