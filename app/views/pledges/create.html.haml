@@ -9,23 +9,24 @@
 .widegreenbox
   .sharebox-left
     #campaignlogo= image_tag "sites/ou/ou_logotitle.jpg", width: 520, height: 120
-    %h1{style: "margin:20px 0 0 0; clear:both"} Thank you for your pledge!
-    %h4{style: "text-transform:uppercase; margin:10px 0 20px 0;"} You are donor #158 to this campaign
+    %h1{style: "margin:20px 0 0 0; clear:both"} Thank you for your donation!
+    %h4{style: "text-transform:uppercase; margin:10px 0 20px 0;"} You are donor ##{@pledge.campaign.donors.count} to the Alumni Association's campaign!
     %h3
       Now, tell others about this great cause,
       %br
       and ask them to take the penny pledge too!
 
   .sharebox-right
-    %h4 Matthew, you just made a difference...
+    %h4 #{@pledge.donor.first_name.capitalize}, you have made a difference.
     %p
-      Your pledge of just 1 penny for each person (to a maximum of $30) will justo odio, dapibus ac facilisis in, egestas eget quam.
-      Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies! vehicula ut id elit.
-      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+      With your #{@pledge.pledge_type} pledge, you have helped the future education of an Oakland University student.
+      Every person, Penny Pledge, and donation makes a difference. Help others join this cause by telling your friends
+      and asking them to take the Penny Pledge!
+      Remember, you will receive an email within 24 hours confirming your pledge.
     %ul
-      %li= link_to "Tell your friends about your donation &raquo;".html_safe, ""
-      %li= link_to "Learn more about kiindly.com &raquo;".html_safe, ""
-      %li= link_to "Learn more about US Empowered &raquo;".html_safe, ""
+      %li= link_to "Help spread the word &raquo;".html_safe, ""
+      %li= link_to "Learn more about OUAA Scholarship Fund &raquo;".html_safe, "http://www.oualumni.com/OUAAscholarships"
+      %li= link_to "Learn more about kiindly.com &raquo;".html_safe, "http://www.kiindly.com"
 
 .widegreenbox
   :javascript
