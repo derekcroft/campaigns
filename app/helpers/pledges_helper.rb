@@ -7,7 +7,7 @@ module PledgesHelper
     if pledge.pledge_type == 'penny'
       "Penny Pledge"
     else
-      "Fixed Donation of #{number_to_currency(pledge.amount), precision: 0}"
+      "Fixed Donation of #{number_to_currency(pledge.amount, precision: 0)}"
     end
   end
 
