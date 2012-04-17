@@ -13,8 +13,13 @@ class PledgesController < ApplicationController
   def create
     campaign = Campaign.find(params[:campaign_id])
     @pledge = campaign.pledges.build(params[:pledge])
-    @pledge.donor.stripe_customer ||= Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
-    render action: 'new' unless @pledge.save
+    begin
+      @pledge.donor.stripe_customer ||= Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
+      render action: 'new' unless @pledge.save
+    rescue
+      flash[:error] = "Error validating credit card information."
+      render action: 'new'
+    end
   end
 
   def fb

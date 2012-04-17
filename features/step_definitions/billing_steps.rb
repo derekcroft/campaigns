@@ -1,5 +1,9 @@
+And /^a pledge exists$/ do
+  @pledge = FactoryGirl.create :pledge
+end
+
 Given /^I am on the billing\/donation page$/ do
-  visit(new_campaign_pledge_path(@campaign, fixedamount: 6))
+  visit(new_campaign_pledge_path(@pledge.campaign, pledge_type: 'fixed', amount: 6))
 end
 
 When /^I enter an email address$/ do
