@@ -19,8 +19,8 @@
   .sharebox-right
     %h4 #{@pledge.donor.first_name.capitalize}, you have made a difference.
     %p
-      With your #{@pledge.pledge_type} pledge, you have helped the future education of an Oakland University student.
-      Every person, Penny Pledge, and donation makes a difference. Help others join this cause by telling your friends
+      With your #{pledge_description(@pledge)}, you have helped the future education of an Oakland University student.
+      Every person and every donation makes a difference. Help others join this cause by telling your friends
       and asking them to take the Penny Pledge!
       Remember, you will receive an email within 24 hours confirming your pledge.
     %ul

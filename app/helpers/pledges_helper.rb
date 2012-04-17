@@ -3,6 +3,14 @@ module PledgesHelper
     pledge.pledge_type == 'fixed' ? "Fixed Amount" : "Penny Pledge"
   end
 
+  def pledge_description(pledge)
+    if pledge.pledge_type == 'penny'
+      "Penny Pledge"
+    else
+      "Fixed Donation of #{number_to_currency(pledge.amount), precision: 0}"
+    end
+  end
+
   def us_states
       [
         ['Alabama', 'AL'],
