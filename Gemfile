@@ -28,6 +28,8 @@ gem 'haml-rails'
 gem 'stripe'
 gem 'spork'
 
+gem 'airbrake'
+
 group :development do
   gem 'guard'
   gem 'guard-cucumber'

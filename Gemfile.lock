@@ -29,6 +29,9 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.7)
+    airbrake (3.0.9)
+      activesupport
+      builder
     arel (3.0.2)
     builder (3.0.0)
     capybara (1.1.2)
@@ -192,6 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   capybara (>= 1.1.2)
   capybara-webkit
   coffee-rails (~> 3.2.1)
