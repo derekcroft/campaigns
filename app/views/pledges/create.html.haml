@@ -1,5 +1,7 @@
 - content_for :page_css do
   = stylesheet_link_tag "sharepage"
+- content_for :page_javascripts do
+  = javascript_include_tag "pinit", "pledges"
 - content_for :titlebar_nav do
   %strong How was your donation experience today?
   %br
@@ -24,46 +26,20 @@
     .sharebox-right
       %h5 Tell my friends on:
       %p.middletext
-        %a{:href => ""}
+        = link_to "", class: 'popup_link' do
           = image_tag 'btn-share-facebook.gif', height: 40, border: 0, width: 132
       %p.middletext
-        %a{:href => "https://twitter.com", :onclick => "return popitup('https://twitter.com/share?url=http%3A%2F%2Fwww.kiindly.com%2F')"}
+        = link_to "https://twitter.com/share?url=http%3A%2F%2Fwww.kiindly.com%2F", class: 'popup_link' do
           = image_tag 'btn-share-twitter.gif', border: 0
       %p.middletext
-        %a{"count-layout" => "none", :href => "http://pinterest.com", :onclick => "return popitup('http://pinterest.com/pin/create/button/?url=www.oupledge.com&media=http%3A%2F%2Fkiindly.net%2Fsites%2Foaklandalum%2Foaklandalum-pinterest.jpg&description=Join%20the%20with%20the%20Oakland%20University%20Alum%20in%20the%20OU%20Scholarship%20Penny%20Pledge.%20Every%20person%20and%20every%20penny%20counts.%20http%3A%2F%2Fwww.oupledge.com')"}
+        = link_to "http://pinterest.com/pin/create/button/?url=www.oupledge.com&media=http%3A%2F%2Fkiindly.net%2Fsites%2Foaklandalum%2Foaklandalum-pinterest.jpg&description=Join%20the%20with%20the%20Oakland%20University%20Alum%20in%20the%20OU%20Scholarship%20Penny%20Pledge.%20Every%20person%20and%20every%20penny%20counts.%20http%3A%2F%2Fwww.oupledge.com", :class => 'popup_link', "count-layout" => "none" do
           = image_tag 'btn-share-pinterest.gif', height: 40, border: 0, width: 132
       %p &nbsp;
       %p
-        %a{:href => "http://www.kiindly.com", :target => "_blank"} Learn more about kiindly.com &raquo;
+        = link_to raw("Learn more about kiindly.com &raquo;"), "http://www.kiindly.com", target: "_blank"
         %br
-        %a{:href => "www.oualumni.com", :target => "_blank"} Learn more about OUAA Schollarship Fund &raquo;
+        = link_to raw("Learn more about OUAA Schollarship Fund &raquo;"), "http://www.oualumni.com", target: "_blank"
     %br.clear
 .paddingbox
 %br.clear
-
-
-
-  -#.sharebox-left
-  -#  #campaignlogo= image_tag "sites/ou/ou_logotitle.jpg", width: 520, height: 120
-  -#  %h1{style: "margin:20px 0 0 0; clear:both"} Thank you for your donation!
-  -#  %h4{style: "text-transform:uppercase; margin:10px 0 20px 0;"} You are donor ##{@pledge.campaign.donors.count} to the Alumni Association's campaign!
-  -#  %h3
-  -#    Now, tell others about this great cause,
-  -#    %br
-  -#    and ask them to take the penny pledge too!
-  -#
-  -#.sharebox-right
-  -#  %h4 #{@pledge.donor.first_name.capitalize}, you have made a difference.
-  -#  %p
-  -#    With your #{pledge_description(@pledge)}, you have helped the future education of an Oakland University student.
-  -#    Every person and every donation makes a difference. Help others join this cause by telling your friends
-  -#    and asking them to take the Penny Pledge!
-  -#    Remember, you will receive an email within 24 hours confirming your pledge.
-  -#  %ul
-  -#    %li= link_to "Help spread the word &raquo;".html_safe, ""
-  -#    %li= link_to "Learn more about OUAA Scholarship Fund &raquo;".html_safe, "http://www.oualumni.com/OUAAscholarships"
-  -#    %li= link_to "Learn more about kiindly.com &raquo;".html_safe, "http://www.kiindly.com"
-  -#
-  -#
-  -#
 
