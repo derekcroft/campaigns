@@ -29,6 +29,7 @@ gem 'stripe'
 gem 'spork'
 
 gem 'airbrake'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'guard'

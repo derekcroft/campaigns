@@ -112,6 +112,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.1.0)
+    newrelic_rpm (3.3.3)
     nokogiri (1.5.0)
     pg (0.13.2)
     polyglot (0.3.3)
@@ -209,6 +210,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   launchy
+  newrelic_rpm
   pg
   rails (~> 3.2.1)
   rspec-rails (>= 2.8.1)
