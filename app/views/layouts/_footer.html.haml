@@ -1,49 +1,28 @@
 #footer
   #footercontainer
     .footerlinks-l
-      This Campaign
-      %br
-      = link_to "Corporate donations", "#"
-      %br
-      = link_to "Contact the organization", "#"
-      %br
-      = link_to "Who has donated?", "#"
-      %br
-      = link_to "Campaign statistics", "#"
-    .footerlinks-l
-      %br
-      = link_to "Telling others", "#"
-      %br
-      = link_to "Sponsoring a campaign", "#"
-      %br
-      = link_to "Removing my name", "#"
-    .footerlinks-r
       Company
       %br
-      = link_to "Home", Campaign.first, { target: '_parent' } 
+      = link_to 'Kiindly.com', 'http://www.kiindly.com', target: '_blank'
       %br
-      = link_to "About kiindly.com", "#"
+      = link_to 'How it works', '#'
       %br
-      = link_to "Privacy statement", "#"
+      = link_to 'About kiindly.com', '#'
+    .footerlinks-l
+      Legal
       %br
-      = link_to "Terms of use", "#"
-    .footerlinks-r
+      = link_to 'Privacy statement', 'http://www.kiindly.net/popup.php', onclick: 'return popitup("http://www.kiindly.net/popup.php")'
+      %br
+      = link_to 'Terms of use', 'http://www.kiindly.net/popup.php', onclick: 'return popitup("http://www.kiindly.net/popup.php")'
+    .footerlinks-l
       Need Help?
       %br
-      = link_to "Common questions", "#"
+      = link_to 'FAQ', 'http://www.kiindly.net/popup.php', onclick: 'return popitup("http://www.kiindly.net/popup.php")'
       %br
-      = link_to "Help center", "#"
+      = link_to 'Pricing', '#'
       %br
-      = link_to "Contact info", "#"
-      %br
-      = link_to "Payment options", "#"
-    .footerlinks-r
+      = link_to 'Contact info', '#'
+    .footerlinks-l
       You and kiindly.com
       %br
-      = link_to "Register", "#"
-      %br
-      = link_to "Start a campaign", "#"
-      %br
-      = link_to "Referral program", "#"
-      %br
-      = link_to "Badges", "#"
+      = link_to "Start a campaign", "#", class: 'sac'

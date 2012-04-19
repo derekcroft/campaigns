@@ -3,6 +3,10 @@ module PledgesHelper
     pledge.pledge_type == 'fixed' ? "Fixed Amount" : "Penny Pledge"
   end
 
+  def donor_number(campaign)
+    number_with_delimiter campaign.donors.count, precision: 0, delimiter: ','
+  end
+
   def pledge_description(pledge)
     if pledge.pledge_type == 'penny'
       "Penny Pledge"

@@ -6,19 +6,19 @@
 
 /* CSS Document */
 body {
-    background-color: #FFF;
-    font-family: Nunito, arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Nunito', arial, sans-serif;
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
     text-align: left;
-    color: #FFF;
+    color: #ffffff;
     width: 100%;
     background-image: url(<%= asset_path 'bg-short-top.gif' %>);
     background-repeat: repeat-x;
     background-position: top;
-    margin: 0;
-    padding: 0;
 }
 
 div {
@@ -31,12 +31,12 @@ p, h1, h2, h3 {
 }
 
 b, strong {
-    color: #DDD;
+    color: #dddddd;
     font-weight: 700;
 }
 
 a {
-    font-family: Nunito, arial, sans-serif;
+    font-family: 'Nunito', arial, sans-serif;
     text-decoration: none;
     color: #fff;
 }
@@ -75,7 +75,7 @@ a {
 }
 
 #righttopnav .help {
-    color: #FFF;
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: 300;
 }
@@ -179,7 +179,7 @@ a {
 #campaignlogo {
     float: left;
     clear: both;
-    padding: 0px 0;
+    padding: 20px 0px 20px 0;
 }
 
 #campaignlogo img {
@@ -259,12 +259,12 @@ a {
     background-repeat: no-repeat;
     clear: both;
     text-align: left;
-    margin: 5px 0;
+    margin: 5px 0 5px 0;
     padding: 0;
 }
 
 #progress .progressbar .progressoverlay {
-    width: 0;
+    width: 0%;
     height: 10px;
     float: left;
     background-image: url(<%= asset_path 'progressbar-right.png' %>);
@@ -297,9 +297,9 @@ a {
     border: 0;
     float: left;
     font-size: 13px;
-    font-family: Nunito, arial, sans-serif;
+    font-family: 'Nunito', arial, sans-serif;
     margin: 0 5px 0 0;
-    padding: 6px 10px 0;
+    padding: 6px 10px 0 10px;
 }
 
 .navtab a {
@@ -316,9 +316,9 @@ a {
     border: 1px solid;
     clear: both;
     text-align: left;
-    border-color: #525252 #393939 #222 #777;
+    border-color: #525252 #393939 #222222 #777777;
     margin: 0 0 20px;
-    padding: 10px 20px 0;
+    padding: 10px 20px 0 20px;
 }
 
 #rightmain {
@@ -341,7 +341,7 @@ a {
     background-position: bottom;
     border-color: #a2a2a2 #393939 #898989 #a2a2a2;
     margin: 0;
-    padding: 20px 19px 0;
+    padding: 20px 19px 0 19px;
 }
 
 #diduknow {
@@ -353,13 +353,13 @@ a {
     border: 1px solid;
     clear: both;
     text-align: left;
-    color: #FFF;
+    color: #ffffff;
     background-image: url(<%= asset_path 'diduknow-shadow.png' %>);
     background-repeat: no-repeat;
     background-position: top;
-    border-color: #525252 #393939 #222 #777;
-    margin: 0 0 10px;
-    padding: 20px 20px 10px;
+    border-color: #525252 #393939 #222222 #777777;
+    margin: 0 0 10px 0;
+    padding: 20px 20px 10px 20px;
 }
 
 #diduknow h3 {
@@ -401,7 +401,8 @@ a {
     min-height: 120px;
     font-size: 9px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px 0 20px 0;
+    color: #ffffff;
 }
 
 #footercontainer .footerlinks-l {
@@ -410,20 +411,29 @@ a {
     text-align: left;
 }
 
-#footercontainer .footerlinks-r {
-    float: right;
-    width: 150px;
-    text-align: left;
-}
+/*#footercontainer .footerlinks-r {*/
+    /*float: right;*/
+    /*width: 150px;*/
+    /*text-align: left;*/
+/*}*/
 
 #footercontainer a {
     color: #9f9f9f;
     text-decoration: none;
+    font-weight: normal;
 }
 
 #footercontainer a:hover {
     color: #898989;
     text-decoration: underline;
+}
+
+#footercontainer a.sac {
+    color: #4fba69;
+}
+
+#footercontainer a.sac:hover {
+    color: #4fba69;
 }
 
 #goldbox {
@@ -435,12 +445,12 @@ a {
     background-repeat: repeat-y;
     border-color: #dcd180 #393939 #4c440d #a2a2a2;
     margin: 0;
-    padding: 20px 20px 10px;
+    padding: 20px 20px 10px 20px;
 }
 
 #donate {
     width: 340px;
-    background-color: #FFF;
+    background-color: #ffffff;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -483,7 +493,7 @@ a {
 
 #donate .payment-text .learnmore {
     border: 0;
-    padding: 10px 0 5px;
+    padding: 10px 0 5px 0;
 }
 
 .donation_error {
@@ -497,55 +507,53 @@ a {
 
 .donation_input {
     width: 100%;
-    margin: 7px 0 10px;
+    margin: 7px 0 10px 0;
     padding: 0;
 }
 
 .donation_left {
     width: 140px;
-    text-align: left;
-    display: inline;
-    float: left;
-    margin: 0;
     padding: 0;
+    text-align: left;
+    margin: 0;
+    float: left;
 }
 
 .donation_right {
     width: auto;
     text-align: right;
+    padding: 0;
+    margin: 0;
     float: right;
-    display: inline;
     color: #1a9f4a;
     font-size: 12px;
     font-weight: 700;
-    margin: 0;
-    padding: 0;
 }
 
 .display5 {
     border: 0;
+    padding: 0;
+    margin: 0 0 3px 0;
     color: #1a9f4a;
     font-size: 14px;
     font-weight: 700;
-    display: inline;
     float: none;
+    display: inline;
     clear: none;
     width: 30px;
-    margin: 0 0 3px;
-    padding: 0;
 }
 
 .fixedamount {
     border: 1px solid;
+    border-color: #1a9f4a;
+    padding: 0;
+    margin: 0;
     color: #1a9f4a;
     font-size: 20px;
     font-weight: 700;
     text-align: right;
     clear: none;
-    width: 90px;
-    border-color: #1a9f4a;
-    margin: 0;
-    padding: 0;
+    width: 45px;
 }
 
 .x10 {
@@ -569,7 +577,7 @@ a {
 }
 
 input, textarea {
-    font-family: Nunito, arial, sans-serif;
+    font-family: 'Nunito', arial, sans-serif;
 }
 
 .paymentoption, .clear {
