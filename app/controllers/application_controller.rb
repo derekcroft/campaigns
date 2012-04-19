@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   def filter_subdomain
     if Rails.env.production?
-      unless request.subdomain == 'dev'
+      unless %w{dev oupledge}.include?(request.subdomain)
         redirect_to 'http://www.kiindly.net'
         return false
       end
