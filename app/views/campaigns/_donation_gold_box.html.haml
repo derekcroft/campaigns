@@ -5,12 +5,10 @@
         .radio= p.radio_button :pledge_type, 'penny', class: 'donation_button'
         .payment-text
           %h3 The Penny Pledge
-          = link_to "" do
-            = image_tag "learnmore.gif", border: 0, class: "learnmore"
-          %br
-          Donate 1 penny for every person that donates.
-          %br
-          %b{:style => "color:#555;"} Watch the video above to learn more.
+          = image_tag "learnmore.gif", border: 0, class: "learnmore", id: "penny_learnmore"
+          .tooltip
+            %p Donate 1 penny for every person that donates.
+            %p Watch the video above to learn more.
           %br
           .donation_input
             .donation_left
@@ -26,8 +24,11 @@
         .radio= p.radio_button :pledge_type, 'fixed', class: 'donation_button'
         .payment-text
           %h3 Donate a fixed amount
-          = link_to "" do
-            = image_tag "learnmore.gif", border: 0, class: "learnmore"
+          = image_tag "learnmore.gif", border: 0, class: "learnmore", id: "fixed_learnmore"
+          .tooltip
+            Minimum $5 donation. Fixed donations count toward the match for people who take the penny pledge.
+            %br
+            %b Every penny and every dollar counts.
           .donation_error= flash[:error].presence
           .donation_input
             .donation_left

@@ -20,3 +20,6 @@ jQuery ->
     else
       $('.donation_error').html('')
       $('#submit_donation').prop('disabled', false).focus()
+
+  # add the tooltips to the Learn More elements
+  $(".learnmore").tooltip({position: 'bottom', offset: [-10,-140]})
