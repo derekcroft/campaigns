@@ -3,7 +3,7 @@
 - content_for :page_javascripts do
   = javascript_include_tag "pledges"
 - content_for :titlebar_nav do
-  = link_to 'FAQ', 'http://www.kiindly.net/popup.php', class: 'popup_link'
+  = link_to "FAQ", popup_path("Content" => "FAQ"), class: "popup_link"
   &nbsp; | &nbsp;
   = link_to "Start my own Campaign", "#", class: "startcampaign"
 
