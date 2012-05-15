@@ -18,5 +18,5 @@ $ ->
     displayContent $(this).data('divkey')
 
   # display the proper popup div on loading
-  displayContent $('#popupnav').data('default').toLowerCase()
+  displayContent $('#popupnav').data('default')?.toLowerCase()
 
