@@ -10,6 +10,7 @@ class CampaignsController < ApplicationController
   end
 
   def popup
+    @content = params['Content']
     render layout: nil
   end
 

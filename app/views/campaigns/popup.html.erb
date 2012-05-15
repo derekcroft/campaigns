@@ -6,6 +6,7 @@
 
   <title>Kiindly.com Giving Together</title>
   <%= stylesheet_link_tag "popups", "http://fonts.googleapis.com/css?family=Nunito:300,700", media: "all" %>
+  <%= javascript_include_tag "jquery", "popup" %>
 </head>
 
 <body>
@@ -20,36 +21,32 @@
 
   <div id="mainbodycontent-popup">
 
-    <ul id="popupnav">
-      <li><a href="#" onclick="
-      document.getElementById('contentblock-faq').style.display = 'none'; document.getElementById('contentblock-privacy').style.display = 'inline';
-              document.getElementById('contentblock-terms').style.display = 'none';
-      ">Privacy Policy</a></li>
+    <ul id="popupnav" data-default='<%= @content %>'>
+      <li>
+        <%= link_to "Privacy Policy", "#", class: 'popup_div', data: { divkey: 'privacy' } %>
+      </li>
 
+      <li>
+        <%= link_to "Terms of Use", "#", class: 'popup_div', data: { divkey: 'terms' } %>
+      </li>
 
-      <li><a href="#" onclick="
-      document.getElementById('contentblock-faq').style.display = 'none'; document.getElementById('contentblock-privacy').style.display = 'none';
-              document.getElementById('contentblock-terms').style.display = 'inline';
-      ">Terms &amp; Conditions</a></li>
-
-      <li><a href="#" onclick="
-      document.getElementById('contentblock-faq').style.display = 'inline'; document.getElementById('contentblock-privacy').style.display = 'none';
-              document.getElementById('contentblock-terms').style.display = 'none';
-      ">FAQ</a></li>
+      <li>
+        <%= link_to "FAQ", "#", class: 'popup_div', data: { divkey: 'faq' } %>
+      </li>
 
     </ul>
 
     <br style="clear:both;"/>
 
-    <div id="contentblock-terms" style="display:none;">
+    <div id="contentblock-terms" style="display:none;" data-divkey="terms" class="popup_content">
       <%= render "campaigns/popup/pu_terms" %>
     </div>
 
-    <div id="contentblock-privacy" style="display:none;">
+    <div id="contentblock-privacy" style="display:none;" data-divkey="privacy" class="popup_content">
       <%= render "campaigns/popup/pu_privacy" %>
     </div>
 
-    <div id="contentblock-faq" style="display:none;">
+    <div id="contentblock-faq" style="display:none;" data-divkey="faq" class="popup_content">
       <%= render "campaigns/popup/pu_faq" %>
     </div>
 
