@@ -6,32 +6,32 @@
       <div class="footerlinks-l">
         Company<br />
         <a href="http://www.kiindly.com" target="_blank">Home</a><br />
-        <a href="how-it-works.php">How it works</a><br />
-        <a href="about.php">About kiindly.com</a>
+        <a href="http://www.kiindly.net/how-it-works.php">How it works</a><br />
+        <a href="http://www.kiindly.net/about.php">About kiindly.com</a>
       </div>
     </div>
 
     <div class="footer-legal">
       <div class="footerlinks-l">
         Legal<br />
-        <a href="popup.php?Content=Privacy" onclick="return popitup('popup.php?Content=Privacy')">Privacy statement</a><br />
-        <a href="popup.php?Content=Terms" onclick="return popitup('popup.php?Content=Terms')">Terms of use</a>
+        <%= link_to "Privacy statement", popup_path("Content" => "Privacy"), class: "popup_link" %><br/>
+        <%= link_to "Terms of use", popup_path("Content" => "Terms"), class: "popup_link" %><br/>
       </div>
     </div>
 
     <div class="footer-help">
       <div class="footerlinks-l">
         Need Help?<br />
-        <a href="popup.php?Content=FAQ" onclick="return popitup('popup.php?Content=FAQ')">FAQ</a><br />
-        <a href="pricing.php">Pricing</a><br />
-        <a href="contact.php">Contact Kiindly</a>
+        <%= link_to "FAQ", popup_path("Content" => "FAQ"), class: "popup_link" %><br/>
+        <a href="http://www.kiindly.net/pricing.php">Pricing</a><br />
+        <a href="http://www.kiindly.net/contact.php">Contact Kiindly</a>
       </div>
     </div>
 
     <div class="footer-kiindly">
       <div class="footerlinks-l">
         You and kiindly.com<br />
-        <a href="start-a-campaign.php" class="sac">Start a campaign</a>
+        <a href="http://www.kiindly.net/start-a-campaign.php" class="sac">Start a campaign</a>
       </div>
     </div>
 

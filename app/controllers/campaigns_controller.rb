@@ -9,4 +9,8 @@ class CampaignsController < ApplicationController
     @pledge = @campaign.pledges.build
   end
 
+  def popup
+    render layout: nil
+  end
+
 end

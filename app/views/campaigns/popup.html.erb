@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <title>Kiindly.com Giving Together</title>
+  <%= stylesheet_link_tag "popups", "http://fonts.googleapis.com/css?family=Nunito:300,700", media: "all" %>
+</head>
+
+<body>
+<a name="top"></a>
+
+<div id="bodycontent">
+
+  <div id="popup-titlebar">
+    <h2 id="titlebarlogo"><span class="stack">Kiindly.com The social giving donation platform.</span></h2>
+  </div>
+
+
+  <div id="mainbodycontent-popup">
+
+    <ul id="popupnav">
+      <li><a href="#" onclick="
+      document.getElementById('contentblock-faq').style.display = 'none'; document.getElementById('contentblock-privacy').style.display = 'inline';
+              document.getElementById('contentblock-terms').style.display = 'none';
+      ">Privacy Policy</a></li>
+
+
+      <li><a href="#" onclick="
+      document.getElementById('contentblock-faq').style.display = 'none'; document.getElementById('contentblock-privacy').style.display = 'none';
+              document.getElementById('contentblock-terms').style.display = 'inline';
+      ">Terms &amp; Conditions</a></li>
+
+      <li><a href="#" onclick="
+      document.getElementById('contentblock-faq').style.display = 'inline'; document.getElementById('contentblock-privacy').style.display = 'none';
+              document.getElementById('contentblock-terms').style.display = 'none';
+      ">FAQ</a></li>
+
+    </ul>
+
+    <br style="clear:both;"/>
+
+    <div id="contentblock-terms" style="display:none;">
+      <%= render "campaigns/popup/pu_terms" %>
+    </div>
+
+    <div id="contentblock-privacy" style="display:none;">
+      <%= render "campaigns/popup/pu_privacy" %>
+    </div>
+
+    <div id="contentblock-faq" style="display:none;">
+      <%= render "campaigns/popup/pu_faq" %>
+    </div>
+
+    <br class="clear"/>
+
+  </div>
+
+
+</div>
+
+<%= javascript_include_tag "google_analytics" %>
+
+</body>
+</html>
