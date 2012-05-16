@@ -3,10 +3,7 @@
 - content_for :page_javascripts do
   = javascript_include_tag "campaigns", "carpe", "jquery.cycle.all", "jquery.tools.min"
 - content_for :titlebar_nav do
-  = link_to "FAQ", popup_path("Content" => "FAQ"), class: "popup_link"
-  &nbsp; | &nbsp;
-  = link_to "Start my own Campaign", "#", class: "startcampaign"
-
+  = render :partial => 'layouts/main_titlebar_nav'
 #leftmain
   #hero
     %ul#heroContent.slideshow
