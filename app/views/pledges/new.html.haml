@@ -8,7 +8,7 @@
 #paymentmain
   .campaignlogoblock
     = image_tag "sites/ou/ou_logotitle.jpg", height: "120", width: "520", class: "campaignlogoimg"
-  = form_for [@campaign, @pledge], url: campaign_pledges_path(@campaign) do |p|
+  = form_for @pledge do |p|
     = hidden_field_tag :stripe_card_token
     = p.hidden_field :pledge_type
     = p.hidden_field :amount

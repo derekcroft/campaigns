@@ -1,12 +1,10 @@
 KiindlyCom::Application.routes.draw do
   root :to => 'campaigns#index'
-  match 'campaigns/popup' => 'campaigns#popup', as: :popup
+  match 'popup' => 'campaigns#popup', as: :popup
 
-  resources :campaigns, only: :show do
-    resources :pledges, only: [:create, :new] do
-      collection do
-        post :fb
-      end
+  resources :pledges, only: [:create, :new] do
+    collection do
+      post :fb
     end
   end
 

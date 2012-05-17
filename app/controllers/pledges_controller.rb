@@ -2,17 +2,15 @@ class PledgesController < ApplicationController
   respond_to :html
 
   def new
-    campaign = Campaign.find(params[:campaign_id])
     if params[:donation_type] == 'fixed' && params[:fixedamount].to_i < 5
       flash[:error] = "Fixed donation must be at least $5.00"
-      redirect_to campaign_path(campaign)
+      redirect_to root_path
     end
-    @pledge = campaign.pledges.build(params[:pledge])
+    @pledge = @campaign.pledges.build(params[:pledge])
   end
 
   def create
-    campaign = Campaign.find(params[:campaign_id])
-    @pledge = campaign.pledges.build(params[:pledge])
+    @pledge = @campaign.pledges.build(params[:pledge])
     begin
       @pledge.donor.stripe_customer ||= Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
       if @pledge.save
@@ -28,7 +26,7 @@ class PledgesController < ApplicationController
   end
 
   def fb
-    redirect_to new_campaign_pledge_path(campaign_id: params[:campaign_id], fixedamount: "7", signed_request: params[:signed_request])
+    redirect_to new_pledge_path(fixedamount: "7", signed_request: params[:signed_request])
   end
 
   private

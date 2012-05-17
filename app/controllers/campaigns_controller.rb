@@ -1,11 +1,10 @@
 class CampaignsController < ApplicationController
   def index
-    @campaign = Campaign.first
-    redirect_to @campaign
+    show
+    render action: 'show'
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
     @pledge = @campaign.pledges.build
   end
 
