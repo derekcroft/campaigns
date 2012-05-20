@@ -6,8 +6,7 @@
   = render 'layouts/main_titlebar_nav'
 
 #paymentmain
-  .campaignlogoblock
-    = image_tag "sites/ou/ou_logotitle.jpg", height: "120", width: "520", class: "campaignlogoimg"
+  .campaignlogoblock= ou_logo_tag
   = form_for @pledge do |p|
     = hidden_field_tag :stripe_card_token
     = p.hidden_field :pledge_type
