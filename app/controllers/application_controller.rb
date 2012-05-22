@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
 
   def perform_redirect
     if request.domain.downcase.start_with?('kiindly') && !request.subdomain.downcase.eql?('oupledge')
-      redirect_to 'http://www.kiindly.net' + request.fullpath
+      redirect_to "http://www.kiindly.net#{request.fullpath}"
+      return false
+    elsif request.domain.downcase.start_with?('oupledge') && !request.subdomain.downcase.eql?('www')
+      redirect_to "#{request.protocol}www.#{request.domain.downcase}#{request.fullpath}"
       return false
     end
   end
