@@ -23,3 +23,6 @@ jQuery ->
     postToFeed()
     false
 
+  # add the tooltips to the Learn More elements
+  $(".whatisthis").tooltip({position: 'bottom center', relative: true})
+

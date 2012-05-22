@@ -14,7 +14,9 @@
   %li#payment-zip
     CVC
     %span.x10
-      %a{:href => ""} what is this?
+      = link_to 'what is this?', '#', class: 'whatisthis'
+    .tooltip
+      %p{style: 'padding-top: 7px;'} The Card Verification Value is located on the back of Visa, MasterCard and Discover cards and is a group of 3 digits to the right of the signature strip. Amex uses 4 digits and is shown on the front right of the card.
     %br
     = text_field_tag :card_code, nil, name: nil, maxlength: 4, id: 'card_code', class: 'short positive-integer'
   %li#payment-zip

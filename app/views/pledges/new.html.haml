@@ -1,7 +1,7 @@
 - content_for :page_css do
-  = stylesheet_link_tag "paymentpage"
+  = stylesheet_link_tag "paymentpage", "tooltip"
 - content_for :page_javascripts do
-  = javascript_include_tag "pledges"
+  = javascript_include_tag "pledges", "jquery.tools.min"
 - content_for :titlebar_nav do
   = render 'layouts/main_titlebar_nav'
 

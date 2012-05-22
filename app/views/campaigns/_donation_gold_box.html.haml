@@ -7,7 +7,7 @@
           %h3 The Penny Pledge
           = image_tag "learnmore.gif", border: 0, class: "learnmore", id: "penny_learnmore"
           .tooltip
-            %p{style: 'padding-top: 10px;'} Donate 1 penny for every person who donates. Watch the video above to learn more.
+            %p{style: 'padding-top: 10px; line-height: 20px;'} Donate 1 penny for every person who donates. Watch the video above to learn more.
           %br
           .donation_input
             .donation_left
@@ -25,7 +25,7 @@
           %h3 Donate a fixed amount
           = image_tag "learnmore.gif", border: 0, class: "learnmore", id: "fixed_learnmore"
           .tooltip
-            %p{style: 'padding-top: 3px;'} Minimum $5 donation. Fixed donations count toward the match for people who take the penny pledge.
+            %p{style: 'padding-top: 3px;line-height: 20px;'} Minimum $5 donation. Fixed donations count toward the match for people who take the penny pledge.
           .donation_error= flash[:error].presence
           .donation_input
             .donation_left
