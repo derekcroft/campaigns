@@ -4,11 +4,13 @@
 postToFeed = ->
   obj =
     method: 'feed'
-    link: 'https://developers.facebook.com/docs/reference/dialogs/'
+    link: 'https://www.oupledge.com'
     name: 'Oakland University Alumni Association'
     picture: 'http://kiindly.net/sites/oaklandalum/oaklandalum-pinterest.jpg'
     caption: 'Kiindly Penny Pledge'
-    description: 'I just made a difference at Kiindly.com. Follow my link to join the crowd.'
+    description: "I just made a difference at oupledge.com. Help increase
+      everyone's donation by one penny by taking the OUAA Penny Pledge,
+      or just donating. Every person and every penny counts!"
   callback = (response) ->
   FB.ui obj, callback
   false
