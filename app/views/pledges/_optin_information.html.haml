@@ -2,7 +2,7 @@
   .optincheck
     = d.check_box :terms_of_service, class: 'rad'
   .optintext
-    = d.label :terms_of_service, "I agree to the #{link_to "Terms & Conditions", ""} of Kiindly.com".html_safe
+    = d.label :terms_of_service, "I agree to the #{link_to "Terms & Conditions", popup_path("Content" => "Terms"), class: "popup_link"} of Kiindly.com".html_safe
   .optincheck
     = d.check_box :email_opt_in, class: 'rad'
   .optintext
