@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+  force_ssl except: :index
+
   def index
     show
     render action: 'show'

@@ -1,4 +1,5 @@
 class PledgesController < ApplicationController
+  force_ssl
   respond_to :html
 
   def new
