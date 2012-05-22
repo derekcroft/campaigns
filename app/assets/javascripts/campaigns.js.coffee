@@ -7,7 +7,7 @@ jQuery ->
   setFixedAmount()
 
   # start the hero image slideshow
-  $('.slideshow').cycle {fx: 'fade', speed: 700, timeout: 5000}
+  $('.slideshow').cycle {fx: 'fade', speed: 700, timeout: 10000}
 
   # only allow numbers in the fixed amount text field
   $('.positive-integer').numeric { decimal: false, negative: false }
