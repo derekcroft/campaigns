@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :perform_redirect
   before_filter :load_campaign
+
+  def perform_redirect
+    if request.domain.downcase.start_with?('kiindly') && !request.subdomain.downcase.eql?('oupledge')
+      redirect_to 'http://www.kiindly.net' + request.fullpath
+      return false
+    end
+  end
 
   def load_campaign
     @campaign = Campaign.first
