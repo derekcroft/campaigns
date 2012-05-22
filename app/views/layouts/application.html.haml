@@ -19,6 +19,8 @@
     = javascript_include_tag "google_analytics"
     :javascript
       function initAddThis() {
-        addthis.init();
+        if(typeof(addthis) != "undefined") {
+          addthis.init();
+        }
       }
       initAddThis();

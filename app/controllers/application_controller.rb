@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_campaign
 
   def perform_redirect
+    return if Rails.env.development?
     if request.domain.downcase.start_with?('kiindly') && !request.subdomain.downcase.eql?('oupledge')
       redirect_to "http://www.kiindly.net#{request.fullpath}"
       return false
