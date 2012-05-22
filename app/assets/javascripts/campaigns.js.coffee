@@ -23,3 +23,11 @@ jQuery ->
 
   # add the tooltips to the Learn More elements
   $(".learnmore").tooltip({position: 'bottom', offset: [-10,-140]})
+
+  # start with the youtube image disabled
+  $("#clip").hide()
+  $("#holder").show()
+  $("#video").click (e) ->
+    $("#holder").hide()
+    $("#clip").show()
+    true

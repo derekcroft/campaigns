@@ -17,9 +17,7 @@
   #progress= render 'progressbar'
   #campaigninfo= render 'campaign_info'
 #rightmain
-  #video
-    %iframe{width: 370, height: 208, src: "https://www.youtube.com/embed/INw_r96VIBM?modestbranding=1&rel=0&autohide=1&showinfo=0", frameborder: "0", allowfullscreen: ""}
-    -#%iframe{:allowfullscreen => "", :frameborder => "0", :height => "208", :src => "http://player.vimeo.com/video/5317693?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff", :webkitallowfullscreen => "", :width => "370"}
+  #video= render 'video'
   = render 'donation_gold_box'
   #diduknow
     %h3 Did you know...
