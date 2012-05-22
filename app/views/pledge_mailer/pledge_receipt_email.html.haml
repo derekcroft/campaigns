@@ -3,31 +3,38 @@
   %head
     %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p Hi #{@donor.first_name},
+    %p= image_tag "https://www.oupledge.com/assets/email/email-header-thanks.gif"
+
+    %p Dear #{@donor.first_name},
 
     %p
-      Thank you for your generous pledge to the Alumni Scholarship Fund.
-      We are grateful for your gift and the trust imparted to us in managing its use.
-      Your donation makes a difference to Oakland University students who are achieving their dreams of higher education.
+      Remember when you did something you were proud of in grade school and your parents would hang it on the refrigerator?
 
     %p
-      You have impacted the entire community because as a result of your pledge, 
-      all other penny pledges have increased by $.01 each, which adds up quickly.
+      Be proud that you have helped an OU student achieve the dream of higher education by posting to Facebook,
+      pinning to Pinterest, or just printing this email and finding new space on the refrigerator.
+
+    %p
+      Your pledge has impacted an entire community by increasing all other penny pledges by $.01 each, which adds up quickly.
+
+    %p
+      Thank you for your generous pledge to the OUAA Scholarship Fund. We are grateful for your gift and
+      the trust imparted to us in managing its use.
 
     %p
       Regards,
       %br
-      Oakland University Alumni Association &amp; Kiindly : Facebook | Twitter | Pinterest | Website
+      Oakland University Alumni Association & Kiindly : Facebook | Twitter | Pinterest |
+      = link_to "Website", "https://www.oupledge.com"
 
-    %p= image_tag "http://www.kiindly.com/kiindly-secondary.png"
+    %p= image_tag "https://www.oupledge.com/assets/email/email-kiindly-logo.png"
 
     %p FINAL DONATION AMOUNT AND TIMING
     %p
-      Your final donation amount will be determined and charged to your 
-      credit card after the end of the campaign which is May 31, 2012.
-      Your penny pledge donation will be determined by multiplying the number
-      of unique donors at the end of the campaign multiplied by one penny for each donor.
-      If 1000 or more people donate, your donation will be remain at the $10 limit you selected.
+      Your final donation amount will be determined and charged to your credit card after the end
+      of the campaign which is June 22nd, 2012. Your penny pledge donation will be determined by
+      multiplying the number of unique donors at the end of the campaign multiplied by one penny
+      for each donor. If 1000 or more people donate, your donation will be remain at the $10 limit you selected.
 
     %p RECEIPT FOR YOUR TAX RECORDS
     %p
