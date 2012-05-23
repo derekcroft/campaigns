@@ -17,6 +17,6 @@
   %p
     By making a penny pledge, I am agreeing to donate one penny for every person who also donates to this campaign. If
     = number_with_delimiter (@pledge.cap * 100).to_i, precision: 0, delimiter: ','
-    or more people donate, my donation will be remain at the
+    or more people donate, my donation will remain at the
     = number_to_currency @pledge.cap, precision: 0
     limit I selected.
