@@ -26,3 +26,10 @@ jQuery ->
   # add the tooltips to the Learn More elements
   $(".whatisthis").tooltip({position: 'bottom center', relative: true})
 
+  $("#submit_donation").click ->
+    if $("#card_month").val() < "6" && $("#card_year").val() == "2012"
+      $("#stripe_error").html("Card expiration must be June 2012 or later").show()
+      $("#card_month").focus()
+      return false
+    true
+
