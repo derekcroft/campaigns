@@ -14,12 +14,19 @@
       Be proud that you have helped an OU student achieve the dream of higher education by posting to Facebook,
       pinning to Pinterest, or just printing this email and finding new space on the refrigerator.
 
+    - if @pledge.pledge_type == "fixed"
+      %p
+        You have impacted the entire community. As a result of your donation,
+        people who have chosen to make the escalating penny pledge will have
+        their pledge increased by $.01 each, which adds up quickly.
+    - else
+      %p
+        Your pledge has impacted an entire community by increasing all
+        other penny pledges by $.01 each, which adds up quickly.
     %p
-      Your pledge has impacted an entire community by increasing all other penny pledges by $.01 each, which adds up quickly.
-
-    %p
-      Thank you for your generous pledge to the OUAA Scholarship Fund. We are grateful for your gift and
-      the trust imparted to us in managing its use.
+      Thank you for your generous
+      = @pledge.pledge_type == "fixed" ? "donation" : "pledge"
+      to the OUAA Scholarship Fund. We are grateful for your gift and the trust imparted to us in managing its use.
 
     %p
       Regards,
