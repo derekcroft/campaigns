@@ -4,7 +4,7 @@
 postToFeed = ->
   obj =
     method: 'feed'
-    link: 'https://www.oupledge.com'
+    link: 'https://www.oupledge.com/?ref=KiindlyFB'
     name: 'Oakland University Alumni Association'
     picture: 'http://kiindly.net/sites/oaklandalum/oaklandalum-pinterest.jpg'
     caption: 'Kiindly Penny Pledge'
