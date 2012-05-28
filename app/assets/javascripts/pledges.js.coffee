@@ -27,9 +27,14 @@ jQuery ->
   $(".whatisthis").tooltip({position: 'bottom center', relative: true})
 
   $("#submit_donation").click ->
-    if $("#card_month").val() < "6" && $("#card_year").val() == "2012"
+    if parseInt($("#card_month").val()) < 6 && $("#card_year").val() == "2012"
       $("#stripe_error").html("Card expiration must be June 2012 or later").show()
       $("#card_month").focus()
       return false
+    if ($("#card_number").val().substring(0,2) == "34" || $("#card_number").val().substring(0,2) == "37")
+      unless $("#card_code").val().length == 4
+        $("#stripe_error").html("American Express card must have a four digit CVC").show()
+        $("#card_code").focus()
+        return false
     true
 
