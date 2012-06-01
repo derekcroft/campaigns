@@ -41,12 +41,14 @@
 
     %p= image_tag "https://www.oupledge.com/assets/email/email-kiindly-logo.png"
 
-    %p FINAL DONATION AMOUNT AND TIMING
-    %p
-      Your final donation amount will be determined and charged to your credit card after the end
-      of the campaign which is June 29nd, 2012. Your penny pledge donation will be determined by
-      multiplying the number of unique donors at the end of the campaign multiplied by one penny
-      for each donor. If 1000 or more people donate, your donation will remain at the $10 limit you selected.
+    - if @pledge.pledge_type == "penny"
+      %p FINAL DONATION AMOUNT AND TIMING
+      %p
+        Your final donation amount will be determined and charged to your credit card after the end
+        of the campaign which is June 29nd, 2012. Your penny pledge donation will be determined by
+        multiplying the number of unique donors at the end of the campaign multiplied by one penny
+        for each donor. If 1000 or more people donate, your donation will remain at 
+        the #{number_to_currency(@pledge.cap, precision: 0)} limit you selected.
 
     %p RECEIPT FOR YOUR TAX RECORDS
     %p
