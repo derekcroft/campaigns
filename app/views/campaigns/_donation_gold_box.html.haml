@@ -18,7 +18,7 @@
               %input#slider2.carpe-slider.target-pledge_cap{:name => "slider1", :style => "float: left; clear: none; margin-right:10px;", :type => "text"}
               $
               -#%input#display5{:name => "capname", :tabindex => "-1", :value => "10"}
-              = p.text_field :cap, tabindex: -1, value: 10, class: 'display5'
+              = p.text_field :cap, tabindex: -1, value: 10, class: 'display5 positive-integer'
       .paymentoption{:style => "padding-top:25px; "}
         .radio= p.radio_button :pledge_type, 'fixed', class: 'donation_button'
         .payment-text
