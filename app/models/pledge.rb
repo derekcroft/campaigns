@@ -19,6 +19,7 @@ class Pledge < ActiveRecord::Base
   def set_defaults
     self.pledge_type ||= 'penny'
     self.donor ||= build_donor
+    self.cap ||= 20
   end
 
   before_validation :set_campaign
