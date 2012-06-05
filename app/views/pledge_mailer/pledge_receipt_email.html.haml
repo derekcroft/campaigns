@@ -5,6 +5,7 @@
   %body
     %p= image_tag "https://www.oupledge.com/assets/email/email-header-thanks.gif"
 
+    = render 'summary'
     %p Dear #{@donor.first_name},
 
     %p

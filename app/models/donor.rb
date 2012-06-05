@@ -10,9 +10,12 @@ class Donor < ActiveRecord::Base
   validates :stripe_customer, presence: true
   validates :terms_of_service, inclusion: [true]
 
-
   def donation_amount
     fixed_pledge_amount + penny_pledge_amount
+  end
+
+  def donor_number
+    Donor.where(campaign_id: self.campaign_id).where(["id <= ?", self.id]).count
   end
 
   private
