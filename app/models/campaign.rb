@@ -20,7 +20,7 @@ class Campaign < ActiveRecord::Base
 
   def fixed_total
     total_row = pledges.where(pledge_type: 'fixed').group("campaign_id").sum(:amount)
-    total_row.fetch(self[:id], BigDecimal.new(0))
+    total_row.fetch(self[:id].to_s, BigDecimal.new(0))
   end
 
   def penny_total
