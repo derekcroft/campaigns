@@ -31,6 +31,10 @@ gem 'spork'
 gem 'airbrake'
 gem 'newrelic_rpm'
 
+gem 'heroku'
+gem 'taps'
+gem 'sqlite3'
+
 group :development do
   gem 'guard'
   gem 'guard-cucumber'
