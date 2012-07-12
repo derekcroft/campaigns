@@ -1,7 +1,8 @@
 class AddPaymentFieldsToPledges < ActiveRecord::Migration
   def change
-    add_column :pledges, :processed_at, :datetime
-    add_column :pledges, :confirmation_email_at, :datetime
-    add_column :pledges, :stripe_response, :text
+    add_column :donors, :processed_at, :datetime
+
+    add_column :donors, :confirmation_email_at, :datetime
+    add_column :donors, :stripe_response, :text
   end
 end

@@ -1,0 +1,143 @@
+Donor Name,Donor Email,Donor Address,Amount Pledged,Date Pledged,Actual Amount,Date Processed,Successful
+"Decker, Susan",sjkowalski@comcast.net,"1931 Haverhill Drive, rochester hills, MI 48306",$1.42,06/28/2012,$1.42,07/12/2012,Success,false
+"Frank, Ivan",ivan12frank@gmail.com,"5876 Raven Rd, Bloomfield, MI 48301",$10.00,05/31/2012,$10.00,,invalid_expiry_month,true
+"Fylan, Amanda",fylan@oakland.edu,"567 Doral Drive, Oxford, MI 48371",$1.42,05/31/2012,$1.42,07/12/2012,Success,false
+"Garrett, Greggory",greggory.garrett@gmail.com,"850 Shady Hollow Circle, Bloomfield, MI 48304",$1.42,06/01/2012,$1.42,07/12/2012,Success,false
+"Croft, Derek",derek@derekcroft.com,"4768 Walnut Lake Rd., Bloomfield Hills, MI 48301",$1.42,05/31/2012,$1.42,,card_declined,true
+"Dawson, Mary Jo",Thejojo1@gmail.com,"835 Yarmouth Rd, Bloomfield Village, MI 48301",$1.42,06/28/2012,$1.42,07/12/2012,Success,false
+"Valentine, Adam",adamcvalentine@gmail.com,"2202 North Clark, Chicago, IL 60614",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Millichamp, Sean",sean@bruenor.org,"19630 Hickory Leaf, Southfield, MI 48076",$1.42,06/04/2012,$1.42,,card_declined,true
+"Myers, Jason",jason.myers81@gmail.com,"11597 E Florida Ave, Aurora, CO 80012",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Clark, Ruth Ann",clark23@oakland.edu,"921 Columbia Rd, Berkley, MI 48072",$50.00,06/29/2012,$50.00,07/12/2012,Success,false
+"Czub, Chris",chris.czub@gmail.com,"410 Village Green Blvd Apt 202, Ann Arbor, MI 48105",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Shwedel, Dorie",dshwedel@aol.com,"32712 Franklin Rd, Franklin, AL 48025",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"Clinton, Elizabeth",ekclinto@gmail.com,"11283 Patty Ann Lane, Romeo, MI 48065",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"Yagiela, Sherry",slyagiela@wowway.com,"1430 West South Blvd., Rochester, MI 48309",$20.00,06/29/2012,$20.00,07/12/2012,Success,false
+"Lasser, Jeff",jefflasser604@comcast.net,"604 7th Street, Rochester, MI 48307",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"gamble, peggy ",gamble@oaklande.du,"772 castlebar, rochester hills, MI 48309",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Smith, Kelly",smith236@oakland.edu,"7951 Mt. Tremblant Trail, Clarkston, MI 48348",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Bittinger, Scott & Andrea",bitti@wowway.com,"1403 Country Dr, Troy, MI 48098",$1.42,06/29/2012,$1.42,07/12/2012,Success,false
+"Johnson, Donald",donj@ci.royal-oak.mi.us,"3051 Winifred, Wayne, MI 48184",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Preisinger, George and Sarah",preisin2@oakland.edu,"176 Texas Avenue, Rochester Hills, AL 48309",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Westergaard, Patricia",westerga@oakland.edu,"4510 N Rochester Rd , Rochester, MI 48306",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Lindsay, Sheri",lindsay@netscape.com,"13 Kirks Ct, Rochester Hills, MI 48309",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Weinstein, Lee",eaw5634@aol.com,"29983 Mullane Dr, FARMINGTON HILLS, MI 48334",$20.00,06/06/2012,$20.00,07/12/2012,Success,false
+"Schmidt, Corey",coreyschm@gmail.com,"604 Arrowhead Trails, Loveland, OH 45140",$1.42,06/07/2012,$1.42,,card_declined,true
+"Blakemore, Damon",Dblakemore@aol.com,"1704 Bremond, Houston, TX 77004",$10.00,06/07/2012,$10.00,07/12/2012,Success,false
+"LORTS, DANIEL",djlorts@oakland.edu,"2875 Hylane, Troy, MI 48098",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Hock, Lisa",hock@oakland.edu,"212 Atwater Street, Apt. 1, Lake Orion, MI 48362",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Hutchinson, John",john.hutchinson@gmail.com,"1631 Cass Lake Road Unit C, Keego Harbor, MI 48320",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Brady Hardman, Linda",winterboredom@yahoo.com,"5599 Woodfield Pky, Grand Blanc, MI 48439",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Friedman, Scott",sefriedmanmi@gmail.com,"1269 N SELFRIDGE BLVD, CLAWSON, AL 48017",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"freyer, bryna",bryna@si.edu,"2600 16th st s #732, arlington, VA 22204",$50.00,06/07/2012,$50.00,07/12/2012,Success,false
+"Dalal, Avni",adalal@oakland.edu,"2292 Academy Dr, Troy, MI 48083",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Reynolds, Jon",jon.reynolds@sbcglobal.net,"9043 Woodhurst Dr., Dallas, TX 75243",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Liptak, Laszlo",liptak@oakland.edu,"2875 Olden Oak Ln #303, Auburn Hills, MI 48326",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Costa, Anna",costa@oakland.edu,"338 N. Castell Ave, Rochester, MI 48307",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Yu, Bibianne",byu@oakland.edu,"4113 Telegraph Road #102, Bloomfield Hills, MI 48302",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Bowron Meckstroth, Terry",terrymeck@aol.com,"193 Yulupa Circle, Santa Rosa, CA 95405",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"BHARGAVA, MUKESH",BHARGAVA@OAKLAND.EDU,"3751 EATON GATE LANE, AUBURN HILLS, MI 48326",$1.42,06/09/2012,$1.42,07/12/2012,Success,false
+"Hobbs, Brittani",brittani.hobbs@gmail.com,"7647 Kennett Sq, West Bloomfield, MI 48322",$1.42,06/09/2012,$1.42,07/12/2012,Success,false
+"Perich, Eric",eperich@gmail.com,"3016 Grand Ave S, #305, Minneapolis, MN 55408",$1.42,06/10/2012,$1.42,07/12/2012,Success,false
+"frank, ivan",ivan12frank@gmail.com,"5876 Raven Rd, Bloomfield, MI 48301",$1.42,06/13/2012,$1.42,07/12/2012,Success,false
+"Rowland, Anne",arowland@plex.com,"12876 Martin Rd, Warren, MI 48088",$1.42,06/13/2012,$1.42,07/12/2012,Success,false
+"Schaller, Maryann",meschaller@precisionwerx.com,"1326 River Rd., Marysville, MI 48040",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Keller, Jim ",je_keller@yahoo.com,"3609 Sunnyside, Rochester, AL 48306",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Phipps, Casey",clphipps2@att.net,"45190 chestnut, shelby township, MI 58317",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Bucak, Ihsan ",iobucak@mevlana.edu.tr,"Yeni ıstanbul Caddesi, Konya Turkey, AL 42003",$1.42,06/15/2012,$1.42,07/12/2012,Success,false
+"dickow, derek",derekdickow@steward-media.com,"6607 chimney sweep, west bloomfield, MI 48322",$1.42,06/15/2012,$1.42,07/12/2012,Success,false
+"Diefenbach, John",john.diefenbach@sbcglobal.net,"3180 Wakefield, Berkley, AL 48072",$1.42,06/17/2012,$1.42,07/12/2012,Success,false
+"Albrecht, Lyn",lalb10002@comcast.net,"10002 Maple Leaf Dr., Gaithersburg, MD 20886",$100.00,06/19/2012,$100.00,07/12/2012,Success,false
+"Wollborg, Charlie",charlie@curvedetroit.com,"555 Friendly Drive Studio C, Pontiac, MI 48341",$1.42,06/20/2012,$1.42,07/12/2012,Success,false
+"Sundaram, Lakshmi",OU@sundarams.net,"30554 Fox Club Drive, Farmington Hills, MI 48331",$1.42,06/21/2012,$1.42,07/12/2012,Success,false
+"Valentine, Garry",garryvalentine@gmail.com,"342 POWDERHORN CT., ROCHESTER HILLS, MI 48309",$1.42,06/21/2012,$1.42,07/12/2012,Success,false
+"Gluhanich, Mike",mikeglujr@gmail.com,"1921 Kingstree Ct., Rochester Hills, MI 48309",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Wiggins, Robert",wiggins@oakland.edu,"5800 N Herd Rd, Ortonville, MI 48462",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Soboleski, Beth",bsobo@umich.edu,"3453 Catalpa, Berkley, MI 48072",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Duggan, Cheryl",duggancm@yahoo.com,"2416 Pleasant View Drive, Rochester Hills, MI 48306",$1.42,06/23/2012,$1.42,07/12/2012,Success,false
+"Wallace, Jill",jill.j.wallace@comcast.net,"1763 Janet Dr., West Bloomfield, MI 48324",$1.42,06/25/2012,$1.42,07/12/2012,Success,false
+"Hruska, John",John_Hruska@sbcglobal.net,"917 Dressler Lane, Rochester Hills, MI 48307",$1.42,06/26/2012,$1.42,,incorrect_number,true
+"Barc, Linda",linda.barc@gmail.com,"2907 Rockford Ct, Lake Orion, MI 48360",$1.42,06/26/2012,$1.42,07/12/2012,Success,false
+"Cox, Traci",traci.l.cox@gmail.con,"5 Grange CT, Taylors, SC 29687",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Saleh, Ahmad",ansaleh@oakland.edu,"5429 Foster St., Overland Park, KS 66202",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Mantela, Virginia",vmantela@charter.net,"12210 Germany Road, Fenton, MI 48430",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Brennan, Kevin",Kevin.Levell.Brennan@gmail.com,"403 E. Fifth Street, Royal Oak, MI 48067",$10.00,06/28/2012,$10.00,07/12/2012,Success,false
+"Sleet, Lanessa",lanessaos7803@msn.com,"8174 Yolanda, Detroit, MI 48234",$1.42,06/28/2012,$1.42,07/12/2012,Success,false
+"Oluwole, Nihinlolawa",nlolah@gmail.com,"28670 Monterey drive, southfield, MI 48076",$1.42,06/28/2012,$1.42,07/12/2012,Success,false
+"Goldenberg, William",william.goldenberg@raymondjames.com,"6739 Candlewood Trail, West Bloomfield, MI 48322",$1.42,06/28/2012,$1.42,07/12/2012,Success,false
+"Pounds, Augustine",poundsa1@verizon.net,"8210 Woburn Abbey Road, Glenn Dale, MD 20769",$25.00,06/28/2012,$25.00,,card_declined,true
+"Guthery, Patricia",patricia.guthery@frontier.com,"11918 43rd Drive SE, Everett, AL 98208",$1.42,06/29/2012,$1.42,,invalid_expiry_month,true
+"Darin, John",johnddarin@aol.com,"9745 Touchton Rd Unit 2304, Jacksonville, FL 32246",$1.42,06/29/2012,$1.42,07/12/2012,Success,false
+"Frank, ivan",ivan12frank@gmail.com,"5876 Raven Rd, Bloomfield, MI 48301",$1.42,05/31/2012,$1.42,07/12/2012,Success,false
+"Sarlow, Nathan",info@cobaltcow.com,"32162 Hearthestone Rd, Farmington Hills, MI 48334",$1.42,05/31/2012,$1.42,07/12/2012,Success,false
+"Valentine, Adam",adam@kiindly.com,"342 Powderhorn Ct, Rochester Hills, MI 48309",$1.42,06/20/2012,$1.42,07/12/2012,Success,false
+"frank, ivan",ivan12frank@gmail.com,"5876 Raven Rd, Bloomfield, MI 48301",$1.42,06/20/2012,$1.42,07/12/2012,Success,false
+"frank, ivan",ivan12frank@gmail.com,"5876 Raven Rd, Bloomfield, MI 48301",$1.42,06/20/2012,$1.42,07/12/2012,Success,false
+"Frank, ivan",ivan12frank@gmail.com,"5876 Raven Rd, Bloomfield, MI 48301",$1.42,06/01/2012,$1.42,07/12/2012,Success,false
+"Sudrovech, Erin",sudrovec@oakland.edu,"353 Inverness, Oxford, MI 48371",$1.42,05/31/2012,$1.42,07/12/2012,Success,false
+"Sandin, Kelly",ksandin20@comcast.net,"48416 Cheyenne Ct., Shelby Township, MI 48315",$1.42,06/01/2012,$1.42,07/12/2012,Success,false
+"Schmidt, Karen",kareneschmidt@gmail.com,"8073 E Ridge Drive, Pleasant Prairie, WI 53158",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Rudman, Dan",dan.rudman@kadeconsulting.com,"2960 Remington Oaks Ln, West Bloomfield, MI 48324",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Stearn, Terri",tntstearn@comcast.net,"31161 Old Stage Road, Beverly Hills, MI 48025",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Velthoven, Aaron",aaron.velthoven@gmail.com,"216 Columbia, South Lyon, MI 48178",$1.42,06/04/2012,$1.42,07/12/2012,Success,false
+"Fleer, Luke",fleer@oakland.edu,"47768 Roland St , Shelby Twp, MI 48317",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"Cornell, Starr",starrcornell@yahoo.com,"350 Billingsgate Ct., Bloomfield Hills, MI 48301",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"Smith, Barbara",bssmith@oakland.edu,"1835 Quincy Dr, Rochester Hills, MI 48306",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"Mitchell, Melissa",memitche@oakland.edu,"151 Lincoln St, Lapeer, MI 48446",$1.42,06/05/2012,$1.42,07/12/2012,Success,false
+"Gardella, Joseph",gardella@acsu.buffalo.edu,"178 Admiral Rd., Buffalo, NY 14216",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Rolfe, Cherie",cherwyro@wowway.com,"957 Milverton Drive, Troy, MI 48083",$10.00,06/06/2012,$10.00,07/12/2012,Success,false
+"Selahowski, Maura",mcselaho@oakland.edu,"3940 Bald Eagle Lake Rd., Holly, MI 48442",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"grillo, kevin",kevgrill@hotmail.com,"1001 garden view dr ne #334, atlanta, GA 30319",$20.00,06/06/2012,$20.00,07/12/2012,Success,false
+"Simmonds, Diane",ds.simmonds@gmail.com,"2912 Allenby Drive, Raleigh, NC 27604",$10.00,06/06/2012,$10.00,07/12/2012,Success,false
+"Garrett, Amy ",anblock@hotmail.com,"850 Shady Hollow Circle, Bloomfield Township, MI 48304",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Burton, Joshua",joshburton410@hotmail.com,"18661, Hillcrest, MI 48152",$20.00,06/06/2012,$20.00,07/12/2012,Success,false
+"Anderson, Diane",dianedla@aol.com,"3049 49th ST SW, Naples, FL 34116",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Gilbert, Garry",gjgilber@oakland.edu,"793 Baylor Road, Rochester Hills, MI 48309",$1.42,06/06/2012,$1.42,07/12/2012,Success,false
+"Barnett, Bryan ",Mayorbarnett07@gmail.com,"1681 crestline, Rochester hills, MI 48307",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Govan, Michael",Reflector77@aol.com,"2888 E Long Lake, Suite 170, Troy, MI 48085",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Secord, David",dmsecord@oakland.edu,"1714 Maddy Lane, Keego Harbor, MI 48320",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Cheal, Catheryn",cheal@oakland.edu,"570 E. Snell Rd, Rochester, MI 48306",$50.00,06/07/2012,$50.00,07/12/2012,Success,false
+"Dang, Loan",dang@oakland.edu,"650 McGills Dr , Rochester hills , MI 48309",$20.00,06/07/2012,$20.00,07/12/2012,Success,false
+"Hunton, Alysa",hunton@oakland.edu,"3340 1/2 Bloomcrest Drive, Bloomfield Hills, MI 48304",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Dawson, Shanna",sparks@oakland.edu,"21 Sparrow Hill Dr, Orion, MI 48359",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Warsinski, Wanda",warsinski@yahoo.com,"3350 Greenfield, Royal Oak, MI 48073",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Weiss, Sheryl",weiss2@oakland.edu,"1901 Grayslake Drive, Rochester Hills, MI 48306",$20.00,06/07/2012,$20.00,07/12/2012,Success,false
+"Goeth, Jessica",jrgoeth@oakland.edu,"58048 Colchester Rd, Washington, MI 48094",$30.00,06/07/2012,$30.00,07/12/2012,Success,false
+"McAlpine, Kevin",trikevinlm@aol.com,"12014 Carney Street, Warren, MI 48089",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Graca, William",bill.graca@gmail.com,"39328 Baroque Blvd., Clinton Township, MI 48038",$1.42,06/07/2012,$1.42,07/12/2012,Success,false
+"Stankiewicz, Beverley",westbeverley@yahoo.com,"50460 Helmandale St., Chesterfield, MI 48047",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Garnett, Kelly",krgarnet@oakland.edu,"2566 Thomas Ave., Berkley, MI 48072",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Morris, Majela",morris23@oakland.edu,"1836 Ridge Rd., White Lake, MI 48309",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Kelly, Meghan",meghanMKkelly@gmail.com,"31150 Huntley Square East, Apt 1724, Beverly Hills, MI 48025",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Carney, Jana",carney@oakland.edu,"927 N. Center St, Royal Oak, MI 48067",$1.42,06/08/2012,$1.42,07/12/2012,Success,false
+"Koslofsky, Regis",regisking@msn.com,"8300 Bromley rd, Hillsborough, NC 27278",$25.00,06/09/2012,$25.00,07/12/2012,Success,false
+"Stepanian-Bennett, Emily",fox2@oakland.edu,"201 N. Squirrel Rd. 604, Auburn Hills, MI 48326",$1.42,06/09/2012,$1.42,07/12/2012,Success,false
+"Zaniewski, Ashley",ashley.zaniewski@gmail.com,"19381 E Harbour Village Dr, Northville, MI 48167",$50.00,06/09/2012,$50.00,07/12/2012,Success,false
+"Middlebrook, Deborah",dowade@oakland.edu,"23481 Gardner, Oak Park, MI 48237",$1.42,06/11/2012,$1.42,07/12/2012,Success,false
+"Stein, Mary",stein@oakland.edu,"4060 Lake George Rd., Leonard, MI 48367",$1.42,06/13/2012,$1.42,07/12/2012,Success,false
+"Koch, Bonnie",bkoch@oakland.edu,"13735 Maple Grove Avenue, Shelby Twp, MI 48315",$10.00,06/13/2012,$10.00,07/12/2012,Success,false
+"Longo, Kelly",klongo213@hotmail.com,"3010 Sylvan Drive, Royal Oak, MI 48073",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Farr, Daniel",oaklanddan@gmail.com,"23207 Port, St. Clair Shores, MI 48082",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Mitchell, Kristy",kamitche@oakland.edu,"495 Indian Hills Drive, Oxfore, MI 48371",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Daly, Laura",laura.daly@cummins.com,"1143 Thicket Ct. Apt. E, Columbus, IN 47201",$50.00,06/14/2012,$50.00,07/12/2012,Success,false
+"PARKER, John",parker@labs.net,"301 SENECA HILLS ESTS, MORGANTOWN, WV 26508",$1.42,06/14/2012,$1.42,07/12/2012,Success,false
+"Cook, Todd",toddcook@hotmail.com,"525 Westmoreland Avenue, Lansing, MI 48915",$20.00,06/15/2012,$20.00,07/12/2012,Success,false
+"Gross, Lynn",lynngross@ameritech.net,"6809 Northpoint Dr., Troy, MI 48085",$50.00,06/16/2012,$50.00,07/12/2012,Success,false
+"Viano, Jennifer",jav4429@yahoo.com,"29420 Regents Pointe, Farmington Hills, MI 48331",$1.42,06/17/2012,$1.42,07/12/2012,Success,false
+"Rasmussen, Kathlyn",kmichigan@wowway.com,"2440 Pleasant View , Rochester Hills, MI 48306",$1.42,06/20/2012,$1.42,07/12/2012,Success,false
+"Becker, Anne",abecker@oakland.edu,"3817 Quarton Rd., Bloomfield Hills, MI 48302",$100.00,06/21/2012,$100.00,07/12/2012,Success,false
+"Pauli, Dawn",dmpauli@comcast.net,"50111 Middle River, Macomb Twp., MI 48044",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Cardamone, Tina",tinawc@hotmail.com,"410 N. Rembrandt Avenue, Royal Oak, MI 48067",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Warner, Lori",lwarner@beaumont.edu,"1107 Longfellow Avenue, Royal Oak, MI 48067",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Gibson, Patrick",pgibson626@att.net,"505 Coyle Ave, Arcadia, CA 91006",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Pierce, Brenda",pierce@oakland.edu,"3460 Wedgewood Drive, Rochester Hills, MI 48306",$1.42,06/22/2012,$1.42,07/12/2012,Success,false
+"Zobel, Donna",zobeld@umich.edu,"615 Ottawa Drive, Troy, MI 48085",$1.42,06/23/2012,$1.42,07/12/2012,Success,false
+"Dulmage, Stephanie",tomdulmage@comcast.net,"5828 Lakeview Dr, Orchard Lake, MI 48323",$1.42,06/24/2012,$1.42,07/12/2012,Success,false
+"Lera, Kostandin",vaniko_lear@sbcglobal.net,"2850 Olden Oak Lane # 301, Auburn Hills,, MI 48326",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Cox, Traci",traci.l.cox@gmail.con,"5 Grange CT, Taylors, SC 29687",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Atesoglu, O. Eser",eser@atesoglu.us,"4377 Arcadia Dr, Auburn Hills, MI 48326",$10.00,06/27/2012,$10.00,07/12/2012,Success,false
+"Bovee, Megan",mgilroy@oakland.edu,"3038 Canada Ct, Lake Orion, MI 48360",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Levin, Bradley",bjlevin@gmail.com,"1702 Henbert Road, West Bloomfield, MI 48324",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Zegers, Mary",mjzegers@yahoo.com,"524 Meadow lane, Rochester, MI 48307",$1.42,06/27/2012,$1.42,07/12/2012,Success,false
+"Bozich, Ed",ebozich@wideopenwest.com,"39332 Lorien Dr, Sterling Heights, MI 48313",$1.42,06/28/2012,$1.42,07/12/2012,Success,false
+"Quayle, Bruce",Bruce_Quayle@ieee.org,"59 Mt. Vernon Ave., Pittsburgh, PA 15229",$1.42,06/28/2012,$1.42,07/12/2012,Success,false

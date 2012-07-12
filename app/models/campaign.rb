@@ -6,7 +6,7 @@ class Campaign < ActiveRecord::Base
   validates :donation_target, presence: true
 
   def number_of_eligible_pledges
-    Campaign.where(id: self.id).joins(donors: :pledges).count(:donor_id, distinct: true)
+    self.class.where(id: self.id).joins(donors: :pledges).count(:donor_id, distinct: true)
   end
 
   def percent_complete

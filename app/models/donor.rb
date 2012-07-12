@@ -10,6 +10,8 @@ class Donor < ActiveRecord::Base
   validates :stripe_customer, presence: true
   validates :terms_of_service, inclusion: [true]
 
+  scope :unprocessed, -> { where(processed_at: nil) }
+
   def donation_amount
     fixed_pledge_amount + penny_pledge_amount
   end

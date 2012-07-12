@@ -20,33 +20,33 @@ ActiveRecord::Schema.define(:version => 20120712144312) do
   end
 
   create_table "donors", :force => true do |t|
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "campaign_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "street_address"
     t.string   "city"
-    t.string   "state",            :limit => 2
-    t.string   "zip",              :limit => 9
-    t.string   "phone",            :limit => 10
+    t.string   "state",                 :limit => 2
+    t.string   "zip",                   :limit => 9
+    t.string   "phone",                 :limit => 10
     t.boolean  "terms_of_service"
     t.boolean  "email_opt_in"
     t.text     "stripe_customer"
+    t.datetime "processed_at"
+    t.datetime "confirmation_email_at"
+    t.text     "stripe_response"
   end
 
   create_table "pledges", :force => true do |t|
     t.integer  "campaign_id"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.string   "pledge_type"
     t.integer  "donor_id"
-    t.decimal  "amount",                :precision => 10, :scale => 2
-    t.decimal  "cap",                   :precision => 10, :scale => 2
-    t.datetime "processed_at"
-    t.datetime "confirmation_email_at"
-    t.text     "stripe_response"
+    t.decimal  "amount",      :precision => 10, :scale => 2
+    t.decimal  "cap",         :precision => 10, :scale => 2
   end
 
 end
