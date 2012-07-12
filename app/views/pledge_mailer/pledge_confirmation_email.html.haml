@@ -1,0 +1,66 @@
+!!!
+%html
+  %head
+    %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= image_tag "https://www.oupledge.com/assets/email/email-header-thanks.gif"
+
+    %p
+      Dear #{@donor.first_name.capitalize},
+
+    - if @pledge.pledge_type == "fixed"
+      %p
+        Thank you for your generous pledge of $10.00 to the OUAA Scholarship Fund.
+        Below is your receipt of your tax deductible donation which you should keep for your records.
+      %p
+        You have impacted the entire community because as a result of your donation, penny pledge donors* have increased their pledges by $.01 each.
+      %p
+        * Penny pledge donors are those who agreed to donate one penny for every donor who participates in the campaign.
+    - else
+      %p
+        Thank you for your generous pledge to the OUAA Scholarship Fund.
+        The campaign received #{@campaign.number_of_eligible_pledges} donations.
+        The campaign did not reach your maximum cap of #{number_to_currency(@pledge.cap)}, matching one penny for every donor.
+        As a result, your penny pledge of a penny per donor equals #{number_to_currency(@donor.donation_amount, precision: 2)}.
+      %p
+        You have impacted the entire community because as a result of your pledge,
+        all other penny pledges increased by $.01 each, which has added up to help our scholarship fund.
+
+    %p
+      Regards,
+      %br
+      Oakland University Alumni Association & Kiindly
+      \:
+      = link_to "Facebook", "https://www.facebook.com/givingtogether"
+      |
+      = link_to "Twitter", "https://twitter.com/#kiindlygiving"
+      |
+      = link_to "Website", "https://www.oupledge.com"
+
+    %p= image_tag "https://www.oupledge.com/assets/email/email-kiindly-logo.png"
+
+    = render "tax_receipt"
+
+    %p
+      We are grateful for your gift and the trust imparted to us in managing its use.
+      Your donation makes a difference to Oakland University students who are achieving their dreams of higher education.
+
+    %p
+      %b
+        Your gift is deductible on your federal tax return.
+        Please consult your tax advisor for full details.
+        If you have any questions regarding your donation,
+        please contact Theresa Allen, Manager of Gift Accounting at 248-364-6115.
+
+    %p
+      %b
+        No goods or services were provided for this gift.
+
+    %p
+      For current Alumni news and activities, please visit the OUAA website at
+      = link_to "www.oualumni.com", "http://www.oualumni.com"
+
+    %p
+      For more information on fundraising through Kiindly, please click
+      = link_to "here", "http://www.kiindly.com"
+

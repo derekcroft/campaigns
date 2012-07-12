@@ -46,4 +46,10 @@ class Payment
     donor.save!
     response
   end
+
+  def self.confirm!(donor)
+    return if donor.processed_at.nil? || donor.confirmation_email_at?
+    pledge = donor.pledges.first
+    PledgeMailer.pledge_confirmation_email(pledge).deliver
+  end
 end

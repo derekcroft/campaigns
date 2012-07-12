@@ -11,6 +11,7 @@ class Donor < ActiveRecord::Base
   validates :terms_of_service, inclusion: [true]
 
   scope :unprocessed, -> { where(processed_at: nil) }
+  scope :unconfirmed, -> { where(confirmation_email_at: nil)}
 
   def donation_amount
     fixed_pledge_amount + penny_pledge_amount

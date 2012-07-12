@@ -1,0 +1,11 @@
+%p
+  %pre
+    = preserve do
+      :escaped
+        DONATION RECEIPT FOR YOUR TAX RECORDS
+        Name:        #{@donor.first_name.capitalize} #{@donor.last_name.capitalize}
+        Campaign:    OUAA Scholarship Penny Pledge
+        Amount:      #{number_to_currency(@donor.donation_amount, precision: 2)}
+        Date:        #{@donor.processed_at.strftime('%m/%d/%Y')}
+        Credit card: XXXX-XXXX-XXXX-#{@stripe_customer.active_card.last4}
+
