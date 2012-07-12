@@ -19,4 +19,10 @@ class Payment
       end
     end
   end
+
+  def self.pay!(donor)
+    cust = YAML::load(donor.stripe_customer)
+    amount = donor.amount
+#    Stripe::Charge.create( 
+  end
 end
