@@ -15,6 +15,14 @@ class Pledge < ActiveRecord::Base
   scope :penny, where(pledge_type: 'penny')
   scope :fixed, where(pledge_type: 'fixed')
 
+  scope :resend, -> { where(pledge_type: 'fixed').where('amount <> 10').
+                      joins(:donor).where('donors.confirmation_correction_at is null').
+                      where('donors.processed_at is not null') }
+
+  def self.correction_email_list
+    resend.pluck('donors.email')
+  end
+
   after_initialize :set_defaults
   def set_defaults
     self.pledge_type ||= 'penny'

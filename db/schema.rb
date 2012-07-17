@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712144312) do
+ActiveRecord::Schema.define(:version => 20120717185228) do
 
   create_table "campaigns", :force => true do |t|
     t.decimal  "donation_target", :precision => 20, :scale => 2
@@ -20,23 +20,24 @@ ActiveRecord::Schema.define(:version => 20120712144312) do
   end
 
   create_table "donors", :force => true do |t|
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "campaign_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "street_address"
     t.string   "city"
-    t.string   "state",                 :limit => 2
-    t.string   "zip",                   :limit => 9
-    t.string   "phone",                 :limit => 10
+    t.string   "state",                      :limit => 2
+    t.string   "zip",                        :limit => 9
+    t.string   "phone",                      :limit => 10
     t.boolean  "terms_of_service"
     t.boolean  "email_opt_in"
     t.text     "stripe_customer"
     t.datetime "processed_at"
     t.datetime "confirmation_email_at"
     t.text     "stripe_response"
+    t.datetime "confirmation_correction_at"
   end
 
   create_table "pledges", :force => true do |t|

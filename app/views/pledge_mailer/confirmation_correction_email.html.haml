@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p
+      Dear #{@donor.first_name.capitalize},
+
+    %p
+      You recently received a Kiindly confirmation email regarding your fixed donation to the OUAA Scholarship Fund.
+
+    %p
+      The email stated that your donation was $10.00. 
+      In fact it was #{number_to_currency(@donor.donation_amount, precision: 2)}, and your credit card was correctly charged.
+
+    %p
+      We apologize for the confusion and thank you for your generosity.
+
+    %p
+    Regards,
+    %br
+    Oakland University Alumni Association & Kiindly
+    \:
+    = link_to "Facebook", "https://www.facebook.com/givingtogether"
+    |
+    = link_to "Twitter", "https://twitter.com/#kiindlygiving"
+    |
+    = link_to "Website", "https://www.oupledge.com"
+
+    %p= image_tag "https://www.oupledge.com/assets/email/email-kiindly-logo.png"
+
+    = render "tax_receipt"
+
