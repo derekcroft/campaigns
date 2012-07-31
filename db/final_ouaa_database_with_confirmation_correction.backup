@@ -626,12 +626,12 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 --
 -- TOC entry 2150 (class 0 OID 0)
 -- Dependencies: 5
--- Name: public; Type: ACL; Schema: -; Owner: dcroft
+-- Name: public; Type: ACL; Schema: -; Owner: kiindly
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM dcroft;
-GRANT ALL ON SCHEMA public TO dcroft;
+REVOKE ALL ON SCHEMA public FROM kiindly;
+GRANT ALL ON SCHEMA public TO kiindly;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
