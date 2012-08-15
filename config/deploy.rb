@@ -31,6 +31,7 @@ namespace :deploy do
  end
 end
 
+# only precompile assets if they have changed (http://bit.ly/PkMfa3)
 namespace :deploy do
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do
