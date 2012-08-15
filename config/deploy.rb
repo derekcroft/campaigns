@@ -1,5 +1,4 @@
 require 'bundler/capistrano'
-#set :bundle_cmd, "/home/kiindly/.rbenv/shims/bundle"
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
@@ -12,11 +11,9 @@ set :scm, :git
 set :use_sudo, false
 set :deploy_to, "/home/kiindly/campaigns/chi"
 
+after "deploy", "deploy:migrate"
+
 server "kiindly", :app, :web, :db, primary: true
-#role :web, "kiindly"                          # Your HTTP server, Apache/etc
-#role :app, "kiindly"                          # This may be the same as your `Web` server
-#role :db,  "kiindly", :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
