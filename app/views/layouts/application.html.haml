@@ -11,13 +11,13 @@
     = csrf_meta_tags
     = tag :meta, name: "stripe-key", content: STRIPE_PUBLISHABLE_KEY
     = yield :show_functions
+    = javascript_include_tag "google_analytics"
   %body
     #bodycontent
       = render 'layouts/titlebar'
       #mainbodycontent
         = yield
     = render 'layouts/footer'
-    = javascript_include_tag "google_analytics"
     :javascript
       function initAddThis() {
         if(typeof(addthis) != "undefined") {
