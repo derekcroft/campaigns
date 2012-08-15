@@ -1,6 +1,9 @@
 require 'bundler/capistrano'
 #set :bundle_cmd, "/home/kiindly/.rbenv/shims/bundle"
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 set :application, "chi"
 set :repository,  "git@github.com:derekcroft/kiindly.git"
