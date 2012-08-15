@@ -10,6 +10,7 @@ set :repository,  "git@github.com:derekcroft/kiindly.git"
 set :scm, :git
 set :use_sudo, false
 set :deploy_to, "/home/kiindly/campaigns/chi"
+set :deploy_via, :remote_cache
 
 after "deploy", "deploy:migrate"
 
