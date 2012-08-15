@@ -1,3 +1,4 @@
+set :bundle_cmd, "/home/kiindly/.rbenv/shims/bundle"
 require 'bundler/capistrano'
 
 set :application, "chi"
