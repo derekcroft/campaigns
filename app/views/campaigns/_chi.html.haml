@@ -2,7 +2,7 @@
   .middleblock
     #status
       #campaignlogo
-        %img{:height => "80", :src => "campaigns/tsc1/assets/logo.jpg", :width => "250"}/
+        = image_tag "sites/chi/logo.jpg", height: 80, width: 250
       #progresstext
         %span#hardcount 1,285
         donors
@@ -23,7 +23,7 @@
   .middleblock
     #leftcol
       #expires.roundbox
-        %img{:align => "left", :src => "/images/calendar.gif"}>/
+        = image_tag "calendar.gif", align: 'left'
         This campaign ends in
         %br/
         %span#expiresdays 26 days
