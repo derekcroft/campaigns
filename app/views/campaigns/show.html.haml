@@ -5,22 +5,4 @@
 - content_for :titlebar_nav do
   = render 'layouts/main_titlebar_nav'
 
-#leftmain
-  #hero
-    %ul#heroContent.slideshow
-      %li= image_tag "sites/ou/ou_hero0.jpg", width: 500, height: 330
-      %li= image_tag "sites/ou/ou_hero1.jpg", width: 500, height: 330
-      %li= image_tag "sites/ou/ou_hero2.jpg", width: 500, height: 330
-      %li= image_tag "sites/ou/ou_hero3.jpg", width: 500, height: 330
-  #campaignlogo= ou_logo_tag
-  #socialthin= render 'add_this'
-  #progress= render 'progressbar'
-  #campaigninfo= render 'campaign_info'
-#rightmain
-  #video= render 'video'
-  -#= render 'donation_gold_box'
-  = render 'campaign_completed_gold_box'
-  #diduknow
-    %h3 Did you know..
-    %p 100% of the money raised will support the OUAA Scholarship Fund that helps worthy students take advantage of an Oakland education.
-  #supporters= render partial: 'layouts/activity_feed', locals: { width: '400px', height: '400px' }
+= render 'chi'
