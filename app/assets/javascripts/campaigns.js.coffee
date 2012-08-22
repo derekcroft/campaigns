@@ -25,9 +25,6 @@ jQuery ->
       $('.donation_error').html('')
       $('#submit_donation').prop('disabled', false)
 
-  # start the hero image slideshow
-  $('.slideshow').cycle {fx: 'fade', speed: 700, timeout: 10000}
-
   # only allow numbers in the fixed amount text field
   $('.positive-integer').numeric { decimal: false, negative: false }
 
