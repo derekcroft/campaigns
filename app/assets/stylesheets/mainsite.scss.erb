@@ -1,587 +1,153 @@
 @charset "UTF-8";
+/* CSS Document */
+
+/* MAIN CLASSES */
+
+body { padding:0; margin:0; background-color:#e1e1e1; font-family: 'Nunito', arial, sans-serif; font-weight:300; font-size:13px; line-height:20px; text-align:left; color:#373737; width:100%; }
+div { vertical-align:top; text-align:left; }
+p,h1,h2,h3 { text-align:left; font-family: 'Nunito', arial, sans-serif; }
+h3 { font-size:16px; text-transform:uppercase; color:#4fba69; margin:0; }
+b,strong { font-weight:700; }
+a { font-family: 'Nunito', arial, sans-serif; text-decoration:none; color:#4fba69; }
+hr { color:#e1e1e1; border:0; }
+.clear { clear:both; }
+
+/* COMMON */
+
+.middleblock { width:970px; margin:0 auto !important; }
+.roundbox    { background-color:#ffffff; -webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px; border:0; margin-bottom:10px;  }
+button { background:#f2ee00; color:#282828; font-size:22px; text-transform:uppercase; height:50px; letter-spacing:-0.5pt;  -webkit-border-radius: 10px; -moz-border-radius: 10px;  border:0 1px 1px 0 solid; border-color:#9c7c00 #9c7c00 #6a3d00 #6a3d00; border-radius: 10px; padding:6px 10px; font-weight:700; font-family: 'Nunito', arial;
+background: -webkit-gradient(linear, top, bottom, from(#f6ff6c), to(#fd9200));
+background: -webkit-linear-gradient(top, #f6ff6c, #fd9200);
+background: -moz-linear-gradient(top,  #f6ff6c,  #fd9200);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6ff6c', endColorstr='#fd9200'); }
+.campaigntitle {  color:#4fba69; }
+
+/* TITLE BAR */
+
+#titlebar { background-color:#282828; width:100%; height:70px; overflow:hidden; margin:0; padding:0; }
+#titlebar .middleblock { height:70px; background-image:image-url('roundshadow-titlebar.png'); background-repeat:no-repeat; background-position:center bottom; }
+#titlebarlogo { background-image:image-url('kiindlycom-title-logo.png'); background-repeat:no-repeat; width:187px; height:52px; margin:0; float:left; padding:0; }
+#titlebarlogo span { display:none; }
+#righttopnav { float:right; font-size:10px; text-align:right; padding:20px 0 0 0; width:250px; height:40px; }
+#righttopnav .help { color:#ffffff; text-transform:uppercase; font-weight:300; font-size:11px; }
+#righttopnav .startcampaign { color:#4fba69; text-transform:uppercase; font-weight:700; font-size:12px; }
+
+/* HERO BLOCK */
+
+#topblock { clear:both; width:100%; height:460px; padding:0; margin:0; background-color:#3b3b3b;
+background: -webkit-linear-gradient(top, #4e4e4e, #373737);
+background: -webkit-gradient(linear, top, bottom, from(#4e4e4e), to(#373737));
+background: -moz-linear-gradient(top,  #4e4e4e,  #373737);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e', endColorstr='#373737'); }
+
+#topblock .middleblock { height:460px; margin:10px 0 0 0; padding-top:10px; }
 
-body {
-background-color:#e1e1e1;
-font-family:Nunito, arial, sans-serif;
-font-weight:300;
-font-size:13px;
-line-height:20px;
-text-align:left;
-color:#373737;
-width:100%;
-margin:0;
-padding:0;
-}
-
-div {
-vertical-align:top;
-text-align:left;
-}
-
-p,h1,h2,h3 {
-text-align:left;
-font-family:Nunito, arial, sans-serif;
-}
-
-h3 {
-font-size:16px;
-text-transform:uppercase;
-color:#4fba69;
-margin:0;
-}
-
-b,strong {
-font-weight:700;
-}
-
-a {
-font-family:Nunito, arial, sans-serif;
-text-decoration:none;
-color:#4fba69;
-}
-
-hr {
-color:#e1e1e1;
-border:0;
-}
-
-.clear {
-clear:both;
-}
-
-.middleblock {
-clear:both;
-width:970px;
-margin:0 auto!important;
-padding:10px 0 0;
-}
-
-.roundbox {
-background-color:#fff;
--webkit-border-radius:10px;
--moz-border-radius:10px;
-border-radius:10px;
-border:0;
-margin-bottom:10px;
-}
-
-button {
-color:#282828;
-font-size:22px;
-text-transform:uppercase;
-height:50px;
-letter-spacing:-.5pt;
--webkit-border-radius:10px;
--moz-border-radius:10px;
-border:0 1px 1px 0 solid;
-border-radius:10px;
-font-weight:700;
-font-family:Nunito, arial;
-background:0;
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6ff6c',endColorstr='#fd9200');
-border-color:#9c7c00 #9c7c00 #6a3d00 #6a3d00;
-padding:6px 10px;
-}
-
-#titlebar {
-background-color:#282828;
-width:100%;
-height:70px;
-overflow:hidden;
-margin:0;
-padding:0;
-}
-
-#titlebar .middleblock {
-height:70px;
-background-image:image-url("roundshadow-titlebar.png");
-background-repeat:no-repeat;
-background-position:center bottom;
-}
-
-#titlebarlogo {
-background-image:image-url("kiindlycom-title-logo.png");
-background-repeat:no-repeat;
-width:187px;
-height:52px;
-float:left;
-margin:0;
-padding:0;
-}
-
-#titlebarlogo span {
-display:none;
-}
-
-#righttopnav {
-float:right;
-font-size:10px;
-text-align:right;
-width:250px;
-height:40px;
-padding:20px 0 0;
-}
-
-#righttopnav .help {
-color:#fff;
-text-transform:uppercase;
-font-weight:300;
-font-size:11px;
-}
-
-#righttopnav .startcampaign {
-color:#4fba69;
-text-transform:uppercase;
-font-weight:700;
-font-size:12px;
-}
-
-#topblock {
-clear:both;
-width:100%;
-height:460px;
-background-color:#3b3b3b;
-background:0;
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e',endColorstr='#373737');
-margin:0;
-padding:0;
-}
-
-#topblock #status {
-width:290px;
-height:430px;
-float:left;
-background-color:#fff;
--webkit-border-radius:10px 0 0 10px;
--moz-border-radius:10px 0 0 10px;
-border-radius:10px 0 0 10px;
-border:0;
-padding:0;
-}
-
-#campaignlogo {
-width:250px;
-height:80px;
-padding-bottom:20px;
-border-bottom:2px solid #4fba69;
-margin:20px 20px 0;
-}
-
-#progresstext {
-font-size:15px;
-color:#4fba69;
-line-height:22px;
-margin:0;
-padding:30px 30px 10px;
-}
-
-#hardcount {
-font-size:40px;
-letter-spacing:-1px;
-font-weight:700;
-text-shadow:0 1px 0 #ccc, 0 2px 0 #aaa;
-}
-
-#goaltext {
-background-color:#656565;
-color:#fff;
-font-size:16px;
-clear:both;
-margin:10px 0 0;
-padding:10px 30px;
-}
-
-#progresschart {
-height:8px;
-width:290px;
-background-color:#d8d8d8!important;
-clear:both;
-margin:0;
-padding:0;
-}
-
-#peopleprogress {
-height:8px;
-float:left;
-background-color:#4fba69;
-}
-
-#countmein {
-clear:both;
-margin:0;
-padding:20px 30px 0;
-}
-
-#topblock #video {
-width:640px;
-height:390px;
-float:right;
-background-color:#4fba69;
--webkit-border-radius:0 10px 10px 0;
--moz-border-radius:0 10px 10px 0;
-border-radius:0 10px 10px 0;
-border:0;
-padding:20px;
-}
-
-#leftcol {
-width:290px;
-float:left;
-margin:0;
-padding:0;
-}
-
-#expires {
-background:#fff;
-height:70px;
-width:260px;
-font-size:14px;
-color:#282828;
-line-height:25px;
-padding:20px 0 0 30px;
-}
-
-#expires img {
-padding-right:10px;
-}
-
-#expiresdays {
-font-size:28px;
-font-weight:700;
-}
-
-#corporate_diy {
-background-color:#FFF;
-width:230px;
-min-height:490px;
-margin:0;
-padding:30px;
-}
-
-#middcol {
-width:410px;
-float:left;
-margin:0 0 0 10px;
-padding:0;
-}
-
-#social {
-background-color:#4fba69;
-height:60px;
-width:350px;
-padding:30px 30px 0;
-}
-
-.socialtitle {
-color:#fff;
-font-size:20px;
-font-weight:700;
-float:left;
-margin:7px 15px 0 0;
-}
-
-#campaigninfo {
-background-color:#FFF;
-width:350px;
-min-height:490px;
-vertical-align:top;
-margin:0;
-padding:30px 30px 10px;
-}
-
-#campaigninfo p {
-margin:0 0 10px;
-padding:0;
-}
-
-#top-back-grad-sm {
-clear:both;
-width:100%;
-height:180px;
-position:absolute;
-z-index:-1;
-background-color:#3b3b3b;
-background:0;
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e',endColorstr='#373737');
-margin:0;
-padding:0;
-}
-
-.contentpageblock {
-width:970px;
-margin:0 auto;
-padding:10px 0 0;
-}
-
-#payinfo-left {
-float:left;
-width:670px;
-padding:0;
-margin:0;
-}
-
-.paymentcontentblock {
-background:#fff;
-width:610px;
-padding:30px;
-}
-
-#payment-type img {
-margin:5px 20px 0 0;
-}
-
-.optincheck {
-float:left;
-width:30px;
-}
-
-.optintext {
-width:500px;
-margin:0 0 20px;
-}
-
-input {
-width:240px;
-border:1px solid #4fba69;
-height:28px;
-font-size:14px;
-color:#4fba69;
-margin:0 0 5px;
-}
-
-input.short {
-width:80px;
-}
-
-input.medium {
-width:320px;
-}
-
-input.long {
-width:500px;
-}
-
-input.rad {
-border:0!important;
-width:auto!important;
-margin:0 5px 0 0;
-}
-
-#infopage-right {
-width:290px;
-float:right;
-margin:0;
-padding:0;
-}
-
-#infopage-right #donationstatus {
-width:290px;
-margin:0 0 10px;
-padding:30px;
-}
-
-#infopage-right #donordots {
-background:#FFF;
-width:230px;
-min-height:290px;
-margin:0 0 10px;
-padding:30px;
-}
-
-#infopage-right #dotbox {
-width:230px;
-margin:0;
-padding:0;
-}
-
-#infopage-right #howitworks {
-width:250px;
-margin:0 0 10px;
-padding:20px;
-}
-
-#howitworks h3 {
-margin-left:10px;
-}
-
-#rghtcol {
-width:250px;
-float:left;
-margin:0 0 0 10px;
-padding:0;
-}
-
-#donordots {
-background:#FFF;
-width:190px;
-min-height:590px;
-margin:0;
-padding:30px;
-}
-
-#dotbox {
-width:190px;
-margin:0;
-padding:0;
-}
-
-.texttip {
-border:0;
-cursor:help;
-position:relative;
-margin:0 0 0 5px;
-padding:0;
-}
-
-.texttip:hover span {
-border-radius:5px 5px;
--moz-border-radius:5px;
--webkit-border-radius:5px;
-box-shadow:5px 5px 5px rgba(0,0,0,0.1);
--webkit-box-shadow:5px 5px rgba(0,0,0,0.1);
--moz-box-shadow:5px 5px rgba(0,0,0,0.1);
-position:absolute;
-top:10px;
-z-index:99;
-margin-left:0;
-width:180px;
-}
-
-.tooltip {
-height:8px;
-width:8px;
-border:0;
-float:left;
-cursor:help;
-position:relative;
-margin:0 2px 2px 0;
-padding:0;
-}
-
-.tooltip:hover span {
-border-radius:5px 5px;
--moz-border-radius:5px;
--webkit-border-radius:5px;
-box-shadow:5px 5px 5px rgba(0,0,0,0.1);
--webkit-box-shadow:5px 5px rgba(0,0,0,0.1);
--moz-box-shadow:5px 5px rgba(0,0,0,0.1);
-position:absolute;
-left:-190px;
-top:10px;
-z-index:99;
-margin-left:0;
-width:180px;
-}
-
-.tooltip:hover em {
-font-size:12px;
-font-weight:700;
-display:block;
-padding:0;
-}
-
-.tipx {
-background:#eee;
-border:1px solid #222;
-padding:10px;
-}
-
-* html a:hover {
-background:transparent;
-}
-
-#topblock-payment {
-width:970px;
-position:fixed;
-margin:0 auto;
-padding:0;
-}
-
-#donationstatus {
-background:#fff;
-padding:1px 0!important;
-}
-
-#donation-summary {
-text-indent:inherit;
-width:250px;
-margin:0;
-padding:0;
-}
-
-#donation-summary li {
-list-style:none;
-font-size:12px;
-width:120px;
-float:left;
-}
-
-.donsum-right {
-width:90px!important;
-color:#333;
-font-weight:700;
-text-align:right;
-}
-
-#footer {
-background-color:#282828;
-width:100%;
-clear:both;
-margin:20px 0 0!important;
-padding:0;
-}
-
-#footercontainer {
-width:970px;
-min-height:120px;
-font-size:9px;
-color:#fff;
-font-weight:700;
-margin:0 auto;
-padding:20px 0;
-}
-
-#footercontainer .footerlinks-l {
-float:left;
-width:150px;
-text-align:left;
-}
-
-#footercontainer a {
-color:#9f9f9f;
-text-decoration:none;
-font-weight:400;
-}
-
-#footercontainer a:hover {
-color:#898989;
-text-decoration:underline;
-}
-
-.campaigntitle,#footercontainer a.sac,#footercontainer a.sac:hover {
-color:#4fba69;
-}
-
-#topblock .middleblock,#topblock-payment .middleblock {
-height:460px;
-padding-top:10px;
-margin:10px 0 0;
-}
-
-#paymentform,#billingform {
-text-indent:inherit;
-padding:0;
-}
-
-#paymentform li,#billingform li {
-list-style:none;
-float:left;
-width:260px;
-text-indent:inherit;
-padding:0;
-}
-
-.texttip span,.tooltip span {
-margin-left:-999em;
-position:absolute;
-}
+#topblock #status { width:290px; height:430px; float:left; padding:0; background-color:#ffffff; -webkit-border-radius:10px 0 0 10px; -moz-border-radius:10px 0 0 10px; border-radius:10px 0 0 10px; border:0; }
+#campaignlogo { width:250px; height:80px; margin:20px 20px 0 20px; padding-bottom:20px; border-bottom:2px solid #4fba69; }
+#progresstext { padding:30px 30px 10px 30px; margin:0; color:#4fba69; font-size:15px; color:#4fba69; line-height:22px;  }
+#hardcount { font-size:40px; letter-spacing:-1px; font-weight:700; text-shadow: 0 1px 0 #ccc, 0 2px 0 #aaa; }
+#goaltext { background-color:#656565; padding:10px 30px; margin:10px 0 0 0; color:#fff; font-size:16px; clear:both; }
+#progresschart { height:8px; width:290px; padding:0; margin:0; background-color:#d8d8d8 !important; clear:both; }
+#peopleprogress { height:8px; float:left; background-color:#4fba69; }
+#countmein { padding:20px 30px 0 30px; margin:0; clear:both; }
+
+#topblock #video { width:640px; height:390px; float:right; padding:20px; background-color:#4fba69; -webkit-border-radius:0 10px 10px 0; -moz-border-radius:0 10px 10px 0; border-radius:0 10px 10px 0; border:0; }
+
+/* CONTENT */
+
+.middleblock { clear:both; width:970px; padding:10px 0 0 0; margin:0 auto; }
+#leftcol { width:290px; float:left; padding:0; margin:0; }
+#expires { background:#ffffff; padding:20px 0 0 30px; height:70px; width:260px; font-size:14px; color:#282828; line-height:25px; }
+#expires img { padding-right:10px; }
+#expiresdays { font-size:28px; font-weight:700; }
+#corporate_diy  { background-color:#FFF; padding:30px; width:230px; margin:0; min-height:490px; }
+
+#middcol { width:410px; float:left; padding:0; margin:0 0 0 10px; }
+#social { background-color:#4fba69; padding:30px 30px 0 30px; height:60px; width:350px;}
+.socialtitle { color:#ffffff; font-size:20px; font-weight:700; margin:7px 15px 0 0; float:left; }
+#campaigninfo { background-color:#FFF; padding:30px 30px 10px 30px; width:350px; margin:0; min-height:490px; vertical-align:top;  }
+#campaigninfo p { margin:0 0 10px 0; padding:0; }
+
+/* INFO PAGE STYLE */
+
+#top-back-grad-sm { clear:both; width:100%; height:180px; padding:0; margin:0; position:absolute; z-index:-1; background-color:#3b3b3b;
+background: -webkit-linear-gradient(top, #4e4e4e, #373737);
+background: -webkit-gradient(linear, top, bottom, from(#4e4e4e), to(#373737));
+background: -moz-linear-gradient(top,  #4e4e4e,  #373737);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e', endColorstr='#373737'); }
+
+.contentpageblock { width:970px; padding:10px 0 0 0; margin:0 auto; }
+
+
+#payinfo-left { float:left; width:670px; padding:0; margin:0; }
+
+.paymentcontentblock { background:#ffffff; padding:30px; width:610px; }
+#paymentform {  padding:0; text-indent:inherit; }
+#paymentform li { list-style:none; float:left; width:260px; padding:0; text-indent:inherit; }
+
+#payment-type img { margin:5px 20px 0 0; }
+
+#billingform {  padding:0; text-indent:inherit; }
+#billingform li { list-style:none; float:left; width:260px; padding:0; text-indent:inherit; }
+.optincheck { float:left; width:30px; }
+.optintext { width:500px; margin:0 0 20px 0; }
+input { width:240px; border:1px solid #4fba69; height:28px; margin:0 0 5px 0; font-size:14px; color:#4fba69;  }
+input.short { width:80px; }
+input.medium { width:320px; }
+input.long { width:500px; }
+input.rad { border:0 !important; width:auto !important; margin:0 5px 0 0; }
+
+
+#infopage-right { width:290px; padding:0; margin:0; float:right;  }
+
+#infopage-right #donationstatus { width:290px; padding:30px; margin:0 0 10px 0; }
+#infopage-right #donordots { background:#FFF; width:230px; padding:30px; margin:0 0 10px 0; min-height:290px; }
+#infopage-right #dotbox { width:230px; padding:0; margin:0; }
+#infopage-right #howitworks { width:250px; padding:20px; margin:0 0 10px 0; }
+#howitworks h3 { margin-left:10px; }
+
+/* DOT BOX */
+
+#rghtcol { width:250px; float:left; padding:0; margin:0 0 0 10px;  }
+#donordots { background:#FFF; width:190px; padding:30px; margin:0; min-height:590px; }
+#dotbox { width:190px; padding:0; margin:0; }
+.texttip { padding:0; margin:0 0 0 5px; border:0; cursor: help; position: relative; }
+.texttip span { margin-left: -999em; position: absolute; }
+.texttip:hover span { border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+     position: absolute; top:10px; z-index: 99; margin-left: 0; width: 180px; }
+
+.tooltip { height:8px; width:8px; padding:0; margin:0 2px 2px 0; border:0; float:left; cursor: help; position: relative; }
+.tooltip span { margin-left: -999em; position: absolute; }
+.tooltip:hover span { border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+     position: absolute; left:-190px; top:10px; z-index: 99; margin-left: 0; width: 180px; }
+.tooltip:hover em { font-size: 12px; font-weight: bold; display: block; padding:0; }
+.tipx { padding:10px; background: #eeeeee; border: 1px solid #222222; }
+* html a:hover { background: transparent; }
+
+/*  PAYMENT PAGE */
+
+#topblock-payment { width:970px; padding:0; margin:0 auto; position:fixed; }
+
+#topblock-payment .middleblock { height:460px; margin:10px 0 0 0; padding-top:10px; }
+
+#donationstatus { padding:1px 0 !important; background:#fff; }
+
+#donation-summary {  padding:0; text-indent:inherit; margin:0; width:250px; }
+#donation-summary li { list-style:none; font-size:12px; width:120px; float:left;  }
+.donsum-right { width:90px !important; color:#333; font-weight:700; text-align:right; }
+
+
+/* FOOTER */
+
+#footer { padding:0; margin:20px 0 0 0 !important; background-color:#282828;  width:100%; clear:both; }
+#footercontainer { width:970px; padding:20px 0 20px 0; margin:0 auto; min-height:120px; font-size:9px; color:#ffffff; font-weight:bold; }
+#footercontainer .footerlinks-l { float:left; width:150px; text-align:left;}
+
+#footercontainer a { color:#9f9f9f; text-decoration:none; font-weight:normal; }
+#footercontainer a:hover { color:#898989; text-decoration:underline; }
+
+#footercontainer a.sac { color:#4fba69;  }
+#footercontainer a.sac:hover { color:#4fba69; }
