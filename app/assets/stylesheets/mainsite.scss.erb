@@ -1,593 +1,587 @@
-// Place all the styles related to the Campaigns controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 @charset "UTF-8";
 
-/* CSS Document */
 body {
-    padding: 0;
-    margin: 0;
-    background-color: #ffffff;
-    font-family: 'Nunito', arial, sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    text-align: left;
-    color: #ffffff;
-    width: 100%;
-    background-image: url(<%= asset_path 'bg-short-top.gif' %>);
-    background-repeat: repeat-x;
-    background-position: top;
+background-color:#e1e1e1;
+font-family:Nunito, arial, sans-serif;
+font-weight:300;
+font-size:13px;
+line-height:20px;
+text-align:left;
+color:#373737;
+width:100%;
+margin:0;
+padding:0;
 }
 
 div {
-    vertical-align: top;
+vertical-align:top;
+text-align:left;
 }
 
-p, h1, h2, h3 {
-    text-align: left;
-    font-family: Nunito, arial, sans-serif;
+p,h1,h2,h3 {
+text-align:left;
+font-family:Nunito, arial, sans-serif;
 }
 
-b, strong {
-    color: #dddddd;
-    font-weight: 700;
+h3 {
+font-size:16px;
+text-transform:uppercase;
+color:#4fba69;
+margin:0;
+}
+
+b,strong {
+font-weight:700;
 }
 
 a {
-    font-family: 'Nunito', arial, sans-serif;
-    text-decoration: none;
-    color: #fff;
+font-family:Nunito, arial, sans-serif;
+text-decoration:none;
+color:#4fba69;
 }
 
-#bodycontent {
-    width: 970px;
-    align: center;
-    margin: 0 auto;
+hr {
+color:#e1e1e1;
+border:0;
+}
+
+.clear {
+clear:both;
+}
+
+.middleblock {
+clear:both;
+width:970px;
+margin:0 auto!important;
+padding:10px 0 0;
+}
+
+.roundbox {
+background-color:#fff;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+border:0;
+margin-bottom:10px;
+}
+
+button {
+color:#282828;
+font-size:22px;
+text-transform:uppercase;
+height:50px;
+letter-spacing:-.5pt;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border:0 1px 1px 0 solid;
+border-radius:10px;
+font-weight:700;
+font-family:Nunito, arial;
+background:0;
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6ff6c',endColorstr='#fd9200');
+border-color:#9c7c00 #9c7c00 #6a3d00 #6a3d00;
+padding:6px 10px;
 }
 
 #titlebar {
-    width: 970px;
-    height: 70px;
-    background-image: url(<%= asset_path 'roundshadow-titlebar.png' %>);
-    background-repeat: no-repeat;
-    background-position: center bottom;
+background-color:#282828;
+width:100%;
+height:70px;
+overflow:hidden;
+margin:0;
+padding:0;
+}
+
+#titlebar .middleblock {
+height:70px;
+background-image:image-url("roundshadow-titlebar.png");
+background-repeat:no-repeat;
+background-position:center bottom;
 }
 
 #titlebarlogo {
-    background-image: url(<%= asset_path 'kiindlycom-title-logo.png' %>);
-    background-repeat: no-repeat;
-    width: 187px;
-    height: 52px;
-    float: left;
-    margin: 9px 0 0;
-    padding: 0;
+background-image:image-url("kiindlycom-title-logo.png");
+background-repeat:no-repeat;
+width:187px;
+height:52px;
+float:left;
+margin:0;
+padding:0;
+}
+
+#titlebarlogo span {
+display:none;
 }
 
 #righttopnav {
-    float: right;
-    font-size: 10px;
-    text-align: right;
-    width: 250px;
-    height: 40px;
-    padding: 20px 0 0;
+float:right;
+font-size:10px;
+text-align:right;
+width:250px;
+height:40px;
+padding:20px 0 0;
 }
 
 #righttopnav .help {
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 300;
+color:#fff;
+text-transform:uppercase;
+font-weight:300;
+font-size:11px;
 }
 
 #righttopnav .startcampaign {
-    color: #4fba69;
-    text-transform: uppercase;
-    font-weight: 300;
+color:#4fba69;
+text-transform:uppercase;
+font-weight:700;
+font-size:12px;
 }
 
-#mainbodycontent {
-    width: 970px;
-    clear: both;
-    margin: 10px 0 0;
-    padding: 0;
+#topblock {
+clear:both;
+width:100%;
+height:460px;
+background-color:#3b3b3b;
+background:0;
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e',endColorstr='#373737');
+margin:0;
+padding:0;
 }
 
-#leftmain {
-    width: 540px;
-    float: left;
-}
-
-#hero {
-    width: 500px;
-    height: 330px;
-    background-color: #4fba69;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 1px solid;
-    position: relative;
-    overflow: hidden;
-    background-image: url(<%= asset_path 'loading.png' %>);
-    background-position: center;
-    background-repeat: no-repeat;
-    border-color: #5ed88a #15562d #15562d #5ed88a;
-    padding: 20px;
-}
-
-#heroContent {
-    width: 500px;
-    height: 330px;
-    position: absolute;
-    top: 0;
-    margin-left: 0;
-    padding: 0;
-}
-
-#heroContent li {
-    list-style-type: none;
-}
-
-.heroImage {
-    float: left;
-    position: relative;
-    display: none;
-}
-
-.heroImage span {
-    position: absolute;
-    font: 10px;
-    width: 480px;
-    background-color: #000;
-    left: 0;
-    color: #fff;
-    display: none;
-    filter: alpha(opacity = 70);
-    -moz-opacity: .7;
-    -khtml-opacity: .7;
-    opacity: .7;
-    bottom: 0;
-    padding: 10px;
-}
-
-.texttop {
-    top: 0;
-    left: 0;
-}
-
-.textbottom {
-    bottom: 0;
-    left: 0;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.textleft {
-    top: 0;
-    left: 0;
-    width: 110px !important;
-    height: 280px;
-}
-
-.textright {
-    right: 0;
-    bottom: 0;
-    width: 90px !important;
-    height: 290px;
+#topblock #status {
+width:290px;
+height:430px;
+float:left;
+background-color:#fff;
+-webkit-border-radius:10px 0 0 10px;
+-moz-border-radius:10px 0 0 10px;
+border-radius:10px 0 0 10px;
+border:0;
+padding:0;
 }
 
 #campaignlogo {
-    float: left;
-    clear: both;
-    padding: 20px 0px 20px 0;
+width:250px;
+height:80px;
+padding-bottom:20px;
+border-bottom:2px solid #4fba69;
+margin:20px 20px 0;
 }
 
-#campaignlogo img {
-    border: 0;
-    margin: 0;
-    padding: 0;
+#progresstext {
+font-size:15px;
+color:#4fba69;
+line-height:22px;
+margin:0;
+padding:30px 30px 10px;
 }
 
-#socialthin {
-    width: 520px;
-    height: 30px;
-    background-color: #898989;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 1px solid;
-    clear: both;
-    border-color: #a2a2a2 #393939 #393939 #a2a2a2;
-    padding: 10px 0 0 20px;
+#hardcount {
+font-size:40px;
+letter-spacing:-1px;
+font-weight:700;
+text-shadow:0 1px 0 #ccc, 0 2px 0 #aaa;
 }
 
-#progress {
-    width: 500px;
-    height: 60px;
-    background-color: #898989;
-    -webkit-border-radius: 10px 10px 0 0;
-    -moz-border-radius: 10px 10px 0 0;
-    border-radius: 10px 10px 0 0;
-    border: 1px solid;
-    clear: both;
-    border-color: #a2a2a2 #393939 #898989 #a2a2a2;
-    margin: 5px 0 0;
-    padding: 13px 20px 0;
+#goaltext {
+background-color:#656565;
+color:#fff;
+font-size:16px;
+clear:both;
+margin:10px 0 0;
+padding:10px 30px;
 }
 
-#progress .progresstext {
-    width: 500px;
-    height: 30px;
-    overflow: hidden;
-    margin: 0 auto;
+#progresschart {
+height:8px;
+width:290px;
+background-color:#d8d8d8!important;
+clear:both;
+margin:0;
+padding:0;
 }
 
-#progress .progresstext .progress1 {
-    width: 33%;
-    float: left;
-    font-size: 11px;
-    line-height: 14px;
-    text-align: left;
-    text-transform: uppercase;
-    padding: 0;
+#peopleprogress {
+height:8px;
+float:left;
+background-color:#4fba69;
 }
 
-#progress .progresstext .progress2 {
-    width: 34%;
-    float: left;
-    font-size: 11px;
-    line-height: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    margin: auto;
+#countmein {
+clear:both;
+margin:0;
+padding:20px 30px 0;
 }
 
-#progress .progresstext .progress3 {
-    width: 33%;
-    float: left;
-    font-size: 11px;
-    line-height: 14px;
-    text-align: right;
-    text-transform: uppercase;
-    padding: 0;
+#topblock #video {
+width:640px;
+height:390px;
+float:right;
+background-color:#4fba69;
+-webkit-border-radius:0 10px 10px 0;
+-moz-border-radius:0 10px 10px 0;
+border-radius:0 10px 10px 0;
+border:0;
+padding:20px;
 }
 
-#progress .progressbar {
-    width: 500px;
-    height: 10px;
-    background-image: url(<%= asset_path 'progressbar-back2.png' %>);
-    background-repeat: no-repeat;
-    clear: both;
-    text-align: left;
-    margin: 5px 0 5px 0;
-    padding: 0;
+#leftcol {
+width:290px;
+float:left;
+margin:0;
+padding:0;
 }
 
-#progress .progressbar .progressoverlay {
-    width: 0%;
-    height: 10px;
-    float: left;
-    background-image: url(<%= asset_path 'progressbar-right.png' %>);
-    background-repeat: no-repeat;
-    background-position: top right;
-    margin: 0 0 0 5px;
-    padding: 0;
+#expires {
+background:#fff;
+height:70px;
+width:260px;
+font-size:14px;
+color:#282828;
+line-height:25px;
+padding:20px 0 0 30px;
 }
 
-#navtabs {
-    width: 520px;
-    height: 30px;
-    background-color: #898989;
-    border: 1px solid;
-    clear: both;
-    overflow: hidden;
-    cursor: pointer;
-    border-color: #898989 #393939 #525252 #a2a2a2;
-    margin: 0 auto;
-    padding: 0 0 0 20px;
+#expires img {
+padding-right:10px;
 }
 
-.navtab {
-    height: 30px;
-    width: auto;
-    background-color: #525252;
-    -webkit-border-radius: 10px 10px 0 0;
-    -moz-border-radius: 10px 10px 0 0;
-    border-radius: 10px 10px 0 0;
-    border: 0;
-    float: left;
-    font-size: 13px;
-    font-family: 'Nunito', arial, sans-serif;
-    margin: 0 5px 0 0;
-    padding: 6px 10px 0 10px;
+#expiresdays {
+font-size:28px;
+font-weight:700;
 }
 
-.navtab a {
-    color: fff !important;
-    font-weight: 700;
+#corporate_diy {
+background-color:#FFF;
+width:230px;
+min-height:490px;
+margin:0;
+padding:30px;
+}
+
+#middcol {
+width:410px;
+float:left;
+margin:0 0 0 10px;
+padding:0;
+}
+
+#social {
+background-color:#4fba69;
+height:60px;
+width:350px;
+padding:30px 30px 0;
+}
+
+.socialtitle {
+color:#fff;
+font-size:20px;
+font-weight:700;
+float:left;
+margin:7px 15px 0 0;
 }
 
 #campaigninfo {
-    width: 500px;
-    background-color: #525252;
-    -webkit-border-radius: 0 0 10px 10px;
-    -moz-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
-    border: 1px solid;
-    clear: both;
-    text-align: left;
-    border-color: #525252 #393939 #222222 #777777;
-    margin: 0 0 20px;
-    padding: 10px 20px 0 20px;
+background-color:#FFF;
+width:350px;
+min-height:490px;
+vertical-align:top;
+margin:0;
+padding:30px 30px 10px;
 }
 
-#rightmain {
-    width: 420px;
-    float: right;
+#campaigninfo p {
+margin:0 0 10px;
+padding:0;
 }
 
-#video {
-    width: 380px;
-    background-color: #898989;
-    -webkit-border-radius: 10px 10px 0 0;
-    -moz-border-radius: 10px 10px 0 0;
-    border-radius: 10px 10px 0 0;
-    border: 1px solid;
-    border-bottom: 0;
-    clear: both;
-    background-image: url(<%= asset_path 'video-shadow.png' %>);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    border-color: #a2a2a2 #393939 #898989 #a2a2a2;
-    margin: 0;
-    padding: 20px 19px 5px 19px;
+#top-back-grad-sm {
+clear:both;
+width:100%;
+height:180px;
+position:absolute;
+z-index:-1;
+background-color:#3b3b3b;
+background:0;
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e',endColorstr='#373737');
+margin:0;
+padding:0;
 }
 
-#diduknow {
-    width: 378px;
-    background-color: #525252;
-    -webkit-border-radius: 0 0 10px 10px;
-    -moz-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
-    border: 1px solid;
-    clear: both;
-    text-align: left;
-    color: #ffffff;
-    background-image: url(<%= asset_path 'diduknow-shadow.png' %>);
-    background-repeat: no-repeat;
-    background-position: top;
-    border-color: #525252 #393939 #222222 #777777;
-    margin: 0 0 10px 0;
-    padding: 20px 20px 10px 20px;
+.contentpageblock {
+width:970px;
+margin:0 auto;
+padding:10px 0 0;
 }
 
-#diduknow h3 {
-    color: #FFF;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
+#payinfo-left {
+float:left;
+width:670px;
+padding:0;
+margin:0;
 }
 
-#supporters {
-    width: 370px;
-    clear: both;
-    text-align: left;
-    margin: 20px 0 20px 10px;
-    padding: 0;
+.paymentcontentblock {
+background:#fff;
+width:610px;
+padding:30px;
 }
 
-#supporters h3 {
-    color: #4fba69;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
+#payment-type img {
+margin:5px 20px 0 0;
+}
+
+.optincheck {
+float:left;
+width:30px;
+}
+
+.optintext {
+width:500px;
+margin:0 0 20px;
+}
+
+input {
+width:240px;
+border:1px solid #4fba69;
+height:28px;
+font-size:14px;
+color:#4fba69;
+margin:0 0 5px;
+}
+
+input.short {
+width:80px;
+}
+
+input.medium {
+width:320px;
+}
+
+input.long {
+width:500px;
+}
+
+input.rad {
+border:0!important;
+width:auto!important;
+margin:0 5px 0 0;
+}
+
+#infopage-right {
+width:290px;
+float:right;
+margin:0;
+padding:0;
+}
+
+#infopage-right #donationstatus {
+width:290px;
+margin:0 0 10px;
+padding:30px;
+}
+
+#infopage-right #donordots {
+background:#FFF;
+width:230px;
+min-height:290px;
+margin:0 0 10px;
+padding:30px;
+}
+
+#infopage-right #dotbox {
+width:230px;
+margin:0;
+padding:0;
+}
+
+#infopage-right #howitworks {
+width:250px;
+margin:0 0 10px;
+padding:20px;
+}
+
+#howitworks h3 {
+margin-left:10px;
+}
+
+#rghtcol {
+width:250px;
+float:left;
+margin:0 0 0 10px;
+padding:0;
+}
+
+#donordots {
+background:#FFF;
+width:190px;
+min-height:590px;
+margin:0;
+padding:30px;
+}
+
+#dotbox {
+width:190px;
+margin:0;
+padding:0;
+}
+
+.texttip {
+border:0;
+cursor:help;
+position:relative;
+margin:0 0 0 5px;
+padding:0;
+}
+
+.texttip:hover span {
+border-radius:5px 5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+box-shadow:5px 5px 5px rgba(0,0,0,0.1);
+-webkit-box-shadow:5px 5px rgba(0,0,0,0.1);
+-moz-box-shadow:5px 5px rgba(0,0,0,0.1);
+position:absolute;
+top:10px;
+z-index:99;
+margin-left:0;
+width:180px;
+}
+
+.tooltip {
+height:8px;
+width:8px;
+border:0;
+float:left;
+cursor:help;
+position:relative;
+margin:0 2px 2px 0;
+padding:0;
+}
+
+.tooltip:hover span {
+border-radius:5px 5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+box-shadow:5px 5px 5px rgba(0,0,0,0.1);
+-webkit-box-shadow:5px 5px rgba(0,0,0,0.1);
+-moz-box-shadow:5px 5px rgba(0,0,0,0.1);
+position:absolute;
+left:-190px;
+top:10px;
+z-index:99;
+margin-left:0;
+width:180px;
+}
+
+.tooltip:hover em {
+font-size:12px;
+font-weight:700;
+display:block;
+padding:0;
+}
+
+.tipx {
+background:#eee;
+border:1px solid #222;
+padding:10px;
+}
+
+* html a:hover {
+background:transparent;
+}
+
+#topblock-payment {
+width:970px;
+position:fixed;
+margin:0 auto;
+padding:0;
+}
+
+#donationstatus {
+background:#fff;
+padding:1px 0!important;
+}
+
+#donation-summary {
+text-indent:inherit;
+width:250px;
+margin:0;
+padding:0;
+}
+
+#donation-summary li {
+list-style:none;
+font-size:12px;
+width:120px;
+float:left;
+}
+
+.donsum-right {
+width:90px!important;
+color:#333;
+font-weight:700;
+text-align:right;
 }
 
 #footer {
-    background-color: #282828;
-    width: 100%;
-    clear: both;
-    margin: 0;
-    padding: 0;
+background-color:#282828;
+width:100%;
+clear:both;
+margin:20px 0 0!important;
+padding:0;
 }
 
 #footercontainer {
-    width: 970px;
-    min-height: 120px;
-    font-size: 9px;
-    margin: 0 auto;
-    padding: 20px 0 20px 0;
-    color: #ffffff;
+width:970px;
+min-height:120px;
+font-size:9px;
+color:#fff;
+font-weight:700;
+margin:0 auto;
+padding:20px 0;
 }
 
 #footercontainer .footerlinks-l {
-    float: left;
-    width: 150px;
-    text-align: left;
+float:left;
+width:150px;
+text-align:left;
 }
 
-/*#footercontainer .footerlinks-r {*/
-    /*float: right;*/
-    /*width: 150px;*/
-    /*text-align: left;*/
-/*}*/
-
 #footercontainer a {
-    color: #9f9f9f;
-    text-decoration: none;
-    font-weight: normal;
+color:#9f9f9f;
+text-decoration:none;
+font-weight:400;
 }
 
 #footercontainer a:hover {
-    color: #898989;
-    text-decoration: underline;
+color:#898989;
+text-decoration:underline;
 }
 
-#footercontainer a.sac {
-    color: #4fba69;
+.campaigntitle,#footercontainer a.sac,#footercontainer a.sac:hover {
+color:#4fba69;
 }
 
-#footercontainer a.sac:hover {
-    color: #4fba69;
+#topblock .middleblock,#topblock-payment .middleblock {
+height:460px;
+padding-top:10px;
+margin:10px 0 0;
 }
 
-#goldbox {
-    width: 380px;
-    background-color: #e0c92b;
-    border: 1px 0 1px 0 solid;
-    clear: both;
-    background-image: url(<%= asset_path 'gold-back.jpg' %>);
-    background-repeat: repeat-y;
-    border-color: #dcd180 #393939 #4c440d #a2a2a2;
-    margin: 0;
-    padding: 20px 20px 10px 20px;
+#paymentform,#billingform {
+text-indent:inherit;
+padding:0;
 }
 
-#donate {
-    width: 340px;
-    background-color: #ffffff;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    border: 1px solid;
-    border-color: #6b6b6b #98978e #98978e #6b6b6b;
-    clear: both;
-    padding: 20px;
+#paymentform li,#billingform li {
+list-style:none;
+float:left;
+width:260px;
+text-indent:inherit;
+padding:0;
 }
 
-#donate .radio {
-    width: 20px;
-    vertical-align: top;
-    height: 50px;
-    float: left;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-}
-
-#donate .payment-text {
-    width: 310px;
-    float: left;
-    font-size: 11px;
-    line-height: 15px;
-    color: #3a3a3a;
-    text-align: left;
-    margin: 0 0 0 10px;
-    padding: 0;
-}
-
-#donate .payment-text h3 {
-    color: #4fba69;
-    font-size: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
-}
-
-#donate .payment-text .learnmore {
-    border: 0;
-    padding: 10px 0 5px 0;
-}
-
-.donation_error {
-    color: red;
-    clear: both;
-}
-
-#stripe_error {
-    padding-top: 10px;
-}
-
-.donation_input {
-    width: 100%;
-    margin: 7px 0 10px 0;
-    padding: 0;
-}
-
-.donation_left {
-    width: 140px;
-    padding: 0;
-    text-align: left;
-    margin: 0;
-    float: left;
-}
-
-.donation_right {
-    width: auto;
-    text-align: right;
-    padding: 0;
-    margin: 0;
-    float: right;
-    color: #1a9f4a;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.display5 {
-    border: 0;
-    padding: 0;
-    margin: 0 0 3px 0;
-    color: #1a9f4a;
-    font-size: 14px;
-    font-weight: 700;
-    float: none;
-    display: inline;
-    clear: none;
-    width: 30px;
-}
-
-.fixedamount {
-    border: 1px solid;
-    border-color: #1a9f4a;
-    padding: 0;
-    margin: 0;
-    color: #1a9f4a;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: right;
-    clear: none;
-    width: 45px;
-}
-
-#pledge_cap {
-    border: 1px solid;
-    border-color: #1a9f4a;
-}
-
-.x10 {
-    font-size: 10px !important;
-}
-
-.x12 {
-    font-size: 12px !important;
-}
-
-.x14 {
-    font-size: 14px !important;
-}
-
-.x16 {
-    font-size: 16px !important;
-}
-
-.stack {
-    display: none;
-}
-
-input, textarea {
-    font-family: 'Nunito', arial, sans-serif;
-}
-
-.paymentoption, .clear {
-    clear: both;
-}
-
-#recent_activity {
-  padding-left: 30px;
-  padding-top: 50px;
+.texttip span,.tooltip span {
+margin-left:-999em;
+position:absolute;
 }
