@@ -33,6 +33,8 @@ gem 'newrelic_rpm'
 
 
 group :development do
+  gem 'ruby_parser'
+  gem 'hpricot'
   gem 'heroku'
   gem 'taps'
   gem 'sqlite3'

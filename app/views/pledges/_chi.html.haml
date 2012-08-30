@@ -1,0 +1,262 @@
+.contentpageblock{:align => "center"}
+  #payinfo-left
+    %form{:action => "share.php"}
+      .paymentcontentblock.roundbox
+        %h3 Fantastic! Now we just need a few details...
+        %p You're just 1 step away from completing your contribution.
+        %h4 Set your maximum donation
+        %noscript
+          %p Please enter your pledge cap (between $10 and $1000)
+        %input#slider2.carpe-slider.target-display5{:name => "slider1", :style => "float: left; clear: none; margin-right:10px;", :type => "text"}/
+        $
+        %input#display5.short{:name => "capname", :tabindex => "-1", :value => "50"}/
+        %p By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will be remain at the pledge cap I select.
+        %h4 Customize your pledge
+        %p Pick a donor dot color &amp; write a message
+        %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
+        %input.color.short{:type => "text"}/
+        %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
+        %hr.clear/
+      .paymentcontentblock.roundbox
+        %h3 Billing information
+        %ul#billingform
+          %li#billing-fname
+            First Name
+            %br/
+            %input{:type => "text", :value => "123"}/
+          %li#billing-lname
+            Last Name
+            %br/
+            %input{:type => "text"}/
+          %li#billing-email{:style => "width:500px;"}
+            Email Address
+            %span.x10 (so we can send you a receipt)
+            %br/
+            %input.long{:type => "text"}/
+          %li#billing-zip
+            ZIP Code
+            %br/
+            %input.short{:maxlength => "5", :type => "text"}/
+          %li#billing-phone
+            Phone
+            %span.x10 (optional)
+            %br/
+            %input{:type => "text"}/
+        %hr.clear/
+      .paymentcontentblock.roundbox
+        %h3 Payment information
+        %ul#paymentform
+          %li#payment-type{:style => "width:500px;"}
+            %img{:alt => "Visa", :height => "32", :src => "images/visa_32.png", :width => "32"}/
+            %img{:alt => "Mastercard", :height => "32", :src => "images/mastercard_32.png", :width => "32"}/
+            %img{:alt => "American Express", :height => "32", :src => "images/amex_32.png", :width => "32"}/
+            %img{:alt => "Discover", :height => "32", :src => "images/discover_32.png", :width => "32"}/
+            %img{:alt => "JCB", :height => "32", :src => "images/jcb_32.png", :width => "32"}/
+          %li#payment-email
+            Card Number
+            %span.x10 (no spaces please)
+            %br/
+            %input{:type => "text"}/
+          %li#payment-zip
+            CVC
+            %span.texttip
+              %a What is this?
+              %span.tipx This is the tip text
+            %br/
+            = succeed "&amp;nbsp;" do
+              %input.short{:maxlength => "4", :type => "text"}/
+          %li#payment-zip
+            Expiration
+            %span.x10 (mm/yy)
+            %br/
+            = succeed "&amp;nbsp;" do
+              %input.short{:maxlength => "2", :type => "text"}/
+            %input.short{:maxlength => "2", :type => "text"}/
+        %hr.clear/
+      .paymentcontentblock.roundbox
+        .optincheck
+          %input.rad{:type => "checkbox", :value => "1"}/
+        .optintext
+          I agree to the
+          %a{:href => ""} Terms &amp; Conditions
+          of Kiindly.com.
+        .optincheck
+          %input.rad{:type => "checkbox", :value => "1"}/
+        .optintext
+          I would like to receive emails regarding new projects, special events, news
+          and information from TownSquare Cares.
+        .optincheck
+          %input.rad{:type => "checkbox", :value => "1"}/
+        .optintext
+          If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount.
+        %p
+          %button.submitbtn{:type => "submit"} SUBMIT
+        %hr.clear/
+  #infopage-right
+    #donationstatus.roundbox
+      #campaignlogo
+        %img{:height => "80", :src => "campaigns/tsc1/assets/logo.jpg", :width => "250"}/
+      #progresstext
+        %h3 Donation Summary
+        %ul#donation-summary
+          %li Donation Type:
+          %li.donsum-right Dollar Match
+          %li Campaign Ends:
+          %li.donsum-right April 15, 2011
+        %hr.clear/
+    #donordots.roundbox
+      %h3 Donor dots
+      %p Roll over the dots below to see comments from other donors.
+      #dotbox
+        .tooltip{:style => "background:#442"}
+          %span.tipx
+            %em> Dave D.
+            Oh yeah, donor number 1 baby!
+        .tooltip{:style => "background:#ea2"}
+          %span.tipx
+            %em> Nathan S.
+            This is the text comment
+        .tooltip{:style => "background:#093"}
+          %span.tipx
+            %em> Penny W.
+            Best $20 I spent all day
+        .tooltip{:style => "background:#de2"}
+          %span.tipx
+            %em> Chris D.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#002"}
+          %span.tipx
+            %em> Benjamin P.
+            This is my comment 2
+        .tooltip{:style => "background:#093"}
+          %span.tipx
+            %em> Kellie B.
+            My school rocks
+        .tooltip{:style => "background:#8f3"}
+          %span.tipx
+            %em David W.
+        .tooltip{:style => "background:#2ff"}
+          %span.tipx
+            %em> Guy F.
+            Easy as pie
+        .tooltip{:style => "background:#e6e"}
+          %span.tipx
+            %em> Che G.
+            eatin and tweetin
+        .tooltip{:style => "background:#7aa"}
+          %span.tipx
+            %em> Morgan F.
+            This is my comment 2
+        .tooltip{:style => "background:#cc2"}
+          %span.tipx
+            %em> Ana K.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#a56"}
+          %span.tipx
+            %em> Simon D.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#de2"}
+          %span.tipx
+            %em> Chris D.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#002"}
+          %span.tipx
+            %em> Benjamin P.
+            This is my comment 2
+        .tooltip{:style => "background:#093"}
+          %span.tipx
+            %em> Kellie B.
+            My school rocks
+        .tooltip{:style => "background:#8f3"}
+          %span.tipx
+            %em David W.
+        .tooltip{:style => "background:#2ff"}
+          %span.tipx
+            %em> Guy F.
+            Easy as pie
+        .tooltip{:style => "background:#e6e"}
+          %span.tipx
+            %em> Che G.
+            eatin and tweetin
+        .tooltip{:style => "background:#442"}
+          %span.tipx
+            %em> Dave D.
+            Oh yeah, donor number 1 baby!
+        .tooltip{:style => "background:#ea2"}
+          %span.tipx
+            %em> Nathan S.
+            This is the text comment
+        .tooltip{:style => "background:#093"}
+          %span.tipx
+            %em> Penny W.
+            Best $20 I spent all day
+        .tooltip{:style => "background:#de2"}
+          %span.tipx
+            %em> Chris D.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#002"}
+          %span.tipx
+            %em> Benjamin P.
+            This is my comment 2
+        .tooltip{:style => "background:#093"}
+          %span.tipx
+            %em> Kellie B.
+            My school rocks
+        .tooltip{:style => "background:#8f3"}
+          %span.tipx
+            %em David W.
+        .tooltip{:style => "background:#2ff"}
+          %span.tipx
+            %em> Guy F.
+            Easy as pie
+        .tooltip{:style => "background:#e6e"}
+          %span.tipx
+            %em> Che G.
+            eatin and tweetin
+        .tooltip{:style => "background:#7aa"}
+          %span.tipx
+            %em> Morgan F.
+            This is my comment 2
+        .tooltip{:style => "background:#cc2"}
+          %span.tipx
+            %em> Ana K.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#a56"}
+          %span.tipx
+            %em> Simon D.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#de2"}
+          %span.tipx
+            %em> Chris D.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#002"}
+          %span.tipx
+            %em> Benjamin P.
+            This is my comment 2
+        .tooltip{:style => "background:#093"}
+          %span.tipx
+            %em> Kellie B.
+            My school rocks
+        .tooltip{:style => "background:#8f3"}
+          %span.tipx
+            %em David W.
+        .tooltip{:style => "background:#2ff"}
+          %span.tipx
+            %em> Guy F.
+            Easy as pie
+        .tooltip{:style => "background:#e6e"}
+          %span.tipx
+            %em> Che G.
+            eatin and tweetin
+        .tooltip{:style => "background:#7aa"}
+          %span.tipx
+            %em> Morgan F.
+            This is my comment 2
+        .tooltip{:style => "background:#cc2"}
+          %span.tipx
+            %em> Ana K.
+            This is my comment and it's cool
+        .tooltip{:style => "background:#a56"}
+          %span.tipx
+            %em> Simon D.
+            This is my comment and it's cool
