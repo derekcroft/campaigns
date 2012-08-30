@@ -1,3 +1,4 @@
+%h3 Billing Information
 = p.fields_for :donor do |d|
   = d.hidden_field :campaign_id, value: @pledge.campaign_id
   %ul#billingform

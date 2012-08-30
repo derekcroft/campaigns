@@ -1,6 +1,6 @@
 .contentpageblock{:align => "center"}
   #payinfo-left
-    %form{:action => "share.php"}
+    = form_for @pledge do |p|
       .paymentcontentblock.roundbox
         %h3 Fantastic! Now we just need a few details...
         %p You're just 1 step away from completing your contribution.
@@ -18,60 +18,10 @@
         %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
         %hr.clear/
       .paymentcontentblock.roundbox
-        %h3 Billing information
-        %ul#billingform
-          %li#billing-fname
-            First Name
-            %br/
-            %input{:type => "text", :value => "123"}/
-          %li#billing-lname
-            Last Name
-            %br/
-            %input{:type => "text"}/
-          %li#billing-email{:style => "width:500px;"}
-            Email Address
-            %span.x10 (so we can send you a receipt)
-            %br/
-            %input.long{:type => "text"}/
-          %li#billing-zip
-            ZIP Code
-            %br/
-            %input.short{:maxlength => "5", :type => "text"}/
-          %li#billing-phone
-            Phone
-            %span.x10 (optional)
-            %br/
-            %input{:type => "text"}/
+        = render partial: 'billing_information', locals: { p: p }
         %hr.clear/
       .paymentcontentblock.roundbox
-        %h3 Payment information
-        %ul#paymentform
-          %li#payment-type{:style => "width:500px;"}
-            %img{:alt => "Visa", :height => "32", :src => "images/visa_32.png", :width => "32"}/
-            %img{:alt => "Mastercard", :height => "32", :src => "images/mastercard_32.png", :width => "32"}/
-            %img{:alt => "American Express", :height => "32", :src => "images/amex_32.png", :width => "32"}/
-            %img{:alt => "Discover", :height => "32", :src => "images/discover_32.png", :width => "32"}/
-            %img{:alt => "JCB", :height => "32", :src => "images/jcb_32.png", :width => "32"}/
-          %li#payment-email
-            Card Number
-            %span.x10 (no spaces please)
-            %br/
-            %input{:type => "text"}/
-          %li#payment-zip
-            CVC
-            %span.texttip
-              %a What is this?
-              %span.tipx This is the tip text
-            %br/
-            = succeed "&amp;nbsp;" do
-              %input.short{:maxlength => "4", :type => "text"}/
-          %li#payment-zip
-            Expiration
-            %span.x10 (mm/yy)
-            %br/
-            = succeed "&amp;nbsp;" do
-              %input.short{:maxlength => "2", :type => "text"}/
-            %input.short{:maxlength => "2", :type => "text"}/
+        = render 'payment_information'
         %hr.clear/
       .paymentcontentblock.roundbox
         .optincheck
@@ -89,13 +39,13 @@
           %input.rad{:type => "checkbox", :value => "1"}/
         .optintext
           If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount.
-        %p
+        %p.button_to
           %button.submitbtn{:type => "submit"} SUBMIT
         %hr.clear/
   #infopage-right
     #donationstatus.roundbox
       #campaignlogo
-        %img{:height => "80", :src => "campaigns/tsc1/assets/logo.jpg", :width => "250"}/
+        = image_tag "sites/chi/logo.jpg", height: 80, width: 250
       #progresstext
         %h3 Donation Summary
         %ul#donation-summary
