@@ -48,7 +48,7 @@
         %p
           %strong.campaigntitle Support The Troops Penny Pledge
           %br/
-          %strong TownSquare Cares
+          %strong= @campaign.name
           %br/
           Campaign period: Aug 15, 2012 - Sep 15, 2012
           %br/
@@ -67,11 +67,11 @@
         %p
           %strong Learn more
           %br/
-          Contact Name
+          = @campaign.contact_name
           %br/
-          name@name.com
+          = @campaign.contact_email
           %br/
-          313.334.2344
+          = number_to_phone(@campaign.contact_phone, delimiter: '.')
         %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
           = image_tag "pinterest.jpg", alt: "Pinterest", height: 600, width: 350
     #rghtcol
