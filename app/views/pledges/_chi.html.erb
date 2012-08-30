@@ -1,0 +1,153 @@
+<div class="contentpageblock" align="center">
+
+  <div id="payinfo-left">
+
+    <form action="share.php">
+
+      <div class="paymentcontentblock roundbox">
+        <h3>Fantastic! Now we just need a few details...</h3>
+        <p>You're just 1 step away from completing your contribution.</p>
+        <h4>Set your maximum donation</h4>
+
+        <noscript>
+          <p>Please enter your pledge cap (between $10 and $1000)</p></noscript>
+        <input class="carpe-slider target-display5" style="float: left; clear: none; margin-right:10px;" id="slider2" name="slider1" type="text" />
+        $<input id="display5" value="50" tabindex="-1" name="capname" class="short" />
+
+        <p>By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will be remain at the pledge cap I select.</p>
+
+        <h4>Customize your pledge</h4>
+        <p>Pick a donor dot color &amp; write a message</p>
+
+        <a id="colorpicker" href="http://www.menucool.com/color-picker">Color Picker for website, easy-to-use</a> <input type="text" class="color short" /><input type="text" value="Type a short message" maxlength="140" class="medium" style="margin-left:20px" onfocus="if (this.value==&#39;Type a short message&#39;) this.value = &#39;&#39;;" onblur="if (this.value==&#39;&#39;) this.value = &#39;Type a short message&#39;;" />
+        <hr class="clear" />
+      </div>
+
+      <div class="paymentcontentblock roundbox">
+        <h3>Billing information</h3>
+        <ul id="billingform">
+          <li id="billing-fname">First Name<br /><input type="text" value="123" /></li>
+          <li id="billing-lname">Last Name<br /><input type="text" /></li>
+          <li  id="billing-email" style="width:500px;">Email Address <span class="x10">(so we can send you a receipt)</span><br /><input type="text" class="long" /></li>
+          <li id="billing-zip">ZIP Code<br /><input type="text"  class="short" maxlength="5"/></li>
+          <li id="billing-phone">Phone <span class="x10">(optional)</span><br /><input type="text" /></li>
+        </ul>
+        <hr class="clear" />
+      </div>
+
+      <div class="paymentcontentblock roundbox">
+        <h3>Payment information</h3>
+        <ul id="paymentform">
+          <li id="payment-type" style="width:500px;">
+            <img src="images/visa_32.png" alt="Visa" width="32" height="32" />
+            <img src="images/mastercard_32.png" alt="Mastercard" width="32" height="32" />
+            <img src="images/amex_32.png" alt="American Express" width="32" height="32" />
+            <img src="images/discover_32.png" alt="Discover" width="32" height="32" />
+            <img src="images/jcb_32.png" alt="JCB" width="32" height="32" />
+          </li>
+          <li  id="payment-email">Card Number <span class="x10">(no spaces please)</span><br /><input type="text" /></li>
+          <li id="payment-zip">CVC <span class="texttip"><a>What is this?</a><span class="tipx">This is the tip text</span></span><br /><input type="text"  class="short" maxlength="4"/>&nbsp;</li>
+          <li id="payment-zip">Expiration <span class="x10">(mm/yy)</span><br /><input type="text"  class="short" maxlength="2"/>&nbsp;<input type="text"  class="short" maxlength="2"/></li>
+        </ul>
+        <hr class="clear" />
+      </div>
+
+      <div class="paymentcontentblock roundbox">
+        <div class="optincheck">
+          <input type="checkbox" value="1" class="rad"/>
+        </div>
+        <div class="optintext">I agree to the <a href="">Terms &amp; Conditions</a> of Kiindly.com.</div>
+
+        <div class="optincheck">
+          <input type="checkbox" value="1" class="rad"/>
+        </div>
+        <div class="optintext">
+          I would like to receive emails regarding new projects, special events, news
+          and information from TownSquare Cares.</div>
+
+        <div class="optincheck">
+          <input type="checkbox" value="1" class="rad"/>
+        </div>
+        <div class="optintext">
+          If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount.</div>
+
+        <p><button type="submit" class="submitbtn">SUBMIT</button></p>
+        <hr class="clear" />
+      </div>
+
+    </form>
+
+  </div>
+
+  <div id="infopage-right">
+
+    <div id="donationstatus" class="roundbox">
+      <div id="campaignlogo"><img src="campaigns/tsc1/assets/logo.jpg" width="250" height="80" /></div>
+      <div id="progresstext">
+        <h3>Donation Summary</h3>
+        <ul id="donation-summary">
+          <li>Donation Type:</li>
+          <li class="donsum-right">Dollar Match</li>
+          <li>Campaign Ends:</li>
+          <li class="donsum-right">April 15, 2011</li>
+        </ul>
+        <hr class="clear" />
+      </div>
+    </div>
+
+    <div id="donordots" class="roundbox">
+      <h3>Donor dots</h3>
+      <p>Roll over the dots below to see comments from other donors.</p>
+
+      <div id="dotbox">
+        <div class="tooltip" style="background:#442"><span class="tipx"><em>Dave D.</em>Oh yeah, donor number 1 baby!</span></div>
+        <div class="tooltip" style="background:#ea2"><span class="tipx"><em>Nathan S.</em>This is the text comment</span></div>
+        <div class="tooltip" style="background:#093"><span class="tipx"><em>Penny W.</em>Best $20 I spent all day</span></div>
+        <div class="tooltip" style="background:#de2"><span class="tipx"><em>Chris D.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#002"><span class="tipx"><em>Benjamin P.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#093"><span class="tipx"><em>Kellie B.</em>My school rocks</span></div>
+        <div class="tooltip" style="background:#8f3"><span class="tipx"><em>David W.</em></span></div>
+        <div class="tooltip" style="background:#2ff"><span class="tipx"><em>Guy F.</em>Easy as pie</span></div>
+        <div class="tooltip" style="background:#e6e"><span class="tipx"><em>Che G.</em>eatin and tweetin</span></div>
+        <div class="tooltip" style="background:#7aa"><span class="tipx"><em>Morgan F.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#cc2"><span class="tipx"><em>Ana K.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#a56"><span class="tipx"><em>Simon D.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#de2"><span class="tipx"><em>Chris D.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#002"><span class="tipx"><em>Benjamin P.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#093"><span class="tipx"><em>Kellie B.</em>My school rocks</span></div>
+        <div class="tooltip" style="background:#8f3"><span class="tipx"><em>David W.</em></span></div>
+        <div class="tooltip" style="background:#2ff"><span class="tipx"><em>Guy F.</em>Easy as pie</span></div>
+        <div class="tooltip" style="background:#e6e"><span class="tipx"><em>Che G.</em>eatin and tweetin</span></div>
+        <div class="tooltip" style="background:#442"><span class="tipx"><em>Dave D.</em>Oh yeah, donor number 1 baby!</span></div>
+        <div class="tooltip" style="background:#ea2"><span class="tipx"><em>Nathan S.</em>This is the text comment</span></div>
+        <div class="tooltip" style="background:#093"><span class="tipx"><em>Penny W.</em>Best $20 I spent all day</span></div>
+        <div class="tooltip" style="background:#de2"><span class="tipx"><em>Chris D.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#002"><span class="tipx"><em>Benjamin P.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#093"><span class="tipx"><em>Kellie B.</em>My school rocks</span></div>
+        <div class="tooltip" style="background:#8f3"><span class="tipx"><em>David W.</em></span></div>
+        <div class="tooltip" style="background:#2ff"><span class="tipx"><em>Guy F.</em>Easy as pie</span></div>
+        <div class="tooltip" style="background:#e6e"><span class="tipx"><em>Che G.</em>eatin and tweetin</span></div>
+        <div class="tooltip" style="background:#7aa"><span class="tipx"><em>Morgan F.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#cc2"><span class="tipx"><em>Ana K.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#a56"><span class="tipx"><em>Simon D.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#de2"><span class="tipx"><em>Chris D.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#002"><span class="tipx"><em>Benjamin P.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#093"><span class="tipx"><em>Kellie B.</em>My school rocks</span></div>
+        <div class="tooltip" style="background:#8f3"><span class="tipx"><em>David W.</em></span></div>
+        <div class="tooltip" style="background:#2ff"><span class="tipx"><em>Guy F.</em>Easy as pie</span></div>
+        <div class="tooltip" style="background:#e6e"><span class="tipx"><em>Che G.</em>eatin and tweetin</span></div>
+        <div class="tooltip" style="background:#7aa"><span class="tipx"><em>Morgan F.</em>This is my comment 2</span></div>
+        <div class="tooltip" style="background:#cc2"><span class="tipx"><em>Ana K.</em>This is my comment and it's cool</span></div>
+        <div class="tooltip" style="background:#a56"><span class="tipx"><em>Simon D.</em>This is my comment and it's cool</span></div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</div>
+
+

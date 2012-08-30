@@ -14,8 +14,7 @@
   %body
     #bodycontent
       = render 'layouts/titlebar'
-      #mainbodycontent
-        = yield
+      = yield
     = render 'layouts/footer'
     :javascript
       function initAddThis() {
