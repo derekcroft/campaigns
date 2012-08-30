@@ -38,7 +38,7 @@
           %li Donation Type:
           %li.donsum-right Dollar Match
           %li Campaign Ends:
-          %li.donsum-right April 15, 2011
+          %li.donsum-right= @campaign.ends_on.strftime('%b %-d, %Y')
         %hr.clear/
     = render "pledges/donor_dots"
 
