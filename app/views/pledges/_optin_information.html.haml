@@ -6,5 +6,8 @@
   .optincheck
     = d.check_box :email_opt_in, class: 'rad'
   .optintext
-    I would like to receive email regarding news and special events
-    from the Oakland University Alumni Association
+    = d.label :email_opt_in, "I would like to receive emails regarding new projects, special events, news and information from TownSquare Cares."
+  .optincheck
+    = p.check_box :donate_cap, class: 'rad'
+  .optintext
+    = p.label :donate_cap, "If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount."

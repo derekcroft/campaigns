@@ -24,23 +24,9 @@
         = render 'payment_information'
         %hr.clear/
       .paymentcontentblock.roundbox
-        .optincheck
-          %input.rad{:type => "checkbox", :value => "1"}/
-        .optintext
-          I agree to the
-          %a{:href => ""} Terms &amp; Conditions
-          of Kiindly.com.
-        .optincheck
-          %input.rad{:type => "checkbox", :value => "1"}/
-        .optintext
-          I would like to receive emails regarding new projects, special events, news
-          and information from TownSquare Cares.
-        .optincheck
-          %input.rad{:type => "checkbox", :value => "1"}/
-        .optintext
-          If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount.
-        %p.button_to
-          %button.submitbtn{:type => "submit"} SUBMIT
+        = render partial: 'optin_information', locals: { p: p }
+        %p
+          %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
         %hr.clear/
   #infopage-right
     #donationstatus.roundbox
