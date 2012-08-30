@@ -5,36 +5,5 @@
 - content_for :titlebar_nav do
   = render 'layouts/main_titlebar_nav'
 
-#paymentmain
-  .campaignlogoblock= ou_logo_tag
-  = form_for @pledge do |p|
-    = hidden_field_tag :stripe_card_token
-    = p.hidden_field :pledge_type
-    = p.hidden_field :amount
-    = p.hidden_field :cap
-    .paymentcontentblock
-      %h3 Fantastic! Now we just need a few details...
-      %p You're just 1 step away from completing your contribution.
-      %p
-        %h3 Billing Information
-      #facebook_billing
-        %p= render 'facebook_fields'
-        %p Or enter billing information manually:
-      %p= render partial: 'billing_information', locals: { p: p }
-      %hr.clear
-    .paymentcontentblock
-      = render 'payment_information'
-    .paymentcontentblock
-      = render partial: 'optin_information', locals: { p: p }
-      %p
-        %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
-      %hr.clear
-#rightprogress
-  .rightcontentblock= render 'donation_summary'
-  .rightcontentblock
-    %h4 You're making a difference...
-    %p
-      Your donation will impact an Oakland University student. Last year,
-      40 students received scholarships through the OUAA Scholarship Fund.
-      Your gift will ensure that more students will benefit from this fund,
-      which is made possible by the generosity of alumni and friends like you.
+= render "oupledge"
+
