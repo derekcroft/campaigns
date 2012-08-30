@@ -1,7 +1,4 @@
 #titlebar
-  .middleblock
-    = link_to "http://www.kiindly.com", target: '_blank' do
-      #titlebarlogo
-        %span.stack
-          %h2 Kiindly.com - The social giving donation platform.
-    #righttopnav= yield :titlebar_nav
+  %h2#titlebarlogo
+    %span.stack Kiindly.com - The social giving donation platform.
+  #righttopnav= yield :titlebar_nav
