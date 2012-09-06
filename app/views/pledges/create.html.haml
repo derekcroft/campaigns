@@ -1,11 +1,8 @@
-- content_for :page_css do
-  = stylesheet_link_tag "sharepage"
 - content_for :page_javascripts do
   = javascript_include_tag "pinit", "pledges"
 - content_for :titlebar_nav do
-  %strong How was your donation experience today?
-  %br
-  = link_to "Click here to take a short survey.", "http://www.surveymonkey.com/s/JT2L6MC"
+  = render 'layouts/main_titlebar_nav'
+
 
 
 .widegreenbox

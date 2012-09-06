@@ -25,6 +25,6 @@ class PledgeMailer < ActionMailer::Base
     @pledge = pledge
     @donor = pledge.donor
     @campaign = pledge.campaign
-    @stripe_customer = YAML::load(@donor.stripe_customer)
+    @stripe_customer = @donor.stripe_customer
   end
 end

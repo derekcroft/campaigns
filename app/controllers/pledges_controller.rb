@@ -14,14 +14,15 @@ class PledgesController < ApplicationController
     @pledge = @campaign.pledges.build(params[:pledge])
     begin
       @pledge.donor.stripe_customer ||= Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
-      if @pledge.save
-        PledgeMailer.pledge_receipt_email(@pledge).deliver
-        render 'create'
-      else
-        render action: 'new'
-      end
     rescue
       flash[:error] = "Error validating credit card information."
+      render action: 'new' and return
+    end
+
+    if @pledge.save
+      PledgeMailer.pledge_receipt_email(@pledge).deliver
+      render 'create'
+    else
       render action: 'new'
     end
   end
