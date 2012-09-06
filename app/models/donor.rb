@@ -14,6 +14,8 @@ class Donor < ActiveRecord::Base
   scope :processed, -> { where('processed_at is not null') }
   scope :unconfirmed, -> { where(confirmation_email_at: nil)}
 
+  serialize :stripe_customer
+
   def donation_amount
     fixed_pledge_amount + penny_pledge_amount
   end
