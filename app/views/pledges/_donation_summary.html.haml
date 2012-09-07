@@ -1,22 +1,11 @@
-%h3 Donation Summary
-%ul#donation-summary
-  %li Donation Type:
-  %li.donsum-right= donation_type_text(@pledge)
-  - if @pledge.pledge_type == 'penny'
-    %li Pledge Cap:
-    %li.donsum-right= number_to_currency @pledge.cap, precision: 0
-  - else
-    %li Amount:
-    %li.donsum-right= number_to_currency @pledge.amount, precision: 0
-  %li Campaign Ends:
-  %li.donsum-right June 29, 2012
-  %li
-    = link_to 'Edit Details', root_path, class: 'x12'
-%hr.clear
-- if @pledge.pledge_type == 'penny'
-  %p
-    By making a penny pledge, I am agreeing to donate one penny for every person who also donates to this campaign. If
-    = number_with_delimiter (@pledge.cap * 100).to_i, precision: 0, delimiter: ','
-    or more people donate, my donation will remain at the
-    = number_to_currency @pledge.cap, precision: 0
-    limit I selected.
+#donationstatus.roundbox
+  #campaignlogo
+    = image_tag "sites/chi/logo.jpg", height: 80, width: 250
+  #progresstext
+    %h3 Donation Summary
+    %ul#donation-summary
+      %li Donation Type:
+      %li.donsum-right Dollar Match
+      %li Campaign Ends:
+      %li.donsum-right= @campaign.ends_on.strftime('%b %-d, %Y')
+    %hr.clear/

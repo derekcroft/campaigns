@@ -29,16 +29,6 @@
           %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
         %hr.clear/
   #infopage-right
-    #donationstatus.roundbox
-      #campaignlogo
-        = image_tag "sites/chi/logo.jpg", height: 80, width: 250
-      #progresstext
-        %h3 Donation Summary
-        %ul#donation-summary
-          %li Donation Type:
-          %li.donsum-right Dollar Match
-          %li Campaign Ends:
-          %li.donsum-right= @campaign.ends_on.strftime('%b %-d, %Y')
-        %hr.clear/
+    = render "pledges/donation_summary"
     = render "pledges/donor_dots"
 
