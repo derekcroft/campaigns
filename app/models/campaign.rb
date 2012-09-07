@@ -14,6 +14,10 @@ class Campaign < ActiveRecord::Base
     [(donation_total/donation_target*100).round.to_i, 100].min
   end
 
+  def days_left
+    (ends_on - Date.today).to_i
+  end
+
   def donation_total
     fixed_total + penny_total
   end
