@@ -4,16 +4,16 @@
       #campaignlogo
         = image_tag "sites/chi/logo.jpg", height: 80, width: 250
       #progresstext
-        %span#hardcount 1,285
+        %span#hardcount= number_with_delimiter(@campaign.number_of_eligible_pledges)
         donors
         %br/
         have joined the cause. When you pledge, everyone increases their donation by another penny*
       #goaltext
         Goal:
-        %strong 10,000 donors
+        %strong #{number_with_delimiter(@campaign.donation_target.to_i)} donors
         %br/
         Total Pledged:
-        %strong $2,704.05
+        %strong= number_to_currency(@campaign.donation_total, precision: 2)
       #progresschart
         #peopleprogress{:style => "width:50%"}
       #countmein
@@ -52,7 +52,7 @@
           %br/
           Campaign period: Aug 15, 2012 - Sep 15, 2012
           %br/
-          Goal: 10,000 donors
+          Goal: #{number_with_delimiter(@campaign.donation_target.to_i)} donors
         %p
           %strong About this campaign
         %p Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
