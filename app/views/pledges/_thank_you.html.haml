@@ -1,6 +1,6 @@
 .paymentcontentblock.roundbox
-  %h1.shareheading [Name], thank you for joining the cause!
-  %h4{:style => "text-transform:uppercase; margin:10px 0 20px 0;"} You are donor #[number] to this campaign
+  %h1.shareheading #{@pledge.donor.first_name}, thank you for joining the cause!
+  %h4{:style => "text-transform:uppercase; margin:10px 0 20px 0;"} You are donor ##{@pledge.donor.donor_number} to this campaign
   %h3
     Now, tell others about this great cause,
     %br/
@@ -16,7 +16,7 @@
   %p
     %a{:href => "http://www.kiindly.com", :target => "_blank"} Learn more about kiindly.com &raquo;
     %br/
-    %a{:href => "www.oualumni.com", :target => "_blank"} Learn more about OUAA Schollarship Fund &raquo;
+    %a{:href => "www.oualumni.com", :target => "_blank"} Learn more about #{@campaign.name} &raquo;
   %noscript
     %p &nbsp;
     %p &nbsp;
