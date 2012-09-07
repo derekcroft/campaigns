@@ -3,22 +3,7 @@
 - content_for :titlebar_nav do
   = render 'layouts/main_titlebar_nav'
 
-.widegreenbox
-  .greenboxcontent
-    .sharebox-left
-      #campaignlogo{:style => "padding-bottom:20px"}= ou_logo_tag
-      %hr
-      %h1.shareheading
-        #{@pledge.donor.first_name.capitalize}, thank you
-        %br
-        for joining the cause!
-      %h4{:style => "text-transform:uppercase; margin:10px 0 20px 0;"} You are donor ##{donor_number(@pledge.campaign)} to this campaign
-      %h3
-        Now, tell others about this great cause,
-        %br
-        and ask them to take the penny pledge too!
-    = render 'sharebox'
-    %br.clear
-.paddingbox
-%br.clear
+- content_for :left_column do
+  = render "thank_you"
 
+= render "chi"

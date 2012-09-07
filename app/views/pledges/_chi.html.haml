@@ -1,33 +1,6 @@
 .contentpageblock{:align => "center"}
   #payinfo-left
-    = form_for @pledge do |p|
-      .paymentcontentblock.roundbox
-        %h3 Fantastic! Now we just need a few details...
-        %p You're just 1 step away from completing your contribution.
-        %h4 Set your maximum donation
-        %noscript
-          %p Please enter your pledge cap (between $10 and $1000)
-        %input#slider2.carpe-slider.target-display5{:name => "slider1", :style => "float: left; clear: none; margin-right:10px;", :type => "text"}/
-        $
-        %input#display5.short{:name => "capname", :tabindex => "-1", :value => "50"}/
-        %p By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will be remain at the pledge cap I select.
-        %h4 Customize your pledge
-        %p Pick a donor dot color &amp; write a message
-        %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
-        %input.color.short{:type => "text"}/
-        %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
-        %hr.clear/
-      .paymentcontentblock.roundbox
-        = render partial: 'billing_information', locals: { p: p }
-        %hr.clear/
-      .paymentcontentblock.roundbox
-        = render 'payment_information'
-        %hr.clear/
-      .paymentcontentblock.roundbox
-        = render partial: 'optin_information', locals: { p: p }
-        %p
-          %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
-        %hr.clear/
+    = yield :left_column
   #infopage-right
     = render "pledges/donation_summary"
     = render "pledges/donor_dots"
