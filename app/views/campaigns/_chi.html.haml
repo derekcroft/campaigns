@@ -50,7 +50,7 @@
           %br/
           %strong= @campaign.name
           %br/
-          Campaign period: Aug 15, 2012 - Sep 15, 2012
+          Campaign period: Aug 15, 2012 - #{end_date(@campaign)}
           %br/
           Goal: #{number_with_delimiter(@campaign.donation_target.to_i)} donors
         %p
