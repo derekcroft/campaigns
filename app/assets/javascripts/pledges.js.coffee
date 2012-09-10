@@ -1,4 +1,3 @@
-#= require stripe
 #= require facebook
 
 postToFeed = ->
@@ -37,4 +36,6 @@ jQuery ->
         $("#card_code").focus()
         return false
     true
+
+#= require stripe
 
