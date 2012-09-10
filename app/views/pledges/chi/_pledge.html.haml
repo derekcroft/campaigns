@@ -19,10 +19,10 @@
     = render partial: pledge.donor, locals: { p: p }
     %hr.clear/
   .paymentcontentblock.roundbox
-    = render 'credit_card'
+    = render 'pledges/chi/credit_card'
     %hr.clear/
   .paymentcontentblock.roundbox
-    = render partial: 'opt_in', locals: { p: p }
+    = render partial: 'pledges/chi/opt_in', locals: { p: p }
     %p
       %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
     %hr.clear/
