@@ -1,6 +1,6 @@
 %h3 Billing Information
 = p.fields_for :donor do |d|
-  = d.hidden_field :campaign_id, value: @pledge.campaign_id
+  = d.hidden_field :campaign_id, value: p.object.campaign_id
   %ul#billingform
     %li#billing-fname
       = d.label :first_name, 'First Name'

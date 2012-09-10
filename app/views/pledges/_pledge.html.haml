@@ -1,4 +1,4 @@
-= form_for @pledge do |p|
+= form_for pledge do |p|
   .paymentcontentblock.roundbox
     %h3 Fantastic! Now we just need a few details...
     %p You're just 1 step away from completing your contribution.
@@ -16,13 +16,13 @@
     %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
     %hr.clear/
   .paymentcontentblock.roundbox
-    = render partial: 'billing_information', locals: { p: p }
+    = render partial: pledge.donor, locals: { p: p }
     %hr.clear/
   .paymentcontentblock.roundbox
-    = render 'payment_information'
+    = render 'credit_card'
     %hr.clear/
   .paymentcontentblock.roundbox
-    = render partial: 'optin_information', locals: { p: p }
+    = render partial: 'opt_in', locals: { p: p }
     %p
       %button.submitbtn{:type => "submit", :id => "submit_donation"} SUBMIT
     %hr.clear/

@@ -4,7 +4,7 @@
   = render 'layouts/main_titlebar_nav'
 
 - content_for :left_column do
-  = render 'payment_form'
+  = render @pledge
 
-= render "chi"
+= render @campaign.subdomain
 

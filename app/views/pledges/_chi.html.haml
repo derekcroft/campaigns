@@ -2,6 +2,6 @@
   #payinfo-left
     = yield :left_column
   #infopage-right
-    = render "pledges/donation_summary"
+    = render partial: "campaigns/chi/donation_summary", locals: { campaign: @campaign }
     = render "pledges/donor_dots"
 
