@@ -1,6 +1,6 @@
 - content_for :page_javascripts do
-  = javascript_include_tag "campaigns", "carpe", "jquery.tools.min"
+  = javascript_include_tag "campaigns", "jquery.tools.min"
 - content_for :titlebar_nav do
   = render 'layouts/main_titlebar_nav'
 
-#maincontentblock= render 'chi'
+#maincontentblock= render @campaign

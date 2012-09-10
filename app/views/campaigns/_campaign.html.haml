@@ -4,16 +4,16 @@
       #campaignlogo
         = image_tag "sites/chi/logo.jpg", height: 80, width: 250
       #progresstext
-        %span#hardcount= number_with_delimiter(@campaign.number_of_eligible_pledges)
+        %span#hardcount= number_with_delimiter(campaign.number_of_eligible_pledges)
         donors
         %br/
         have joined the cause. When you pledge, everyone increases their donation by another penny*
       #goaltext
         Goal:
-        %strong #{number_with_delimiter(@campaign.donation_target.to_i)} donors
+        %strong #{number_with_delimiter(campaign.donation_target.to_i)} donors
         %br/
         Total Pledged:
-        %strong= number_to_currency(@campaign.donation_total, precision: 2)
+        %strong= number_to_currency(campaign.donation_total, precision: 2)
       #progresschart
         #peopleprogress{:style => "width:50%"}
       #countmein
@@ -26,7 +26,7 @@
         = image_tag "calendar.gif", align: 'left'
         This campaign ends in
         %br/
-        %span#expiresdays #{@campaign.days_left} days
+        %span#expiresdays #{campaign.days_left} days
       #corporate_diy.roundbox
         %h3 TOP Corporate donations
         %p
@@ -46,13 +46,13 @@
         %span.st_sharethis_large{:displaytext => "ShareThis"}
       #campaigninfo.roundbox
         %p
-          %strong.campaigntitle #{@campaign.name} Penny Pledge
+          %strong.campaigntitle #{campaign.name} Penny Pledge
           %br/
-          %strong= @campaign.name
+          %strong= campaign.name
           %br/
-          Campaign period: #{start_date(@campaign)} - #{end_date(@campaign)}
+          Campaign period: #{start_date(campaign)} - #{end_date(campaign)}
           %br/
-          Goal: #{number_with_delimiter(@campaign.donation_target.to_i)} donors
+          Goal: #{number_with_delimiter(campaign.donation_target.to_i)} donors
         %p
           %strong About this campaign
         %p Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
@@ -67,11 +67,11 @@
         %p
           %strong Learn more
           %br/
-          = @campaign.contact_name
+          = campaign.contact_name
           %br/
-          = @campaign.contact_email
+          = campaign.contact_email
           %br/
-          = number_to_phone(@campaign.contact_phone, delimiter: '.')
+          = number_to_phone(campaign.contact_phone, delimiter: '.')
         %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
           = image_tag "pinterest.jpg", alt: "Pinterest", height: 600, width: 350
     #rghtcol
