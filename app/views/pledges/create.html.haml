@@ -4,6 +4,6 @@
   = render 'layouts/main_titlebar_nav'
 
 - content_for :left_column do
-  = render "thank_you"
+  = left_column(@pledge, :create)
 
-= render "chi"
+= render @campaign.subdomain

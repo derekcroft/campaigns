@@ -15,6 +15,14 @@ module PledgesHelper
     end
   end
 
+  def left_column(pledge, action)
+    if action == :new
+      render partial: "pledges/#{@campaign.subdomain}/pledge", object: pledge
+    else
+      render "pledges/#{@campaign.subdomain}/thank_you"
+    end
+  end
+
   def us_states
     # remove AK, AZ, DC, and WA because OUAA cannot solicit there
     [

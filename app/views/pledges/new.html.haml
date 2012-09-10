@@ -4,6 +4,6 @@
   = render 'layouts/main_titlebar_nav'
 
 - content_for :left_column do
-  = render partial: "pledges/chi/pledge", object: @pledge
+  = left_column(@pledge, :new)
 
 = render @campaign.subdomain
