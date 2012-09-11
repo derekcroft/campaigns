@@ -22,7 +22,7 @@
   .middleblock
     #leftcol
       #expires.roundbox
-        = image_tag "sites/old/calendar.gif", align: 'left'
+        = image_tag "sites/#{campaign.subdomain}/calendar.gif", align: 'left'
         This campaign ends in
         %br/
         %span#expiresdays #{campaign.days_left} days
@@ -72,6 +72,6 @@
           %br/
           = number_to_phone(campaign.contact_phone, delimiter: '.')
         %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
-          = image_tag "sites/old/pinterest.jpg", alt: "Pinterest", height: 600, width: 350
+          = image_tag "pinterest.jpg", alt: "Pinterest", height: 600, width: 350
     #rghtcol
       = render 'pledges/chi/donor_dots'
