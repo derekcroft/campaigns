@@ -26,8 +26,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6ff6c', endC
 /* TITLE BAR */
 
 #titlebar { background-color:#282828; width:100%; height:70px; overflow:hidden; margin:0; padding:0; }
-#titlebar .middleblock { height:70px; background-image:url(../images/roundshadow-titlebar.png); background-repeat:no-repeat; background-position:center bottom; }
-#titlebarlogo { background-image:url(../images/kiindlycom-title-logo.png); background-repeat:no-repeat; width:187px; height:52px; margin:0; float:left; padding:0; }
+#titlebar .middleblock { height:70px; background-image:url(sites/old/roundshadow-titlebar.png); background-repeat:no-repeat; background-position:center bottom; }
+#titlebarlogo { background-image:url(sites/old/kiindlycom-title-logo.png); background-repeat:no-repeat; width:187px; height:52px; margin:0; float:left; padding:0; }
 #titlebarlogo span { display:none; }
 #righttopnav { float:right; font-size:10px; text-align:right; padding:20px 0 0 0; width:250px; height:40px; }
 #righttopnav .help { color:#ffffff; text-transform:uppercase; font-weight:300; font-size:11px; }

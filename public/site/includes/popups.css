@@ -6,9 +6,9 @@ body { padding:0; margin:0; background-color:#424242; font-family: 'Nunito', ari
 
 #bodycontent { width:100%; align:center; margin:0; }
 
-#popup-titlebar { width:100%; height:70px; background-image:url(../images/roundshadow-titlebar.png); background-repeat:no-repeat; background-position:center bottom; clear:both; background-color:#282828; }
+#popup-titlebar { width:100%; height:70px; background-image:url(sites/old/roundshadow-titlebar.png); background-repeat:no-repeat; background-position:center bottom; clear:both; background-color:#282828; }
 #titlebarlogo span { display:none; }
-#titlebarlogo { background-image:url(../images/kiindlycom-title-logo.png); background-repeat:no-repeat; width:187px; height:52px; margin:9px 0 0 20px; float:left; padding:0; }
+#titlebarlogo { background-image:url(sites/old/kiindlycom-title-logo.png); background-repeat:no-repeat; width:187px; height:52px; margin:9px 0 0 20px; float:left; padding:0; }
 
 
 #mainbodycontent-popup p { color:#fff; clear:both; font-weight:normal; }
