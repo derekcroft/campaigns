@@ -22,7 +22,7 @@
   .middleblock
     #leftcol
       #expires.roundbox
-        = image_tag "sites/#{campaign.subdomain}/calendar.gif", align: 'left'
+        = image_tag "#{campaign.subdomain}/calendar.gif", align: 'left'
         This campaign ends in
         %br/
         %span#expiresdays #{campaign.days_left} days

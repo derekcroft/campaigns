@@ -1,5 +1,5 @@
 #paymentmain
-  .campaignlogoblock= ou_logo_tag
+  .campaignlogoblock= logo(@campaign, width: 520, height: 120, class: "campaignlogoimg")
   = form_for @pledge do |p|
     = hidden_field_tag :stripe_card_token
     = p.hidden_field :pledge_type
