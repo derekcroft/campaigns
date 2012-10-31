@@ -1,6 +1,7 @@
 !!!
-%html{"xmlns:fb" => "https://www.facebook.com/2008/fbml"}
+%html{"xmlns" => "http://www.w3.org/1999/xhtml", "xmlns:fb" => "https://www.facebook.com/2008/fbml"}
   %head
+    = tag :meta, "http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8"
     %title Charity / Campaign - Kiindly.com Giving Together
     = favicon_link_tag
     = stylesheet_link_tag "application", "https://fonts.googleapis.com/css?family=Nunito:300,700", media: "all"
@@ -11,6 +12,15 @@
     = tag :meta, name: "stripe-key", content: STRIPE_PUBLISHABLE_KEY
     = yield :show_functions
     = javascript_include_tag "google_analytics"
+
+    -# Color Picker
+    = stylesheet_link_tag 'mcColorPicker/mcColorPicker'
+    = javascript_include_tag 'mcColorPicker/mcColorPicker'
+
+    -# Donation Slider
+    = javascript_include_tag 'carpe/carpe_common', 'carpe/carpe_slider'
+    = stylesheet_link_tag 'carpe/carpe_slider'
+
   %body
     #bodycontent
       = render 'layouts/titlebar'
