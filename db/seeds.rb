@@ -11,14 +11,14 @@ Campaign.delete_all
 Pledge.delete_all
 
 Campaign.create(
-  donation_target: 2500,
-  ends_on: Date.new(2012, 10, 31),
+  donation_target: 100,
+  ends_on: Date.new(2012, 12, 3),
   name: 'Healthy Chicago Initiative',
   subdomain: 'chi',
-  contact_name: 'Fred Bear',
-  contact_email: 'freddy@kiindly.com',
-  starts_on: Date.new(2012, 9, 30),
-  contact_phone: '3133342344'
+  contact_name: nil,
+  contact_email: 'info@healthyinitiative.org',
+  starts_on: Date.new(2012, 11, 5),
+  contact_phone: nil
 )
 
 

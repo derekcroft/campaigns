@@ -65,12 +65,15 @@
           • Aenean lacinia bibendum nulla sed consectetur.
         %p
           %strong Learn more
-          %br/
-          = campaign.contact_name
-          %br/
-          = campaign.contact_email
-          %br/
-          = number_to_phone(campaign.contact_phone, delimiter: '.')
+          - if campaign.contact_name
+            %br/
+            = campaign.contact_name
+          - if campaign.contact_email
+            %br/
+            = campaign.contact_email
+          - if campaign.contact_phone
+            %br/
+            = number_to_phone(campaign.contact_phone, delimiter: '.')
         %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
           = image_tag "pinterest.jpg", alt: "Pinterest", height: 600, width: 350
     #rghtcol
