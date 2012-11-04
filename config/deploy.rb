@@ -31,6 +31,14 @@ namespace :deploy do
  end
 end
 
+# add the db:seed task (http://bit.ly/U2wpzm)
+namespace :deploy do
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  end
+end
+
 # only precompile assets if they have changed (http://bit.ly/PkMfa3)
 #namespace :deploy do
   #namespace :assets do
