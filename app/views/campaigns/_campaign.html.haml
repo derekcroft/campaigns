@@ -13,8 +13,7 @@
         %br/
         Total Pledged:
         %strong= number_to_currency(campaign.donation_total, precision: 2)
-      #progresschart
-        #peopleprogress{:style => "width:50%"}
+      = render partial: 'campaigns/chi/progressbar'
       #countmein
         = button_to "COUNT ME IN", new_pledge_path, method: :get, style: 'width:230px;'
     #video
