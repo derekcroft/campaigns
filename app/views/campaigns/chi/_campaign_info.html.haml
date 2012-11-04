@@ -3,13 +3,6 @@
     %strong.campaigntitle #{campaign.name} Dollar Pledge
 
   %p
-    %strong= campaign.name
-  %p
-    Campaign period: #{start_date(campaign)} - #{end_date(campaign)}
-    %br/
-    Goal: #{number_with_delimiter(campaign.donation_target.to_i)} donors
-
-  %p
     %strong Where does your donation go?
   %p= link_to 'Give A Little Does A Lot', 'http://www.healthyinitiative.org/philanthropy'
 
