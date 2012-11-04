@@ -36,6 +36,8 @@ KiindlyCom::Application.configure do
   # Silence the annoying sprockets log messages
   #config.assets.logger = false
 
+  config.serve_static_assets = true
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
 
