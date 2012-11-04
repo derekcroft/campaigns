@@ -1,0 +1,39 @@
+#campaigninfo.roundbox
+  %p
+    %strong.campaigntitle #{campaign.name} Dollar Pledge
+
+  %p
+    %strong= campaign.name
+  %p
+    Campaign period: #{start_date(campaign)} - #{end_date(campaign)}
+    %br/
+    Goal: #{number_with_delimiter(campaign.donation_target.to_i)} donors
+
+  %p
+    %strong About this campaign
+
+  %p I’m Shea Vaughn, founder of Healthy Initiative.
+  %p Obesity is killing Americans; related healthcare costs are skyrocketing and most tragically for the first time in history, parents will be burying their children.  Childhood obesity has more than tripled in the last 30 years.  Nearly 300,000 children in Chicago are either obese or overweight, significantly increasing their risk for heart disease, type 2 diabetes, stroke, and several types of cancer. 
+  %p Your charitable contribution to the Give A Little Does A Lot Foundation will go towards Healthy Initiative Chicago to help provide education, fitness, and nutritional programs for the children and schools of Chicago.
+  %p Your contribution really makes a difference through our Kiindly Dollar match - when you give a dollar, everyone’s donation increases by one more dollar - and each person can set their own cap.
+  %p This is a life and death cause.  Join me and be a champion for healthy living. Please give today and thank you!
+
+  %p
+    %strong Learn more
+
+  %p
+    Visit:
+    = link_to 'www.healthyinitiative.org', 'http://www.healthyinitiative.org'
+
+    - if campaign.contact_name
+      %br/
+      = campaign.contact_name
+    - if campaign.contact_email
+      %br/
+      Email:
+      = campaign.contact_email
+    - if campaign.contact_phone
+      %br/
+      = number_to_phone(campaign.contact_phone, delimiter: '.')
+  %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
+    = image_tag "pinterest.jpg", alt: "Pinterest", height: 600, width: 350

@@ -13,7 +13,7 @@
         %br/
         Total Pledged:
         %strong= number_to_currency(campaign.donation_total, precision: 2)
-      = render partial: 'campaigns/chi/progressbar'
+      = render 'campaigns/chi/progressbar'
       #countmein
         = button_to "COUNT ME IN", new_pledge_path, method: :get, style: 'width:230px;'
     #video
@@ -25,15 +25,7 @@
         This campaign ends in
         %br/
         %span#expiresdays #{campaign.days_left} days
-      #corporate_diy.roundbox
-        %h3 TOP Corporate donations
-        %p
-          Be the first!
-          %br/
-          %a{:href => ""} Become a corporate donor »
-        %h3 Did you know...
-        %p Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Null am id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus co mmodo, tortor mauris condim entum nibh, ut fermentum massa justo sit amet risus.
-        %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.
+      = render 'campaigns/chi/did_you_know'
     #middcol
       #social.roundbox
         %span.socialtitle Share
@@ -42,38 +34,6 @@
         %span.st_pinterest_large{:displaytext => "Pinterest"}
         %span.st_linkedin_large{:displaytext => "LinkedIn"}
         %span.st_sharethis_large{:displaytext => "ShareThis"}
-      #campaigninfo.roundbox
-        %p
-          %strong.campaigntitle #{campaign.name} Dollar Pledge
-          %br/
-          %strong= campaign.name
-          %br/
-          Campaign period: #{start_date(campaign)} - #{end_date(campaign)}
-          %br/
-          Goal: #{number_with_delimiter(campaign.donation_target.to_i)} donors
-        %p
-          %strong About this campaign
-        %p Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-        %p
-          %strong Where the money goes...
-          %br/
-          • Nullam id dolor id nibh ultricies vehicula ut id elit.
-          %br/
-          • Integer posuere erat a ante venenatis dapibus po.
-          %br/
-          • Aenean lacinia bibendum nulla sed consectetur.
-        %p
-          %strong Learn more
-          - if campaign.contact_name
-            %br/
-            = campaign.contact_name
-          - if campaign.contact_email
-            %br/
-            = campaign.contact_email
-          - if campaign.contact_phone
-            %br/
-            = number_to_phone(campaign.contact_phone, delimiter: '.')
-        %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
-          = image_tag "pinterest.jpg", alt: "Pinterest", height: 600, width: 350
+      = render partial: 'campaigns/chi/campaign_info', locals: { campaign: @campaign }
     #rghtcol
       = render 'pledges/chi/donor_dots'
