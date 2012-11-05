@@ -5,13 +5,13 @@
     %h4 Set your maximum donation
     %noscript
       %p Please enter your pledge cap (between $10 and $1000)
-    = render 'pledges/chi/slider'
+    = render partial: 'pledges/chi/slider', locals: { p: p }
     %p By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will be remain at the pledge cap I select.
     %h4 Customize your pledge
     %p Pick a donor dot color &amp; write a message
     %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
-    %input.color.short{type: "hidden"}/
-    %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
+    = p.hidden_field :dot_color, class: 'color short'
+    = p.text_field :dot_comment, class: 'medium', maxlength: 140, onblur: "if (this.value=='') this.value = 'Type a short message';", onfocus: "if (this.value=='Type a short message') this.value = '';", style: "margin-left:20px", value: "Type a short message"
     %hr.clear/
   .paymentcontentblock.roundbox
     = render partial: pledge.donor, locals: { p: p }

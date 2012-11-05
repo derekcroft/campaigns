@@ -11,7 +11,7 @@ class PledgesController < ApplicationController
   end
 
   def create
-    @pledge = @campaign.pledges.build(params[:pledge])
+    @pledge = @campaign.pledges.dollar.build(params[:pledge])
     if Rails.env.development?
       @pledge.donor.stripe_customer = "Valid development customer"
     else

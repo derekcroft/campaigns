@@ -11,19 +11,6 @@
     %li#billing-email{:style => "width:500px;"}
       = d.label :email, "Email Address #{content_tag(:span, class: 'x10') { '(so we can send you a receipt)' }}".html_safe
       = d.text_field :email, class: 'long'
-    %li#billing-address
-      = d.label :street_address, 'Street Address'
-      = d.text_field :street_address
-    %li#billing-city
-      = d.label :city, 'City'
-      = d.text_field :city
-    %li#billing-state
-      = d.label :state, 'State'
-      = d.select :state, options_for_select(us_states)
-    %li#billing-zip
-      .field
-        = d.label :zip, 'ZIP Code'
-        = d.text_field :zip, class: 'positive-integer short', maxlength: 5
     %li#billing-phone
       = d.label :phone, "Phone #{content_tag(:span, class: 'x10') { '(optional)' }}".html_safe
       = d.text_field :phone, class: 'positive-integer', maxlength: 10

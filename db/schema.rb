@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105202448) do
+ActiveRecord::Schema.define(:version => 20121105215932) do
 
   create_table "campaigns", :force => true do |t|
     t.decimal  "donation_target", :precision => 20, :scale => 2
@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(:version => 20121105202448) do
 
   create_table "pledges", :force => true do |t|
     t.integer  "campaign_id"
-    t.datetime "created_at",                                                                    :null => false
-    t.datetime "updated_at",                                                                    :null => false
+    t.datetime "created_at",                                                                     :null => false
+    t.datetime "updated_at",                                                                     :null => false
     t.string   "pledge_type"
     t.integer  "donor_id"
     t.decimal  "amount",                   :precision => 10, :scale => 2
     t.decimal  "cap",                      :precision => 10, :scale => 2
     t.boolean  "donate_cap"
-    t.string   "dot_color",   :limit => 6,                                :default => "000000"
+    t.string   "dot_color",   :limit => 7,                                :default => "#000000"
     t.string   "dot_comment"
   end
 
