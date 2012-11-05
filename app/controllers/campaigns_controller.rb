@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  force_ssl except: :index
+  force_ssl except: [:index, :popup]
 
   def index
     last_pledge = @campaign.pledges.last
