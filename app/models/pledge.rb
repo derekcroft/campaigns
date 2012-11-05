@@ -8,12 +8,13 @@ class Pledge < ActiveRecord::Base
   attr_accessor :stripe_card_token
   attr_accessible :stripe_card_token, :pledge_type, :amount, :cap, :donor_attributes, :donate_cap, :dot_color, :dot_comment
 
-  validates :pledge_type, inclusion: { in: %w{fixed penny} }
+  validates :pledge_type, inclusion: { in: %w{fixed penny dollar} }
   validates :donor, :campaign, presence: true
   validates :donor, associated: true
 
   scope :penny, where(pledge_type: 'penny')
   scope :fixed, where(pledge_type: 'fixed')
+  scope :dollar, where(pledge_type: 'dollar')
 
   scope :resend, -> { where(pledge_type: 'fixed').where('amount <> 10').
                       joins(:donor).where('donors.confirmation_correction_at is null').

@@ -18,6 +18,8 @@ Campaign.create(
   contact_name: nil,
   contact_email: 'info@healthyinitiative.org',
   starts_on: Date.new(2012, 11, 5),
+  match_amount: 100,
+  campaign_type: 'dollar',
   contact_phone: nil
 )
 

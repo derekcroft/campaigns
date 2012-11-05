@@ -24,20 +24,21 @@ class Campaign < ActiveRecord::Base
   end
 
   def donation_total
-    fixed_total + penny_total
+    fixed_total + matching_total
   end
 
+  private
   def fixed_total
     total_row = pledges.where(pledge_type: 'fixed').group("campaign_id").sum(:amount)
     total_row.fetch(self[:id], BigDecimal.new('0'))
   end
 
-  def penny_total
+  def matching_total
     total_row = Campaign.connection.select_all(%{
       select
       sum(
         least(
-          0.01*(
+          #{self.match_amount*0.01}*(
             select count(*) 
             from donors d
             where campaign_id = c.id
@@ -48,7 +49,7 @@ class Campaign < ActiveRecord::Base
       from campaigns c
       inner join pledges penny_p
       on penny_p.campaign_id = c.id
-      and penny_p.pledge_type = 'penny'
+      and penny_p.pledge_type = '#{self.campaign_type}'
       where c.id = #{self[:id]}
       group by c.id
     }).first

@@ -2,57 +2,91 @@ require 'spec_helper'
 
 describe Campaign do
   context "#donation_total" do
-    let(:campaign) { FactoryGirl.create(:campaign) }
-    subject { campaign }
+    describe "dollar matching" do
+      let(:campaign) { FactoryGirl.create(:campaign, match_amount: 100, campaign_type: 'dollar') }
+      subject { campaign }
 
-    its(:donation_total) { should == 0.00 }
-
-    context "with a fixed donor" do
-      let(:donor) { FactoryGirl.create :donor, campaign: campaign }
-
-      before(:each) do
-        donor.pledges.fixed.create!(amount: 5.21)
-      end
-
-      its(:donation_total) { should == 5.21 }
-
-      context "and a second fixed donor" do
-        before(:each) do
-          donor.pledges.fixed.create(amount: 1.05)
-        end
-
-        its(:donation_total) { should == 6.26 }
-      end
-    end
-
-    context "with a penny donor" do
-      let(:donor) { FactoryGirl.create :donor, campaign: campaign }
-
-      before(:each) do
-        donor.pledges.penny.create!
-      end
-
-      its(:donation_total) { should == 0.01 }
-
-      context "and three more penny donors" do
-        let(:donors) { FactoryGirl.create_list :donor, 3, campaign: campaign }
+      context "with a dollar donor" do
+        let(:donor) { FactoryGirl.create :donor, campaign: campaign }
 
         before(:each) do
-          donors.each { |donor| donor.pledges.penny.create! }
+          donor.pledges.dollar.create!
         end
 
-        its(:donation_total) { should == 0.16 }
+        its(:donation_total) { should == 1.00 }
 
-        context "one of whom has a cap of $0.02" do
+        context "and three more dollar donors" do
+          let(:donors) { FactoryGirl.create_list :donor, 3, campaign: campaign }
+
           before(:each) do
-            donors.second.pledges.first.update_attribute(:cap, 0.02)
+            donors.each { |donor| donor.pledges.dollar.create! }
           end
 
-          its(:donation_total) { should == 0.14 }
+          its(:donation_total) { should == 16.00 }
+
+          context "one of whom has a cap of $2.00" do
+            before(:each) do
+              donors.second.pledges.first.update_attribute(:cap, 2.00)
+            end
+
+            its(:donation_total) { should == 14.00 }
+          end
         end
       end
     end
 
+    describe "penny matching" do
+      let(:campaign) { FactoryGirl.create(:campaign, match_amount: 1, campaign_type: 'penny') }
+      subject { campaign }
+
+      its(:donation_total) { should == 0.00 }
+
+      context "with a fixed donor" do
+        let(:donor) { FactoryGirl.create :donor, campaign: campaign }
+
+        before(:each) do
+          donor.pledges.fixed.create!(amount: 5.21)
+        end
+
+        its(:donation_total) { should == 5.21 }
+
+        context "and a second fixed donor" do
+          before(:each) do
+            donor.pledges.fixed.create(amount: 1.05)
+          end
+
+          its(:donation_total) { should == 6.26 }
+        end
+      end
+
+      context "with a penny donor" do
+        let(:donor) { FactoryGirl.create :donor, campaign: campaign }
+
+        before(:each) do
+          donor.pledges.penny.create!
+        end
+
+        its(:donation_total) { should == 0.01 }
+
+        context "and three more penny donors" do
+          let(:donors) { FactoryGirl.create_list :donor, 3, campaign: campaign }
+
+          before(:each) do
+            donors.each { |donor| donor.pledges.penny.create! }
+          end
+
+          its(:donation_total) { should == 0.16 }
+
+          context "one of whom has a cap of $0.02" do
+            before(:each) do
+              donors.second.pledges.first.update_attribute(:cap, 0.02)
+            end
+
+            its(:donation_total) { should == 0.14 }
+          end
+        end
+      end
+    end
   end
 
   context "#donation_total_complete_percent" do
