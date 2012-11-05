@@ -12,7 +12,7 @@
     %h4 Customize your pledge
     %p Pick a donor dot color &amp; write a message
     %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
-    %input.color.short{:type => "text"}/
+    %input.color.short{type: "hidden"}/
     %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
     %hr.clear/
   .paymentcontentblock.roundbox
