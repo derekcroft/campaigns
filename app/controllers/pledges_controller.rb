@@ -24,6 +24,7 @@ class PledgesController < ApplicationController
     end
 
     if @pledge.save
+      expire_page controller: :campaigns, action: :index
       PledgeMailer.pledge_receipt_email(@pledge).deliver
       render 'create'
     else
