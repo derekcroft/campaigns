@@ -2,11 +2,11 @@
   .optincheck
     = d.check_box :terms_of_service, class: 'rad'
   .optintext
-    = d.label :terms_of_service, "I agree to the #{link_to "Terms & Conditions", popup_path("Content" => "Terms"), class: "popup_link"} of Kiindly.com".html_safe
+    = d.label :terms_of_service, "I agree to the #{link_to "Terms & Conditions", popup_path("Content" => "Terms"), class: "popup_link"}".html_safe
   .optincheck
     = d.check_box :email_opt_in, class: 'rad'
   .optintext
-    = d.label :email_opt_in, "I would like to receive emails regarding new projects, special events, news and information from TownSquare Cares."
+    = d.label :email_opt_in, "I would like to receive emails regarding new projects, special events, news and information from #{@campaign.name}."
   .optincheck
     = p.check_box :donate_cap, class: 'rad'
   .optintext
