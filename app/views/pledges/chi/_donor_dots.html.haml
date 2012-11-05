@@ -1,4 +1,4 @@
 #donordots.roundbox
   %h3 Donor dots
   %p Roll over the dots below to see comments from other donors.
-  #dotbox= render(partial: 'pledges/chi/donor_dot', collection: @campaign.pledges, as: :pledge) || "No donors yet!"
+  #dotbox= render(partial: 'pledges/chi/donor_dot', collection: @campaign.pledges.select(&:persisted?), as: :pledge) || "No donors yet!"
