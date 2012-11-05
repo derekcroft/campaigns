@@ -47,7 +47,20 @@ KiindlyCom::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   #config.assets.precompile += %w( search.js campaigns.js stripe.js facebook.js carpe paymentpage.css sharepage.css carpe.css )
-  config.assets.precompile += %w{ campaigns.js pledges.js google_analytics.js mcColorPicker/mcColorPicker.js mcColorPicker/mcColorPicker.css carpe/carpe_common.js carpe/carpe_slider.js carpe/carpe_slider.css popups.css popup.js jquery.js }
+  config.assets.precompile += %w{
+    campaigns.js
+    pledges.js
+    pinit.js
+    google_analytics.js
+    mcColorPicker/mcColorPicker.js
+    mcColorPicker/mcColorPicker.css
+    carpe/carpe_common.js
+    carpe/carpe_slider.js
+    carpe/carpe_slider.css
+    popups.css
+    popup.js
+    jquery.js
+  }
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
