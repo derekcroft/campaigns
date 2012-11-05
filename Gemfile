@@ -50,7 +50,7 @@ end
 
 group :test do
   gem "factory_girl_rails", ">= 1.6.0"
-  gem "cucumber-rails", ">= 1.2.1"
+  gem "cucumber-rails", ">= 1.2.1", require: false
   gem "capybara", ">= 1.1.2"
   gem "capybara-webkit"
   gem "database_cleaner"
