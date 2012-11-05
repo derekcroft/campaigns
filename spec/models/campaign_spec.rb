@@ -105,6 +105,58 @@ describe Campaign do
       campaign.donation_target = 7000
       campaign.donation_total_complete_percent.should == 100
     end
-
   end
+
+  context "#donor_total_complete_percent" do
+    let(:campaign) { FactoryGirl.create(:campaign) }
+
+    it "is 0% if donors is nil" do
+      campaign.stub(:donors).and_return(nil)
+      campaign.donor_total_complete_percent.should == 0
+    end
+
+    it "is 0% if donors is empty" do
+      campaign.stub(:donors).and_return([])
+      campaign.donor_total_complete_percent.should == 0
+    end
+
+    context "with one donor" do
+      before(:each) do
+        FactoryGirl.create(:donor, campaign: campaign)
+      end
+
+      it "is 25%" do
+        campaign.donation_target = 4
+        campaign.donor_total_complete_percent.should == 25
+      end
+
+      it "is 33%" do
+        campaign.donation_target = 3
+        campaign.donor_total_complete_percent.should == 33
+      end
+
+      it "is 50%" do
+        campaign.donation_target = 2
+        campaign.donor_total_complete_percent.should == 50
+      end
+
+      it "is 100%" do
+        campaign.donation_target = 1
+        campaign.donor_total_complete_percent.should == 100
+      end
+    end
+
+    it "is 67%" do
+      FactoryGirl.create_list(:donor, 2, campaign: campaign)
+      campaign.donation_target = 3
+      campaign.donor_total_complete_percent.should == 67
+    end
+
+    it "is 100% if donations exceed target" do
+      FactoryGirl.create_list(:donor, 2, campaign: campaign)
+      campaign.donation_target = 1
+      campaign.donor_total_complete_percent.should == 100
+    end
+  end
+
 end
