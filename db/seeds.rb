@@ -12,7 +12,7 @@ Pledge.delete_all
 
 Campaign.create(
   donation_target: 100,
-  ends_on: Date.new(2012, 12, 3),
+  ends_on: Date.new(2012, 12, 10),
   name: 'Healthy Initiative Chicago',
   subdomain: 'chi',
   contact_name: nil,
