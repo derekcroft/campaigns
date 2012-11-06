@@ -1,0 +1,65 @@
+!!!
+%html
+  %head
+    %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= image_tag "http://#{@campaign.subdomain}.kiindly.com/assets/email/email-header-thanks.gif"
+
+    = render 'pledge_mailer/summary'
+    %p Dear #{@donor.first_name},
+
+    %p
+      Remember when you did something you were proud of in grade school and your parents would hang it on the refrigerator?
+
+    %p
+      Your donation has impacted an entire community by increasing all other
+      dollar matches by $1 each, which adds up quickly.  Be proud that you have
+      helped Chicago schools fight obesity by posting to Facebook, pinning to
+      Pinterest, or just printing this email and finding new space on the refrigerator.
+
+    %p
+      Thank you for your generous contribution to Healthy Initiative Chicago. We are 
+      grateful for your gift and the trust imparted to us in managing its use.
+
+    %p
+      Regards,
+      %br
+      Healthy Initiative Chicago & Kiindly
+      \:
+      = link_to "Facebook", "https://www.facebook.com/givingtogether"
+      |
+      = link_to "Twitter", "https://twitter.com/#kiindlygiving"
+      |
+      = link_to "Website", @campaign.url
+
+    %p= image_tag "http://#{@campaign.subdomain}.kiindly.com/assets/email/email-kiindly-logo.png"
+
+    - if @pledge.donate_cap?
+      %p DONATION PROCESSING, RECEIPT, AND TIMING
+      %p
+        Your #{number_to_currency(@pledge.cap)} donation amount will be charged to your credit card after
+        the end of the campaign, which is #{end_date(@campaign)}.
+    - else
+      %p FINAL DONATION AMOUNT AND TIMING
+      %p
+        Your final donation amount will be determined and charged to your credit card after the end
+        of the campaign which is #{end_date(@campaign)}. Your penny pledge donation will be determined by
+        multiplying the number of unique donors at the end of the campaign by one penny
+        for each donor. If 1,000 or more people donate, your donation will remain at
+        the #{number_to_currency(@pledge.cap, precision: 0)} limit you selected.
+
+    %p RECEIPT FOR YOUR TAX RECORDS
+    %p
+      Once your #{"final" unless @pledge.donate_cap?} donation is processed, you will receive an email from Kiindly 
+      confirming your donation was processed and verification of your tax deductible donation for your records.
+
+    %p
+      For current Healthy Initiative Chicago news and activities, please visit 
+      = link_to "http://healthyinitiative.org", @campaign.url
+
+    %p
+      Every person, and every penny, really does count. Kiindly.com, Giving Together.
+
+    %p
+      For more information on fundraising through Kiindly, please click here #{link_to 'www.kiindly.com', 'http://www.kiindly.com'}
+

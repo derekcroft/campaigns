@@ -1,9 +1,12 @@
 class PledgeMailer < ActionMailer::Base
+  helper :campaigns
   default from: "donation@kiindly.com"
 
   def pledge_receipt_email(pledge)
     fetch_data(pledge)
-    mail(to: @donor.email, subject: "Dollar Match Confirmation: #{@campaign.name}")
+    mail(to: @donor.email,
+         subject: subject_line(pledge),
+         template_path: "pledge_mailer/#{@campaign.subdomain}")
   end
 
   def pledge_confirmation_email(pledge)
@@ -21,6 +24,11 @@ class PledgeMailer < ActionMailer::Base
   end
 
   private
+  def subject_line(pledge)
+    pledge_description = pledge.donate_cap? ? 'Full Donation' : 'Dollar Match'
+    "#{pledge_description} Confirmation: #{@campaign.name}"
+  end
+
   def fetch_data(pledge)
     @pledge = pledge
     @donor = pledge.donor

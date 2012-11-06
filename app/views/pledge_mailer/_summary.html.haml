@@ -3,12 +3,15 @@
   - if @pledge.pledge_type == "penny"
     Penny Pledge of up to
     %strong= number_to_currency(@pledge.cap, precision: 0)
-  - else
+  - elsif @pledge.pledge_type == "fixed"
     Fixed Donation of
     %strong= number_to_currency(@pledge.amount, precision: 0)
+  - elsif @pledge.pledge_type == "dollar"
+    Dollar Match of up to
+    %strong= number_to_currency(@pledge.cap, precision: 0)
   %br
   The campaign ends
-  %strong June 29, 2012
+  %strong= @campaign.ends_on.strftime('%A, %B %-d, %Y')
   %br
   Campaign donor number:
   %strong #{@donor.donor_number}
