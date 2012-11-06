@@ -17,6 +17,7 @@ Campaign.create(
   subdomain: 'chi',
   contact_name: nil,
   contact_email: 'info@healthyinitiative.org',
+  url: 'http://www.healthyinitiative.org',
   starts_on: Date.new(2012, 11, 5),
   match_amount: 100,
   campaign_type: 'dollar',
