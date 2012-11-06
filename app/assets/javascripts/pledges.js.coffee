@@ -25,9 +25,16 @@ jQuery ->
   # add the tooltips to the Learn More elements
   $(".whatisthis").tooltip({position: 'bottom center', relative: true})
 
+  monthNames = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+  ]
+  today = new Date
+
   $("#submit_donation").click ->
     if parseInt($("#card_month").val()) < 6 && $("#card_year").val() == "2012"
-      $("#stripe_error").html("Card expiration must be June 2012 or later").show()
+      $("#stripe_error").html("Card expiration must be #{monthNames[today.getMonth()]} #{today.getFullYear()} or later").show()
       $("#card_month").focus()
       return false
     if ($("#card_number").val().substring(0,2) == "34" || $("#card_number").val().substring(0,2) == "37")
