@@ -3,12 +3,12 @@ class PledgeMailer < ActionMailer::Base
 
   def pledge_receipt_email(pledge)
     fetch_data(pledge)
-    mail(to: @donor.email, subject: 'Penny Pledge Confirmation: Oakland Alumni Scholarship Fund')
+    mail(to: @donor.email, subject: "Dollar Match Confirmation: #{@campaign.name}")
   end
 
   def pledge_confirmation_email(pledge)
     fetch_data(pledge)
-    mail(to: @donor.email, cc: 'ouaa@oakland.edu', bcc: 'derek@kiindly.com', subject: 'Donation Receipt: OUAA Scholarship Fund')
+    mail(to: @donor.email, cc: 'ouaa@oakland.edu', bcc: 'derek@kiindly.com', subject: "Donation Receipt: #{@campaign.name}")
     @donor.confirmation_email_at = Time.now
     @donor.save!
   end
