@@ -1,3 +1,5 @@
+- if p.object.errors.has_key?(:'donor.terms_of_service')
+  %h4.field_with_errors You must agree to the terms and conditions to proceed.
 = p.fields_for :donor do |d|
   .optincheck
     = d.check_box :terms_of_service, class: 'rad'

@@ -1,4 +1,6 @@
 %h3 Billing Information
+- if p.object.errors.any?
+  %h4.field_with_errors INFORMATION INCOMPLETE - Please fill out the fields below marked in red.
 = p.fields_for :donor do |d|
   = d.hidden_field :campaign_id, value: p.object.campaign_id
   %ul#billingform
