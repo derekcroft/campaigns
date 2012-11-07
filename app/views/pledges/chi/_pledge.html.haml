@@ -11,7 +11,7 @@
     %p Pick a donor dot color &amp; write a message
     %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
     = p.hidden_field :dot_color, class: 'color short'
-    = p.text_field :dot_comment, class: 'medium', maxlength: 140, onblur: "if (this.value=='') this.value = 'Type a short message';", onfocus: "if (this.value=='Type a short message') this.value = '';", style: "margin-left:20px", value: "Type a short message"
+    = p.text_field :dot_comment, class: 'instructional_text medium', maxlength: 140, style: "margin-left:20px", value: "Type a short message"
     %hr.clear/
   .paymentcontentblock.roundbox
     = render partial: pledge.donor, locals: { p: p }
