@@ -7,7 +7,7 @@
     Fixed Donation of
     %strong= number_to_currency(@pledge.amount, precision: 0)
   - elsif @pledge.pledge_type == "dollar"
-    Dollar Match of up to
+    Dollar Match of #{'up to' unless @pledge.donate_cap?}
     %strong= number_to_currency(@pledge.cap, precision: 0)
   %br
   The campaign ends
