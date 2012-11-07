@@ -27,6 +27,10 @@ class Campaign < ActiveRecord::Base
     fixed_total + matching_total
   end
 
+  def description
+    campaign_type == 'dollar' ?  'Dollar Match' : ''
+  end
+
   private
   def fixed_total
     total_row = pledges.where(pledge_type: 'fixed').group("campaign_id").sum(:amount)

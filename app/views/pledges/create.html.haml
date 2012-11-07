@@ -1,6 +1,7 @@
+- content_for :page_title do
+  = title(@campaign, 'Payment Confirmation')
 - content_for :page_javascripts do
   = javascript_include_tag "pinit"
-
 - content_for :left_column do
   = left_column(@pledge, :create)
 
