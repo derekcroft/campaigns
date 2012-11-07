@@ -52,3 +52,6 @@ end
     #end
   #end
 #end
+
+        require './config/boot'
+        require 'airbrake/capistrano'
