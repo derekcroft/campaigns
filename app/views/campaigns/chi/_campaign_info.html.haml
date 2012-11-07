@@ -6,19 +6,7 @@
     %strong Where does your donation go?
   %p= link_to 'Give A Little Does A Lot', 'http://www.healthyinitiative.org/philanthropy', target: '_blank'
 
-  %p
-    %strong About this campaign
-
-  %p I’m Shea Vaughn, founder of Healthy Initiative.
-  %p Obesity is killing Americans; related healthcare costs are skyrocketing and most tragically for the first time in history, parents will be burying their children.  Childhood obesity has more than tripled in the last 30 years.  Nearly 300,000 children in Chicago are either obese or overweight, significantly increasing their risk for heart disease, type 2 diabetes, stroke, and several types of cancer. 
-  %p 
-    Your charitable contribution to the
-    = link_to 'Give A Little Does A Lot', 'http://www.healthyinitiative.org/philanthropy', target: '_blank'
-    Foundation will go towards
-    = link_to 'Healthy Initiative Chicago', campaign.url, target: '_blank'
-    to help provide education, fitness, and nutritional programs for the children and schools of Chicago.
-  %p Your contribution really makes a difference through our Kiindly Dollar match - when you give a dollar, everyone’s donation increases by one more dollar - and each person can set their own cap.
-  %p This is a life and death cause.  Join me and be a champion for healthy living. Please give today and thank you!
+  = render 'campaigns/chi/about_this_campaign'
 
   %p
     %strong Learn more
