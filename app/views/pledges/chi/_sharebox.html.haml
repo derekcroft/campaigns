@@ -1,0 +1,8 @@
+%h4 Tell my friends on:
+%p.middletext
+  %a{:href => ""}
+    = image_tag "btn-share-facebook.gif", id: 'facebook_popup', width: 132, height: 40, border: 0
+  %a{:href => "https://twitter.com", :onclick => "return popitup('https://twitter.com/share?url=http%3A%2F%2Fwww.kiindly.com%2F')"}
+    = image_tag "btn-share-twitter.gif", width: 132, height: 40, border: 0
+  %a.pin-it-button{"count-layout" => "none", :href => "http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fchi.kiindly.com&media=http%3A%2F%2Fchi.kiindly.com%2Fassets%2Fchi%2Fpinterest.jpg"}
+    = image_tag "btn-share-pinterest.gif", width: 132, height: 40, border: 0

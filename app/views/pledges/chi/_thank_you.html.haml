@@ -5,14 +5,7 @@
     Now, tell others about this great cause,
     %br/
     and ask them to take the pledge too!
-  %h4 Tell my friends on:
-  %p.middletext
-    %a{:href => ""}
-      = image_tag "btn-share-facebook.gif", width: 132, height: 40, border: 0
-    %a{:href => "https://twitter.com", :onclick => "return popitup('https://twitter.com/share?url=http%3A%2F%2Fwww.kiindly.com%2F')"}
-      = image_tag "btn-share-twitter.gif", width: 132, height: 40, border: 0
-    %a{"count-layout" => "none", :href => "http://pinterest.com", :onclick => "return popitup('http://pinterest.com/pin/create/button/?url=www.oupledge.com&media=http%3A%2F%2Fkiindly.net%2Fsites%2Foaklandalum%2Foaklandalum-pinterest.jpg&description=Join%20the%20with%20the%20Oakland%20University%20Alum%20in%20the%20OU%20Scholarship%20Penny%20Pledge.%20Every%20person%20and%20every%20penny%20counts.%20http%3A%2F%2Fwww.oupledge.com')"}
-      = image_tag "btn-share-pinterest.gif", width: 132, height: 40, border: 0
+  = render 'pledges/chi/sharebox'
   %p
     = link_to raw("Learn more about kiindly.com &raquo;"), 'http://www.kiindly.com', target: '_blank'
     %br/
