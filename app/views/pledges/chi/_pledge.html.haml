@@ -7,6 +7,12 @@
       %p Please enter your pledge cap (between $10 and $1000)
     = render partial: 'pledges/chi/slider', locals: { p: p }
     %p By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will be remain at the pledge cap I select.
+
+    .optincheck
+      = p.check_box :donate_cap, class: 'rad'
+    .optintext
+      = p.label :donate_cap, "If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount."
+
     %h4 Customize your pledge
     %p Pick a donor dot color &amp; write a message
     %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
