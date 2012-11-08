@@ -25,7 +25,7 @@ class PledgeMailer < ActionMailer::Base
 
   private
   def subject_line(pledge)
-    pledge_description = pledge.donate_cap? ? 'Full Donation' : 'Dollar Match'
+    pledge_description = pledge.donate_cap? ? 'Donation Confirmation' : 'Dollar Match'
     "#{pledge_description} Confirmation: #{@campaign.name}"
   end
 
