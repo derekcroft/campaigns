@@ -1,3 +1,5 @@
+%h4#stripe_error.donation_error.field_with_errors
+  %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
 %h3 Payment Information
 %ul#paymentform
   %li#payment-type{:style => "width:500px;"}
@@ -28,5 +30,3 @@
     %br
     = select_month nil, { add_month_numbers_true: true }, { name: nil, id: 'card_month', maxlength: 2, class: 'short' }
     = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", maxlength: 2, class: 'short'}
-#stripe_error.donation_error
-  %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
