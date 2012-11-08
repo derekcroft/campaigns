@@ -1,6 +1,27 @@
 $(document).ready ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
+
+  monthNames = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+  ]
+  today = new Date
+
+  $("#submit_donation").click ->
+    if parseInt($("#card_month").val()) < 6 && $("#card_year").val() == "2012"
+      $("#stripe_error").html("Card expiration must be #{monthNames[today.getMonth()]} #{today.getFullYear()} or later").show()
+      $("#card_month").focus()
+      return false
+    if ($("#card_number").val().substring(0,2) == "34" || $("#card_number").val().substring(0,2) == "37")
+      unless $("#card_code").val().length == 4
+        $("#stripe_error").html("American Express card must have a four digit CVC").show()
+        $("#card_code").focus()
+        return false
+    true
+
   pledge.setupForm()
+
 
 pledge =
   setupForm: ->

@@ -1,6 +1,7 @@
 %h4#stripe_error.donation_error.field_with_errors
   %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
 %h3 Payment Information
+= hidden_field_tag :stripe_card_token
 %ul#paymentform
   %li#payment-type{:style => "width:500px;"}
     = image_tag "visa_32.png", height: 32, width: 32, alt: "Visa"
