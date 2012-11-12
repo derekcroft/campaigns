@@ -10,7 +10,7 @@ describe Campaign do
         let(:donor) { FactoryGirl.create :donor, campaign: campaign }
 
         before(:each) do
-          donor.pledges.dollar.create!
+          donor.pledges.create!(pledge_type: 'dollar')
         end
 
         its(:donation_total) { should == 1.00 }
@@ -19,7 +19,7 @@ describe Campaign do
           let(:donors) { FactoryGirl.create_list :donor, 3, campaign: campaign }
 
           before(:each) do
-            donors.each { |donor| donor.pledges.dollar.create! }
+            donors.each { |donor| donor.pledges.create!(pledge_type: 'dollar') }
           end
 
           its(:donation_total) { should == 16.00 }
@@ -63,7 +63,7 @@ describe Campaign do
         let(:donor) { FactoryGirl.create :donor, campaign: campaign }
 
         before(:each) do
-          donor.pledges.penny.create!
+          donor.pledges.create!(pledge_type: 'penny')
         end
 
         its(:donation_total) { should == 0.01 }
@@ -72,7 +72,7 @@ describe Campaign do
           let(:donors) { FactoryGirl.create_list :donor, 3, campaign: campaign }
 
           before(:each) do
-            donors.each { |donor| donor.pledges.penny.create! }
+            donors.each { |donor| donor.pledges.create!(pledge_type: 'penny') }
           end
 
           its(:donation_total) { should == 0.16 }

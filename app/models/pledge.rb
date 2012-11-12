@@ -13,9 +13,10 @@ class Pledge < ActiveRecord::Base
   validates :donor, associated: true
   validates :cap, numericality: { greater_than_or_equal_to: 20, less_than_or_equal_to: 1000 }
 
-  scope :penny, where(pledge_type: 'penny')
   scope :fixed, where(pledge_type: 'fixed')
-  scope :dollar, where(pledge_type: 'dollar')
+  scope :matching, where("pledge_type <> 'fixed'")
+  
+  scope :donate_cap, where(donate_cap: true)
 
   scope :resend, -> { where(pledge_type: 'fixed').where('amount <> 10').
                       joins(:donor).where('donors.confirmation_correction_at is null').

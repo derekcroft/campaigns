@@ -17,7 +17,7 @@ class Donor < ActiveRecord::Base
   serialize :stripe_customer
 
   def donation_amount
-    fixed_pledge_amount + penny_pledge_amount
+    fixed_pledge_amount + matching_pledge_amount
   end
 
   def donor_number
@@ -29,9 +29,13 @@ class Donor < ActiveRecord::Base
     pledges.fixed.sum(:amount) || 0
   end
 
-  def penny_pledge_amount
-    pledges.penny.sum do |pledge|
-      [(0.01 * campaign.number_of_eligible_pledges), pledge.cap].min
+  def matching_pledge_amount
+    pledges.matching.sum do |pledge|
+      if pledge.donate_cap?
+        pledge.cap
+      else
+        [(0.01 * campaign.number_of_eligible_pledges), pledge.cap].min
+      end
     end
   end
 

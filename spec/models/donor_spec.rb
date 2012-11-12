@@ -57,7 +57,7 @@ describe Donor do
 
           context "who makes one pledge" do
             before(:each) do
-              other_donor.pledges.penny.create
+              other_donor.pledges.create(pledge_type: 'penny')
             end
 
             it "should increase my donation by a penny" do
@@ -66,7 +66,7 @@ describe Donor do
 
             context "then another pledge" do
               before(:each) do
-                other_donor.pledges.penny.create
+                other_donor.pledges.create(pledge_type: 'penny')
               end
 
               it "should not increase my donation" do
@@ -79,7 +79,7 @@ describe Donor do
         context "with 4 other donors in the same campaign" do
           before(:each) do
             donors = FactoryGirl.create_list :donor, 4, campaign: donor.campaign
-            donors.each { |donor| donor.pledges.penny.create }
+            donors.each { |donor| donor.pledges.create(pledge_type: 'penny') }
           end
 
           it { donor.donation_amount.should == 0.05 }
@@ -106,7 +106,7 @@ describe Donor do
         context "with two other penny pledge donors in the same campaign" do
           before(:each) do
             donors = FactoryGirl.create_list :donor, 2, campaign: donor.campaign
-            donors.each { |donor| donor.pledges.penny.create }
+            donors.each { |donor| donor.pledges.create(pledge_type: 'penny') }
           end
 
           it { donor.donation_amount.should == 0.03 }
@@ -115,12 +115,30 @@ describe Donor do
         context "with three other penny pledge donors in the same campaign" do
           before(:each) do
             donors = FactoryGirl.create_list :donor, 3, campaign: donor.campaign
-            donors.each { |donor| donor.pledges.penny.create }
+            donors.each { |donor| donor.pledges.create(pledge_type: 'penny') }
           end
 
           it "should still equal the cap of three cents" do
             donor.donation_amount.should == 0.03
           end
+        end
+      end
+
+      context "where the donor has agreed to donate the cap" do
+        before(:each) do
+          donor.pledges.create!(pledge_type: 'penny', cap: 811, donate_cap: true)
+        end
+
+        it { donor.pledges.count.should == 1 }
+        it { donor.donation_amount.should == 811 }
+
+        context "and then a second fixed pledge of a buck o' five" do
+          before(:each) do
+            donor.pledges.create(pledge_type: 'fixed', amount: 1.05)
+          end
+
+          it { donor.pledges.count.should == 2 }
+          it { donor.donation_amount.should == 812.05 }
         end
       end
     end
