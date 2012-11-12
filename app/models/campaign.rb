@@ -33,7 +33,7 @@ class Campaign < ActiveRecord::Base
 
   private
   def fixed_total
-    total_row = pledges.where(pledge_type: 'fixed').group("campaign_id").sum(:amount)
+    total_row = pledges.fixed.group("campaign_id").sum(:amount)
     total_row.fetch(self[:id], BigDecimal.new('0'))
   end
 
@@ -53,7 +53,8 @@ class Campaign < ActiveRecord::Base
       from campaigns c
       inner join pledges penny_p
       on penny_p.campaign_id = c.id
-      and penny_p.pledge_type = '#{self.campaign_type}'
+      and penny_p.pledge_type <> 'fixed'
+      and penny_p.donate_cap = false
       where c.id = #{self[:id]}
       group by c.id
     }).first

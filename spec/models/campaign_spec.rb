@@ -41,9 +41,9 @@ describe Campaign do
 
       its(:donation_total) { should == 0.00 }
 
-      context "with a fixed donor" do
-        let(:donor) { FactoryGirl.create :donor, campaign: campaign }
+      let(:donor) { FactoryGirl.create :donor, campaign: campaign }
 
+      context "with a fixed donor" do
         before(:each) do
           donor.pledges.create!(amount: 5.21, pledge_type: 'fixed')
         end
@@ -59,9 +59,17 @@ describe Campaign do
         end
       end
 
-      context "with a penny donor" do
-        let(:donor) { FactoryGirl.create :donor, campaign: campaign }
+      context "with a donor who is donating the cap" do
+        subject { campaign }
 
+        before(:each) do
+          donor.pledges.create!(amount: 1.62, pledge_type: 'penny', donate_cap: true)
+        end
+
+        its(:donation_total) { should == 1.62 }
+      end
+
+      context "with a penny donor" do
         before(:each) do
           donor.pledges.create!(pledge_type: 'penny')
         end
