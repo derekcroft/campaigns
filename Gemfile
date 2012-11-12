@@ -26,7 +26,6 @@ gem 'jquery-rails'
 gem 'haml-rails'
 
 gem 'stripe'
-gem 'spork'
 
 gem 'airbrake'
 gem 'newrelic_rpm'
@@ -41,6 +40,7 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec'
+  gem 'guard-spork'
   gem 'ruby_gntp'
 end
 
