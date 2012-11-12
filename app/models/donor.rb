@@ -31,7 +31,7 @@ class Donor < ActiveRecord::Base
 
   def penny_pledge_amount
     pledges.penny.sum do |pledge|
-      [(0.01 * campaign.number_of_eligible_pledges), (pledge.cap || 50.00)].min
+      [(0.01 * campaign.number_of_eligible_pledges), pledge.cap].min
     end
   end
 

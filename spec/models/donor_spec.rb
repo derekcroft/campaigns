@@ -97,7 +97,8 @@ describe Donor do
 
       context "with a cap of three cents" do
         before(:each) do
-          donor.pledges.create(pledge_type: 'penny', cap: 0.03)
+          # turn off the validations because the minimum cap would require way too many records
+          donor.pledges.build(pledge_type: 'penny', cap: 0.03).save(validate: false)
         end
 
         it { donor.donation_amount.should == 0.01 }
