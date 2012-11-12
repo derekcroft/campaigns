@@ -15,7 +15,8 @@ class PledgesController < ApplicationController
     begin
       c = Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
       @pledge.donor.stripe_customer ||= c
-    rescue e
+    rescue Exception => e
+      logger.debug e.inspect
       flash[:error] = "Error validating credit card information."
       render action: 'new' and return
     end
