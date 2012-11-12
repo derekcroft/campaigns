@@ -6,15 +6,16 @@ class Pledge < ActiveRecord::Base
   accepts_nested_attributes_for :donor
 
   attr_accessor :stripe_card_token
-  attr_accessible :stripe_card_token, :pledge_type, :amount, :cap, :donor_attributes, :donate_cap, :dot_color, :dot_comment
+  attr_accessible :stripe_card_token, :pledge_type, :amount,
+    :cap, :donor_attributes, :donate_cap, :dot_color, :dot_comment
 
   validates :pledge_type, inclusion: { in: %w{fixed penny dollar} }
   validates :donor, :campaign, presence: true
   validates :donor, associated: true
   validates :cap, numericality: { greater_than_or_equal_to: 20, less_than_or_equal_to: 1000 }
 
-  scope :fixed, where(pledge_type: 'fixed')
-  scope :matching, where("pledge_type <> 'fixed'")
+  scope :fixed, where(["pledge_type = 'fixed' or donate_cap = ?", true])
+  scope :matching, where("pledge_type <> 'fixed'").where(donate_cap: false)
   
   scope :donate_cap, where(donate_cap: true)
 
@@ -29,6 +30,7 @@ class Pledge < ActiveRecord::Base
   after_initialize :set_defaults
   def set_defaults
     self.pledge_type ||= 'penny'
+    self.donate_cap ||= false
     self.donor ||= build_donor
     self.cap ||= 20
   end

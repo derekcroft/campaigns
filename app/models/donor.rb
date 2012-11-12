@@ -26,17 +26,15 @@ class Donor < ActiveRecord::Base
 
   private
   def fixed_pledge_amount
-    pledges.fixed.sum(:amount) || 0
+    pledges.fixed.sum do |pledge|
+      pledge.donate_cap? ? pledge.cap : pledge.amount
+    end || 0.00
   end
 
   def matching_pledge_amount
     pledges.matching.sum do |pledge|
-      if pledge.donate_cap?
-        pledge.cap
-      else
-        [(0.01 * campaign.number_of_eligible_pledges), pledge.cap].min
-      end
-    end
+      [(0.01 * campaign.number_of_eligible_pledges), pledge.cap].min
+    end || 0.00
   end
 
 end

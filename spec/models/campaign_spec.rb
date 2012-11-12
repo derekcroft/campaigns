@@ -45,14 +45,14 @@ describe Campaign do
         let(:donor) { FactoryGirl.create :donor, campaign: campaign }
 
         before(:each) do
-          donor.pledges.fixed.create!(amount: 5.21)
+          donor.pledges.create!(amount: 5.21, pledge_type: 'fixed')
         end
 
         its(:donation_total) { should == 5.21 }
 
         context "and a second fixed donor" do
           before(:each) do
-            donor.pledges.fixed.create(amount: 1.05)
+            donor.pledges.create(amount: 1.05, pledge_type: 'fixed')
           end
 
           its(:donation_total) { should == 6.26 }
