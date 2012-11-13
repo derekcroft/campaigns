@@ -6,10 +6,11 @@ gem 'rails', '~> 3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+group :assets, :test, :development do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -28,9 +29,6 @@ gem 'stripe'
 gem 'airbrake'
 gem 'newrelic_rpm'
 
-gem 'rvm-capistrano'
-
-
 group :development, :test do
   gem 'ruby_parser'
   gem 'hpricot'
@@ -42,9 +40,8 @@ group :development, :test do
   gem 'guard-spork'
   gem 'ruby_gntp'
   gem 'rspec-rails', '>= 2.8.1'
-end
-
-group :test do
+  gem 'jasminerice'
+  gem 'guard-jasmine'
   gem "factory_girl_rails", ">= 1.6.0"
   gem "cucumber-rails", ">= 1.2.1", require: false
   gem "capybara", ">= 1.1.2"
@@ -53,10 +50,6 @@ group :test do
   gem "launchy"
 end
 
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
 
 gem 'ruby-prof'
 
