@@ -53,3 +53,12 @@ KiindlyCom::Application.configure do
     :enable_starttls_auto => true
   }
 end
+
+# OUAA test keys
+#Stripe.api_key = "zdMlARuWbM3wUf8XLw37nVruppHdAaT9"
+#STRIPE_PUBLISHABLE_KEY = "pk_3nMQqDSMnDAUB8PcYGP2PVTCSjrI5"
+
+# CHI test keys
+Stripe.api_key = 'sk_0EEhFAMHd3BuQH29KJevoALr9zld1'
+STRIPE_PUBLISHABLE_KEY = 'pk_0EEh2ZN9GM4wWLGEAEznbIysBQ4te'
+
