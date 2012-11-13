@@ -14,8 +14,7 @@
         Total Pledged:
         %strong= number_to_currency(campaign.donation_total, precision: 2)
       = render 'campaigns/chi/progressbar'
-      #countmein
-        = button_to "COUNT ME IN", new_pledge_path, method: :get, style: 'width:230px;'
+      #countmein= count_me_in_button(request.host)
     #video
       %iframe{width: 640, height: 390, src: 'https://www.youtube.com/embed/cohybD-cxGk?rel=0', frameborder: 0, allowfullscreen: ''}
   .middleblock
