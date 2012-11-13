@@ -6,7 +6,7 @@
     %noscript
       %p Please enter your pledge cap (between $10 and $1000)
     = render partial: 'pledges/chi/slider', locals: { p: p }
-    %p By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will be remain at the pledge cap I select.
+    %p By pledging to match a dollar, I am agreeing to donate one dollar for every person who also donates to this campaign. If more people donate, my total contribution will remain at the pledge cap I select.
 
     .optincheck
       = p.check_box :donate_cap, class: 'rad'
