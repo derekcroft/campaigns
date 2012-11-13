@@ -1,18 +1,9 @@
 #= require facebook
 #= require stripe
 
-postToFeed = (data) ->
-  callback = (response) ->
-  FB.ui data, callback
-  false
-
 jQuery ->
   # only allow numbers in the fixed amount text field
   $('.positive-integer').numeric { decimal: false, negative: false }
-
-  $('#facebook_popup').click ->
-    postToFeed($(this).data())
-    false
 
   # enforce the donation limits on the slider text field
   $("#display5").slider
