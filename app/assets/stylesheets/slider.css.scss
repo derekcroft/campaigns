@@ -1,11 +1,4 @@
-/*	Default stylesheet for the Carpe Slider 2
-    By Tom Hermansson Snickars              
-    2011-09-21 version 2.1
-    Copyright CARPE Design                     
-    carpe.ambiprospect.com
-*/
-
-.carpe-slider-panel {
+.slider-panel {
 	box-sizing: content-box;
 	color: #333;
 	padding:3px;
@@ -22,10 +15,10 @@
 	opacity: 1;
 	cursor: default;
 }
-.carpe-slider-panel:hover {
+.slider-panel:hover {
 	background-color: #eee;
 }
-.carpe-slider-panel:focus {
+.slider-panel:focus {
 	background-color: #fff;
 }
 .orientation-horizontal {
@@ -33,46 +26,24 @@
 	padding:0;
 }
 /* The Slider Slit */
-.carpe-slider-slit {
-	background-color: #999;
+.slider-slit {
+	background-color: #1a9f4a;
+  background-image: none;
 	position: relative;
 	line-height: 0;
 	border: 1px solid;
 	border-color: #7d7d7d #7d7d7d #dbdbdb #dbdbdb;
 	font-size: 0;
 	cursor: default;
+  height: 2px;
+	margin: 4px 15px 2px 2px;
+  width: 50%;
+  float: left;
+  &[disabled] {
+    background-color: #999;
+  }
 }
-.carpe-slider-slit[disabled] {
-	background-color: #999;
-}
-.carpe-slider-panel:focus .carpe-slider-slit {
-	background-color: #1a9f4a; /* Green color of slit in focused slider. */
-}
-.carpe-slider-panel:focus .carpe-slider-slit[disabled] {
-	background-color: #aaa; /*  */
-}
-.carpe-slider-panel:hover .carpe-slider-slit {
-	background-color: #1a9f4a; /* Blue color of slit in 'hovered' slider. */
-}
-.carpe-slider-panel:hover .carpe-slider-slit[disabled] {
-	background-color: #aaa; /*  . */
-}
-.carpe-slider-panel:focus:hover .carpe-slider-slit {
-	background-color: #1a9f4a; /* Green color of slit in focused and 'hovered' slider. */
-}
-.carpe-slider-panel:focus:hover .carpe-slider-slit[disabled] {
-	background-color: #aaa; /* Blue color of slit in focused and 'hovered' slider. */
-}
-.orientation-horizontal .carpe-slider-slit {
-	height: 2px;
-	margin: 4px 2px 2px 2px;
-	top: -12px;
-}
-.orientation-vertical .carpe-slider-slit {
-	width: 2px;
-	margin: 2px 4px 4px 4px;
-	top: -20px;
-}
+
 /* The Slider Knob */
 #slider-knob {
 	background-color: #1a9f4a;
@@ -86,6 +57,7 @@
 	height: 12px;
 	cursor: e-resize;
   border: 0;
+  top: -5px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -95,4 +67,10 @@
   &[disabled] {
     cursor: default;
   }
+}
+
+/* The Input Field */
+.slider-target {
+  position: relative;
+  top: -0.5em;
 }
