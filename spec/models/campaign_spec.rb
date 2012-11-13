@@ -45,7 +45,7 @@ describe Campaign do
 
       context "with a fixed donor" do
         before(:each) do
-          donor.pledges.create!(amount: 5.21, pledge_type: 'fixed')
+          donor.pledges.create!(amount: 5.21, pledge_type: 'fixed', donate_cap: false)
         end
 
         its(:donation_total) { should == 5.21 }
@@ -60,13 +60,19 @@ describe Campaign do
       end
 
       context "with a donor who is donating the cap" do
-        subject { campaign }
-
         before(:each) do
-          donor.pledges.create!(amount: 1.62, pledge_type: 'penny', donate_cap: true)
+          donor.pledges.create!(cap: 31.62, pledge_type: 'penny', donate_cap: true)
         end
 
-        its(:donation_total) { should == 1.62 }
+        its(:donation_total) { should == 31.62 }
+
+        context "and another pledge that is not" do
+          before(:each) do
+            donor.pledges.create!(cap: 86.62, pledge_type: 'penny', donate_cap: false)
+          end
+
+          its(:donation_total) { should == 31.63 }
+        end
       end
 
       context "with a penny donor" do
