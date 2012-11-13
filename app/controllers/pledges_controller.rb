@@ -11,7 +11,8 @@ class PledgesController < ApplicationController
   end
 
   def create
-    @pledge = @campaign.pledges.dollar.build(params[:pledge])
+    @pledge = @campaign.pledges.build(params[:pledge])
+    @pledge.pledge_type = 'dollar'
     begin
       c = Stripe::Customer.create(description: @pledge.donor.email, card: params[:stripe_card_token])
       @pledge.donor.stripe_customer ||= c
