@@ -46,7 +46,6 @@ KiindlyCom::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  #config.assets.precompile += %w( search.js campaigns.js stripe.js facebook.js carpe paymentpage.css sharepage.css carpe.css )
   config.assets.precompile += %w{
     campaigns.js
     pledges.js
@@ -54,9 +53,6 @@ KiindlyCom::Application.configure do
     google_analytics.js
     mcColorPicker/mcColorPicker.js
     mcColorPicker/mcColorPicker.css
-    carpe/carpe_common.js
-    carpe/carpe_slider.js
-    carpe/carpe_slider.css
     popups.css
     popup.js
     jquery.js

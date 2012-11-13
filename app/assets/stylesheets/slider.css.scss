@@ -74,26 +74,25 @@
 	top: -20px;
 }
 /* The Slider Knob */
-.carpe-slider-knob {
+#slider-knob {
 	background-color: #1a9f4a;
+  background-image: none;
 	position: relative;
 	z-index: 2;
 	line-height: 0;
 	font-size: 0;
-	border: 0;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-}
-.carpe-slider-knob:hover {
-	background-color: #127837;
-}
-.orientation-horizontal .carpe-slider-knob {
 	width: 12px;
 	margin: 0;
 	height: 12px;
 	cursor: e-resize;
-}
-.carpe-slider-knob[disabled] {
-	cursor: default;
+  border: 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+  &:hover {
+    background-color: #127837;
+  }
+  &[disabled] {
+    cursor: default;
+  }
 }

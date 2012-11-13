@@ -18,10 +18,10 @@
 
 ## Healthy Chicago Initiative Stripe keys
 # test
-#Stripe.api_key = 'sk_0EEhFAMHd3BuQH29KJevoALr9zld1'
-#STRIPE_PUBLISHABLE_KEY = 'pk_0EEh2ZN9GM4wWLGEAEznbIysBQ4te'
+Stripe.api_key = 'sk_0EEhFAMHd3BuQH29KJevoALr9zld1'
+STRIPE_PUBLISHABLE_KEY = 'pk_0EEh2ZN9GM4wWLGEAEznbIysBQ4te'
 
 # live
-Stripe.api_key = 'sk_0EEhccEW3E48nB1fklAaKFBnGNKdL'
-STRIPE_PUBLISHABLE_KEY = 'pk_0EEhPDdlHd0gfqe8Yy1h2RhzSgmGw'
+#Stripe.api_key = 'sk_0EEhccEW3E48nB1fklAaKFBnGNKdL'
+#STRIPE_PUBLISHABLE_KEY = 'pk_0EEhPDdlHd0gfqe8Yy1h2RhzSgmGw'
 
