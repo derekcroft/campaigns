@@ -5,7 +5,7 @@ jQuery ->
   # only allow numbers in the fixed amount text field
   $('.positive-integer').numeric { decimal: false, negative: false }
 
-  # enforce the donation limits on the slider text field
+  # set the jquery ui slider up
   $("#display5").slider
     value: $('#pledge_cap').val()
     min: 20
@@ -13,6 +13,8 @@ jQuery ->
     step: 5
     slide: (event, ui) ->
       $('#pledge_cap').val(ui.value)
+
+  # enforce the donation limits on the slider text field
   $('#pledge_cap').change ->
     $('#display5').slider('value', @value)
   .blur ->
