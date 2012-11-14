@@ -1,3 +1,4 @@
+
 $(document).ready ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
 
@@ -22,6 +23,9 @@ $(document).ready ->
 
   pledge.setupForm()
 
+
+class Stripe
+  alert 'hi'
 
 pledge =
   setupForm: ->
