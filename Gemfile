@@ -5,9 +5,6 @@ gem 'rails', '~> 3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# for deployment on Heroku
-gem 'heroku'
-
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -25,17 +22,13 @@ group :assets do
 end
 
 gem 'haml-rails'
-
 gem 'stripe'
-
 gem 'airbrake'
 gem 'newrelic_rpm'
 
-
-group :development do
+group :development, :test do
   gem 'ruby_parser'
   gem 'hpricot'
-  gem 'heroku'
   gem 'taps'
   gem 'sqlite3'
   gem 'guard'
@@ -43,10 +36,8 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'ruby_gntp'
-end
-
-group :development, :test do
   gem 'rspec-rails', '>= 2.8.1'
+  gem 'jasmine-rails'
 end
 
 group :test do
