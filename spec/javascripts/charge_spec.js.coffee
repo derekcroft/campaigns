@@ -5,7 +5,7 @@ describe "Card", ->
   it "is defined", ->
     expect(Card).toBeDefined()
 
-  describe "#constructor", ->
+  describe "constructor()", ->
     card = new Card "4242424242424242", "3", "2015", "991"
 
     it "has a number", ->
@@ -66,6 +66,81 @@ describe "Card", ->
     it "is valid if expiration date is next month", ->
       nextMonth = new Date
       nextMonth.setMonth(nextMonth.getMonth() + 1)
-      alert nextMonth
       expect(@card.expirationValid()).toBe(true)
+
+  describe "isAmericanExpress()", ->
+    card = new Card "1234123412341234", "3", "2012", "819"
+
+    it "is false if card number is not defined", ->
+      card.number = undefined
+      expect(card.isAmericanExpress()).toBe(false)
+
+    it "is true if card number starts with 34", ->
+      card.number = "3434343434343434"
+      expect(card.isAmericanExpress()).toBe(true)
+
+    it "is true if card number starts with 37", ->
+      card.number = "3734343434343434"
+      expect(card.isAmericanExpress()).toBe(true)
+
+    it "is false if card number starts with anything else", ->
+      card.number = "4242424242424242"
+      expect(card.isAmericanExpress()).toBe(false)
+      card.number = "5500550055005500"
+      expect(card.isAmericanExpress()).toBe(false)
+    
+  describe "cvcValid()", ->
+    card = new Card
+
+    it "is invalid if cvc is undefined", ->
+      card.cvc = undefined
+      expect(card.cvcValid()).toBe(false)
+
+    describe "if card is amex", ->
+      beforeEach ->
+        spyOn(card, 'isAmericanExpress').andReturn(true)
+
+      it 'is invalid if cvc is one digit long', ->
+        card.cvc = '1'
+        expect(card.cvcValid()).toBe(false)
+
+      it 'is invalid if cvc is two digits long', ->
+        card.cvc = '12'
+        expect(card.cvcValid()).toBe(false)
+
+      it 'is invalid if cvc is three digits long', ->
+        card.cvc = '123'
+        expect(card.cvcValid()).toBe(false)
+
+      it 'is valid if cvc is four digits long', ->
+        card.cvc = '1234'
+        expect(card.cvcValid()).toBe(true)
+
+      it 'is invalid if cvc is five digits long', ->
+        card.cvc = '12345'
+        expect(card.cvcValid()).toBe(false)
+
+    describe "if card is not amex", ->
+      beforeEach ->
+        spyOn(card, 'isAmericanExpress').andReturn(false)
+
+      it 'is invalid if cvc is one digit long', ->
+        card.cvc = '1'
+        expect(card.cvcValid()).toBe(false)
+
+      it 'is invalid if cvc is two digits long', ->
+        card.cvc = '12'
+        expect(card.cvcValid()).toBe(false)
+
+      it 'is valid if cvc is three digits long', ->
+        card.cvc = '123'
+        expect(card.cvcValid()).toBe(true)
+
+      it 'is invalid if cvc is four digits long', ->
+        card.cvc = '1234'
+        expect(card.cvcValid()).toBe(false)
+
+      it 'is invalid if cvc is five digits long', ->
+        card.cvc = '12345'
+        expect(card.cvcValid()).toBe(false)
 

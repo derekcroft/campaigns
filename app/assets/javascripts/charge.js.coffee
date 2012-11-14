@@ -14,12 +14,16 @@ class Card
     expirationDate = new Date(@expirationYear, @expirationMonth)
     expirationDate > today
 
+  isAmericanExpress: ->
+    @number?.substring(0,2) in ["34", "37"]
+
+  cvcValid: ->
+    @cvc?.length == if @isAmericanExpress() then 4 else 3
+
 window.Card = Card
 
 $(document).ready ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-
-  today = new Date
 
   $("#submit_donation").click ->
     if parseInt($("#card_month").val()) < 6 && $("#card_year").val() == "2012"
