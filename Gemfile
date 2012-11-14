@@ -38,6 +38,7 @@ group :development, :test do
   gem 'ruby_gntp'
   gem 'rspec-rails', '>= 2.8.1'
   gem 'jasmine-rails'
+  gem 'guard-jasmine-headless-webkit'
 end
 
 group :test do

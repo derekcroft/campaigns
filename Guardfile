@@ -36,3 +36,11 @@ guard 'rspec', version: 2, cli: '--drb', all_on_start: true, all_after_pass: tru
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
+spec_location = "spec/javascripts/%s_spec"
+
+guard 'jasmine-headless-webkit' do
+  watch(%r{^app/views/.*\.jst$})
+  watch(%r{^public/javascripts/(.*)\.js$}) { |m| newest_js_file(spec_location % m[1]) }
+  watch(%r{^.*/assets/javascripts/(.*)\.(js|coffee)$}) { |m| newest_js_file(spec_location % m[1]) }
+  watch(%r{^spec/javascripts/(.*)_spec\..*}) { |m| newest_js_file(spec_location % m[1]) }
+end

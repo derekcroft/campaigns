@@ -93,6 +93,9 @@ GEM
     guard-cucumber (0.7.5)
       cucumber (>= 0.10)
       guard (>= 0.8.3)
+    guard-jasmine-headless-webkit (0.3.2)
+      guard (>= 0.4.0)
+      jasmine-headless-webkit (>= 0.7.0)
     guard-rspec (0.6.0)
       guard (>= 0.10.0)
     guard-spork (1.0.1)
@@ -255,6 +258,7 @@ DEPENDENCIES
   factory_girl_rails (>= 1.6.0)
   guard
   guard-cucumber
+  guard-jasmine-headless-webkit
   guard-rspec
   guard-spork
   haml-rails

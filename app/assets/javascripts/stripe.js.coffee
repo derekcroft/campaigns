@@ -22,8 +22,7 @@ $(document).ready ->
 
   pledge.setupForm()
 
-
-pledge =
+class Pledge
   setupForm: ->
     $('#new_pledge').submit ->
       $('#submit_donation').attr('disabled', true)
