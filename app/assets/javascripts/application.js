@@ -16,4 +16,4 @@
 //= require jquery.tools.min
 //= require jquery.numeric
 //= require popup
-//= require stripe
+//= require charge

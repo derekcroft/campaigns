@@ -1,8 +1,8 @@
-class Stripe
+class Card
   constructor: ->
     alert 'constructing'
 
-window.Stripe = Stripe
+window.Card = Card
 
 $(document).ready ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
