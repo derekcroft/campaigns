@@ -30,6 +30,7 @@ gem 'airbrake'
 gem 'newrelic_rpm'
 
 group :development, :test do
+  gem 'jquery-rails'
   gem 'ruby_parser'
   gem 'hpricot'
   gem 'taps'
