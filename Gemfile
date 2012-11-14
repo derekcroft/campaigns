@@ -29,7 +29,7 @@ gem 'airbrake'
 gem 'newrelic_rpm'
 
 
-group :development do
+group :development, :test do
   gem 'ruby_parser'
   gem 'hpricot'
   gem 'taps'
@@ -39,9 +39,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'ruby_gntp'
-end
-
-group :development, :test do
   gem 'rspec-rails', '>= 2.8.1'
 end
 
