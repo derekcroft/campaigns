@@ -1,17 +1,24 @@
 class Card
-  constructor: ->
-    alert 'constructing'
+  constructor: (@number, @expirationMonth, @expirationYear, @cvc) ->
+
+  @monthName: (monthNumber) ->
+    monthNames = [
+      "January", "February", "March", "April",
+      "May", "June", "July", "August",
+      "September", "October", "November", "December"
+    ]
+    monthNames[monthNumber-1]
+
+  expirationValid: ->
+    today = new Date
+    expirationDate = new Date(@expirationYear, @expirationMonth)
+    expirationDate > today
 
 window.Card = Card
 
 $(document).ready ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
 
-  monthNames = [
-    "January", "February", "March", "April",
-    "May", "June", "July", "August",
-    "September", "October", "November", "December"
-  ]
   today = new Date
 
   $("#submit_donation").click ->
