@@ -17,4 +17,6 @@ describe "Charge", ->
     expect($('#stripe_error')).toExist()
 
   it "creates a card from the fields", ->
+    $('#submit_donation').click()
+    alert $('#stripe_error').html()
 
