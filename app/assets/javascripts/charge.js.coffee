@@ -1,40 +1,23 @@
-class Card
-  constructor: (@number, @expirationMonth, @expirationYear, @cvc) ->
-
-  @monthName: (monthNumber) ->
-    monthNames = [
-      "January", "February", "March", "April",
-      "May", "June", "July", "August",
-      "September", "October", "November", "December"
-    ]
-    monthNames[monthNumber-1]
-
-  expirationValid: ->
-    today = new Date
-    expirationDate = new Date(@expirationYear, @expirationMonth)
-    expirationDate > today
-
-  isAmericanExpress: ->
-    @number?.substring(0,2) in ["34", "37"]
-
-  cvcValid: ->
-    @cvc?.length == if @isAmericanExpress() then 4 else 3
-
-window.Card = Card
+class Charge
+  constructor: ->
+    @apiKey = $('meta[name="stripe-key"]').attr('content')
 
 $(document).ready ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
 
   $("#submit_donation").click ->
-    if parseInt($("#card_month").val()) < 6 && $("#card_year").val() == "2012"
-      $("#stripe_error").html("Card expiration must be #{monthNames[today.getMonth()]} #{today.getFullYear()} or later").show()
+    card = new Card $('#card_number').val(), $('#card_month').val(), $('#card_year').val(), $('#card_code').val()
+    unless card.expirationValid()
+      $("#stripe_error").html("Card expiration must be #{Card.validExpirationMonthAndYear()} or later").show()
       $("#card_month").focus()
       return false
-    if ($("#card_number").val().substring(0,2) == "34" || $("#card_number").val().substring(0,2) == "37")
-      unless $("#card_code").val().length == 4
+    unless card.cvcValid()
+      if card.isAmericanExpress()
         $("#stripe_error").html("American Express card must have a four digit CVC").show()
-        $("#card_code").focus()
-        return false
+      else
+        $("#stripe_error").html("This card must have a three digit CVC").show()
+      $("#card_code").focus()
+      return false
     true
 
   pledge.setupForm()
@@ -63,3 +46,5 @@ pledge =
       $("#stripe_error").text(response.error.message)
       $("#submit_donation").prop('disabled', false)
 
+
+window.Charge = Charge
