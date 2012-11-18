@@ -180,6 +180,8 @@ GEM
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.6.1)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.1.15)
     sass-rails (3.2.4)
       railties (~> 3.2.0)
@@ -252,6 +254,7 @@ DEPENDENCIES
   ruby-prof
   ruby_gntp
   ruby_parser
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
   stripe

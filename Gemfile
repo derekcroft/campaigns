@@ -28,6 +28,8 @@ gem 'stripe'
 gem 'airbrake'
 gem 'newrelic_rpm'
 
+gem 'rvm-capistrano'
+
 
 group :development, :test do
   gem 'ruby_parser'

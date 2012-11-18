@@ -1,8 +1,12 @@
 require 'bundler/capistrano'
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
+#set :default_environment, {
+  #'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+#}
+#
+set :rvm_ruby_string, '1.9.3'
+
+require 'rvm/capistrano'
 
 set :application, "chi"
 set :repository,  "git@github.com:derekcroft/kiindly.git"
@@ -14,7 +18,7 @@ set :deploy_via, :remote_cache
 
 after "deploy", "deploy:migrate"
 
-server "kiindly", :app, :web, :db, primary: true
+server "kiindly2", :app, :web, :db, primary: true
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
