@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :load_campaign
 
   def load_campaign
-    @campaign = Campaign.find_by_subdomain(request.subdomain)
+    subdomain = request.subdomain.sub(/-staging$/, '')
+    @campaign = Campaign.find_by_subdomain(subdomain)
     redirect_to 'http://www.kiindly.com' if @campaign.nil?
   end
 end
