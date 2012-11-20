@@ -5,6 +5,7 @@ class PledgeMailer < ActionMailer::Base
   def pledge_receipt_email(pledge)
     fetch_data(pledge)
     mail(to: @donor.email,
+         bcc: 'derek@kiindly.com',
          subject: subject_line(pledge),
          template_path: "pledge_mailer/#{@campaign.subdomain}")
   end
