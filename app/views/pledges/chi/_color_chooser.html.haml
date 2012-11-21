@@ -1,0 +1,5 @@
+%h4 Customize your pledge
+%p Pick a donor dot color &amp; write a message
+%a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
+= p.hidden_field :dot_color, class: 'color short'
+= p.text_field :dot_comment, class: 'instructional_text medium', maxlength: 140, style: "margin-left:20px", value: "Type a short message"

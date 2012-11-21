@@ -3,12 +3,18 @@ class PledgesController < ApplicationController
   respond_to :html
   caches_page :new
 
+  def random_hex
+    hex_values = ('0'..'9').to_a+('a'..'f').to_a
+    6.times.inject('#') { |str, elem| str << hex_values.sample }
+  end
+
   def new
     if params[:donation_type] == 'fixed' && params[:fixedamount].to_i < 5
       flash[:error] = "Fixed donation must be at least $5.00"
       redirect_to root_path
     end
     @pledge = @campaign.pledges.build(params[:pledge])
+    @pledge.dot_color = random_hex
   end
 
   def create

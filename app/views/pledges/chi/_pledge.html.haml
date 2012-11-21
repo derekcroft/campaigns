@@ -13,11 +13,7 @@
     .optintext
       = p.label :donate_cap, "If the campaign doesn't reach my donation cap I'm willing to donate the value of my full cap amount."
 
-    %h4 Customize your pledge
-    %p Pick a donor dot color &amp; write a message
-    %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
-    = p.hidden_field :dot_color, class: 'color short'
-    = p.text_field :dot_comment, class: 'instructional_text medium', maxlength: 140, style: "margin-left:20px", value: "Type a short message"
+    = render partial: 'pledges/chi/color_chooser', locals: { p: p }
     %hr.clear/
   .paymentcontentblock.roundbox
     = render partial: pledge.donor, locals: { p: p }
