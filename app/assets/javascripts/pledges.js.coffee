@@ -38,3 +38,8 @@ jQuery ->
       $it = $(".instructional_text")
       $it.val('') if $it.val() == 'Type a short message'
 
+  # generate a random hex value
+  randomHex = ->
+    Math.floor(Math.random()*16777215).toString(16)
+
+  $('#pledge_dot_color').val("##{randomHex()}")
