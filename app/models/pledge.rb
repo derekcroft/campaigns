@@ -32,12 +32,18 @@ class Pledge < ActiveRecord::Base
     self.pledge_type ||= 'penny'
     self.donate_cap ||= false
     self.donor ||= build_donor
+    self.dot_color ||= Pledge.random_hex
     self.cap ||= 20
   end
 
   before_validation :set_campaign
   def set_campaign
     self.campaign ||= donor.campaign
+  end
+
+  def self.random_hex
+    hex_values = ('0'..'9').to_a+('a'..'f').to_a
+    6.times.inject('#') { |str, elem| str << hex_values.sample }
   end
 
 end
