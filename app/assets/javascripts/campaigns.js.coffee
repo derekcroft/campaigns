@@ -38,3 +38,17 @@ jQuery ->
     $("#holder").hide()
     $("#clip").show()
     true
+
+  # hide "ends on" date and show "ends in ... days"
+  # users with javascript will see the proper number of days left
+  # with the request going through the cache and not hitting the rails server
+  # users without javascript will see the campaign end date
+  # variation of the dateDiff function from http://bit.ly/SaOtuR
+  daysLeft = ->
+    endsOn = new Date($('#expiresontext').data('ends-on'))
+    today = new Date()
+    Math.floor (endsOn-today)/86400000
+
+  $('#expiresdays').html("#{daysLeft()} days")
+  $('#expiresontext').hide()
+  $('#expiresdaystext').show()
