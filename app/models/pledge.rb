@@ -42,8 +42,7 @@ class Pledge < ActiveRecord::Base
   end
 
   def self.random_hex
-    hex_values = ('0'..'9').to_a+('a'..'f').to_a
-    6.times.inject('#') { |str, elem| str << hex_values.sample }
+    sprintf("#%06x", Random.rand(0x1000000))
   end
 
 end
