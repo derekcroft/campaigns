@@ -50,6 +50,16 @@ test: &test
   host: localhost
   port: 5432
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: kiindly_staging
+  pool: 5
+  username: kiindly_staging
+  password: p8Y&9K4rJt$P9%V2
+  host: 127.0.0.1
+  port: 5432
+
 production:
   adapter: postgresql
   encoding: unicode
