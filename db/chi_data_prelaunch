@@ -1,0 +1,1426 @@
+--
+-- PostgreSQL database cluster dump
+--
+
+-- Started on 2012-11-26 15:38:11 EST
+
+\connect postgres
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE "dcroft";
+ALTER ROLE "dcroft" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION PASSWORD 'md555fe808d31149ee5f6b8a201efb37d1d';
+CREATE ROLE "kiindly";
+ALTER ROLE "kiindly" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION PASSWORD 'md55ac3fa0d5ac8d942ebbcc690884fb4a8';
+CREATE ROLE "kiindly_staging";
+ALTER ROLE "kiindly_staging" WITH NOSUPERUSER INHERIT NOCREATEROLE NOCREATEDB LOGIN NOREPLICATION;
+CREATE ROLE "postgres";
+ALTER ROLE "postgres" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION;
+CREATE ROLE "replicator";
+ALTER ROLE "replicator" WITH SUPERUSER INHERIT NOCREATEROLE NOCREATEDB LOGIN REPLICATION PASSWORD 'md5410995adcdd31075440ab01de6d8c450';
+
+
+
+
+
+
+--
+-- Database creation
+--
+
+CREATE DATABASE "kiindly_development" WITH TEMPLATE = template0 OWNER = "postgres";
+CREATE DATABASE "kiindly_production" WITH TEMPLATE = template0 OWNER = "postgres";
+CREATE DATABASE "kiindly_staging" WITH TEMPLATE = template0 OWNER = "kiindly_staging";
+CREATE DATABASE "kiindly_test" WITH TEMPLATE = template0 OWNER = "kiindly";
+REVOKE ALL ON DATABASE "template1" FROM PUBLIC;
+REVOKE ALL ON DATABASE "template1" FROM "postgres";
+GRANT ALL ON DATABASE "template1" TO "postgres";
+GRANT CONNECT ON DATABASE "template1" TO PUBLIC;
+
+
+\connect "kiindly_development"
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-11-26 15:38:13 EST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1918 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA "public"; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+
+--
+-- TOC entry 168 (class 3079 OID 11676)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "plpgsql" WITH SCHEMA "pg_catalog";
+
+
+--
+-- TOC entry 1920 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: EXTENSION "plpgsql"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
+
+
+SET search_path = "public", pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 162 (class 1259 OID 16390)
+-- Dependencies: 5
+-- Name: campaigns; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "campaigns" (
+    "id" integer NOT NULL,
+    "donation_target" numeric(20,2),
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE "public"."campaigns" OWNER TO "kiindly";
+
+--
+-- TOC entry 161 (class 1259 OID 16388)
+-- Dependencies: 162 5
+-- Name: campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly
+--
+
+CREATE SEQUENCE "campaigns_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."campaigns_id_seq" OWNER TO "kiindly";
+
+--
+-- TOC entry 1921 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly
+--
+
+ALTER SEQUENCE "campaigns_id_seq" OWNED BY "campaigns"."id";
+
+
+--
+-- TOC entry 1922 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: campaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly
+--
+
+SELECT pg_catalog.setval('"campaigns_id_seq"', 1, true);
+
+
+--
+-- TOC entry 164 (class 1259 OID 16398)
+-- Dependencies: 5
+-- Name: donors; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "donors" (
+    "id" integer NOT NULL,
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "campaign_id" integer,
+    "first_name" character varying(255),
+    "last_name" character varying(255),
+    "email" character varying(255),
+    "street_address" character varying(255),
+    "city" character varying(255),
+    "state" character varying(2),
+    "zip" character varying(9),
+    "phone" character varying(10),
+    "terms_of_service" boolean,
+    "email_opt_in" boolean,
+    "stripe_customer" "text",
+    "processed_at" timestamp without time zone,
+    "confirmation_email_at" timestamp without time zone,
+    "stripe_response" "text",
+    "confirmation_correction_at" timestamp without time zone
+);
+
+
+ALTER TABLE "public"."donors" OWNER TO "kiindly";
+
+--
+-- TOC entry 163 (class 1259 OID 16396)
+-- Dependencies: 164 5
+-- Name: donors_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly
+--
+
+CREATE SEQUENCE "donors_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."donors_id_seq" OWNER TO "kiindly";
+
+--
+-- TOC entry 1923 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: donors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly
+--
+
+ALTER SEQUENCE "donors_id_seq" OWNED BY "donors"."id";
+
+
+--
+-- TOC entry 1924 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: donors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly
+--
+
+SELECT pg_catalog.setval('"donors_id_seq"', 1, false);
+
+
+--
+-- TOC entry 166 (class 1259 OID 16409)
+-- Dependencies: 5
+-- Name: pledges; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "pledges" (
+    "id" integer NOT NULL,
+    "campaign_id" integer,
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "pledge_type" character varying(255),
+    "donor_id" integer,
+    "amount" numeric(10,2),
+    "cap" numeric(10,2)
+);
+
+
+ALTER TABLE "public"."pledges" OWNER TO "kiindly";
+
+--
+-- TOC entry 165 (class 1259 OID 16407)
+-- Dependencies: 166 5
+-- Name: pledges_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly
+--
+
+CREATE SEQUENCE "pledges_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."pledges_id_seq" OWNER TO "kiindly";
+
+--
+-- TOC entry 1925 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: pledges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly
+--
+
+ALTER SEQUENCE "pledges_id_seq" OWNED BY "pledges"."id";
+
+
+--
+-- TOC entry 1926 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: pledges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly
+--
+
+SELECT pg_catalog.setval('"pledges_id_seq"', 1, false);
+
+
+--
+-- TOC entry 167 (class 1259 OID 16415)
+-- Dependencies: 5
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "schema_migrations" (
+    "version" character varying(255) NOT NULL
+);
+
+
+ALTER TABLE "public"."schema_migrations" OWNER TO "kiindly";
+
+--
+-- TOC entry 1901 (class 2604 OID 16393)
+-- Dependencies: 161 162 162
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly
+--
+
+ALTER TABLE ONLY "campaigns" ALTER COLUMN "id" SET DEFAULT "nextval"('"campaigns_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1902 (class 2604 OID 16401)
+-- Dependencies: 163 164 164
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly
+--
+
+ALTER TABLE ONLY "donors" ALTER COLUMN "id" SET DEFAULT "nextval"('"donors_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1903 (class 2604 OID 16412)
+-- Dependencies: 166 165 166
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly
+--
+
+ALTER TABLE ONLY "pledges" ALTER COLUMN "id" SET DEFAULT "nextval"('"pledges_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1911 (class 0 OID 16390)
+-- Dependencies: 162
+-- Data for Name: campaigns; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "campaigns" ("id", "donation_target", "created_at", "updated_at") FROM stdin;
+1	50000.00	2012-07-24 20:55:21.58141	2012-07-24 20:55:21.58141
+\.
+
+
+--
+-- TOC entry 1912 (class 0 OID 16398)
+-- Dependencies: 164
+-- Data for Name: donors; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "donors" ("id", "created_at", "updated_at", "campaign_id", "first_name", "last_name", "email", "street_address", "city", "state", "zip", "phone", "terms_of_service", "email_opt_in", "stripe_customer", "processed_at", "confirmation_email_at", "stripe_response", "confirmation_correction_at") FROM stdin;
+\.
+
+
+--
+-- TOC entry 1913 (class 0 OID 16409)
+-- Dependencies: 166
+-- Data for Name: pledges; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "pledges" ("id", "campaign_id", "created_at", "updated_at", "pledge_type", "donor_id", "amount", "cap") FROM stdin;
+\.
+
+
+--
+-- TOC entry 1914 (class 0 OID 16415)
+-- Dependencies: 167
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "schema_migrations" ("version") FROM stdin;
+20120624221349
+20120210205152
+20120227214759
+20120412200830
+20120413100045
+20120413100602
+20120413102043
+20120413102414
+20120413102757
+20120413110445
+20120413123336
+20120415201558
+20120415214338
+20120712144312
+20120717185228
+\.
+
+
+--
+-- TOC entry 1905 (class 2606 OID 16395)
+-- Dependencies: 162 162
+-- Name: campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+ALTER TABLE ONLY "campaigns"
+    ADD CONSTRAINT "campaigns_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1907 (class 2606 OID 16406)
+-- Dependencies: 164 164
+-- Name: donors_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+ALTER TABLE ONLY "donors"
+    ADD CONSTRAINT "donors_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1909 (class 2606 OID 16414)
+-- Dependencies: 166 166
+-- Name: pledges_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+ALTER TABLE ONLY "pledges"
+    ADD CONSTRAINT "pledges_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1910 (class 1259 OID 16418)
+-- Dependencies: 167
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" USING "btree" ("version");
+
+
+--
+-- TOC entry 1919 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA "public" FROM PUBLIC;
+REVOKE ALL ON SCHEMA "public" FROM "postgres";
+GRANT ALL ON SCHEMA "public" TO "postgres";
+GRANT ALL ON SCHEMA "public" TO PUBLIC;
+
+
+-- Completed on 2012-11-26 15:38:27 EST
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect "kiindly_production"
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-11-26 15:38:27 EST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1923 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: SCHEMA "public"; Type: COMMENT; Schema: -; Owner: kiindly
+--
+
+COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+
+--
+-- TOC entry 168 (class 3079 OID 16564)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "plpgsql" WITH SCHEMA "pg_catalog";
+
+
+--
+-- TOC entry 1925 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: EXTENSION "plpgsql"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
+
+
+SET search_path = "public", pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 161 (class 1259 OID 16569)
+-- Dependencies: 1904 1905 6
+-- Name: campaigns; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "campaigns" (
+    "id" integer NOT NULL,
+    "donation_target" numeric(20,2),
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "name" character varying(255),
+    "subdomain" character varying(255),
+    "ends_on" "date",
+    "contact_name" character varying(255),
+    "contact_email" character varying(255),
+    "contact_phone" character varying(255),
+    "starts_on" "date",
+    "match_amount" integer DEFAULT 1,
+    "campaign_type" character varying(255) DEFAULT 'penny'::character varying,
+    "url" character varying(255)
+);
+
+
+ALTER TABLE "public"."campaigns" OWNER TO "kiindly";
+
+--
+-- TOC entry 162 (class 1259 OID 16572)
+-- Dependencies: 6 161
+-- Name: campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly
+--
+
+CREATE SEQUENCE "campaigns_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."campaigns_id_seq" OWNER TO "kiindly";
+
+--
+-- TOC entry 1926 (class 0 OID 0)
+-- Dependencies: 162
+-- Name: campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly
+--
+
+ALTER SEQUENCE "campaigns_id_seq" OWNED BY "campaigns"."id";
+
+
+--
+-- TOC entry 1927 (class 0 OID 0)
+-- Dependencies: 162
+-- Name: campaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly
+--
+
+SELECT pg_catalog.setval('"campaigns_id_seq"', 9, true);
+
+
+--
+-- TOC entry 163 (class 1259 OID 16574)
+-- Dependencies: 6
+-- Name: donors; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "donors" (
+    "id" integer NOT NULL,
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "campaign_id" integer,
+    "first_name" character varying(255),
+    "last_name" character varying(255),
+    "email" character varying(255),
+    "street_address" character varying(255),
+    "city" character varying(255),
+    "state" character varying(2),
+    "zip" character varying(9),
+    "phone" character varying(10),
+    "terms_of_service" boolean,
+    "email_opt_in" boolean,
+    "stripe_customer" "text",
+    "processed_at" timestamp without time zone,
+    "confirmation_email_at" timestamp without time zone,
+    "stripe_response" "text",
+    "confirmation_correction_at" timestamp without time zone
+);
+
+
+ALTER TABLE "public"."donors" OWNER TO "kiindly";
+
+--
+-- TOC entry 164 (class 1259 OID 16580)
+-- Dependencies: 163 6
+-- Name: donors_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly
+--
+
+CREATE SEQUENCE "donors_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."donors_id_seq" OWNER TO "kiindly";
+
+--
+-- TOC entry 1928 (class 0 OID 0)
+-- Dependencies: 164
+-- Name: donors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly
+--
+
+ALTER SEQUENCE "donors_id_seq" OWNED BY "donors"."id";
+
+
+--
+-- TOC entry 1929 (class 0 OID 0)
+-- Dependencies: 164
+-- Name: donors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly
+--
+
+SELECT pg_catalog.setval('"donors_id_seq"', 309, true);
+
+
+--
+-- TOC entry 165 (class 1259 OID 16582)
+-- Dependencies: 1908 6
+-- Name: pledges; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "pledges" (
+    "id" integer NOT NULL,
+    "campaign_id" integer,
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "pledge_type" character varying(255),
+    "donor_id" integer,
+    "amount" numeric(10,2),
+    "cap" numeric(10,2),
+    "donate_cap" boolean,
+    "dot_color" character varying(7) DEFAULT NULL::character varying,
+    "dot_comment" character varying(255)
+);
+
+
+ALTER TABLE "public"."pledges" OWNER TO "kiindly";
+
+--
+-- TOC entry 166 (class 1259 OID 16585)
+-- Dependencies: 165 6
+-- Name: pledges_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly
+--
+
+CREATE SEQUENCE "pledges_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."pledges_id_seq" OWNER TO "kiindly";
+
+--
+-- TOC entry 1930 (class 0 OID 0)
+-- Dependencies: 166
+-- Name: pledges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly
+--
+
+ALTER SEQUENCE "pledges_id_seq" OWNED BY "pledges"."id";
+
+
+--
+-- TOC entry 1931 (class 0 OID 0)
+-- Dependencies: 166
+-- Name: pledges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly
+--
+
+SELECT pg_catalog.setval('"pledges_id_seq"', 309, true);
+
+
+--
+-- TOC entry 167 (class 1259 OID 16587)
+-- Dependencies: 6
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE TABLE "schema_migrations" (
+    "version" character varying(255) NOT NULL
+);
+
+
+ALTER TABLE "public"."schema_migrations" OWNER TO "kiindly";
+
+--
+-- TOC entry 1903 (class 2604 OID 16613)
+-- Dependencies: 162 161
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly
+--
+
+ALTER TABLE ONLY "campaigns" ALTER COLUMN "id" SET DEFAULT "nextval"('"campaigns_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1906 (class 2604 OID 16614)
+-- Dependencies: 164 163
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly
+--
+
+ALTER TABLE ONLY "donors" ALTER COLUMN "id" SET DEFAULT "nextval"('"donors_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1907 (class 2604 OID 16615)
+-- Dependencies: 166 165
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly
+--
+
+ALTER TABLE ONLY "pledges" ALTER COLUMN "id" SET DEFAULT "nextval"('"pledges_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1916 (class 0 OID 16569)
+-- Dependencies: 161
+-- Data for Name: campaigns; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "campaigns" ("id", "donation_target", "created_at", "updated_at", "name", "subdomain", "ends_on", "contact_name", "contact_email", "contact_phone", "starts_on", "match_amount", "campaign_type", "url") FROM stdin;
+9	100.00	2012-11-08 19:25:31.143837	2012-11-25 20:15:25.934721	Healthy Initiative Chicago	chi	2012-12-24	\N	info@healthyinitiative.org	\N	2012-11-26	100	dollar	http://www.healthyinitiative.org
+\.
+
+
+--
+-- TOC entry 1917 (class 0 OID 16574)
+-- Dependencies: 163
+-- Data for Name: donors; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "donors" ("id", "created_at", "updated_at", "campaign_id", "first_name", "last_name", "email", "street_address", "city", "state", "zip", "phone", "terms_of_service", "email_opt_in", "stripe_customer", "processed_at", "confirmation_email_at", "stripe_response", "confirmation_correction_at") FROM stdin;
+302	2012-11-08 19:33:20.070122	2012-11-08 19:33:20.070122	9	Nathan	Sarlow	Nathan@kiindly.com	\N	\N	\N	\N	5179609665	t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0hPs61i25INZC0\n  :account_balance: 0\n  :created: 1352403199\n  :delinquent: false\n  :description: Nathan@kiindly.com\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 2\n      :exp_year: 2014\n      :fingerprint: uDz58oNa35ZmeqOQ\n      :last4: '1004'\n      :name: \n      :object: card\n      :type: American Express\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+303	2012-11-08 19:35:53.266326	2012-11-08 19:35:53.266326	9	Adam	Valentine	adamcvalentine@gmail.com	\N	\N	\N	\N		t	t	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0hPvxuIqIy5uJU\n  :account_balance: 0\n  :created: 1352403350\n  :delinquent: false\n  :description: adamcvalentine@gmail.com\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 5\n      :exp_year: 2015\n      :fingerprint: 4DQGAXyTXyNszWIv\n      :last4: '5302'\n      :name: \n      :object: card\n      :type: Visa\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+304	2012-11-08 19:41:19.599899	2012-11-08 19:41:19.599899	9	Derek	Croft	derek@kiindly.com	\N	\N	\N	\N		t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0hQ0XtcaxIbowt\n  :account_balance: 0\n  :created: 1352403678\n  :delinquent: false\n  :description: derek@kiindly.com\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 9\n      :exp_year: 2015\n      :fingerprint: D2RxpzXqj4U0ssNx\n      :last4: '1849'\n      :name: \n      :object: card\n      :type: MasterCard\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+305	2012-11-08 19:43:17.573121	2012-11-08 19:43:17.573121	9	Marvin	Street	marvineugene@gmail.com	\N	\N	\N	\N		t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0hQ26fzULUUbj4\n  :account_balance: 0\n  :created: 1352403796\n  :delinquent: false\n  :description: marvineugene@gmail.com\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 2\n      :exp_year: 2015\n      :fingerprint: YdMBzas6sbLdfivP\n      :last4: '2166'\n      :name: \n      :object: card\n      :type: Visa\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+306	2012-11-08 21:20:03.314117	2012-11-08 21:20:03.314117	9	tom	smart	email.tom.smart@gmail.com	\N	\N	\N	\N		t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0hRbwviEweTw6p\n  :account_balance: 0\n  :created: 1352409602\n  :delinquent: false\n  :description: email.tom.smart@gmail.com\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 10\n      :exp_year: 2014\n      :fingerprint: uov8dVfdbKU8SYh9\n      :last4: '5913'\n      :name: \n      :object: card\n      :type: Visa\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+307	2012-11-08 22:41:31.17685	2012-11-08 22:41:31.17685	9	Barry	Berkowitz	barry@digigraph.me	\N	\N	\N	\N		t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0hSvLHqyUp4sl7\n  :account_balance: 0\n  :created: 1352414490\n  :delinquent: false\n  :description: barry@digigraph.me\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 11\n      :exp_year: 2014\n      :fingerprint: IgAPTyPsCtflvxHi\n      :last4: '8805'\n      :name: \n      :object: card\n      :type: Visa\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+308	2012-11-15 19:18:22.311841	2012-11-15 19:18:22.311841	9	Derek	Croft	derek@kiindly.com	\N	\N	\N	\N	2483106961	t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\nvalues:\n  :id: cus_0k2EvIatfUuhHX\n  :account_balance: 0\n  :created: 1353007100\n  :delinquent: false\n  :description: derek@kiindly.com\n  :discount: \n  :email: \n  :livemode: true\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhccEW3E48nB1fklAaKFBnGNKdL\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 9\n      :exp_year: 2015\n      :fingerprint: D2RxpzXqj4U0ssNx\n      :last4: '1849'\n      :name: \n      :object: card\n      :type: MasterCard\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+\.
+
+
+--
+-- TOC entry 1918 (class 0 OID 16582)
+-- Dependencies: 165
+-- Data for Name: pledges; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "pledges" ("id", "campaign_id", "created_at", "updated_at", "pledge_type", "donor_id", "amount", "cap", "donate_cap", "dot_color", "dot_comment") FROM stdin;
+302	9	2012-11-08 19:33:20.080928	2012-11-08 19:33:20.080928	dollar	302	\N	15.00	t	#66CC33	What a great idea! Lets do this together Chicago!
+303	9	2012-11-08 19:35:53.279658	2012-11-08 19:35:53.279658	dollar	303	\N	20.00	t	#0000FF	Staying healthy saved my life
+304	9	2012-11-08 19:41:19.609761	2012-11-08 19:41:19.609761	dollar	304	\N	20.00	t	#6666FF	Donating to a great cause!!
+305	9	2012-11-08 19:43:17.629575	2012-11-08 19:43:17.629575	dollar	305	\N	20.00	t	#006633	A healthy lifestyle would preclude so many other health problems we deal with as a nation.
+306	9	2012-11-08 21:20:03.396898	2012-11-08 21:20:03.396898	dollar	306	\N	5.00	t	#3399FF	
+307	9	2012-11-08 22:41:31.188096	2012-11-08 22:41:31.188096	dollar	307	\N	10.00	f	#FF6600	What a cool idea for a worthy cause. I'm in!
+308	9	2012-11-15 19:18:22.473289	2012-11-15 19:18:22.473289	dollar	308	\N	20.00	f	#FF3333	More pledges, more matching!
+\.
+
+
+--
+-- TOC entry 1919 (class 0 OID 16587)
+-- Dependencies: 167
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: kiindly
+--
+
+COPY "schema_migrations" ("version") FROM stdin;
+20120210205152
+20120227214759
+20120413123336
+20120412200830
+20120413102043
+20120413100602
+20120413100045
+20120413102757
+20120413110445
+20120413102414
+20120415214338
+20120415201558
+20120624221349
+20120712144312
+20120717185228
+20120830203936
+20120830205436
+20120830211121
+20120830214339
+20120907171433
+20121105163432
+20121105201305
+20121105202448
+20121105215932
+20121106001710
+20121121210042
+20121125200719
+\.
+
+
+--
+-- TOC entry 1910 (class 2606 OID 16594)
+-- Dependencies: 161 161
+-- Name: campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+ALTER TABLE ONLY "campaigns"
+    ADD CONSTRAINT "campaigns_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1912 (class 2606 OID 16596)
+-- Dependencies: 163 163
+-- Name: donors_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+ALTER TABLE ONLY "donors"
+    ADD CONSTRAINT "donors_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1914 (class 2606 OID 16598)
+-- Dependencies: 165 165
+-- Name: pledges_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+ALTER TABLE ONLY "pledges"
+    ADD CONSTRAINT "pledges_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1915 (class 1259 OID 16599)
+-- Dependencies: 167
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: kiindly; Tablespace: 
+--
+
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" USING "btree" ("version");
+
+
+--
+-- TOC entry 1924 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: kiindly
+--
+
+REVOKE ALL ON SCHEMA "public" FROM PUBLIC;
+REVOKE ALL ON SCHEMA "public" FROM "kiindly";
+GRANT ALL ON SCHEMA "public" TO "kiindly";
+GRANT ALL ON SCHEMA "public" TO PUBLIC;
+
+
+-- Completed on 2012-11-26 15:38:35 EST
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect "kiindly_staging"
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-11-26 15:38:35 EST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1922 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA "public"; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+
+--
+-- TOC entry 168 (class 3079 OID 11676)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "plpgsql" WITH SCHEMA "pg_catalog";
+
+
+--
+-- TOC entry 1924 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: EXTENSION "plpgsql"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
+
+
+SET search_path = "public", pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 162 (class 1259 OID 24849)
+-- Dependencies: 1904 1905 5
+-- Name: campaigns; Type: TABLE; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+CREATE TABLE "campaigns" (
+    "id" integer NOT NULL,
+    "donation_target" numeric(20,2),
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "name" character varying(255),
+    "subdomain" character varying(255),
+    "ends_on" "date",
+    "contact_name" character varying(255),
+    "contact_email" character varying(255),
+    "contact_phone" character varying(255),
+    "starts_on" "date",
+    "match_amount" integer DEFAULT 1,
+    "campaign_type" character varying(255) DEFAULT 'penny'::character varying,
+    "url" character varying(255)
+);
+
+
+ALTER TABLE "public"."campaigns" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 161 (class 1259 OID 24847)
+-- Dependencies: 162 5
+-- Name: campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly_staging
+--
+
+CREATE SEQUENCE "campaigns_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."campaigns_id_seq" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 1925 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly_staging
+--
+
+ALTER SEQUENCE "campaigns_id_seq" OWNED BY "campaigns"."id";
+
+
+--
+-- TOC entry 1926 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: campaigns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly_staging
+--
+
+SELECT pg_catalog.setval('"campaigns_id_seq"', 1, true);
+
+
+--
+-- TOC entry 164 (class 1259 OID 24862)
+-- Dependencies: 5
+-- Name: donors; Type: TABLE; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+CREATE TABLE "donors" (
+    "id" integer NOT NULL,
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "campaign_id" integer,
+    "first_name" character varying(255),
+    "last_name" character varying(255),
+    "email" character varying(255),
+    "street_address" character varying(255),
+    "city" character varying(255),
+    "state" character varying(2),
+    "zip" character varying(9),
+    "phone" character varying(10),
+    "terms_of_service" boolean,
+    "email_opt_in" boolean,
+    "stripe_customer" "text",
+    "processed_at" timestamp without time zone,
+    "confirmation_email_at" timestamp without time zone,
+    "stripe_response" "text",
+    "confirmation_correction_at" timestamp without time zone
+);
+
+
+ALTER TABLE "public"."donors" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 163 (class 1259 OID 24860)
+-- Dependencies: 164 5
+-- Name: donors_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly_staging
+--
+
+CREATE SEQUENCE "donors_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."donors_id_seq" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 1927 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: donors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly_staging
+--
+
+ALTER SEQUENCE "donors_id_seq" OWNED BY "donors"."id";
+
+
+--
+-- TOC entry 1928 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: donors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly_staging
+--
+
+SELECT pg_catalog.setval('"donors_id_seq"', 2, true);
+
+
+--
+-- TOC entry 166 (class 1259 OID 24873)
+-- Dependencies: 5
+-- Name: pledges; Type: TABLE; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+CREATE TABLE "pledges" (
+    "id" integer NOT NULL,
+    "campaign_id" integer,
+    "created_at" timestamp without time zone NOT NULL,
+    "updated_at" timestamp without time zone NOT NULL,
+    "pledge_type" character varying(255),
+    "donor_id" integer,
+    "amount" numeric(10,2),
+    "cap" numeric(10,2),
+    "donate_cap" boolean,
+    "dot_color" character varying(7),
+    "dot_comment" character varying(255)
+);
+
+
+ALTER TABLE "public"."pledges" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 165 (class 1259 OID 24871)
+-- Dependencies: 166 5
+-- Name: pledges_id_seq; Type: SEQUENCE; Schema: public; Owner: kiindly_staging
+--
+
+CREATE SEQUENCE "pledges_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE "public"."pledges_id_seq" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 1929 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: pledges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kiindly_staging
+--
+
+ALTER SEQUENCE "pledges_id_seq" OWNED BY "pledges"."id";
+
+
+--
+-- TOC entry 1930 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: pledges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kiindly_staging
+--
+
+SELECT pg_catalog.setval('"pledges_id_seq"', 2, true);
+
+
+--
+-- TOC entry 167 (class 1259 OID 24882)
+-- Dependencies: 5
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+CREATE TABLE "schema_migrations" (
+    "version" character varying(255) NOT NULL
+);
+
+
+ALTER TABLE "public"."schema_migrations" OWNER TO "kiindly_staging";
+
+--
+-- TOC entry 1903 (class 2604 OID 24852)
+-- Dependencies: 161 162 162
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly_staging
+--
+
+ALTER TABLE ONLY "campaigns" ALTER COLUMN "id" SET DEFAULT "nextval"('"campaigns_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1906 (class 2604 OID 24865)
+-- Dependencies: 163 164 164
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly_staging
+--
+
+ALTER TABLE ONLY "donors" ALTER COLUMN "id" SET DEFAULT "nextval"('"donors_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1907 (class 2604 OID 24876)
+-- Dependencies: 165 166 166
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kiindly_staging
+--
+
+ALTER TABLE ONLY "pledges" ALTER COLUMN "id" SET DEFAULT "nextval"('"pledges_id_seq"'::"regclass");
+
+
+--
+-- TOC entry 1915 (class 0 OID 24849)
+-- Dependencies: 162
+-- Data for Name: campaigns; Type: TABLE DATA; Schema: public; Owner: kiindly_staging
+--
+
+COPY "campaigns" ("id", "donation_target", "created_at", "updated_at", "name", "subdomain", "ends_on", "contact_name", "contact_email", "contact_phone", "starts_on", "match_amount", "campaign_type", "url") FROM stdin;
+1	100.00	2012-11-26 19:26:28.395303	2012-11-26 19:26:28.395303	Healthy Initiative Chicago	chi	2012-12-24	\N	info@healthyinitiative.org	\N	2012-11-26	100	dollar	http://www.healthyinitiative.org
+\.
+
+
+--
+-- TOC entry 1916 (class 0 OID 24862)
+-- Dependencies: 164
+-- Data for Name: donors; Type: TABLE DATA; Schema: public; Owner: kiindly_staging
+--
+
+COPY "donors" ("id", "created_at", "updated_at", "campaign_id", "first_name", "last_name", "email", "street_address", "city", "state", "zip", "phone", "terms_of_service", "email_opt_in", "stripe_customer", "processed_at", "confirmation_email_at", "stripe_response", "confirmation_correction_at") FROM stdin;
+1	2012-11-26 19:44:14.934578	2012-11-26 19:44:14.934578	1	Derek	Croft	derek@kiindly.com	\N	\N	\N	\N		t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhFAMHd3BuQH29KJevoALr9zld1\nvalues:\n  :id: cus_0oA70MEY192YFT\n  :account_balance: 0\n  :created: 1353959046\n  :delinquent: false\n  :description: derek@kiindly.com\n  :discount: \n  :email: \n  :livemode: false\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhFAMHd3BuQH29KJevoALr9zld1\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 11\n      :exp_year: 2012\n      :fingerprint: WrkZBDn25jo9pFfJ\n      :last4: '4242'\n      :name: \n      :object: card\n      :type: Visa\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+2	2012-11-26 20:02:35.626202	2012-11-26 20:02:35.626202	1	adsfadsf	adsafds	derek@kiindly.com	\N	\N	\N	\N		t	f	--- !ruby/object:Stripe::Customer\napi_key: sk_0EEhFAMHd3BuQH29KJevoALr9zld1\nvalues:\n  :id: cus_0oAQya8cj443tK\n  :account_balance: 0\n  :created: 1353960147\n  :delinquent: false\n  :description: derek@kiindly.com\n  :discount: \n  :email: \n  :livemode: false\n  :object: customer\n  :subscription: \n  :active_card: !ruby/object:Stripe::StripeObject\n    api_key: sk_0EEhFAMHd3BuQH29KJevoALr9zld1\n    values:\n      :address_city: \n      :address_country: \n      :address_line1: \n      :address_line1_check: \n      :address_line2: \n      :address_state: \n      :address_zip: \n      :address_zip_check: \n      :country: US\n      :cvc_check: pass\n      :exp_month: 11\n      :exp_year: 2012\n      :fingerprint: WrkZBDn25jo9pFfJ\n      :last4: '4242'\n      :name: \n      :object: card\n      :type: Visa\n    unsaved_values: !ruby/object:Set\n      hash: {}\n    transient_values: !ruby/object:Set\n      hash: {}\nunsaved_values: !ruby/object:Set\n  hash: {}\ntransient_values: !ruby/object:Set\n  hash: {}\n	\N	\N	\N	\N
+\.
+
+
+--
+-- TOC entry 1917 (class 0 OID 24873)
+-- Dependencies: 166
+-- Data for Name: pledges; Type: TABLE DATA; Schema: public; Owner: kiindly_staging
+--
+
+COPY "pledges" ("id", "campaign_id", "created_at", "updated_at", "pledge_type", "donor_id", "amount", "cap", "donate_cap", "dot_color", "dot_comment") FROM stdin;
+1	1	2012-11-26 19:44:15.000587	2012-11-26 19:44:15.000587	dollar	1	\N	20.00	f	#d146bd	aasdfadsf
+2	1	2012-11-26 20:02:35.755054	2012-11-26 20:02:35.755054	dollar	2	\N	20.00	f	#db142e	fdasdfadsf
+\.
+
+
+--
+-- TOC entry 1918 (class 0 OID 24882)
+-- Dependencies: 167
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: kiindly_staging
+--
+
+COPY "schema_migrations" ("version") FROM stdin;
+20121125200719
+20120412200830
+20120413100045
+20120830203936
+20120830214339
+20121105201305
+20120415214338
+20120907171433
+20121106001710
+20120717185228
+20120415201558
+20121105163432
+20120830211121
+20120227214759
+20120413100602
+20120712144312
+20120413110445
+20121105202448
+20120413102757
+20121121210042
+20121105215932
+20120210205152
+20120830205436
+20120413123336
+20120413102043
+20120413102414
+\.
+
+
+--
+-- TOC entry 1909 (class 2606 OID 24859)
+-- Dependencies: 162 162
+-- Name: campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+ALTER TABLE ONLY "campaigns"
+    ADD CONSTRAINT "campaigns_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1911 (class 2606 OID 24870)
+-- Dependencies: 164 164
+-- Name: donors_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+ALTER TABLE ONLY "donors"
+    ADD CONSTRAINT "donors_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1913 (class 2606 OID 24881)
+-- Dependencies: 166 166
+-- Name: pledges_pkey; Type: CONSTRAINT; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+ALTER TABLE ONLY "pledges"
+    ADD CONSTRAINT "pledges_pkey" PRIMARY KEY ("id");
+
+
+--
+-- TOC entry 1914 (class 1259 OID 24885)
+-- Dependencies: 167
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: kiindly_staging; Tablespace: 
+--
+
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" USING "btree" ("version");
+
+
+--
+-- TOC entry 1923 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA "public" FROM PUBLIC;
+REVOKE ALL ON SCHEMA "public" FROM "postgres";
+GRANT ALL ON SCHEMA "public" TO "postgres";
+GRANT ALL ON SCHEMA "public" TO PUBLIC;
+
+
+-- Completed on 2012-11-26 15:38:46 EST
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect "kiindly_test"
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-11-26 15:38:46 EST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1881 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA "public"; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+
+--
+-- TOC entry 161 (class 3079 OID 11676)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "plpgsql" WITH SCHEMA "pg_catalog";
+
+
+--
+-- TOC entry 1883 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: EXTENSION "plpgsql"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
+
+
+--
+-- TOC entry 1882 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA "public" FROM PUBLIC;
+REVOKE ALL ON SCHEMA "public" FROM "postgres";
+GRANT ALL ON SCHEMA "public" TO "postgres";
+GRANT ALL ON SCHEMA "public" TO PUBLIC;
+
+
+-- Completed on 2012-11-26 15:38:55 EST
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect "postgres"
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-11-26 15:38:55 EST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1881 (class 1262 OID 11950)
+-- Dependencies: 1880
+-- Name: postgres; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE "postgres" IS 'default administrative connection database';
+
+
+--
+-- TOC entry 1882 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA "public"; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+
+--
+-- TOC entry 161 (class 3079 OID 11676)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "plpgsql" WITH SCHEMA "pg_catalog";
+
+
+--
+-- TOC entry 1884 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: EXTENSION "plpgsql"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
+
+
+--
+-- TOC entry 1883 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA "public" FROM PUBLIC;
+REVOKE ALL ON SCHEMA "public" FROM "postgres";
+GRANT ALL ON SCHEMA "public" TO "postgres";
+GRANT ALL ON SCHEMA "public" TO PUBLIC;
+
+
+-- Completed on 2012-11-26 15:38:59 EST
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect "template1"
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.3
+-- Started on 2012-11-26 15:38:59 EST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1881 (class 1262 OID 1)
+-- Dependencies: 1880
+-- Name: template1; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE "template1" IS 'default template for new databases';
+
+
+--
+-- TOC entry 1882 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA "public"; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA "public" IS 'standard public schema';
+
+
+--
+-- TOC entry 161 (class 3079 OID 11676)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS "plpgsql" WITH SCHEMA "pg_catalog";
+
+
+--
+-- TOC entry 1884 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: EXTENSION "plpgsql"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
+
+
+--
+-- TOC entry 1883 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA "public" FROM PUBLIC;
+REVOKE ALL ON SCHEMA "public" FROM "postgres";
+GRANT ALL ON SCHEMA "public" TO "postgres";
+GRANT ALL ON SCHEMA "public" TO PUBLIC;
+
+
+-- Completed on 2012-11-26 15:39:04 EST
+
+--
+-- PostgreSQL database dump complete
+--
+
+-- Completed on 2012-11-26 15:39:04 EST
+
+--
+-- PostgreSQL database cluster dump complete
+--
+
