@@ -8,7 +8,7 @@ module CampaignsHelper
   end
 
   def count_me_in_button(host)
-    protocol = Rails.env.production? ? 'https' : 'http'
+    protocol = Rails.configuration.ssl_enabled ? 'https' : 'http'
     button_to "COUNT ME IN", { protocol: protocol, host: host, controller: 'pledges', action: 'new' }, { method: :get, style: 'width:230px;' }
   end
 end

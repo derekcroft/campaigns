@@ -66,5 +66,6 @@ module KiindlyCom
     config.assets.version = '1.0'
 
     config.force_ssl = false
+    config.ssl_enabled = false
   end
 end

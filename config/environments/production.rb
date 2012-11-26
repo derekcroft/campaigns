@@ -86,6 +86,8 @@ KiindlyCom::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
+
+  config.ssl_enabled = true
 end
 
 # OUAA live keys
