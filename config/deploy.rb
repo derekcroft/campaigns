@@ -1,4 +1,4 @@
-set :stages, %w(production staging)
+set :stages, %w(production staging wild)
 set :default_stage, 'staging'
 
 require 'capistrano/ext/multistage'
@@ -9,7 +9,7 @@ set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 set :application, "chi"
 
 set :scm, :git
-set :repository,  "git@github.com:derekcroft/kiindly.git"
+set :repository,  "git@github.com:kiindly/campaigns.git"
 
 set :use_sudo, false
 set :deploy_to, "/home/kiindly/campaigns/chi"
