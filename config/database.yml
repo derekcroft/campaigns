@@ -55,8 +55,8 @@ staging:
   encoding: unicode
   database: kiindly_staging
   pool: 5
-  username: kiindly_staging
-  password: p8Y&9K4rJt$P9%V2
+  username: kiindly
+  password: 577Grvdm
   host: pg_staging
   port: 5432
 
