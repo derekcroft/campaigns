@@ -2,6 +2,8 @@ set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
-server "kiindly", :app, :web, :db, primary: true
+set :deploy_to, "/var/www/chi"
+
+server "wild", :app, :web, :db, primary: true
 
 require 'airbrake/capistrano'

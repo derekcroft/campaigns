@@ -1,4 +1,4 @@
-set :stages, %w(production staging linode)
+set :stages, %w(production staging)
 set :default_stage, 'staging'
 
 require 'capistrano/ext/multistage'
@@ -13,7 +13,8 @@ set :repository,  "git@github.com:kiindly/campaigns.git"
 
 set :use_sudo, false
 set :deploy_to, "/home/kiindly/campaigns/chi"
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache
+set :deploy_via, :copy
 
 after "deploy", "deploy:migrate"
 
