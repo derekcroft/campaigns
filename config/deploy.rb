@@ -1,4 +1,4 @@
-set :stages, %w(production staging wild)
+set :stages, %w(production staging linode)
 set :default_stage, 'staging'
 
 require 'capistrano/ext/multistage'

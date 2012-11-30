@@ -1,6 +1,10 @@
-set :rvm_ruby_string, '1.9.3'
-set :rails_env, 'staging'
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
-require 'rvm/capistrano'
+set :deploy_to, "/mnt/cbsvolume1/var/www/campaigns"
+set :deploy_via, :copy
 
-server "kiindly2", :app, :web, :db, primary: true
+server "wild", :app, :web, :db, primary: true
+
+require 'airbrake/capistrano'
