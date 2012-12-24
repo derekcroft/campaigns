@@ -49,6 +49,6 @@ jQuery ->
     today = new Date()
     Math.floor (endsOn-today)/86400000
 
-  $('#expiresdays').html("#{daysLeft()} days")
+  $('#expiresdays.active').html("#{daysLeft()} days")
   $('#expiresontext').hide()
   $('#expiresdaystext').show()

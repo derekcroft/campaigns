@@ -20,17 +20,7 @@
 #topblock2
   .middleblock
     #leftcol
-      #expires.roundbox
-        = image_tag "#{campaign.subdomain}/calendar.gif", align: 'left'
-        This campaign ends
-        %span#expiresdaystext
-          in
-          %br/
-          %span#expiresdays #{campaign.days_left} days
-        %span#expiresontext{data: {"ends-on" => campaign.ends_on.to_formatted_s(:rfc822)}}
-          on
-          %br/
-          %span#expiresdays #{campaign.ends_on.strftime('%B %-d')}
+      = render partial: 'campaigns/chi/campaign_ends', locals: { campaign: @campaign }
       = render 'campaigns/chi/did_you_know'
     #middcol
       = render 'campaigns/chi/social'

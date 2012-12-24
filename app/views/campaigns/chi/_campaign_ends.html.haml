@@ -1,0 +1,19 @@
+#expires.roundbox
+  = image_tag "#{campaign.subdomain}/calendar.gif", align: 'left'
+  #campaign_ends
+  - if campaign.ends_on <= Date.today
+    This campaign ended
+    %span
+      on
+      %br/
+      %span#expiresdays #{campaign.ends_on.strftime('%B %-d')}
+  - else
+    This campaign ends
+    %span#expiresdaystext
+      in
+      %br/
+      %span#expiresdays #{campaign.days_left} days
+    %span#expiresontext{data: {"ends-on" => campaign.ends_on.to_formatted_s(:rfc822)}}
+      on
+      %br/
+      %span#expiresdays #{campaign.ends_on.strftime('%B %-d')}
