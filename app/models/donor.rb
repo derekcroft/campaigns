@@ -33,7 +33,7 @@ class Donor < ActiveRecord::Base
 
   def matching_pledge_amount
     pledges.matching.sum do |pledge|
-      [(0.01 * campaign.number_of_eligible_pledges), pledge.cap].min
+      [(0.01 * campaign.match_amount * campaign.number_of_eligible_pledges), pledge.cap].min
     end || 0.00
   end
 
