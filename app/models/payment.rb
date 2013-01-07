@@ -35,7 +35,7 @@ class Payment
         amount: amount,
         currency: 'usd',
         customer: cust.id,
-        description: "Donation for #{@campaign.name} #{@campaign.campaign_type} match campaign"
+        description: "Donation for #{donor.campaign.name} #{donor.campaign.campaign_type} match campaign"
       )
       donor.stripe_response = response
       donor.processed_at = Time.now
