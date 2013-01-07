@@ -28,14 +28,14 @@ class Payment
 
   def self.pay!(donor)
     return unless donor.processed_at.nil?
-    cust = YAML::load(donor.stripe_customer)
+    cust = donor.stripe_customer
     amount = (donor.donation_amount*100).to_i
     begin
       response = Stripe::Charge.create(
         amount: amount,
         currency: 'usd',
         customer: cust.id,
-        description: 'Donation for OUAA Scholarship Fund penny pledge campaign'
+        description: "Donation for #{@campaign.name} #{@campaign.campaign_type} match campaign"
       )
       donor.stripe_response = response
       donor.processed_at = Time.now
