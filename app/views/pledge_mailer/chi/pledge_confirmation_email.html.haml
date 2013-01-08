@@ -10,22 +10,22 @@
 
     - if @pledge.donate_cap?
       %p
-        Thank you for your generous pledge of #{number_to_currency(@pledge.cap)} to #{@campaign.name}.
+        Thank you for your generous pledge of #{number_to_currency(@pledge.cap, precision: 0)} to #{@campaign.name}.
         Below is your receipt of your tax deductible donation which you should keep for your records.
       %p
         You have impacted the entire community because as a result of your donation, 
-        #{@campaign.campaign_type} match donors* have increased their pledges by #{number_to_currency(@campaign.match_amount/100)} each.
+        #{@campaign.campaign_type} match donors* have increased their pledges by #{number_to_currency(@campaign.match_amount/100, precision: 0)} each.
       %p
         * #{@campaign.campaign_type.capitalize} match donors are those who agreed to donate one #{@campaign.campaign_type} for every donor who participates in the campaign.
     - else
       %p
         Thank you for your generous pledge to #{@campaign.name}.
         The campaign received #{@campaign.number_of_eligible_pledges} donations.
-        The campaign did not reach your maximum cap of #{number_to_currency(@pledge.cap)}, matching one #{@campaign.campaign_type} for every donor.
-        As a result, your match of a #{@campaign.campaign_type} per donor equals #{number_to_currency(@donor.donation_amount)}.
+        The campaign did not reach your maximum cap of #{number_to_currency(@pledge.cap, precision: 0)}, matching one #{@campaign.campaign_type} for every donor.
+        As a result, your match of a #{@campaign.campaign_type} per donor equals #{number_to_currency(@donor.donation_amount, precision: 0)}.
       %p
         You have impacted the entire community because as a result of your pledge,
-        all other #{@campaign.campaign_type} matches increased by #{number_to_currency(@campaign.match_amount/100)} each.
+        all other #{@campaign.campaign_type} matches increased by #{number_to_currency(@campaign.match_amount/100, precision: 0)} each.
 
     %p
       Regards,
