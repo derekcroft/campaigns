@@ -40,7 +40,7 @@
 
     %p= image_tag "http://#{@campaign.subdomain}.kiindly.com/assets/email/email-kiindly-logo.png"
 
-    = render "#{@campaign.subdomain}/tax_receipt"
+    = render "pledge_mailer/#{@campaign.subdomain}/tax_receipt"
 
     %p
       We are grateful for your gift and the trust imparted to us in managing its use.
