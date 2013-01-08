@@ -12,7 +12,10 @@ class PledgeMailer < ActionMailer::Base
 
   def pledge_confirmation_email(pledge)
     fetch_data(pledge)
-    mail(to: @donor.email, bcc: 'derek@kiindly.com', subject: "Donation Receipt: #{@campaign.name}")
+    mail(to: @donor.email, 
+         bcc: 'derek@kiindly.com', 
+         subject: "Donation Receipt: #{@campaign.name}",
+         template_path: "pledge_mailer/#{@campaign.subdomain}")
     @donor.confirmation_email_at = Time.now
     @donor.save!
   end
