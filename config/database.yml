@@ -69,6 +69,3 @@ production:
   password: 577Grvdm
   host: 127.0.0.1
   port: 5432
-
-cucumber:
-  <<: *test

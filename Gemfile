@@ -37,16 +37,15 @@ group :development, :test do
   gem 'taps'
   gem 'sqlite3'
   gem 'guard'
-  gem 'guard-cucumber'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'ruby_gntp'
   gem 'rspec-rails', '>= 2.8.1'
+  gem 'rb-fsevent', '~> 0.9'
 end
 
 group :test do
   gem "factory_girl_rails", ">= 1.6.0"
-  gem "cucumber-rails", ">= 1.2.1", require: false
   gem "capybara", ">= 1.1.2"
   gem "capybara-webkit"
   gem "database_cleaner"
