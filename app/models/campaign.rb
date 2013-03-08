@@ -4,6 +4,7 @@ class Campaign < ActiveRecord::Base
   has_many :pledges
 
   validates :donation_target, presence: true
+  validates :subdomain, uniqueness: true
 
   def number_of_eligible_pledges
     self.class.where(id: self.id).joins(donors: :pledges).count(:donor_id, distinct: true)
