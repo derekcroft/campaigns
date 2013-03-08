@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   def load_campaign
     subdomain = request.subdomain.sub(/-staging$/, '')
     @campaign = Campaign.find_by_subdomain(subdomain)
-    redirect_to 'http://www.kiindly.com' if @campaign.nil?
+    redirect_to 'http://www.kiindly.com' if @campaign.nil? && !Rails.env.development?
   end
 end
