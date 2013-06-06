@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :campaign do
     donation_target 30000
+    sequence(:subdomain) { |n| "subdomain#{n}" }
   end
 
   factory :donor do
