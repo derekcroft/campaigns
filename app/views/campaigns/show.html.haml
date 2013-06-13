@@ -1,6 +1,6 @@
 - content_for :page_title do
   = title(@campaign, 'Kiindly.com Giving Together')
 - content_for :page_javascripts do
-  = render 'campaigns/chi/sharethis'
+  = render "sharethis"
 
-#maincontentblock= render @campaign
+= render "campaigns/#{@campaign.subdomain}/campaign"
