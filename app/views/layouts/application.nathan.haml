@@ -1,0 +1,308 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title #{@campaign.name} - Kiindly.com - Giving Together
+    = stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Nunito:300,700', media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag 'application', "data-turbolinks-track" => true
+    = favicon_link_tag '/favicon.ico'
+    = csrf_meta_tags
+
+    -#<?php include('includes/inc_globalheader.php'); ?>
+    -#<?php include('includes/inc_tabs.php'); ?>
+
+  %body
+    #bodycontent
+      #titlebar
+        .middleblock
+          #titlebarlogo
+            %span.stack/
+            %h2 Kiindly.com The soacial giving donation platform.
+          #righttopnav
+            = link_to 'Start my own Campaign', 'http://www.kiindly.net/?ref=campheader', class: 'startcampaign'
+            &nbsp; | &nbsp;
+            = link_to 'Help', ''
+
+      #topblock
+        .middleblock
+          #status
+            #campaignlogo= image_tag 'lts/logo.jpg', height: 80, width: 250, align: 'right', alt: 'Live To Support Chicago - Logo', style: 'padding:20px 0 50px 20px;'
+            #progresstext
+              %span#hardcount 250
+              supporters will increase their donations
+              = succeed "." do
+                %em if you pledge NOW
+            #goaltext
+              Goal:
+              %strong 500 people
+              %br/
+              Total Pledged:
+              = succeed "*" do
+                %strong $2,700
+            #progresschart
+              #peopleprogress{:style => "width:50%"}
+            #countmein
+              %button{:onclick => "window.location.href = 'payment.php'", :style => "width:230px;"} COUNT ME IN
+          #video
+            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "390", :src => "http://www.youtube-nocookie.com/embed/ScMzIvxBSi4?rel=0", :width => "640"}
+
+        .middleblock
+          #leftcol
+            #expires.roundbox
+              = image_tag 'lts/calendar.gif'
+              %img{:align => "left", :src => "/images/calendar.gif"}>/
+              This campaign ends in
+              %br/
+              %span#expiresdays 240 days
+            #social.roundbox
+              %span.socialtitle Share
+              %span.st_facebook_large{:displaytext => "Facebook"}
+              %span.st_twitter_large{:displaytext => "Tweet"}
+              %span.st_pinterest_large{:displaytext => "Pinterest"}
+              %span.st_linkedin_large{:displaytext => "LinkedIn"}
+              %span.st_sharethis_large{:displaytext => "ShareThis"}
+              %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
+                %img{:alt => "Pinterest", :height => "600", :src => "campaigns/lts/assets/pinterest.jpg", :width => "350"}/
+            %a{:name => "tabs"}
+            %ul#campaign-info-nav
+              %li#tab-info.tabnav.nav-active
+                %a{:href => "#tabs"} Campaign Info
+              %li#tab-info-off.tabnavoff.hidden
+                %a{:href => "#tabs", :onclick => "OnOffBlock('campaigninfo'); TabToggle('tab-info');"} Campaign Info
+              %li#tab-news.tabnav.nav-active.hidden
+                %a{:href => "#tabs"} Latest News
+              %li#tab-news-off.tabnavoff
+                %a{:href => "#tabs", :onclick => "OnOffBlock('latest-news'); TabToggle('tab-news');"} Latest News
+              %li#tab-charity.tabnav.nav-active.hidden
+                %a{:href => "#tabs"} Charities
+              %li#tab-charity-off.tabnavoff
+                %a{:href => "#tabs", :onclick => "OnOffBlock('lts-charities'); TabToggle('tab-charity');"} Charities
+              %li#tab-leaders.tabnav.nav-active.hidden
+                %a{:href => "#tabs"} Leader Board
+              %li#tab-leaders-off.tabnavoff
+                %a{:href => "#tabs", :onclick => "OnOffBlock('leaderboard'); TabToggle('tab-leaders');"} Leader Board
+              %li#tab-works.tabnav.nav-active.hidden
+                %a{:href => "#tabs"} How It Works
+              %li#tab-works-off.tabnavoff
+                %a{:href => "#tabs", :onclick => "OnOffBlock('works'); TabToggle('tab-works');"} How It Works
+            #campaigninfo.roundbox.tabblock
+              %h3 Campaign Information
+              %p
+                Campaign period: June 15, 2013 - Aug 15, 2013
+                %br/
+                Goal: 5,000 donors
+              %p
+                Visit us online:
+                %a{:href => "http://www.livetosupport.com", :target => "_blank"} livetosupport.com
+                %br/
+                Find us on Facebook:
+                %a{:href => "http://www.facebook.com/LTSChicago", :target => "_blank"} facebook.com/LTSChicago
+                %br/
+                Follow us on Twitter:
+                %a{:href => "http://www.twitter.com/LTSChicago", :target => "_blank"} twitter.com/LTSChicago
+              %br{:style => "clear:both;"}/
+            #latest-news.roundbox.tabblock.hidden
+              %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FLTSChicago&amp;width=640&amp;height=700&amp;show_faces=false&amp;colorscheme=light&amp;stream=true&amp;border_color&amp;header=false&amp;appId=264571900237003", :style => "border:none; overflow:hidden; width:640px; height:700px;"}
+              %br{:style => "clear:both;"}/
+            #lts-charities.roundbox.tabblock.hidden
+              %h3 What Charities Do We Support?
+              -#<?php include('includes/inc_charities.php'); ?>
+              %a{:href => "#tabs"} Back to the top
+          #leaderboard.roundbox.tabblock.hidden
+            %h3 Leader Board
+            -#<?php include('includes/inc_leaderboard.php'); ?>
+          #works.roundbox.tabblock.hidden
+            %h3 How It Works
+            -#<?php include('includes/inc_works.php'); ?>
+        #rghtcol
+          #donordots.roundbox
+            %h3 Donor dots
+            %p Roll over the dots below to see comments from other donors.
+            #dotbox
+              .tooltip{:style => "background:#442"}
+                %span.tipx
+                  %em> Dave D.
+                  Oh yeah, donor number 1 baby!
+              .tooltip{:style => "background:#ea2"}
+                %span.tipx
+                  %em> Nathan S.
+                  This is the text comment
+              .tooltip{:style => "background:#093"}
+                %span.tipx
+                  %em> Penny W.
+                  Best $20 I spent all day
+              .tooltip{:style => "background:#de2"}
+                %span.tipx
+                  %em> Chris D.
+                  This is my comment and it's cool
+              .tooltip{:style => "background:#002"}
+                %span.tipx
+                  %em> Benjamin P.
+                  This is my comment 2
+              .tooltip{:style => "background:#093"}
+                %span.tipx
+                  %em> Kellie B.
+                  My school rocks
+              .tooltip{:style => "background:#8f3"}
+                %span.tipx
+                  %em David W.
+              .tooltip{:style => "background:#2ff"}
+                %span.tipx
+                  %em> Guy F.
+                  Easy as pie
+              .tooltip{:style => "background:#e6e"}
+                %span.tipx
+                  %em> Che G.
+                  eatin and tweetin
+              .tooltip{:style => "background:#7aa"}
+                %span.tipx
+                  %em> Morgan F.
+                  This is my comment 2
+              .tooltip{:style => "background:#cc2"}
+                %span.tipx
+                  %em> Ana K.
+                  This is my comment and it's cool
+              .tooltip{:style => "background:#a56"}
+                %span.tipx
+                  %em> Simon D.
+                  This is my comment and it's cool
+              .tooltip{:style => "background:#d33"}
+                %span.tipx
+                  %em> Linda H.
+                  This is some text
+              .tooltip{:style => "background:#f8f"}
+                %span.tipx
+                  %em> Grant D.
+              .tooltip{:style => "background:#bb2"}
+                %span.tipx
+                  %em> Kirk O.
+                  Your sacrifice is never forgotten
+              .tooltip{:style => "background:#422"}
+                %span.tipx
+                  %em> David W.
+                  Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna mollis orn
+              .tooltip{:style => "background:#aaa"}
+                %span.tipx
+                  %em> Keiran O.
+                  Thanks
+              .tooltip{:style => "background:#88b"}
+                %span.tipx
+                  %em> Derek K.
+                  Always a pleasure to help TSC
+              .tooltip{:style => "background:#32f"}
+                %span.tipx
+                  %em> Adam F.
+                  Please take care
+              .tooltip{:style => "background:#2ab"}
+                %span.tipx
+                  %em Joy W.
+              .tooltip{:style => "background:#f2c"}
+                %span.tipx
+                  %em> Larry F.
+                  Come home safe
+              .tooltip{:style => "background:#c21"}
+                %span.tipx
+                  %em> Case D.
+                  Stay safe
+              .tooltip{:style => "background:#14a"}
+                %span.tipx
+                  %em> Dave W.
+                  Good luck guys
+              .tooltip{:style => "background:#63a"}
+                %span.tipx
+                  %em Jessica R.
+              .tooltip{:style => "background:#333"}
+                %span.tipx
+                  %em> Alison P.
+                  Thank you
+              .tooltip{:style => "background:#eac"}
+                %span.tipx
+                  %em> Cameron D.
+                  Always a marine
+              .tooltip{:style => "background:#cc6"}
+                %span.tipx
+                  %em> Joel G.
+                  Whaaa?
+              .tooltip{:style => "background:#778"}
+                %span.tipx
+                  %em> Allan G.
+                  Please help this cause
+              .tooltip{:style => "background:#a63"}
+                %span.tipx
+                  %em> Meagan D.
+                  Thanks for the opportunity to help
+              .tooltip{:style => "background:#f2c"}
+                %span.tipx
+                  %em> Larry F.
+                  Come home safe
+              .tooltip{:style => "background:#c21"}
+                %span.tipx
+                  %em> Case D.
+                  Stay safe
+              .tooltip{:style => "background:#14a"}
+                %span.tipx
+                  %em> Dave W.
+                  Good luck guys
+              .tooltip{:style => "background:#63a"}
+                %span.tipx
+                  %em Jessica R.
+              .tooltip{:style => "background:#333"}
+                %span.tipx
+                  %em> Alison P.
+                  Thank you
+              .tooltip{:style => "background:#eac"}
+                %span.tipx
+                  %em> Cameron D.
+                  Always a marine
+              .tooltip{:style => "background:#cc6"}
+                %span.tipx
+                  %em> Joel G.
+                  Whaaa?
+              .tooltip{:style => "background:#778"}
+                %span.tipx
+                  %em> Allan G.
+                  Please help this cause
+              .tooltip{:style => "background:#a63"}
+                %span.tipx
+                  %em> Meagan D.
+                  Thanks for the opportunity to help
+              .tooltip{:style => "background:#0e0"}
+                %span.tipx
+                  %em> Steven G.
+                  Great cause
+              .tooltip{:style => "background:#c21"}
+                %span.tipx
+                  %em> Ralph F.
+                  God speed
+              .tooltip{:style => "background:#ec3"}
+                %span.tipx
+                  %em> Billy G.
+                  Come home soon Dad!
+              .tooltip{:style => "background:#8e1"}
+                %span.tipx
+                  %em> Jennifer R.
+                  Stay safe
+              .tooltip{:style => "background:#f20"}
+                %span.tipx
+                  %em> Roy S.
+                  Thoughts and prayers are with you all
+              .tooltip{:style => "background:#1ee"}
+                %span.tipx
+                  %em> Richard D.
+                  Thanks for your contribution
+              .tooltip{:style => "background:#a22"}
+                %span.tipx
+                  %em> Rob S.
+                  Sending a huge shout out to the men and women who serve our country abroad.
+              .tooltip{:style => "background:#d23"}
+                %span.tipx
+                  %em> Angela D.
+                  Ummmmm, hello?
+              .tooltip{:style => "background:#c30"}
+                %span.tipx
+                  %em> Sean C.
+                  Shaken not stirred
+                  Bring them home
+              %br{:style => "clear:both;"}/
+    %hr{:style => "clear:both;"}/
+    -#<?php include('includes/inc_footer.php'); ?>

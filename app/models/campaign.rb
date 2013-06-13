@@ -3,7 +3,7 @@ class Campaign < ActiveRecord::Base
   has_many :donors
   has_many :pledges
 
-  validates :donation_target, presence: true
+  validates :donation_target, :match_amount, presence: true
   validates :subdomain, uniqueness: true
 
   def number_of_eligible_pledges

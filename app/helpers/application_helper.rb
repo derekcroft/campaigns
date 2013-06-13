@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def title(campaign, page_title)
-    content_tag :title, "#{page_title} - #{campaign.name} #{campaign.description} - Kiindly"
+    content_tag :title, "#{campaign.name} - #{page_title}"
   end
 end
