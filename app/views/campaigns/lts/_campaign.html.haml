@@ -24,28 +24,7 @@
     #leftcol
       = render "campaigns/lts/expires"
       = render "campaigns/lts/social"
-      %a{:name => "tabs"}
-      %ul#campaign-info-nav
-        %li#tab-info.tabnav.nav-active
-          %a{:href => "#tabs"} Campaign Info
-        %li#tab-info-off.tabnavoff.hidden
-          %a{:href => "#tabs", :onclick => "OnOffBlock('campaigninfo'); TabToggle('tab-info');"} Campaign Info
-        %li#tab-news.tabnav.nav-active.hidden
-          %a{:href => "#tabs"} Latest News
-        %li#tab-news-off.tabnavoff
-          %a{:href => "#tabs", :onclick => "OnOffBlock('latest-news'); TabToggle('tab-news');"} Latest News
-        %li#tab-charity.tabnav.nav-active.hidden
-          %a{:href => "#tabs"} Charities
-        %li#tab-charity-off.tabnavoff
-          %a{:href => "#tabs", :onclick => "OnOffBlock('lts-charities'); TabToggle('tab-charity');"} Charities
-        %li#tab-leaders.tabnav.nav-active.hidden
-          %a{:href => "#tabs"} Leader Board
-        %li#tab-leaders-off.tabnavoff
-          %a{:href => "#tabs", :onclick => "OnOffBlock('leaderboard'); TabToggle('tab-leaders');"} Leader Board
-        %li#tab-works.tabnav.nav-active.hidden
-          %a{:href => "#tabs"} How It Works
-        %li#tab-works-off.tabnavoff
-          %a{:href => "#tabs", :onclick => "OnOffBlock('works'); TabToggle('tab-works');"} How It Works
+      = render "campaigns/lts/tabs"
       #campaigninfo.roundbox.tabblock
         %h3 Campaign Information
         %p
