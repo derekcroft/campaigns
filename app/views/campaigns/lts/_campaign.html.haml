@@ -22,21 +22,8 @@
 
   .middleblock
     #leftcol
-      #expires.roundbox
-        = image_tag 'lts/calendar.gif'
-        %img{:align => "left", :src => "/images/calendar.gif"}>/
-        This campaign ends in
-        %br/
-        %span#expiresdays 240 days
-      #social.roundbox
-        %span.socialtitle Share
-        %span.st_facebook_large{:displaytext => "Facebook"}
-        %span.st_twitter_large{:displaytext => "Tweet"}
-        %span.st_pinterest_large{:displaytext => "Pinterest"}
-        %span.st_linkedin_large{:displaytext => "LinkedIn"}
-        %span.st_sharethis_large{:displaytext => "ShareThis"}
-        %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
-          %img{:alt => "Pinterest", :height => "600", :src => "campaigns/lts/assets/pinterest.jpg", :width => "350"}/
+      = render "campaigns/lts/expires"
+      = render "campaigns/lts/social"
       %a{:name => "tabs"}
       %ul#campaign-info-nav
         %li#tab-info.tabnav.nav-active
