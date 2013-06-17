@@ -1,3 +1,20 @@
 #works.roundbox.tabblock.hidden
-  %h3 How It Works
-  -#<?php include('includes/inc_works.php'); ?>
+  %ul#howitworks
+    %li
+      = image_tag 'lts/hero-join-a-campaign-heart.jpg', alt: 'Join A Campaign', align: 'left', height: 140, width: 126
+      %h3 PLEDGE
+      %p
+        You join a cause by
+        %br/
+        making a pledge.
+    %li{:style => "width:220px; margin-right:20px;"}
+      = image_tag 'lts/hero-match.jpg', alt: 'Match', align: 'left', height: 140, width: 126
+      %h3 MATCH
+      %p All supporters INCREASE their donation simply because YOU joined the campaign.
+    %li
+      = image_tag 'lts/hero-spread-the-word-megaphone.jpg', alt: 'Spread The Word', align: 'left', height: 140, width: 126
+      %h3 GROW
+      %p
+        Spread the word and
+        %br/
+        grow the match total.
