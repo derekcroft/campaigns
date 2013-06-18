@@ -15,7 +15,7 @@ set :use_sudo, false
 set :deploy_to, "/var/www/lts.kiindly.com"
 set :deploy_via, :copy
 
-set :user, 'root'
+set :user, 'kiindly'
 
 set :rails_env, 'production'
 
