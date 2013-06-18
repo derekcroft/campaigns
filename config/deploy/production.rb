@@ -1,9 +1,9 @@
 set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+  'PATH' => "/root/.rbenv/shims:/root/.rbenv/bin:/usr/pgsql-9.1/bin:$PATH"
 }
 
-set :deploy_to, "/var/www/chi"
+set :deploy_to, "/var/www/lts.kiindly.com"
 
-server "wild", :app, :web, :db, primary: true
+server "hotbbq", :app, :web, :db, primary: true
 
-require 'airbrake/capistrano'
+#require 'airbrake/capistrano'

@@ -1,20 +1,23 @@
-set :stages, %w(production staging)
-set :default_stage, 'staging'
+set :stages, %w(production staging vagrant)
+set :default_stage, 'vagrant'
 
 require 'capistrano/ext/multistage'
 
 require 'bundler/capistrano'
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 
-set :application, "chi"
+set :application, "lts"
 
 set :scm, :git
 set :repository,  "git@github.com:kiindly/campaigns.git"
 
 set :use_sudo, false
-set :deploy_to, "/home/kiindly/campaigns/chi"
-#set :deploy_via, :remote_cache
+set :deploy_to, "/var/www/lts.kiindly.com"
 set :deploy_via, :copy
+
+set :user, 'root'
+
+set :rails_env, 'production'
 
 after "deploy", "deploy:migrate"
 
@@ -40,6 +43,16 @@ namespace :deploy do
     run "cd #{current_path}; tail -f log/production.log"
   end
 
+  #TODO: Remove this hack when Capistrano is working with the Rails 2.0 asset pipeline
+  #https://github.com/capistrano/capistrano/issues/362
+  #namespace :assets do
+    #task :precompile, :roles => assets_role, :except => { :no_release => true } do
+      #run <<-CMD.compact
+        #cd -- #{latest_release.shellescape} &&
+        ##{rake} RAILS_ENV=#{rails_env.to_s.shellescape} #{asset_env} assets:precompile
+      #CMD
+    #end
+  #end
 end
 
 
