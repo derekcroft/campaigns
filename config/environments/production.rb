@@ -56,6 +56,7 @@ KiindlyCom::Application.configure do
     popups.css
     popup.js
     jquery.js
+    tabs.js
   }
 
   # Disable delivery errors, bad email addresses will be ignored
