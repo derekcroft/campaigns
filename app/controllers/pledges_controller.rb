@@ -1,7 +1,6 @@
 class PledgesController < ApplicationController
   force_ssl
   respond_to :html
-  caches_page :new
 
   def new
     if params[:donation_type] == 'fixed' && params[:fixedamount].to_i < 5
@@ -24,8 +23,6 @@ class PledgesController < ApplicationController
     end
 
     if @pledge.save
-      expire_page controller: :campaigns, action: :index
-      expire_page controller: :pledges, action: :new
       PledgeMailer.pledge_receipt_email(@pledge).deliver
       render 'create'
     else

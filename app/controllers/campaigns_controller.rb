@@ -1,7 +1,5 @@
 class CampaignsController < ApplicationController
 
-  caches_page :index
-
   def index
     render action: :show
   end
