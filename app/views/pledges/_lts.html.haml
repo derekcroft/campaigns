@@ -1,0 +1,52 @@
+- content_for :video do
+  %h6 Select a team/charity  to support
+  #charitypicker.roundbox
+    %select#charitypicker-sport
+      %option{:selected => "selected"} Show All Sports
+      %option Flag Football
+      %option Soccer
+      %option Ultimate Frisbee
+    %select#charitypicker-team
+      %option{:selected => "selected"} - Select a team & charity -
+      %option Pick for me
+      %option Combat Wombats / Dogs Day Rescue
+      %option This is a long team name / This is a long charity name
+      %option
+      %option
+      %option
+    %br/
+  / ** Calculate **
+  :javascript
+    window.onload = function() {
+       var base = 500;
+       var numberField = document.getElementById('numberField');
+       numberField.onkeyup = numberField.onpaste = function() {
+          if(this.value.length == 0) {
+             document.getElementById('mpdresult').innerHTML = '';
+             return;
+          }
+          var number = parseFloat(this.value);
+          if(isNaN(number)) return;
+          document.getElementById('mpdresult').innerHTML = number * base;
+       };
+       numberField.onkeyup(); 
+    };
+  #pledgeset-l
+    %h6 Set Your Match
+    .roundbox.pledgeshort
+      %p.ltgray.buck
+        %input#numberField{:maxlength => "5", :name => "capname", :type => "text", :value => "0.07"}/
+    %p
+      This will be your
+      %br>/
+      contribution per donor.
+  #pledgeset-r
+    %h6.ltgray2 Your Max. Donation
+    .roundbox.pledgeshort.ltgray2bg.mpd
+      %p.ltgray.buck
+        %span#mpdresult.mpdresult{:name => "mpd"}>
+        \&nbsp;
+    %p.ltgray2
+      Your maximum donation when
+      %br/
+      we reach &lt;500&gt; donors.

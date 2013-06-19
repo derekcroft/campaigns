@@ -2,5 +2,7 @@
   = title(@campaign, 'Kiindly.com Giving Together')
 - content_for :page_javascripts do
   = render "sharethis"
+- content_for :count_me_in do
+  #countmein= count_me_in_button(request.host)
 
 = render "campaigns/#{@campaign.subdomain}/campaign"

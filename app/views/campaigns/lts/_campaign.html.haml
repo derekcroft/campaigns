@@ -1,35 +1,15 @@
-#topblock
-  .middleblock
-    #status
-      #campaignlogo= image_tag 'lts/logo.jpg', height: 80, width: 250, alt: 'Live To Support Chicago - Logo'
-      #progresstext
-        %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')
-        supporters will increase their donations
-        = succeed "." do
-          %em if you pledge NOW
-      #goaltext
-        Goal:
-        %strong= number_with_delimiter(@campaign.donor_target, precision: 0, delimiter: ',')
-        people
-        %br/
-        Total Pledged:
-        = succeed "*" do
-          %strong= number_to_currency(0)
-      #progresschart
-        #peopleprogress{style: "width:#{[@campaign.donor_total_complete_percent,5].max}%"}
-      #countmein= count_me_in_button(request.host)
-    #video
-      %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "https://www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
+- content_for :video do
+  %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "https://www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
 
-  .middleblock
-    #leftcol
-      = render 'campaigns/lts/expires'
-      = render 'campaigns/lts/social'
-      = render 'campaigns/lts/tabs'
-      = render 'campaigns/lts/campaign_info'
-      = render 'campaigns/lts/latest_news'
-      = render 'campaigns/lts/charities'
-      = render 'campaigns/lts/leaderboard'
-      = render 'campaigns/lts/how_it_works'
-    #rghtcol
-      = render 'pledges/donor_dots'
+.middleblock
+  #leftcol
+    = render 'campaigns/lts/expires'
+    = render 'campaigns/lts/social'
+    = render 'campaigns/lts/tabs'
+    = render 'campaigns/lts/campaign_info'
+    = render 'campaigns/lts/latest_news'
+    = render 'campaigns/lts/charities'
+    = render 'campaigns/lts/leaderboard'
+    = render 'campaigns/lts/how_it_works'
+  #rghtcol
+    = render 'pledges/donor_dots'
