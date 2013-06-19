@@ -1,0 +1,28 @@
+%h3 Payment information
+%ul#paymentform
+  %li#payment-type{:style => "width:500px;"}
+    = image_tag 'visa_32.png', width: 32, height: 32, alt: 'Visa'
+    = image_tag 'mastercard_32.png', width: 32, height: 32, alt: 'Mastercard'
+    = image_tag 'amex_32.png', width: 32, height: 32, alt: 'American Express'
+    = image_tag 'discover_32.png', width: 32, height: 32, alt: 'Discover'
+    = image_tag 'jcb_32.png', width: 32, height: 32, alt: 'JCB'
+  %li#payment-email
+    Card Number
+    %span.x10 (no spaces please)
+    %br/
+    %input{:type => "text"}/
+  %li#payment-zip
+    CVC
+    %span.texttip
+      %a What is this?
+      %span.tipx This is the tip text
+    %br/
+    %input.short{:maxlength => "4", :type => "text"}/
+  %li#payment-zip
+    Expiration
+    %span.x10 (mm/yy)
+    %br/
+    %input.short{:maxlength => "2", :type => "text"}/
+    %input.short{:maxlength => "2", :type => "text"}/
+%hr.clear/
+

@@ -1,0 +1,16 @@
+%h3 Billing information
+%ul#billingform
+  %li#billing-fname
+    First Name
+    %br/
+    %input{:type => "text", :value => "123"}/
+  %li#billing-lname
+    Last Name
+    %br/
+    %input{:type => "text"}/
+  %li#billing-email{:style => "width:500px;"}
+    Email Address
+    %span.x10 (so we can send you a receipt)
+    %br/
+    %input.long{:type => "text"}/
+%hr.clear/

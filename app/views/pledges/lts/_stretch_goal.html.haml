@@ -1,0 +1,10 @@
+%h3 STRETCH GOAL = #{@campaign.stretch_goal} donors (125% of our goal)
+.optincheck
+  %input{:name => "pledge[donate_bonus125]", :type => "hidden", :value => "0"}/
+  %input#pledge_bonus125_cap.rad{:name => "pledge[bonus125_cap]", :type => "checkbox", :value => "1"}/
+.optintext
+  %label{:for => "pledge_bonus125_cap"}
+    %strong
+      I'd like to pledge an additional
+      %span.green &lt;$5.00&gt;
+    should the campaign reach the stretch goal.
