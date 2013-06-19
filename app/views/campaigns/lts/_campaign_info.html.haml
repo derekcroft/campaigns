@@ -39,9 +39,11 @@
     this season. Our goal is to get at least 500 donors supporting any of the charities.
 
   %p
-    Campaign period: June 15, 2013 - Aug 15, 2013
+    Campaign period: #{start_date(@campaign)} - #{end_date(@campaign)}
     %br
-    Goal: 5,000 donors
+    Goal:
+    = number_with_delimiter @campaign.donor_target, precision: 0, delimiter: ','
+    donors
   %p
     Visit us online:
     = link_to 'livetosupport.com', 'http://www.livetosupport.com', target: '_blank'
