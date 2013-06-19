@@ -1,12 +1,8 @@
 class PledgesController < ApplicationController
-  force_ssl
+  #force_ssl
   respond_to :html
 
   def new
-    if params[:donation_type] == 'fixed' && params[:fixedamount].to_i < 5
-      flash[:error] = "Fixed donation must be at least $5.00"
-      redirect_to root_path
-    end
     @pledge = @campaign.pledges.build(params[:pledge])
   end
 

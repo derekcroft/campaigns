@@ -39,8 +39,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6ff6c', endC
 /* TITLE BAR */
 
 #titlebar { background-color:#282828; width:100%; height:70px; overflow:hidden; margin:0; padding:0; }
-#titlebar .middleblock { height:70px; background-image:url(../images/roundshadow-titlebar.png); background-repeat:no-repeat; background-position:center bottom; }
-#titlebarlogo { background-image:url(../images/kiindlycom-title-logo.png); background-repeat:no-repeat; width:187px; height:52px; margin:0; float:left; padding:0; }
+#titlebar .middleblock { height:70px; background-image:url(<%= asset_path 'roundshadow-titlebar.png' %>); background-repeat:no-repeat; background-position:center bottom; }
+#titlebarlogo { background-image:url(<%= asset_path 'kiindlycom-title-logo.png' %>); background-repeat:no-repeat; width:187px; height:52px; margin:0; float:left; padding:0; }
 #titlebarlogo span { display:none; }
 #righttopnav { float:right; font-size:10px; text-align:right; padding:20px 0 0 0; width:250px; height:40px; }
 #righttopnav .help { color:#ffffff; text-transform:uppercase; font-weight:300; font-size:11px; }
@@ -188,13 +188,13 @@ input.rad { border:0 !important; width:auto !important; margin:0 5px 0 0; }
 #video .roundbox { margin-top:10px !important; }
 #video .pledgeshort { width:180px; }
 
-#pledgeset-l { float:left; width:280px; background-image:url('../images/lgarrow.png'); background-position:right 30%; background-repeat:no-repeat; }
+#pledgeset-l { float:left; width:280px; background-image:url(<%= asset_path 'lts/lgarrow.png' %>); background-position:right 30%; background-repeat:no-repeat; }
 #pledgeset-l input { border:0; font-size:35px; font-weight:700; width:100px; margin:10px 0 10px 0; padding:0; height:45px; letter-spacing:-1px; }
 
 #pledgeset-r { float:right; width:300px;}
 .mpd { border:0; font-size:30px; font-weight:700; padding:13px 0 25px 0; }
 
-.buck { padding:0 0 0 30px; margin:15px 10px 0 10px; vertical-align:top; font-weight:700; background-image:url('../images/buck.png'); background-position:left center; background-repeat:no-repeat; }
+.buck { padding:0 0 0 30px; margin:15px 10px 0 10px; vertical-align:top; font-weight:700; background-image:url(<%= asset_path 'lts/buck.png' %>); background-position:left center; background-repeat:no-repeat; }
 
 
 
