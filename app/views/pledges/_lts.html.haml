@@ -86,11 +86,11 @@
       %h3 Payment information
       %ul#paymentform
         %li#payment-type{:style => "width:500px;"}
-          %img{:alt => "Visa", :height => "32", :src => "images/visa_32.png", :width => "32"}/
-          %img{:alt => "Mastercard", :height => "32", :src => "images/mastercard_32.png", :width => "32"}/
-          %img{:alt => "American Express", :height => "32", :src => "images/amex_32.png", :width => "32"}/
-          %img{:alt => "Discover", :height => "32", :src => "images/discover_32.png", :width => "32"}/
-          %img{:alt => "JCB", :height => "32", :src => "images/jcb_32.png", :width => "32"}/
+          = image_tag 'visa_32.png', width: 32, height: 32, alt: 'Visa'
+          = image_tag 'mastercard_32.png', width: 32, height: 32, alt: 'Mastercard'
+          = image_tag 'amex_32.png', width: 32, height: 32, alt: 'American Express'
+          = image_tag 'discover_32.png', width: 32, height: 32, alt: 'Discover'
+          = image_tag 'jcb_32.png', width: 32, height: 32, alt: 'JCB'
         %li#payment-email
           Card Number
           %span.x10 (no spaces please)
@@ -102,14 +102,12 @@
             %a What is this?
             %span.tipx This is the tip text
           %br/
-          = succeed "&amp;nbsp;" do
-            %input.short{:maxlength => "4", :type => "text"}/
+          %input.short{:maxlength => "4", :type => "text"}/
         %li#payment-zip
           Expiration
           %span.x10 (mm/yy)
           %br/
-          = succeed "&amp;nbsp;" do
-            %input.short{:maxlength => "2", :type => "text"}/
+          %input.short{:maxlength => "2", :type => "text"}/
           %input.short{:maxlength => "2", :type => "text"}/
       %hr.clear/
     .paymentcontentblock.roundbox
