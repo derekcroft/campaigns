@@ -48,7 +48,9 @@ KiindlyCom::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w{
     campaigns.js
+    campaigns.css
     pledges.js
+    pledges.css
     pinit.js
     google_analytics.js
     mcColorPicker/mcColorPicker.js
