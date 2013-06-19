@@ -1,5 +1,5 @@
 %h3 Customize your pledge
 %p Pick a donor dot color &amp; write a message
 = link_to 'Color Picker for website, easy-to-use', "http://www.menucool.com/color-picker", id: 'colorpicker'
-%input.color.short{:value => Pledge.random_hex, :style => "display:none;", :type => "text"}/
-%input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
+= p.hidden_field :dot_color, value: Pledge.random_hex, class: 'color short'
+= p.text_field :dot_comment, class: 'medium instructional_text', style: "margin-left:20px", value: 'Type a short message'
