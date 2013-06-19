@@ -16,11 +16,10 @@
         = succeed "*" do
           %strong= number_to_currency(0)
       #progresschart
-        #peopleprogress{:style => "width:50%"}
+        #peopleprogress{style: "width:#{[@campaign.donor_total_complete_percent,5].max}%"}
       #countmein= count_me_in_button(request.host)
     #video
       %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "http://www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
-      -#%iframe{:allowfullscreen => "", :frameborder => "0", :height => "390", :src => "http://www.youtube-nocookie.com/embed/EbXfNhvJldw?rel=0", :width => "640"}
 
   .middleblock
     #leftcol
