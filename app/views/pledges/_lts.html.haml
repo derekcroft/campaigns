@@ -7,9 +7,9 @@
     #payinfo-left
       .paymentcontentblock.roundbox= render partial: 'pledges/lts/stretch_goal', locals: { p: p }
       .paymentcontentblock.roundbox= render partial: 'colorpicker', locals: { p: p }
-      .paymentcontentblock.roundbox= render 'pledges/lts/billing_information'
-      .paymentcontentblock.roundbox= render 'pledges/lts/payment_form'
-      .paymentcontentblock.roundbox= render 'pledges/lts/opt_ins'
+      .paymentcontentblock.roundbox= render partial: 'pledges/lts/billing_information', locals: { p: p }
+      .paymentcontentblock.roundbox= render partial: 'pledges/lts/payment_form'
+      .paymentcontentblock.roundbox= render partial: 'pledges/lts/opt_ins'
     #infopage-right
       = render 'donor_dots'
       = render 'pledges/lts/donation_status'

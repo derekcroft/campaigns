@@ -1,5 +1,4 @@
 class PledgesController < ApplicationController
-  #force_ssl
   respond_to :html
 
   def new
@@ -24,10 +23,6 @@ class PledgesController < ApplicationController
     else
       render action: 'new'
     end
-  end
-
-  def fb
-    redirect_to new_pledge_path(fixedamount: "7", signed_request: params[:signed_request])
   end
 
   private
