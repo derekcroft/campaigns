@@ -1,0 +1,365 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title **Charity Name** / **Campaign Name** - Kiindly.com Giving Together
+    <?php include('includes/inc_globalheader.php'); ?>
+    <?php include('includes/inc_tabs.php'); ?>
+    %script{:src => "includes/jquery-1.7.js", :type => "text/javascript"}
+    :css
+      #topblock { height:365px !important; }
+      .middleblock, #status { height:340px !important; }
+      #video  { height:300px !important; width:600px !important; padding:30px 40px 10px 40px !important; }
+    / Color Picker
+    %link{:href => "colorpicker/mcColorPicker.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "colorpicker/mcColorPicker.js", :type => "text/javascript"}
+    / End Color Picker
+  %body{:onload => "document.kiindlyform.capname.focus();"}
+    #bodycontent
+      #titlebar
+        .middleblock
+          #titlebarlogo
+            %span.stack/
+            %h2 Kiindly.com The soacial giving donation platform.
+          #righttopnav
+            %a.startcampaign{:href => "http://www.kiindly.net/?ref=campheader"} Start my own Campaign
+            \&nbsp; | &nbsp;
+            %a.help{:href => ""} Help
+      /
+        <div id="top-back-grad-sm"></div>
+      %form{:action => "share.php", :name => "kiindlyform"}
+        #topblock
+          .middleblock
+            #status
+              #campaignlogo
+                %img{:height => "80", :src => "campaigns/lts/assets/logo.jpg", :width => "250"}/
+              #progresstext
+                %span#hardcount 250
+                supporters will increase their donation when you finish this page.
+              #goaltext
+                Goal:
+                %strong 500 donors
+                %br/
+                Total Pledged:
+                %strong $2,700
+              #progresschart
+                #peopleprogress{:style => "width:50%"}
+            #video
+              %h6 Select a team/charity  to support
+              #charitypicker.roundbox
+                %select#charitypicker-sport
+                  %option{:selected => "selected"} Show All Sports
+                  %option Flag Football
+                  %option Soccer
+                  %option Ultimate Frisbee
+                %select#charitypicker-team
+                  %option{:selected => "selected"} - Select a team & charity -
+                  %option Pick for me
+                  %option Combat Wombats / Dogs Day Rescue
+                  %option This is a long team name / This is a long charity name
+                  %option
+                  %option
+                  %option
+                %br/
+              / ** Calculate **
+              :javascript
+                window.onload = function() {
+                   var base = 500;
+                   var numberField = document.getElementById('numberField');
+                   numberField.onkeyup = numberField.onpaste = function() {
+                      if(this.value.length == 0) {
+                         document.getElementById('mpdresult').innerHTML = '';
+                         return;
+                      }
+                      var number = parseFloat(this.value);
+                      if(isNaN(number)) return;
+                      document.getElementById('mpdresult').innerHTML = number * base;
+                   };
+                   numberField.onkeyup(); 
+                };
+              #pledgeset-l
+                %h6 Set Your Match
+                .roundbox.pledgeshort
+                  %p.ltgray.buck
+                    %input#numberField{:maxlength => "5", :name => "capname", :type => "text", :value => "0.07"}/
+                %p
+                  This will be your
+                  %br>/
+                  contribution per donor.
+              #pledgeset-r
+                %h6.ltgray2 Your Max. Donation
+                .roundbox.pledgeshort.ltgray2bg.mpd
+                  %p.ltgray.buck
+                    %span#mpdresult.mpdresult{:name => "mpd"}>
+                    \&nbsp;
+                %p.ltgray2
+                  Your maximum donation when
+                  %br/
+                  we reach &lt;500&gt; donors.
+        .contentpageblock{:align => "center"}
+          #payinfo-left
+            .paymentcontentblock.roundbox
+              %h3 STRETCH GOAL = &lt;625&gt; donors (125% of our goal)
+              .optincheck
+                %input{:name => "pledge[donate_bonus125]", :type => "hidden", :value => "0"}/
+                %input#pledge_bonus125_cap.rad{:name => "pledge[bonus125_cap]", :type => "checkbox", :value => "1"}/
+              .optintext
+                %label{:for => "pledge_bonus125_cap"}
+                  %strong
+                    I'd like to pledge an additional
+                    %span.green &lt;$5.00&gt;
+                  should the campaign reach the stretch goal.
+            .paymentcontentblock.roundbox
+              %h3 Customize your pledge
+              %p Pick a donor dot color &amp; write a message
+              %a#colorpicker{:href => "http://www.menucool.com/color-picker"} Color Picker for website, easy-to-use
+              %input.color.short{:style => "display:none;", :type => "text"}/
+              %input.medium{:maxlength => "140", :onblur => "if (this.value=='') this.value = 'Type a short message';", :onfocus => "if (this.value=='Type a short message') this.value = '';", :style => "margin-left:20px", :type => "text", :value => "Type a short message"}/
+              <h/r class="clear" />
+            .paymentcontentblock.roundbox
+              %h3 Billing information
+              %ul#billingform
+                %li#billing-fname
+                  First Name
+                  %br/
+                  %input{:type => "text", :value => "123"}/
+                %li#billing-lname
+                  Last Name
+                  %br/
+                  %input{:type => "text"}/
+                %li#billing-email{:style => "width:500px;"}
+                  Email Address
+                  %span.x10 (so we can send you a receipt)
+                  %br/
+                  %input.long{:type => "text"}/
+              %hr.clear/
+            .paymentcontentblock.roundbox
+              %h3 Payment information
+              %ul#paymentform
+                %li#payment-type{:style => "width:500px;"}
+                  %img{:alt => "Visa", :height => "32", :src => "images/visa_32.png", :width => "32"}/
+                  %img{:alt => "Mastercard", :height => "32", :src => "images/mastercard_32.png", :width => "32"}/
+                  %img{:alt => "American Express", :height => "32", :src => "images/amex_32.png", :width => "32"}/
+                  %img{:alt => "Discover", :height => "32", :src => "images/discover_32.png", :width => "32"}/
+                  %img{:alt => "JCB", :height => "32", :src => "images/jcb_32.png", :width => "32"}/
+                %li#payment-email
+                  Card Number
+                  %span.x10 (no spaces please)
+                  %br/
+                  %input{:type => "text"}/
+                %li#payment-zip
+                  CVC
+                  %span.texttip
+                    %a What is this?
+                    %span.tipx This is the tip text
+                  %br/
+                  = succeed "&amp;nbsp;" do
+                    %input.short{:maxlength => "4", :type => "text"}/
+                %li#payment-zip
+                  Expiration
+                  %span.x10 (mm/yy)
+                  %br/
+                  = succeed "&amp;nbsp;" do
+                    %input.short{:maxlength => "2", :type => "text"}/
+                  %input.short{:maxlength => "2", :type => "text"}/
+              %hr.clear/
+            .paymentcontentblock.roundbox
+              .optincheck
+                %input.rad{:type => "checkbox", :value => "1"}/
+              .optintext
+                I agree to the
+                = succeed "." do
+                  %a{:href => ""} Terms &amp; Conditions
+              .optincheck
+                %input.rad{:type => "checkbox", :value => "1"}/
+              .optintext
+                I would like to receive emails regarding new projects, special events, news
+                and information from Live To Support Chicago.
+              .optincheck
+                %input{:name => "pledge[donate_cap]", :type => "hidden", :value => "0"}/
+                %input#pledge_donate_cap.rad{:name => "pledge[donate_cap]", :type => "checkbox", :value => "1"}/
+              .optintext
+                %label{:for => "pledge_donate_cap"}
+                  %strong If the campaign doesn't reach the donor goal I'm willing to donate the value of my maximum donation amount of &lt;$20&gt;.
+              %p
+                %button.submitbtn{:type => "submit"} SUBMIT
+              %hr.clear/
+          #infopage-right
+            #donordots.roundbox
+              %h3 Donor dots
+              %p Roll over the dots below to see comments from other donors.
+              #dotbox
+                .tooltip{:style => "background:#442"}
+                  %span.tipx
+                    %em> Dave D.
+                    Oh yeah, donor number 1 baby!
+                .tooltip{:style => "background:#ea2"}
+                  %span.tipx
+                    %em> Nathan S.
+                    This is the text comment
+                .tooltip{:style => "background:#093"}
+                  %span.tipx
+                    %em> Penny W.
+                    Best $20 I spent all day
+                .tooltip{:style => "background:#de2"}
+                  %span.tipx
+                    %em> Chris D.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#002"}
+                  %span.tipx
+                    %em> Benjamin P.
+                    This is my comment 2
+                .tooltip{:style => "background:#093"}
+                  %span.tipx
+                    %em> Kellie B.
+                    My school rocks
+                .tooltip{:style => "background:#8f3"}
+                  %span.tipx
+                    %em David W.
+                .tooltip{:style => "background:#2ff"}
+                  %span.tipx
+                    %em> Guy F.
+                    Easy as pie
+                .tooltip{:style => "background:#e6e"}
+                  %span.tipx
+                    %em> Che G.
+                    eatin and tweetin
+                .tooltip{:style => "background:#7aa"}
+                  %span.tipx
+                    %em> Morgan F.
+                    This is my comment 2
+                .tooltip{:style => "background:#cc2"}
+                  %span.tipx
+                    %em> Ana K.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#a56"}
+                  %span.tipx
+                    %em> Simon D.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#de2"}
+                  %span.tipx
+                    %em> Chris D.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#002"}
+                  %span.tipx
+                    %em> Benjamin P.
+                    This is my comment 2
+                .tooltip{:style => "background:#093"}
+                  %span.tipx
+                    %em> Kellie B.
+                    My school rocks
+                .tooltip{:style => "background:#8f3"}
+                  %span.tipx
+                    %em David W.
+                .tooltip{:style => "background:#2ff"}
+                  %span.tipx
+                    %em> Guy F.
+                    Easy as pie
+                .tooltip{:style => "background:#e6e"}
+                  %span.tipx
+                    %em> Che G.
+                    eatin and tweetin
+                .tooltip{:style => "background:#442"}
+                  %span.tipx
+                    %em> Dave D.
+                    Oh yeah, donor number 1 baby!
+                .tooltip{:style => "background:#ea2"}
+                  %span.tipx
+                    %em> Nathan S.
+                    This is the text comment
+                .tooltip{:style => "background:#093"}
+                  %span.tipx
+                    %em> Penny W.
+                    Best $20 I spent all day
+                .tooltip{:style => "background:#de2"}
+                  %span.tipx
+                    %em> Chris D.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#002"}
+                  %span.tipx
+                    %em> Benjamin P.
+                    This is my comment 2
+                .tooltip{:style => "background:#093"}
+                  %span.tipx
+                    %em> Kellie B.
+                    My school rocks
+                .tooltip{:style => "background:#8f3"}
+                  %span.tipx
+                    %em David W.
+                .tooltip{:style => "background:#2ff"}
+                  %span.tipx
+                    %em> Guy F.
+                    Easy as pie
+                .tooltip{:style => "background:#e6e"}
+                  %span.tipx
+                    %em> Che G.
+                    eatin and tweetin
+                .tooltip{:style => "background:#7aa"}
+                  %span.tipx
+                    %em> Morgan F.
+                    This is my comment 2
+                .tooltip{:style => "background:#cc2"}
+                  %span.tipx
+                    %em> Ana K.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#a56"}
+                  %span.tipx
+                    %em> Simon D.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#de2"}
+                  %span.tipx
+                    %em> Chris D.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#002"}
+                  %span.tipx
+                    %em> Benjamin P.
+                    This is my comment 2
+                .tooltip{:style => "background:#093"}
+                  %span.tipx
+                    %em> Kellie B.
+                    My school rocks
+                .tooltip{:style => "background:#8f3"}
+                  %span.tipx
+                    %em David W.
+                .tooltip{:style => "background:#2ff"}
+                  %span.tipx
+                    %em> Guy F.
+                    Easy as pie
+                .tooltip{:style => "background:#e6e"}
+                  %span.tipx
+                    %em> Che G.
+                    eatin and tweetin
+                .tooltip{:style => "background:#7aa"}
+                  %span.tipx
+                    %em> Morgan F.
+                    This is my comment 2
+                .tooltip{:style => "background:#cc2"}
+                  %span.tipx
+                    %em> Ana K.
+                    This is my comment and it's cool
+                .tooltip{:style => "background:#a56"}
+                  %span.tipx
+                    %em> Simon D.
+                    This is my comment and it's cool
+            #donationstatus.roundbox
+              #progresstext
+                %h3 Donation Summary
+                %ul#donation-summary
+                  %li Campaign Goal:
+                  %li.donsum-right 500 donors
+                  %li Your Donation Cap:
+                  %li.donsum-right
+                    $
+                    %span.mpdresult
+                  %li Per Person Donation:
+                  %li.donsum-right $0.04
+                  %li Stretch Goal:
+                  %li.donsum-right Yes (125%)
+                  %li Donate My Full Cap:
+                  %li.donsum-right No
+                  %li Campaign Ends:
+                  %li.donsum-right Sep. 15, 2012
+                %hr.clear/
+                %br/
+                %br/
+    <?php include('includes/inc_footer.php'); ?>

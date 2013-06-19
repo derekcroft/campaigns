@@ -160,11 +160,13 @@ describe Campaign do
 
     it "is 0% if donors is nil" do
       campaign.stub(:donors).and_return(nil)
+      campaign.donor_target = 3
       campaign.donor_total_complete_percent.should == 0
     end
 
     it "is 0% if donors is empty" do
       campaign.stub(:donors).and_return([])
+      campaign.donor_target = 3
       campaign.donor_total_complete_percent.should == 0
     end
 
@@ -196,15 +198,39 @@ describe Campaign do
 
     it "is 67%" do
       FactoryGirl.create_list(:donor, 2, campaign: campaign)
-      campaign.donation_target = 3
+      campaign.donor_target = 3
       campaign.donor_total_complete_percent.should == 67
     end
 
     it "is 100% if donations exceed target" do
       FactoryGirl.create_list(:donor, 2, campaign: campaign)
-      campaign.donation_target = 1
+      campaign.donor_target = 1
       campaign.donor_total_complete_percent.should == 100
     end
   end
 
+  context "#stretch_goal" do
+    let(:campaign) { FactoryGirl.build(:campaign) }
+    subject { campaign }
+
+    it "has a stretch goal of 0 when donor_target is nil" do
+      campaign.donor_target = nil
+      campaign.stretch_goal.should == 0
+    end
+
+    it "has a stretch goal of 0 when donor_target is 0" do
+      campaign.donor_target = 0
+      campaign.stretch_goal.should == 0
+    end
+
+    it "has a stretch goal of 125 when donor_target is 100" do
+      campaign.donor_target = 100
+      campaign.stretch_goal.should == 125
+    end
+
+    it "has a stretch goal of 13 when donor_target is 10" do
+      campaign.donor_target = 10
+      campaign.stretch_goal.should == 13
+    end
+  end
 end

@@ -1,0 +1,22 @@
+#donationstatus.roundbox
+  #progresstext
+    %h3 Donation Summary
+    %ul#donation-summary
+      %li Campaign Goal:
+      %li.donsum-right #{@campaign.donor_target} donors
+      %li Your Donation Cap:
+      %li.donsum-right
+        $
+        %span.mpdresult
+      %li Per Person Donation:
+      %li.donsum-right $0.04
+      %li Stretch Goal:
+      %li.donsum-right Yes (125%)
+      %li Donate My Full Cap:
+      %li.donsum-right No
+      %li Campaign Ends:
+      %li.donsum-right= end_date(@campaign)
+    %hr.clear/
+    %br/
+    %br/
+

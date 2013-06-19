@@ -32,6 +32,11 @@ class Campaign < ActiveRecord::Base
     campaign_type == 'dollar' ?  'Dollar Match' : ''
   end
 
+  def stretch_goal
+    return 0 unless donor_target
+    (donor_target * 1.25).ceil
+  end
+
   private
   def fixed_total
     total_row = pledges.where(pledge_type: 'fixed').group("campaign_id").sum(:amount)

@@ -49,4 +49,90 @@
     %p.ltgray2
       Your maximum donation when
       %br/
-      we reach &lt;500&gt; donors.
+      we reach #{@campaign.stretch_goal} donors.
+
+.contentpageblock{:align => "center"}
+  #payinfo-left
+    .paymentcontentblock.roundbox
+      %h3 STRETCH GOAL = #{@campaign.stretch_goal} donors (125% of our goal)
+      .optincheck
+        %input{:name => "pledge[donate_bonus125]", :type => "hidden", :value => "0"}/
+        %input#pledge_bonus125_cap.rad{:name => "pledge[bonus125_cap]", :type => "checkbox", :value => "1"}/
+      .optintext
+        %label{:for => "pledge_bonus125_cap"}
+          %strong
+            I'd like to pledge an additional
+            %span.green &lt;$5.00&gt;
+          should the campaign reach the stretch goal.
+    .paymentcontentblock.roundbox= render 'colorpicker'
+    .paymentcontentblock.roundbox
+      %h3 Billing information
+      %ul#billingform
+        %li#billing-fname
+          First Name
+          %br/
+          %input{:type => "text", :value => "123"}/
+        %li#billing-lname
+          Last Name
+          %br/
+          %input{:type => "text"}/
+        %li#billing-email{:style => "width:500px;"}
+          Email Address
+          %span.x10 (so we can send you a receipt)
+          %br/
+          %input.long{:type => "text"}/
+      %hr.clear/
+    .paymentcontentblock.roundbox
+      %h3 Payment information
+      %ul#paymentform
+        %li#payment-type{:style => "width:500px;"}
+          %img{:alt => "Visa", :height => "32", :src => "images/visa_32.png", :width => "32"}/
+          %img{:alt => "Mastercard", :height => "32", :src => "images/mastercard_32.png", :width => "32"}/
+          %img{:alt => "American Express", :height => "32", :src => "images/amex_32.png", :width => "32"}/
+          %img{:alt => "Discover", :height => "32", :src => "images/discover_32.png", :width => "32"}/
+          %img{:alt => "JCB", :height => "32", :src => "images/jcb_32.png", :width => "32"}/
+        %li#payment-email
+          Card Number
+          %span.x10 (no spaces please)
+          %br/
+          %input{:type => "text"}/
+        %li#payment-zip
+          CVC
+          %span.texttip
+            %a What is this?
+            %span.tipx This is the tip text
+          %br/
+          = succeed "&amp;nbsp;" do
+            %input.short{:maxlength => "4", :type => "text"}/
+        %li#payment-zip
+          Expiration
+          %span.x10 (mm/yy)
+          %br/
+          = succeed "&amp;nbsp;" do
+            %input.short{:maxlength => "2", :type => "text"}/
+          %input.short{:maxlength => "2", :type => "text"}/
+      %hr.clear/
+    .paymentcontentblock.roundbox
+      .optincheck
+        %input.rad{:type => "checkbox", :value => "1"}/
+      .optintext
+        I agree to the
+        = succeed "." do
+          %a{:href => ""} Terms &amp; Conditions
+      .optincheck
+        %input.rad{:type => "checkbox", :value => "1"}/
+      .optintext
+        I would like to receive emails regarding new projects, special events, news
+        and information from Live To Support Chicago.
+      .optincheck
+        %input{:name => "pledge[donate_cap]", :type => "hidden", :value => "0"}/
+        %input#pledge_donate_cap.rad{:name => "pledge[donate_cap]", :type => "checkbox", :value => "1"}/
+      .optintext
+        %label{:for => "pledge_donate_cap"}
+          %strong If the campaign doesn't reach the donor goal I'm willing to donate the value of my maximum donation amount of &lt;$20&gt;.
+      %p
+        %button.submitbtn{:type => "submit"} SUBMIT
+      %hr.clear/
+  #infopage-right
+    = render 'donor_dots'
+    = render 'donation_status'
