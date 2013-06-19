@@ -26,7 +26,7 @@ jQuery ->
       $('#submit_donation').prop('disabled', false)
 
   # only allow numbers in the fixed amount text field
-  $('.positive-integer').numeric { decimal: false, negative: false }
+  #$('.positive-integer').numeric { decimal: false, negative: false }
 
   # add the tooltips to the Learn More elements
   $(".learnmore").tooltip({position: 'bottom', offset: [-10,-140]})
