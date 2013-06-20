@@ -20,5 +20,4 @@ class ApplicationController < ActionController::Base
       raise "The stripe_mode param must equal 'live' or 'test'"
     end
   end
-
 end
