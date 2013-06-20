@@ -93,10 +93,3 @@ KiindlyCom::Application.configure do
   config.ssl_enabled = true
 end
 
-# OUAA live keys
-#Stripe.api_key = "elub5pMJiQpkTknxOK50HCiSs3opsBDz"
-#STRIPE_PUBLISHABLE_KEY = "pk_goE4UBY5zWbD39T98Y9vrfTJqdvN4"
-
-# CHI live keys
-#Stripe.api_key = 'sk_0EEhccEW3E48nB1fklAaKFBnGNKdL'
-#STRIPE_PUBLISHABLE_KEY = 'pk_0EEhPDdlHd0gfqe8Yy1h2RhzSgmGw'
