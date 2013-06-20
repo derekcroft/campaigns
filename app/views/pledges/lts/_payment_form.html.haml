@@ -1,4 +1,8 @@
 %h3 Payment information
+%h4#stripe_error.donation_error.field_with_errors
+  %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+
+= hidden_field_tag :stripe_card_token
 %ul#paymentform
   %li#payment-type{:style => "width:500px;"}
     = image_tag 'visa_32.png', width: 32, height: 32, alt: 'Visa'
@@ -10,24 +14,23 @@
     Card Number
     %span.x10 (no spaces please)
     %br/
-    %input{:type => "text"}/
+    = text_field_tag :card_number, nil, name: nil, id: 'card_number', maxlength: 16, class: 'positive-integer'
   %li#payment-zip
     CVC
     %span.texttip
       %a What is this?
       %span.tipx
-        Your Card Verification Code is a 3-digit number printed on the back
-        of your Visa/Mastercard.  It appears after and to the right of your
-        card number.  The American Express verification number is a 4-digit
-        number printed on the front of your card.  It appears after and to
-        the right of your card number.
+        The Card Verification Value is located on the back of
+        Visa, MasterCard and Discover cards and is a group of
+        3 digits to the right of the signature strip. Amex uses
+        4 digits and is shown on the front right of the card.
     %br/
-    %input.short{:maxlength => "4", :type => "text"}/
+    = text_field_tag :card_code, nil, name: nil, maxlength: 4, id: 'card_code', class: 'short positive-integer'
   %li#payment-zip
     Expiration
     %span.x10 (mm/yy)
     %br/
-    %input.short{:maxlength => "2", :type => "text"}/
-    %input.short{:maxlength => "2", :type => "text"}/
+    = select_month nil, { add_month_numbers_true: true }, { name: nil, id: 'card_month', maxlength: 2, class: 'short' }
+    = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", maxlength: 2, class: 'short'}
 %hr.clear/
 

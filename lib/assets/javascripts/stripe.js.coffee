@@ -6,14 +6,22 @@ $(document).ready ->
     "May", "June", "July", "August",
     "September", "October", "November", "December"
   ]
-  today = new Date
 
   $("#submit_donation").click ->
-    if parseInt($("#card_month").val()) < 6 && $("#card_year").val() == "2012"
-      $("#stripe_error").html("Card expiration must be #{monthNames[today.getMonth()]} #{today.getFullYear()} or later").show()
+    unless card.validCardNumber()
+      $("#stripe_error").html("The card number you entered does not appear to be valid.").show()
+      $("#card_number").focus()
+      return false
+    unless card.validExpiration()
+      today = new Date
+      $("#stripe_error").html("Card expiration must be #{monthNames[today.getMonth()+1]} #{today.getFullYear()} or later").show()
       $("#card_month").focus()
       return false
-    if ($("#card_number").val().substring(0,2) == "34" || $("#card_number").val().substring(0,2) == "37")
+    unless card.validCVC()
+      $("#stripe_error").html("The CVC number you entered is not valid.").show()
+      $("#card_code").focus()
+      return false
+    if Stripe.card.cardType($('#card_number').val()) == 'American Express'
       unless $("#card_code").val().length == 4
         $("#stripe_error").html("American Express card must have a four digit CVC").show()
         $("#card_code").focus()
@@ -23,6 +31,20 @@ $(document).ready ->
   pledge.setupForm()
 
 
+card =
+  validExpiration: ->
+    expYear = parseInt $('#card_year').val()
+    expMonth = parseInt($('#card_month').val()) - 1
+    Stripe.card.validateExpiry expMonth, expYear
+
+  validCardNumber: ->
+    cardNumber = $('#card_number').val()
+    Stripe.card.validateCardNumber cardNumber
+
+  validCVC: ->
+    cvc = $('#card_code').val()
+    Stripe.card.validateCVC cvc
+
 pledge =
   setupForm: ->
     $('#new_pledge').submit ->
@@ -30,12 +52,12 @@ pledge =
       pledge.processCard()
 
   processCard: ->
-    card =
+    creditCard =
       number: $('#card_number').val()
       cvc: $('#card_code').val()
       expMonth: $('#card_month').val()
       expYear: $('#card_year').val()
-    Stripe.createToken(card, pledge.handleStripeResponse)
+    Stripe.createToken(creditCard, pledge.handleStripeResponse)
     false
 
   handleStripeResponse: (status, response) ->

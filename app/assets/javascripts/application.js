@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require jquery.tools.min
 //= require jquery.numeric
 //= require popup
 //= require stripe
