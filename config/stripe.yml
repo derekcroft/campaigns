@@ -11,8 +11,12 @@ api_key:
       test: pk_3hEW6oAUjy89JDRHdYgeRwnSRfguG
       live: pk_va9FTtsmhIlv0cUIdcnaXsCMfIhr9
   lts:
-    secret:
-      live: sk_live_BrefMrBLxMUlOq0OVNbcqcHp
-      test: sk_live_BrefMrBLxMUlOq0OVNbcqcHp
+    stripe_user_id: acct_1zIGqUbwXH8i6kdEkLB6
     refresh: rt_1zIQP7kRDzEr6pxfEGbjU3QQ3AZ94nRmGnFJ5cAWSXrKi517
+    secret:
+      test: sk_test_eFKbXgo9FIgi2icDBHryZkA0
+      live: sk_live_BrefMrBLxMUlOq0OVNbcqcHp
+    publishable:
+      test: pk_test_nF6pGtowUM7oGXQKUNG2AA0f
+      live: pk_live_T6y5ApiKEtF9bAZiaZ9bAuQg
 
