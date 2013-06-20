@@ -13,6 +13,11 @@ class AccessToken
     raise "Stripe mode be defined as 'live' or 'test' for #{stripe_account_holder} in stripe.yml"
   end
 
+  def self.stripe_publishable_key(stripe_account_holder, stripe_mode)
+    stripe_mode ||= stripe_mode_for(stripe_account_holder)
+    stripe_config['api_key'][stripe_account_holder]['publishable'][stripe_mode]
+  end
+
   def self.oauth_client(stripe_account_holder, mode)
     client_id = stripe_config["client_id"][Rails.env]
     secret_api_key = stripe_config["api_key"]["kiindly"]["secret"][mode]

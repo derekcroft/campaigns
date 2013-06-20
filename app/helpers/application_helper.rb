@@ -8,15 +8,14 @@ module ApplicationHelper
   end
 
   def stripe_publishable_key(subdomain)
-    stripe_mode
+    AccessToken.stripe_publishable_key(subdomain, stripe_mode_param)
   end
 
   private
-  def stripe_mode
+  def stripe_mode_param
     if params[:stripe_mode].present? && !Rails.env.production?
       return params[:stripe_mode] if %w{live test}.include?(params[:stripe_mode])
       raise "The stripe_mode param must equal 'live' or 'test'"
     end
-    AccessToken.stripe_mode_for('lts')
   end
 end
