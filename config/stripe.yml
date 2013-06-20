@@ -19,4 +19,4 @@ api_key:
     publishable:
       test: pk_test_nF6pGtowUM7oGXQKUNG2AA0f
       live: pk_live_T6y5ApiKEtF9bAZiaZ9bAuQg
-    mode: crap
+    mode: test
