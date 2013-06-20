@@ -1,0 +1,18 @@
+client_id: 
+  development: ca_1PeWkKK3FZct85SCAQDJlcBhwxLqBhMF
+  test: ca_1PeWkKK3FZct85SCAQDJlcBhwxLqBhMF
+  production: ca_1PeWj5uoJqbfcMx0Sv4KQz81eVgjukTk
+api_key:
+  kiindly:
+    secret:
+      test: 3vAWJJUrN1pyhnUOLvVCNehhrAEJ5gkS
+      live: wb0cLIk2REiQaBg5FvLA8ltD1Hrk3vLY
+    publishable:
+      test: pk_3hEW6oAUjy89JDRHdYgeRwnSRfguG
+      live: pk_va9FTtsmhIlv0cUIdcnaXsCMfIhr9
+  lts:
+    secret:
+      live: sk_live_BrefMrBLxMUlOq0OVNbcqcHp
+      test: sk_live_BrefMrBLxMUlOq0OVNbcqcHp
+    refresh: rt_1zIQP7kRDzEr6pxfEGbjU3QQ3AZ94nRmGnFJ5cAWSXrKi517
+

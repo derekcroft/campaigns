@@ -59,6 +59,18 @@ end
 #STRIPE_PUBLISHABLE_KEY = "pk_3nMQqDSMnDAUB8PcYGP2PVTCSjrI5"
 
 # CHI test keys
-Stripe.api_key = 'sk_0EEhFAMHd3BuQH29KJevoALr9zld1'
-STRIPE_PUBLISHABLE_KEY = 'pk_0EEh2ZN9GM4wWLGEAEznbIysBQ4te'
+#Stripe.api_key = 'sk_0EEhFAMHd3BuQH29KJevoALr9zld1'
+#STRIPE_PUBLISHABLE_KEY = 'pk_0EEh2ZN9GM4wWLGEAEznbIysBQ4te'
+
+# LTS test keys
+# id |        name        |      contact_name       |         contact_email          | contact_phone |       stripe_access_token        |         created_at         |
+# |     updated_at         |                stripe_refresh_token
+# 18 | LTS Chicago        | Mark Biery              | mark@livetosupport.com         | 5623550344    | sk_live_BrefMrBLxMUlOq0OVNbcqcHp | 2013-06-10 01:12:36.488557 | 20
+# 13-06-10 01:12:36.488557 | rt_1zIQP7kRDzEr6pxfEGbjU3QQ3AZ94nRmGnFJ5cAWSXrKi517
+# LIVE #
+Stripe.api_key = 'sk_live_BrefMrBLxMUlOq0OVNbcqcHp'
+
+# DEVELOPMENT #
+STRIPE_PUBLISHABLE_KEY = 'pk_test_nF6pGtowUM7oGXQKUNG2AA0f'
+STRIPE_CLIENT_ID_DEVELOPMENT = 'ca_1PeWkKK3FZct85SCAQDJlcBhwxLqBhMF'
 

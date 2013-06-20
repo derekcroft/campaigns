@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.12'
+gem 'rails', '~> 3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,10 +22,11 @@ group :assets do
 end
 
 gem 'haml-rails'
+gem 'pry-rails'
 
 gem 'stripe'
+gem 'oauth2'
 
-gem 'airbrake'
 gem 'newrelic_rpm'
 
 gem 'rvm-capistrano'
