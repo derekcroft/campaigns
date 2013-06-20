@@ -10,7 +10,7 @@
     = yield :page_javascripts
     = csrf_meta_tags
 
-    = tag :meta, name: "stripe-key", content: STRIPE_PUBLISHABLE_KEY
+    = tag :meta, name: "stripe-key", content: stripe_publishable_key('lts')
     = yield :show_functions
     = javascript_include_tag "google_analytics", "tabs"
 

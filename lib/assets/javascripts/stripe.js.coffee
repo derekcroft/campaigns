@@ -30,7 +30,6 @@ $(document).ready ->
 
   pledge.setupForm()
 
-
 card =
   validExpiration: ->
     expYear = parseInt $('#card_year').val()
