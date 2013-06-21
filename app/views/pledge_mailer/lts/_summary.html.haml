@@ -1,0 +1,21 @@
+%p
+  %strong PLEDGE CONFIRMATION
+  %br
+  Maximum Donation:
+  = number_to_currency(@pledge.cap, precision: 2)
+  %br
+  Match Amount:
+  %strong= number_to_currency(@pledge.amount, precision: 3)
+  %br
+  Stretch Goal Donation:
+  %strong= number_to_currency(5, precision: 2)
+  at #{@campaign.stretch_goal} donors
+  %br
+  CHARITY TEAM NAME
+  %br
+  Campaign donor number:
+  %strong #{@donor.donor_number}
+  %br
+  Campaign ends:
+  %strong= @campaign.ends_on.strftime('%A, %B %-d, %Y')
+  %br

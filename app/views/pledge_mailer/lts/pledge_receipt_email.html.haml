@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= image_tag "http://#{@campaign.subdomain}.kiindly.com/assets/lts/logo.jpg"
+
+    = render 'pledge_mailer/lts/summary'
+    %p Dear #{@donor.first_name},
+
+    %p
+      Remember when you did something you were proud of in grade school and your parents would hang it on the refrigerator?
+
+    %p
+      Your pledge of $<PLEDGE AMOUNT> per donor has impacted an entire community by increasing
+      #{@campaign.pledges.count} from other supporters, which adds up quickly. Be proud that you have helped 
+      a good cause. We are grateful for your gift and the trust imparted to us in managing its use.
+
+    %p
+      You can help <CHARITY> even more by spreading the word about this campaign by sharing on Facebook, 
+      pinning to Pinterest, or just printing this email and finding new space on the refrigerator. 
+
+    %p
+      Regards,
+      %br
+      LTS Chicago
+      %br
+      = link_to "Facebook", "https://www.facebook.com/LTSChicago"
+      |
+      = link_to "Twitter", "https://twitter.com/LTSChicago"
+      %br
+      For current LTS Chicago news and activities, please visit
+      = link_to @campaign.url, @campaign.url
+
+    %p= image_tag "http://#{@campaign.subdomain}.kiindly.com/assets/email/email-kiindly-logo.png"
+
+    - if @pledge.donate_cap?
+      %p DONATION PROCESSING, RECEIPT, AND TIMING
+      %p
+        Your #{number_to_currency(@pledge.cap)} donation amount will be charged to your credit card after
+        the end of the campaign, which is #{end_date(@campaign)}.
+    - else
+      %p FINAL DONATION AMOUNT AND TIMING
+      %p
+        Your final donation amount will be determined and charged to your credit card after the campaign has
+        ended on #{end_date(@campaign)}.  Kiindly will provide donations collected to LTS who will distribute
+        the final amounts to your designated charity less credit card and administrative fees.
+
+    %p RECEIPT FOR YOUR TAX RECORDS
+    %p
+      Once your #{"final" unless @pledge.donate_cap?} donation is processed, you will receive a confirmation
+      email from Kiindly.  Please consult your tax advisor regarding a tax deduction.
+
