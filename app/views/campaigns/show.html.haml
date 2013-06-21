@@ -4,5 +4,13 @@
   = render "sharethis"
 - content_for :count_me_in do
   #countmein= count_me_in_button(request.host)
+- content_for :video do
+  %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "https://www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
+- content_for :progress_text do
+  #progresstext
+    %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')
+    supporters will increase their donations
+    = succeed "." do
+      %em if you pledge NOW
 
 = render "campaigns/#{@campaign.subdomain}/campaign"

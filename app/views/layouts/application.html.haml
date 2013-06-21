@@ -26,11 +26,7 @@
         .middleblock
           #status
             #campaignlogo= image_tag 'lts/logo.jpg', height: 80, width: 250, alt: 'Live To Support Chicago - Logo'
-            #progresstext
-              %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')
-              supporters will increase their donations
-              = succeed "." do
-                %em if you pledge NOW
+            = yield :progress_text
             #goaltext
               Goal:
               %strong= number_with_delimiter(@campaign.donor_target, precision: 0, delimiter: ',')

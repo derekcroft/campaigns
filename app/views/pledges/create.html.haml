@@ -1,8 +1,20 @@
 - content_for :page_title do
   = title(@campaign, 'Payment Confirmation')
 - content_for :page_javascripts do
-  = javascript_include_tag "pinit"
-- content_for :left_column do
-  = left_column(@pledge, :create)
+  = render "campaigns/sharethis"
+- content_for :video do
+  %h5
+    = succeed "," do
+      = @pledge.donor.first_name
+    %br
+    %br
+    #{@campaign.pledges.count} donations were increased simply because YOU joined the campaign!
+  %p Remember, every donation, big or small, is matched. Share this great cause with your friends so they can help make a difference
+- content_for :progress_text do
+  #progresstext
+    %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')
+    donors
+    %br
+    have joined the cause.
 
-= render @campaign.subdomain
+= render "campaigns/#{@campaign.subdomain}/campaign"
