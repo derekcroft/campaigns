@@ -21,7 +21,7 @@
       %input#numberField{:maxlength => "5", :name => "capname", :type => "text", :value => "0.07"}/
   %p
     This will be your
-    %br>/
+    %br/
     contribution per donor.
 #pledgeset-r
   %h6.ltgray2 Your Max. Donation
@@ -32,4 +32,4 @@
   %p.ltgray2
     Your maximum donation when
     %br/
-    we reach #{@campaign.stretch_goal} donors.
+    we reach #{@campaign.donor_target} donors.
