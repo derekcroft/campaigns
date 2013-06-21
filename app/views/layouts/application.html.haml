@@ -27,14 +27,7 @@
           #status
             #campaignlogo= image_tag 'lts/logo.jpg', height: 80, width: 250, alt: 'Live To Support Chicago - Logo'
             = yield :progress_text
-            #goaltext
-              Goal:
-              %strong= number_with_delimiter(@campaign.donor_target, precision: 0, delimiter: ',')
-              people
-              %br/
-              Total Pledged:
-              = succeed "*" do
-                %strong= number_to_currency(0)
+            = render 'campaigns/lts/goal_text'
             #progresschart
               #peopleprogress{style: "width:#{@campaign.donor_total_complete_percent}%"}
             - if content_for?(:count_me_in)

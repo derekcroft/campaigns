@@ -17,7 +17,7 @@ class Campaign < ActiveRecord::Base
 
   def donor_total_complete_percent
     return 0 if donors.blank?
-    [(donors.count/donor_target*100).round.to_i, 100].min
+    [(donors.count/donor_target.to_f*100).round.to_i, 100].min
   end
 
   def days_left
@@ -25,7 +25,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def donation_total
-    fixed_total + matching_total
+    pledges.sum(:cap)
   end
 
   def description

@@ -1,0 +1,8 @@
+#goaltext
+  Goal:
+  %strong= number_with_delimiter(@campaign.donor_target, precision: 0, delimiter: ',')
+  people
+  %br/
+  Total Pledged:
+  = succeed "*" do
+    %strong= number_to_currency(@campaign.donation_total)
