@@ -6,4 +6,8 @@ module ApplicationHelper
   def title(campaign, page_title)
     content_tag :title, "#{campaign.name} - #{page_title}"
   end
+
+  def yes_no(boolean_value)
+    boolean_value ? 'Yes' : 'No'
+  end
 end

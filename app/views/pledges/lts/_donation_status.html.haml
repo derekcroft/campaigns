@@ -6,14 +6,14 @@
       %li.donsum-right #{@campaign.donor_target} donors
       %li Your Donation Cap:
       %li.donsum-right
-        $
+        = number_to_currency(@pledge.cap, precision: 2)
         %span.mpdresult
       %li Per Person Donation:
-      %li.donsum-right $0.04
+      %li.donsum-right= number_to_currency(@pledge.amount, precision: 2)
       %li Stretch Goal:
-      %li.donsum-right Yes (125%)
+      %li.donsum-right= "#{yes_no(@pledge.donate_bonus)} (125%)"
       %li Donate My Full Cap:
-      %li.donsum-right No
+      %li.donsum-right= yes_no(@pledge.donate_cap)
       %li Campaign Ends:
       %li.donsum-right= end_date(@campaign)
     %hr.clear/
