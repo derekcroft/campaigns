@@ -36,7 +36,7 @@
               = succeed "*" do
                 %strong= number_to_currency(0)
             #progresschart
-              #peopleprogress{style: "width:#{[@campaign.donor_total_complete_percent,5].max}%"}
+              #peopleprogress{style: "width:#{@campaign.donor_total_complete_percent}%"}
             - if content_for?(:count_me_in)
               = yield :count_me_in
           #video= yield :video
