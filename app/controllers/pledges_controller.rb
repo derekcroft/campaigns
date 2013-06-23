@@ -22,8 +22,11 @@ class PledgesController < ApplicationController
     end
 
     if @pledge.save
-      # TODO: Catch NET::SMTPAuthenticationError here
-      PledgeMailer.pledge_receipt_email(@pledge).deliver rescue nil
+      begin
+        PledgeMailer.pledge_receipt_email(@pledge).deliver
+      rescue ::NET::SMTPAuthenticationError => nsae
+        logger.debug nsae.inspect
+      end
       render 'create'
     else
       render action: 'new'
