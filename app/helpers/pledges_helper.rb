@@ -25,7 +25,7 @@ module PledgesHelper
 
   def teams_and_charities
     Team.order(:name).uniq.collect { |team|
-      "#{team.name} / #{team.charity}"
+      ["#{team.name} / #{team.charity}", team.id]
     }
   end
 

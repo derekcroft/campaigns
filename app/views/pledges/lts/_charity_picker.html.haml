@@ -1,5 +1,5 @@
 %h6 Select a team/charity  to support
 #charitypicker.roundbox
-  = select_tag "sport", options_for_select(sports), prompt: 'Show All Sports'
-  = p.select :team, teams_and_charities
+  = select_tag "sport", options_for_select(sports, params[:sport]), prompt: 'Show All Sports'
+  = p.select :team_id, options_for_select(teams_and_charities, params[:pledge][:team_id])
   %br/
