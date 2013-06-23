@@ -23,6 +23,11 @@ class Pledge < ActiveRecord::Base
                       joins(:donor).where('donors.confirmation_correction_at is null').
                       where('donors.processed_at is not null') }
 
+  def stretch_goal_amount
+    return 0 unless cap
+    (cap * 0.25).ceil
+  end
+
   def self.correction_email_list
     resend.pluck('donors.email')
   end

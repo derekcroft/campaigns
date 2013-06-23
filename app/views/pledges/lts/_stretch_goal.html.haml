@@ -5,5 +5,5 @@
   %label{:for => "pledge_bonus125_cap"}
     %strong
       I'd like to pledge an additional
-      %span.green &lt;$5.00&gt;
+      %span.green= number_to_currency(@pledge.stretch_goal_amount, precision: 2)
     should the campaign reach the stretch goal.
