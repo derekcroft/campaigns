@@ -17,17 +17,32 @@ jQuery ->
   $it.val(prompt) unless $it.val()
 
   # cascade changes to match amount to the rest of the page
-  base = 500
+  pledgeCap = ->
+    base = $('#pledge_amount').data('goal')
+    pledgeAmount() * base
+
+  pledgeAmount = ->
+    amount = $('#pledge_amount').val()
+    parseFloat amount
+
   cascadeMatchAmount = ->
-    $amount = $('#pledge_amount').val()
-    if $amount.length == 0
-      document.getElementById('mpdresult').innerHTML = ''
-      return
-    number = parseFloat $amount
-    return if isNaN(number)
-    document.getElementById('mpdresult').innerHTML = number * base
+    $('.pledge_cap').html(pledgeCap().toFixed(2))
+
+  cascadeStretchGoalAmount = ->
+    $('#stretch_goal_amount').html('$' + (pledgeCap() * 0.25).toFixed(2))
+
+  validatePledgeAmount = (event) ->
+    if pledgeAmount() < 0.02
+      alert "Please enter a match amount of at least 2 cents."
+      $(@).val('0.02').focus()
+      cascadeMatchAmount()
+      cascadeStretchGoalAmount()
+      event.stopImmediatePropagation()
 
   $('#pledge_amount')
+    .on('change', validatePledgeAmount)
     .on('keyup', cascadeMatchAmount)
     .on('paste', cascadeMatchAmount)
+    .on('change', cascadeStretchGoalAmount)
   cascadeMatchAmount()
+  cascadeStretchGoalAmount()
