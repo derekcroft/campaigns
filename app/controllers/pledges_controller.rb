@@ -3,11 +3,13 @@ class PledgesController < ApplicationController
 
   def new
     @pledge = @campaign.pledges.build(params[:pledge])
+    @pledge.dot_color ||= Pledge.random_hex
     @pledge.amount = 0.07
   end
 
   def create
     @pledge = @campaign.pledges.build(params[:pledge])
+    @pledge.dot_color ||= Pledge.random_hex
     @pledge.pledge_type = 'dollar'
     @pledge.amount = 0.07
     begin
@@ -21,6 +23,7 @@ class PledgesController < ApplicationController
     end
 
     if @pledge.save
+      # TODO: Catch NET::SMTPAuthenticationError here
       PledgeMailer.pledge_receipt_email(@pledge).deliver
       render 'create'
     else

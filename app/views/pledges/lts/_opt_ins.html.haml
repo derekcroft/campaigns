@@ -13,7 +13,7 @@
     = p.check_box :donate_cap, class: 'rad'
   .optintext
     = p.label :donate_cap do
-      %strong If the campaign doesn't reach the donor goal I'm willing to donate the value of my maximum donation amount of &lt;$20&gt;.
+      %strong If the campaign doesn't reach the donor goal I'm willing to donate the value of my maximum donation amount of #{number_to_currency(@pledge.cap, precision: 0)}.
 %span.button_to
   = submit_tag "SUBMIT", id: 'submit_donation', class: 'submitbtn', style: 'width:114px'
 %hr.clear/
