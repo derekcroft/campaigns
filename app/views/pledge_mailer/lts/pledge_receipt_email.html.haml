@@ -15,13 +15,13 @@
       Your pledge of 
       = number_to_currency(@pledge.amount, precision: 2)
       per donor has impacted an entire community by increasing
-      = #campaign.pledges.count
+      = campaign.pledges.count - 1
       pledges from other supporters, which adds up quickly. Be proud that you have helped
       a good cause. We are grateful for your gift and the trust imparted to us in managing its use.
 
     %p
-      You can help <CHARITY> even more by spreading the word about this campaign by sharing on Facebook, 
-      pinning to Pinterest, or just printing this email and finding new space on the refrigerator. 
+      You can help #{@pledge.team.charity} even more by spreading the word about this campaign by sharing on Facebook,
+      pinning to Pinterest, or just printing this email and finding new space on the refrigerator.
 
     %p
       Regards,
