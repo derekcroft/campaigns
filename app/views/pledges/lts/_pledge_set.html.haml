@@ -1,25 +1,9 @@
 / ** Calculate **
-:javascript
-  window.onload = function() {
-     var base = 500;
-     var numberField = document.getElementById('pledge_amount');
-     numberField.onkeyup = numberField.onpaste = function() {
-        if(this.value.length == 0) {
-           document.getElementById('mpdresult').innerHTML = '';
-           return;
-        }
-        var number = parseFloat(this.value);
-        if(isNaN(number)) return;
-        document.getElementById('mpdresult').innerHTML = number * base;
-     };
-     numberField.onkeyup(); 
-  };
 #pledgeset-l
   %h6 Set Your Match
   .roundbox.pledgeshort
     %p.ltgray.buck
-      = p.text_field :amount, maxlength: 5, class: 'positive-decimal'
-      -#%input#numberField{:maxlength => "5", :name => "capname", :type => "text", :value => "0.07"}/
+      = p.text_field :amount, maxlength: 5, class: 'positive-decimal', data: { goal: @campaign.donor_target }
   %p
     This will be your
     %br/
