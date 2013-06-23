@@ -12,8 +12,11 @@
       Remember when you did something you were proud of in grade school and your parents would hang it on the refrigerator?
 
     %p
-      Your pledge of $<PLEDGE AMOUNT> per donor has impacted an entire community by increasing
-      #{@campaign.pledges.count} from other supporters, which adds up quickly. Be proud that you have helped 
+      Your pledge of 
+      = number_to_currency(@pledge.amount, precision: 2)
+      per donor has impacted an entire community by increasing
+      = #campaign.pledges.count
+      pledges from other supporters, which adds up quickly. Be proud that you have helped
       a good cause. We are grateful for your gift and the trust imparted to us in managing its use.
 
     %p
