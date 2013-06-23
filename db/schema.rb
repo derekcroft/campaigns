@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623190459) do
+ActiveRecord::Schema.define(:version => 20130623194057) do
 
   create_table "campaigns", :force => true do |t|
     t.decimal  "donation_target", :precision => 20, :scale => 2
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130623190459) do
     t.string   "dot_color",    :limit => 7
     t.string   "dot_comment"
     t.boolean  "donate_bonus"
+    t.integer  "team_id"
   end
 
   create_table "teams", :force => true do |t|

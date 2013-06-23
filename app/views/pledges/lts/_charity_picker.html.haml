@@ -1,16 +1,5 @@
 %h6 Select a team/charity  to support
 #charitypicker.roundbox
-  %select#charitypicker-sport
-    %option{:selected => "selected"} Show All Sports
-    %option Flag Football
-    %option Soccer
-    %option Ultimate Frisbee
-  %select#charitypicker-team
-    %option{:selected => "selected"} - Select a team & charity -
-    %option Pick for me
-    %option Combat Wombats / Dogs Day Rescue
-    %option This is a long team name / This is a long charity name
-    %option
-    %option
-    %option
+  = select_tag "sport", options_for_select(sports), prompt: 'Show All Sports'
+  = p.select :team, teams_and_charities
   %br/

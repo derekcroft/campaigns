@@ -2,7 +2,7 @@
   - content_for :page_title do
     = title(@campaign, 'Payment Information')
   - content_for :video do
-    = render 'pledges/lts/charity_picker'
+    = render partial: 'pledges/lts/charity_picker', locals: { p: p }
     = render partial: 'pledges/lts/pledge_set', locals: { p: p }
   - content_for :progress_text do
     #progresstext

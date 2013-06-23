@@ -2,6 +2,7 @@ class Pledge < ActiveRecord::Base
 
   belongs_to :donor, autosave: true
   belongs_to :campaign
+  belongs_to :team
 
   accepts_nested_attributes_for :donor
 

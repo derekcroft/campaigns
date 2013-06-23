@@ -33,6 +33,4 @@ Campaign.where(subdomain: 'lts').first_or_create(
   contact_phone: nil
 )
 
-
-
-
+Team.import!
