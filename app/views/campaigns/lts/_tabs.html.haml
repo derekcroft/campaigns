@@ -13,9 +13,9 @@
   %li#tab-charity-off.tabnavoff
     %a{:href => "#tabs", :onclick => "OnOffBlock('lts-charities'); TabToggle('tab-charity');"} Charities
   %li#tab-leaders.tabnav.nav-active.hidden
-    %a{:href => "#tabs"} Leader Board
-  %li#tab-leaders-off.tabnavoff
-    %a{:href => "#tabs", :onclick => "OnOffBlock('leaderboard'); TabToggle('tab-leaders');"} Leader Board
+    -#%a{:href => "#tabs"} Leader Board
+  -#%li#tab-leaders-off.tabnavoff
+    -#%a{:href => "#tabs", :onclick => "OnOffBlock('leaderboard'); TabToggle('tab-leaders');"} Leader Board
   %li#tab-works.tabnav.nav-active.hidden
     %a{:href => "#tabs"} How It Works
   %li#tab-works-off.tabnavoff
