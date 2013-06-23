@@ -1,11 +1,10 @@
 .contentpageblock{align: "center"}
-  = form_for @pledge do |p|
-    #payinfo-left
-      .paymentcontentblock.roundbox= render partial: 'pledges/lts/stretch_goal', locals: { p: p }
-      .paymentcontentblock.roundbox= render partial: 'colorpicker', locals: { p: p }
-      .paymentcontentblock.roundbox= render partial: 'pledges/lts/billing_information', locals: { p: p }
-      .paymentcontentblock.roundbox= render partial: 'pledges/lts/payment_form'
-      .paymentcontentblock.roundbox= render partial: 'pledges/lts/opt_ins', locals: { p: p }
-    #infopage-right
-      = render 'donor_dots'
-      = render 'pledges/lts/donation_status'
+  #payinfo-left
+    .paymentcontentblock.roundbox= render partial: 'pledges/lts/stretch_goal', locals: { p: p }
+    .paymentcontentblock.roundbox= render partial: 'colorpicker', locals: { p: p }
+    .paymentcontentblock.roundbox= render partial: 'pledges/lts/billing_information', locals: { p: p }
+    .paymentcontentblock.roundbox= render partial: 'pledges/lts/payment_form'
+    .paymentcontentblock.roundbox= render partial: 'pledges/lts/opt_ins', locals: { p: p }
+  #infopage-right
+    = render 'donor_dots'
+    = render 'pledges/lts/donation_status'

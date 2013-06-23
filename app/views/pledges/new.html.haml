@@ -10,4 +10,6 @@
     = succeed "." do
       %em if you pledge NOW
 
-= render @campaign.subdomain
+= form_for @pledge do |p|
+  = render partial: "campaigns/#{@campaign.subdomain}/top_block", locals: { p: p }
+  = render partial: "pledges/#{@campaign.subdomain}", locals: { p: p }

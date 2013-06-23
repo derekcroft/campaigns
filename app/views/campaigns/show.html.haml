@@ -13,4 +13,5 @@
     = succeed "." do
       %em if you pledge NOW
 
+= render "campaigns/#{@campaign.subdomain}/top_block"
 = render "campaigns/#{@campaign.subdomain}/campaign"

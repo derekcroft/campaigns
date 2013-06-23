@@ -17,4 +17,6 @@
     %br
     have joined the cause.
 
-= render "campaigns/#{@campaign.subdomain}/campaign"
+= form_for @pledge do |p|
+  = render "campaigns/#{@campaign.subdomain}/top_block", locals: { p: p }
+  = render "pledges/#{@campaign.subdomain}", locals: { p: p }
