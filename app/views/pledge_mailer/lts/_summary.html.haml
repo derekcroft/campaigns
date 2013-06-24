@@ -11,7 +11,7 @@
   %strong= number_to_currency(@pledge.stretch_goal_amount, precision: 2)
   at #{@campaign.stretch_goal} donors
   %br
-  CHARITY TEAM NAME
+  #{@pledge.team.name} / #{@pledge.team.charity}
   %br
   Campaign donor number:
   %strong #{@donor.donor_number}
