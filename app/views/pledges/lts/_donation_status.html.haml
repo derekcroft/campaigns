@@ -1,4 +1,4 @@
-#donationstatus.roundbox{style: 'display:none'}
+#donationstatus.roundbox
   #progresstext
     %h3 Donation Summary
     %ul#donation-summary
@@ -6,14 +6,19 @@
       %li.donsum-right #{@campaign.donor_target} donors
       %li Your Donation Cap:
       %li.donsum-right
-        = number_to_currency(@pledge.cap, precision: 2)
-        %span.mpdresult
+        = precede '$' do
+          %span.pledge_cap= number_with_precision(@pledge.cap, precision: 2)
       %li Per Person Donation:
-      %li.donsum-right= number_to_currency(@pledge.amount, precision: 2)
+      %li.donsum-right
+        = precede '$' do
+          %span.pledge_amount= number_with_precision(@pledge.cap, precision: 2)
       %li Stretch Goal:
-      %li.donsum-right= "#{yes_no(@pledge.donate_bonus)} (125%)"
+      %li.donsum-right
+        %span.pledge_donate_bonus= yes_no(@pledge.donate_bonus)
+        (125%)
       %li Donate My Full Cap:
-      %li.donsum-right= yes_no(@pledge.donate_cap)
+      %li.donsum-right
+        %span.pledge_donate_cap= yes_no(@pledge.donate_cap)
       %li Campaign Ends:
       %li.donsum-right= end_date(@campaign)
     %hr.clear/

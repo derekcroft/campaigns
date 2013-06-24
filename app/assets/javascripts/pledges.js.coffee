@@ -28,18 +28,29 @@ jQuery ->
     pledgeAmount() * base
 
   pledgeAmount = ->
-    amount = $('#pledge_amount').val()
-    parseFloat amount
+    amount = parseFloat $('#pledge_amount').val()
+    if isNaN(amount) then 0.00 else amount
 
   cascadeMatchAmount = ->
+    $('.pledge_amount').html(pledgeAmount().toFixed(2)).val(pledgeAmount().toFixed(2))
     $('.pledge_cap').html(pledgeCap().toFixed(2)).val(pledgeCap().toFixed(2))
 
   cascadeStretchGoalAmount = ->
     $('#stretch_goal_amount').html('$' + (pledgeCap() * 0.25).toFixed(2))
 
+  cascadeDonateBonus = ->
+    checked = if $('#pledge_donate_bonus').is(':checked') then 'Yes' else 'No'
+    $('.pledge_donate_bonus').html checked
+
+  cascadeDonateCap = ->
+    checked = if $('#pledge_donate_cap').is(':checked') then 'Yes' else 'No'
+    $('.pledge_donate_cap').html checked
+
   cascade = ->
     cascadeMatchAmount()
     cascadeStretchGoalAmount()
+    cascadeDonateBonus()
+    cascadeDonateCap()
 
   validatePledgeAmount = (event) ->
     if pledgeAmount() < 0.02
@@ -53,4 +64,8 @@ jQuery ->
     .on('keyup', cascadeMatchAmount)
     .on('paste', cascadeMatchAmount)
     .on('change', cascadeStretchGoalAmount)
+  $('#pledge_donate_bonus')
+    .on('change', cascadeDonateBonus)
+  $('#pledge_donate_cap')
+    .on('change', cascadeDonateCap)
   cascade()
