@@ -37,20 +37,28 @@
 
     %p= image_tag "http://#{@campaign.subdomain}.kiindly.com/assets/email/email-kiindly-logo.png"
 
-    - if @pledge.donate_cap?
-      %p DONATION PROCESSING, RECEIPT, AND TIMING
-      %p
-        Your #{number_to_currency(@pledge.cap)} donation amount will be charged to your credit card after
-        the end of the campaign, which is #{end_date(@campaign)}.
-    - else
-      %p FINAL DONATION AMOUNT AND TIMING
-      %p
-        Your final donation amount will be determined and charged to your credit card after the campaign has
-        ended on #{end_date(@campaign)}.  Kiindly will provide donations collected to LTS who will distribute
-        the final amounts to your designated charity less credit card and administrative fees.
-
-    %p RECEIPT FOR YOUR TAX RECORDS
     %p
-      Once your #{"final" unless @pledge.donate_cap?} donation is processed, you will receive a confirmation
+      %strong FINAL DONATION AMOUNT AND TIMING
+    %p
+      Your final donation amount will be
+      = 'determined and' unless @pledge.donate_cap?
+      charged to your credit card after the campaign has
+      ended on #{end_date(@campaign)}.  Kiindly will provide
+      donations collected to LTS, who will distribute the
+      final amounts to your designated charity
+      less credit card and administrative fees.
+
+    %p
+      %strong RECEIPT FOR YOUR TAX RECORDS
+    %p
+      Once your donation is processed, you will receive a confirmation
       email from Kiindly.  Please consult your tax advisor regarding a tax deduction.
+
+    %p
+      %br
+      Every donation, big or small, matched. Kiindly.com, Giving Together.
+      %br
+      %em
+        For more information on fundraising through Kiindly, please visit
+        = link_to 'www.kiindly.com', 'http://www.kiindly.com'
 

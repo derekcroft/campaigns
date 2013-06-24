@@ -1,16 +1,21 @@
 %p
   %strong PLEDGE CONFIRMATION
   %br
-  Maximum Donation:
-  = number_to_currency(@pledge.cap, precision: 2)
+  - if @pledge.donate_cap?
+    Donation:
+    = number_to_currency(@pledge.cap, precision: 2)
+  - else
+    Maximum Donation:
+    = number_to_currency(@pledge.cap, precision: 2)
+    %br
+    Match Amount:
+    %strong= number_to_currency(@pledge.amount, precision: 2)
   %br
-  Match Amount:
-  %strong= number_to_currency(@pledge.amount, precision: 2)
-  %br
-  Stretch Goal Donation:
-  %strong= number_to_currency(@pledge.stretch_goal_amount, precision: 2)
-  at #{@campaign.stretch_goal} donors
-  %br
+  - if @pledge.donate_bonus?
+    Stretch Goal Donation:
+    %strong= number_to_currency(@pledge.stretch_goal_amount, precision: 2)
+    at #{@campaign.stretch_goal} donors
+    %br
   #{@pledge.team.name} / #{@pledge.team.charity}
   %br
   Campaign donor number:
@@ -19,3 +24,4 @@
   Campaign ends:
   %strong= @campaign.ends_on.strftime('%A, %B %-d, %Y')
   %br
+  = link_to "Follow the campaign progress and share", @pledge.team.url
