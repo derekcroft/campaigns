@@ -7,6 +7,7 @@ jQuery ->
     .keyup ->
       invalidDecimal = /\.\d{3,}$/
       @value = @value.slice(0, -1) if invalidDecimal.test(@value)
+      cascade()
 
   # manage the instructional text in the donor dot comment
   prompt = 'Type a short message'
@@ -36,12 +37,15 @@ jQuery ->
   cascadeStretchGoalAmount = ->
     $('#stretch_goal_amount').html('$' + (pledgeCap() * 0.25).toFixed(2))
 
+  cascade = ->
+    cascadeMatchAmount()
+    cascadeStretchGoalAmount()
+
   validatePledgeAmount = (event) ->
     if pledgeAmount() < 0.02
       alert "Please enter a match amount of at least 2 cents."
       $(@).val('0.02').focus()
-      cascadeMatchAmount()
-      cascadeStretchGoalAmount()
+      cascade()
       event.stopImmediatePropagation()
 
   $('#pledge_amount')
@@ -49,5 +53,4 @@ jQuery ->
     .on('keyup', cascadeMatchAmount)
     .on('paste', cascadeMatchAmount)
     .on('change', cascadeStretchGoalAmount)
-  cascadeMatchAmount()
-  cascadeStretchGoalAmount()
+  cascade()
