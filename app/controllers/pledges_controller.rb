@@ -1,6 +1,4 @@
 class PledgesController < ApplicationController
-  respond_to :html
-
   def new
     @pledge = @campaign.pledges.build(params[:pledge])
     @pledge.dot_color ||= Pledge.random_hex

@@ -19,7 +19,18 @@ class Team < ActiveRecord::Base
     end
   end
 
+  def self.teams_and_charities
+    Team.order(:name).uniq.collect { |team|
+      ["#{team.name} / #{team.charity}", team.id, { 'data-sport' => team.sport }]
+    }
+  end
+
+  def self.sports
+    Team.select(:sport).order(:sport).uniq.collect(&:sport)
+  end
+
   def subdomain
     url.split('/').last
   end
+
 end

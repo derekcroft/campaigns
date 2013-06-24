@@ -23,16 +23,6 @@ module PledgesHelper
     end
   end
 
-  def teams_and_charities
-    Team.order(:name).uniq.collect { |team|
-      ["#{team.name} / #{team.charity}", team.id]
-    }
-  end
-
-  def sports
-    Team.select(:sport).order(:sport).uniq.collect(&:sport)
-  end
-
   def us_states
     # remove AK, AZ, DC, and WA because OUAA cannot solicit there
     [
