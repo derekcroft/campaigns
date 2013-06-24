@@ -1,15 +1,16 @@
 jQuery ->
-  # only allow numbers in the fixed amount text field
-  $('.positive-integer').numeric { decimal: false, negative: false }
-  $('.positive-decimal').numeric { decimal: '.', negative: false }
 
+  ## only allow numbers in the fixed amount text field
+  $('.positive-integer').numeric { decimal: false, negative: false }
   $('.positive-decimal')
+    .numeric(decimal: '.', negative: false)
     .keyup ->
       invalidDecimal = /\.\d{3,}$/
       @value = @value.slice(0, -1) if invalidDecimal.test(@value)
       cascade()
 
-  # manage the instructional text in the donor dot comment
+
+  ## manage the instructional text in the donor dot comment
   prompt = 'Type a short message'
   $it = $('.instructional_text')
   $it
@@ -22,7 +23,12 @@ jQuery ->
       $it.val('') if $it.val() is prompt
   $it.val(prompt) unless $it.val()
 
-  # cascade changes to match amount to the rest of the page
+
+  ## filter the charities by sport
+  $('#sport').on 'change', ->
+    alert @value
+
+  ## cascade changes to match amount to the rest of the page
   pledgeCap = ->
     base = $('#pledge_amount').data('goal')
     pledgeAmount() * base
