@@ -26,7 +26,7 @@ jQuery ->
     parseFloat amount
 
   cascadeMatchAmount = ->
-    $('.pledge_cap').html(pledgeCap().toFixed(2))
+    $('.pledge_cap').html(pledgeCap().toFixed(2)).val(pledgeCap().toFixed(2))
 
   cascadeStretchGoalAmount = ->
     $('#stretch_goal_amount').html('$' + (pledgeCap() * 0.25).toFixed(2))

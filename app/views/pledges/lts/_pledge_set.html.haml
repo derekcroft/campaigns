@@ -12,7 +12,8 @@
   %h6.ltgray2 Your Max. Donation
   .roundbox.pledgeshort.ltgray2bg.mpd
     %p.ltgray.buck
-      %span.pledge_cap.mpdresult{name: "pledge[cap]"}
+      = p.hidden_field :cap, class: 'pledge_cap'
+      %span.pledge_cap.mpdresult
       \&nbsp;
   %p.ltgray2
     Your maximum donation when
