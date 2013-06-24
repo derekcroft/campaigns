@@ -9,7 +9,8 @@ class Pledge < ActiveRecord::Base
   attr_accessor :stripe_card_token
   attr_accessible :stripe_card_token, :pledge_type, :amount,
     :cap, :donor_attributes, :donate_cap, :donate_bonus,
-    :dot_color, :dot_comment, :team_id
+    :dot_color, :dot_comment, :team_id, :stretch_goal_amount,
+    :stretch_goal_donors
 
   validates :pledge_type, inclusion: { in: %w{fixed penny dollar} }
   validates :donor, :campaign, presence: true

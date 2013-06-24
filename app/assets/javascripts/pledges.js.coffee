@@ -36,7 +36,8 @@ jQuery ->
     $('.pledge_cap').html(pledgeCap().toFixed(2)).val(pledgeCap().toFixed(2))
 
   cascadeStretchGoalAmount = ->
-    $('#stretch_goal_amount').html('$' + (pledgeCap() * 0.25).toFixed(2))
+    amount = (pledgeCap() * 0.25).toFixed(2)
+    $('.pledge_stretch_goal_amount').html(amount).val(amount)
 
   cascadeDonateBonus = ->
     checked = if $('#pledge_donate_bonus').is(':checked') then 'Yes' else 'No'
