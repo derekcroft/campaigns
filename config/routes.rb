@@ -4,5 +4,5 @@ KiindlyCom::Application.routes.draw do
 
   resources :pledges, only: [:create, :new]
 
-  match ':affiliate_code' => 'teams#show', constraints: AffiliateConstraint.new
+  match ':affiliate_code' => 'campaigns#index', constraints: AffiliateConstraint.new
 end

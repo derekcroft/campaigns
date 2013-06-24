@@ -1,7 +1,9 @@
 class CampaignsController < ApplicationController
 
   def index
-    @team_id = params[:team_id]
+    if params[:affiliate_code]
+      @team = Team.where(url: "http://lts.kiindly.com/#{params[:affiliate_code]}").first
+    end
     render action: :show
   end
 
