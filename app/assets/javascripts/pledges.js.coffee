@@ -3,6 +3,11 @@ jQuery ->
   $('.positive-integer').numeric { decimal: false, negative: false }
   $('.positive-decimal').numeric { decimal: '.', negative: false }
 
+  $('.positive-decimal')
+    .keyup ->
+      invalidDecimal = /\.\d{3,}$/
+      @value = @value.slice(0, -1) if invalidDecimal.test(@value)
+
   # manage the instructional text in the donor dot comment
   prompt = 'Type a short message'
   $it = $('.instructional_text')
