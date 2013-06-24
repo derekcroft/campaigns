@@ -1,5 +1,8 @@
 %h6 Select a team/charity  to support
 #charitypicker.roundbox
+  :javascript
+    window.teamsAll = #{Team.teams_and_charities_all.to_json}
+    window.teamsBySport = #{Team.teams_and_charities_by_sport.to_json}
   = select_tag "sport", options_for_select(Team.sports, params[:sport]), prompt: 'Show All Sports'
-  = p.select :team_id, options_for_select(Team.teams_and_charities, @team_id) #, prompt: 'Choose A Team/Charity'
+  = p.select :team_id, options_for_select(Team.teams_and_charities, params[:team_id]) #, prompt: 'Choose A Team/Charity'
   %br/

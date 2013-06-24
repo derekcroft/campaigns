@@ -25,8 +25,16 @@ jQuery ->
 
 
   ## filter the charities by sport
+  $pledge_team_id = $('#pledge_team_id')
   $('#sport').on 'change', ->
-    alert @value
+    $pledge_team_id.empty()
+    options = $pledge_team_id.prop 'options'
+    if @value
+      $.each window.teamsBySport[@value], (idx, val) ->
+        options[options.length] = new Option(val.description, val.team_id)
+    else
+      $.each window.teamsAll, (idx, val) ->
+        options[options.length] = new Option(val.description, val.team_id)
 
   ## cascade changes to match amount to the rest of the page
   pledgeCap = ->

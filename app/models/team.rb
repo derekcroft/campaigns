@@ -20,9 +20,28 @@ class Team < ActiveRecord::Base
   end
 
   def self.teams_and_charities
-    Team.order(:name).uniq.collect { |team|
-      ["#{team.name} / #{team.charity}", team.id, { 'data-sport' => team.sport }]
-    }
+    Team.order(:name).all.collect {|t| ["#{t.name} / #{t.charity}", t.id]}
+  end
+
+  def self.teams_and_charities_all
+    Team.order(:name).uniq.collect do |team|
+      {
+        description: "#{team.name} / #{team.charity}",
+        team_id: team.id
+      }
+    end
+  end
+
+  def self.teams_and_charities_by_sport
+    Team.order(:name).uniq.inject({}) do |accum, team|
+      teams_for_sport = accum.fetch(team.sport, [])
+      teams_for_sport << {
+        description: "#{team.name} / #{team.charity}",
+        team_id: team.id
+      }
+      accum.store(team.sport, teams_for_sport)
+      accum
+    end
   end
 
   def self.sports
