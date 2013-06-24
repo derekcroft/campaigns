@@ -18,4 +18,8 @@ class Team < ActiveRecord::Base
       )
     end
   end
+
+  def subdomain
+    url.split('/').last
+  end
 end

@@ -1,8 +1,6 @@
 class AffiliateConstraint
   def initialize
-    @subdomains = Team.all.collect { |t|
-      t.url.split('/').last
-    }.uniq
+    @subdomains = Team.all.collect(&:subdomain).uniq
   end
 
   def matches?(request)
