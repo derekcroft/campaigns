@@ -3,7 +3,7 @@
 - content_for :page_javascripts do
   = render "sharethis"
 - content_for :count_me_in do
-  #countmein= count_me_in_button(request.host)
+  #countmein= count_me_in_button(request.host, @team_id)
 - content_for :video do
   %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "https://www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
 - content_for :progress_text do

@@ -5,6 +5,7 @@ class PledgesController < ApplicationController
     @pledge = @campaign.pledges.build(params[:pledge])
     @pledge.dot_color ||= Pledge.random_hex
     @pledge.amount = 0.07
+    @team_id = params[:team_id]
   end
 
   def create

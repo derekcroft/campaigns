@@ -7,8 +7,8 @@ module CampaignsHelper
     campaign.starts_on.strftime('%b %-d, %Y')
   end
 
-  def count_me_in_button(host)
+  def count_me_in_button(host, team_id)
     protocol = Rails.configuration.ssl_enabled ? 'https' : 'http'
-    button_to "COUNT ME IN", { protocol: protocol, host: host, controller: 'pledges', action: 'new' }, { method: :get, style: 'width:230px;' }
+    render partial: 'campaigns/lts/count_me_in', locals: { team_id: team_id, protocol: protocol, host: host }
   end
 end

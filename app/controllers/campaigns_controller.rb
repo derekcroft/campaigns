@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
 
   def index
+    @team_id = params[:team_id]
     render action: :show
   end
 
@@ -8,5 +9,4 @@ class CampaignsController < ApplicationController
     @content = params['Content']
     render layout: nil
   end
-
 end
