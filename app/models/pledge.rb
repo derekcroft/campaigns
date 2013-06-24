@@ -27,7 +27,7 @@ class Pledge < ActiveRecord::Base
 
   def stretch_goal_amount
     return 0 unless cap
-    (cap * 0.25).ceil
+    cap * 0.25
   end
 
   def self.correction_email_list
