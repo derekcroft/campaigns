@@ -15,7 +15,6 @@ class Pledge < ActiveRecord::Base
   validates :pledge_type, inclusion: { in: %w{fixed penny dollar} }
   validates :donor, :campaign, presence: true
   validates :donor, associated: true
-  validates :cap, numericality: { greater_than_or_equal_to: 20, less_than_or_equal_to: 1000 }
 
   scope :fixed, where(["pledge_type = 'fixed' or donate_cap = ?", true])
   scope :matching, where("pledge_type <> 'fixed'").where(donate_cap: false)
