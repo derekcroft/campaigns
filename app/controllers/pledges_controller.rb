@@ -3,6 +3,7 @@ class PledgesController < ApplicationController
     @pledge = @campaign.pledges.build(params[:pledge])
     @pledge.dot_color ||= Pledge.random_hex
     @pledge.amount = 0.07
+    @pledge.build_donor
     @team_id = params[:team_id]
   end
 
@@ -12,6 +13,7 @@ class PledgesController < ApplicationController
     @pledge.pledge_type = 'dollar'
     @team = @pledge.team
     begin
+      logger.debug "STRIPE MODE = #{@stripe_mode_param}"
       api_key = AccessToken.stripe_api_key(@campaign.subdomain, @stripe_mode_param)
       c = Stripe::Customer.create({description: @pledge.donor.email, card: params[:stripe_card_token]}, api_key)
       @pledge.donor.stripe_customer ||= c

@@ -34,15 +34,6 @@ class Pledge < ActiveRecord::Base
     resend.pluck('donors.email')
   end
 
-  after_initialize :set_defaults
-  def set_defaults
-    self.pledge_type ||= 'penny'
-    self.donate_cap ||= false
-    self.donor ||= build_donor
-    self.dot_color ||= Pledge.random_hex
-    self.cap ||= 20
-  end
-
   before_validation :set_campaign
   def set_campaign
     self.campaign ||= donor.campaign
