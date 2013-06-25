@@ -29,6 +29,7 @@ class PledgesController < ApplicationController
       end
       render 'create'
     else
+      Rails.logger.debug @pledge.errors.full_messages
       render action: 'new'
     end
   end
