@@ -13,7 +13,6 @@ class PledgesController < ApplicationController
     @pledge.pledge_type = 'dollar'
     @team = @pledge.team
     begin
-      logger.debug "STRIPE MODE = #{@stripe_mode_param}"
       api_key = AccessToken.stripe_api_key(@campaign.subdomain, @stripe_mode_param)
       c = Stripe::Customer.create({description: @pledge.donor.email, card: params[:stripe_card_token]}, api_key)
       @pledge.donor.stripe_customer ||= c
