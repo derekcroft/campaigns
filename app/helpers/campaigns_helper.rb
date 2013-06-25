@@ -18,11 +18,23 @@ module CampaignsHelper
     }
   end
 
-  def share_this_summary_facebook
+  def share_this_button(team, display_text, summary_type = nil)
+    summary = summary_type == :long ? share_this_summary_long : share_this_summary_short
+    tag_class = 'st_' + (display_text == 'Tweet' ? 'twitter' : display_text.downcase) + '_large'
+    attrs = { class: tag_class, displaytext: display_text, st_url: share_this_url(@team) }
+    attrs[:st_title] = summary if summary_type
+    content_tag(:span, attrs) {}
+  end
+
+  def share_this_summary_long
     %{
       My donation was just matched by everyone that has pledged to the LTS Summer Fundraising Challenge.
       Click this link to join the cause and increase my donation.
       Donate through my team in this link and we can win an extra $250 from Athletico
     }
+  end
+
+  def share_this_summary_short
+    "Increase my donation in the LTS Fundraising Challenge while supporting my team and charity"
   end
 end

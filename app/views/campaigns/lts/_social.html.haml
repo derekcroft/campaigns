@@ -1,9 +1,9 @@
 #social.roundbox
   %span.socialtitle Share
-  %span.st_facebook_large{displaytext: "Facebook", st_url: share_this_url(@team), st_summary: share_this_summary_facebook}
-  %span.st_twitter_large{:displaytext => "Tweet", st_url: share_this_url(@team)}
-  %span.st_pinterest_large{:displaytext => "Pinterest", st_url: share_this_url(@team)}
-  %span.st_linkedin_large{:displaytext => "LinkedIn", st_url: share_this_url(@team)}
-  %span.st_sharethis_large{:displaytext => "ShareThis", st_url: share_this_url(@team)}
+  = share_this_button(@team, 'Facebook', :long)
+  = share_this_button(@team, 'Tweet', :short)
+  = share_this_button(@team, 'Pinterest')
+  = share_this_button(@team, 'LinkedIn', :long)
+  = share_this_button(@team, 'ShareThis')
   %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
     = image_tag 'lts/pinterest.jpg', alt: 'Pinterest', height: 600, width: 350
