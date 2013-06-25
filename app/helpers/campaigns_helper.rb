@@ -17,4 +17,12 @@ module CampaignsHelper
       url << "/#{@team.subdomain}" if @team
     }
   end
+
+  def share_this_summary_facebook
+    %{
+      My donation was just matched by everyone that has pledged to the LTS Summer Fundraising Challenge.
+      Click this link to join the cause and increase my donation.
+      Donate through my team in this link and we can win an extra $250 from Athletico
+    }
+  end
 end
