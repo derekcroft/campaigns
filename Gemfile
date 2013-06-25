@@ -31,6 +31,7 @@ gem 'newrelic_rpm'
 
 gem 'rvm-capistrano'
 
+gem 'airbrake'
 
 group :development, :test do
   gem 'ruby_parser'
