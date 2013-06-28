@@ -3,6 +3,7 @@ class PledgesController < ApplicationController
     @pledge = @campaign.pledges.build(params[:pledge])
     @pledge.dot_color ||= Pledge.random_hex
     @pledge.amount = 0.07
+    @pledge.cap ||= @pledge.amount.mult(@campaign.donor_target, 2)
     @pledge.build_donor
     @team_id = params[:team_id]
   end

@@ -13,7 +13,7 @@
   .roundbox.pledgeshort.ltgray2bg.mpd
     %p.ltgray.buck
       = p.hidden_field :cap, class: 'pledge_cap'
-      %span.pledge_cap.mpdresult
+      %span.pledge_cap.mpdresult{value: '0'}= number_with_precision(p.object.cap, precision: 2)
       \&nbsp;
   %p.ltgray2
     Your maximum donation when

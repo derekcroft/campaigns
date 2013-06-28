@@ -16,7 +16,7 @@
       %strong
         If the campaign doesn't reach the donor goal I'm willing to donate the value of my maximum donation amount of
         = surround '$', '.' do
-          %span.pledge_cap= number_to_currency(@pledge.cap, precision: 0)
+          %span.pledge_cap{value: '0'}= number_to_currency(@pledge.cap, precision: 0)
 %span.button_to
   = submit_tag "SUBMIT", id: 'submit_donation', class: 'submitbtn', style: 'width:114px'
 %hr.clear/

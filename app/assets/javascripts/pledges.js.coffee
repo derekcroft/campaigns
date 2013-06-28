@@ -46,8 +46,12 @@ jQuery ->
     if isNaN(amount) then 0.00 else amount
 
   cascadeMatchAmount = ->
-    $('.pledge_amount').html(pledgeAmount().toFixed(2)).val(pledgeAmount().toFixed(2))
-    $('.pledge_cap').html(pledgeCap().toFixed(2)).val(pledgeCap().toFixed(2))
+    amount = pledgeAmount().toFixed(2)
+    cap = pledgeCap().toFixed(2)
+    $('.pledge_amount').html(amount).val(amount)
+    $('.pledge_cap').each (elem, obj) ->
+      obj.html(cap) if typeof(obj.html) isnt 'undefined'
+      obj.val(cap) if typeof(obj.val) isnt 'undefined'
 
   cascadeStretchGoalAmount = ->
     amount = (pledgeCap() * 0.25).toFixed(2)

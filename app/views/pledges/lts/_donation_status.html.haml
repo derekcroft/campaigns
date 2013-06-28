@@ -7,7 +7,7 @@
       %li Your Donation Cap:
       %li.donsum-right
         = precede '$' do
-          %span.pledge_cap= number_with_precision(@pledge.cap, precision: 2)
+          %span.pledge_cap{value: '0'}= number_with_precision(@pledge.cap, precision: 2)
       %li Per Person Donation:
       %li.donsum-right
         = precede '$' do
