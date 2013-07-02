@@ -83,7 +83,7 @@ jQuery ->
       event.stopImmediatePropagation()
 
   $('#pledge_amount')
-    .on('change', validatePledgeAmount)
+    .on('blur', validatePledgeAmount)
     .on('keyup', cascadeMatchAmount)
     .on('paste', cascadeMatchAmount)
     .on('change', cascadeStretchGoalAmount)
