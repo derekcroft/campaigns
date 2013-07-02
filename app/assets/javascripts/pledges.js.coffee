@@ -50,12 +50,16 @@ jQuery ->
     cap = pledgeCap().toFixed(2)
     $('.pledge_amount').html(amount).val(amount)
     $('.pledge_cap').each (elem, obj) ->
-      obj.html(cap) if typeof(obj.html) isnt 'undefined'
-      obj.val(cap) if typeof(obj.val) isnt 'undefined'
+      # try/catch because IE8 is a douche
+      try $(obj).html(cap) catch e
+      try $(obj).val(cap) catch e
 
   cascadeStretchGoalAmount = ->
     amount = (pledgeCap() * 0.25).toFixed(2)
-    $('.pledge_stretch_goal_amount').html(amount).val(amount)
+    obj = $('.pledge_stretch_goal_amount')
+    # try/catch because IE8 is a douche
+    try obj.html(amount) catch e
+    try obj.val(amount) catch e
 
   cascadeDonateBonus = ->
     checked = if $('#pledge_donate_bonus').is(':checked') then 'Yes' else 'No'
