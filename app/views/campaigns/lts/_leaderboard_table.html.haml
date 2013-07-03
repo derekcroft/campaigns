@@ -1,35 +1,19 @@
-%table#leaderboard-table{summary: "LTS Spring Fundraiser Leader Board"}
-  %colgroup
-    %col.oce-first/
-  %thead
-    %tr
-      %th{:scope => "col"} Rank
-      %th{:scope => "col"} Team
-      %th{:scope => "col"} Charity
-      %th{:scope => "col"} Donors
-      %th{:scope => "col"} $&nbsp;Raised
-  %tbody
-    %tr
-      %td.ct 1
-      %td Adam's Avengers
-      %td Dog's Day Rescue
-      %td.rt.bd 1172
-      %td.rt $12,343
-    %tr
-      %td.ct 2
-      %td Knights of Nathan
-      %td Walkers In Liberia
-      %td.rt.bd 1041
-      %td.rt $21,932
-    %tr
-      %td.ct 3
-      %td Ivan's Isotopes
-      %td West Bloomfield Elephant Enclosure
-      %td.rt.bd 93
-      %td.rt $10,427
-    %tr
-      %td.ct 4
-      %td Derek and the deviants
-      %td Laps for Legos
-      %td.rt.bd 13
-      %td.rt $423
+%div{id: div_id, class: [hidden ? 'hidden' : nil, 'leaderboards']}
+  %table#leaderboard-table{summary: "LTS Spring Fundraiser Leader Board"}
+    %colgroup
+      %col.oce-first/
+    %thead
+      %tr
+        %th{:scope => "col"} Rank
+        %th{:scope => "col"} Team
+        %th{:scope => "col"} Charity
+        %th{:scope => "col"} Donors
+        %th{:scope => "col"} $&nbsp;Raised
+    %tbody
+      - leaders.each_with_index do |leader, i|
+        %tr
+          %td.ct= i+1
+          %td= leader.name
+          %td= leader.charity
+          %td.rt.bd= number_with_delimiter leader.num_donors, precision: 0, delimiter: ','
+          %td.rt= number_to_currency leader.amount_raised, precision: 0
