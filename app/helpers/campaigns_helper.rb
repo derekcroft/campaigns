@@ -18,6 +18,17 @@ module CampaignsHelper
     }
   end
 
+  def youtube_url(video_id)
+    url = "#{request.protocol}www.youtube"
+    url << "-nocookie" if request.protocol.start_with?('https')
+    url << ".com/embed/#{video_id}"
+    url
+  end
+
+  def video_link
+    content_tag(:iframe, allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: youtube_url('IiBEj8j9g8c')) {}
+  end
+
   def share_this_button(team, display_text, summary_type = nil)
     summary = summary_type == :long ? share_this_summary_long : share_this_summary_short
     tag_class = 'st_' + (display_text == 'Tweet' ? 'twitter' : display_text.downcase) + '_large'
