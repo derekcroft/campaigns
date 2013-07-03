@@ -2,6 +2,8 @@
 %h4#stripe_error.donation_error.field_with_errors
   %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
 
+- if params[:stripe_mode].present?
+  = hidden_field_tag :stripe_mode, params[:stripe_mode]
 = hidden_field_tag :stripe_card_token
 %ul#paymentform
   %li#payment-type{:style => "width:500px;"}

@@ -20,4 +20,9 @@ class ApplicationController < ActionController::Base
       raise "The stripe_mode param must equal 'live' or 'test'"
     end
   end
+
+  def load_leaderboards
+    @leaders = Team.leaders
+    @leaders_by_sport = @leaders.group_by(&:sport)
+  end
 end

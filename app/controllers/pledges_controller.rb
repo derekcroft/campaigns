@@ -1,4 +1,6 @@
 class PledgesController < ApplicationController
+  before_filter :load_leaderboards, only: [:create]
+
   def new
     @pledge = @campaign.pledges.build(params[:pledge])
     @pledge.dot_color ||= Pledge.random_hex
