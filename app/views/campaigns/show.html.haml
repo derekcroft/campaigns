@@ -5,7 +5,7 @@
 - content_for :count_me_in do
   #countmein= count_me_in_button(request.host, @team.try(:id))
 - content_for :video do
-  %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "http://www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
+  %iframe{allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: "#{request.protocol}www.youtube-nocookie.com/embed/IiBEj8j9g8c"}
 - content_for :progress_text do
   #progresstext
     %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')
