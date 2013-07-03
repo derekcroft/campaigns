@@ -1,5 +1,4 @@
 jQuery ->
-
   ## only allow numbers in the fixed amount text field
   $('.positive-integer').numeric { decimal: false, negative: false }
   $('.positive-decimal')
@@ -8,7 +7,6 @@ jQuery ->
       invalidDecimal = /\.\d{3,}$/
       @value = @value.slice(0, -1) if invalidDecimal.test(@value)
       cascade()
-
 
   ## manage the instructional text in the donor dot comment
   prompt = 'Type a short message'
@@ -23,18 +21,25 @@ jQuery ->
       $it.val('') if $it.val() is prompt
   $it.val(prompt) unless $it.val()
 
-
   ## filter the charities by sport
   $pledge_team_id = $('#pledge_team_id')
   $('#sport').on 'change', ->
     $pledge_team_id.empty()
     options = $pledge_team_id.prop 'options'
+    options[0] = new Option('Choose A Team/Charity')
     if @value
       $.each window.teamsBySport[@value], (idx, val) ->
         options[options.length] = new Option(val.description, val.team_id)
     else
       $.each window.teamsAll, (idx, val) ->
         options[options.length] = new Option(val.description, val.team_id)
+
+  ## don't submit if user hasn't selected a charity
+  $('#submit_donation').on 'submit', ->
+    unless $('#pledge_team_id').val()
+      alert 'You must select a charity to support before submitting your donation.'
+      $('#pledge_team_id').focus()
+      false
 
   ## cascade changes to match amount to the rest of the page
   pledgeCap = ->
