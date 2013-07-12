@@ -7,7 +7,7 @@ class Team < ActiveRecord::Base
 
   class << self
     def import!
-      CSV.foreach(File.join(Rails.root, 'db', "lts_teams.csv"), headers: :first_row) do |row|
+      CSV.foreach(File.join(Rails.root, 'db', 'lts', 'lts_teams.csv'), headers: :first_row) do |row|
         Team.where(name: row['Team']).first_or_create(
           captain_first_name: row['First Name'],
           captain_last_name: row['Last Name'],
