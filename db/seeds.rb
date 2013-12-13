@@ -19,18 +19,31 @@
   #contact_phone: nil
 #)
 
-Campaign.where(subdomain: 'lts').first_or_create(
+#Campaign.where(subdomain: 'lts').first_or_create(
+  #donation_target: 100,
+  #donor_target: 500,
+  #ends_on: Date.new(2013, 8, 18),
+  #name: 'Live To Support',
+  #contact_name: 'Derek Croft',
+  #contact_email: 'derek@kiindly.com',
+  #url: 'http://www.livetosupport.com',
+  #starts_on: Date.new(2013, 6, 24),
+  #match_amount: 100,
+  #campaign_type: 'dollar',
+  #contact_phone: nil
+#)
+
+Campaign.where(subdomain: 'msudm').first_or_create(
   donation_target: 100,
   donor_target: 500,
   ends_on: Date.new(2013, 8, 18),
-  name: 'Live To Support',
+  name: 'MSU Dance Marathon',
   contact_name: 'Derek Croft',
   contact_email: 'derek@kiindly.com',
-  url: 'http://www.livetosupport.com',
+  url: 'http://www.msudm.com',
   starts_on: Date.new(2013, 6, 24),
   match_amount: 100,
   campaign_type: 'dollar',
   contact_phone: nil
 )
-
 Team.import!
