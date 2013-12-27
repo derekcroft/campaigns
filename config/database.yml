@@ -66,6 +66,6 @@ production:
   database: kiindly_production
   pool: 5
   username: kiindly
-  password: 577Grvdm
+  password:
   host: 127.0.0.1
   port: 5432
