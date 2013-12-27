@@ -33,17 +33,18 @@
   #contact_phone: nil
 #)
 
-Campaign.where(subdomain: 'msudm').first_or_create(
-  donation_target: 100,
-  donor_target: 500,
-  ends_on: Date.new(2013, 8, 18),
-  name: 'MSU Dance Marathon',
-  contact_name: 'Derek Croft',
-  contact_email: 'derek@kiindly.com',
-  url: 'http://www.msudm.com',
-  starts_on: Date.new(2013, 6, 24),
-  match_amount: 100,
-  campaign_type: 'dollar',
-  contact_phone: nil
-)
+Campaign.where(subdomain: 'msudm').first_or_create do |c|
+  c.donation_target = 100
+  c.donor_target = 500
+  c.ends_on = Date.new(2014, 4, 6)
+  c.name = 'MSU Dance Marathon'
+  c.contact_name = 'Derek Croft'
+  c.contact_email = 'derek@kiindly.com'
+  c.url = 'http://www.msudm.org'
+  c.youtube_video_id = 'ltMzU1SmqXs'
+  c.starts_on = Date.new(2014, 1, 3)
+  c.match_amount = 100
+  c.campaign_type = 'dollar'
+  c.contact_phone = nil
+end
 Team.import!

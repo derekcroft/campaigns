@@ -1,7 +1,7 @@
 #topblock
   .middleblock
     #status
-      #campaignlogo= image_tag "#{@campaign.subdomain}/logo.jpg", height: 80, width: 250, alt: "Live To Support Chicago - Logo"
+      #campaignlogo= image_tag "#{@campaign.subdomain}/logo.jpg", height: 80, width: 250, alt: "MSU Dance Marathon - Logo"
       = yield :progress_text
       = render "campaigns/#{@campaign.subdomain}/goal_text"
       #progresschart

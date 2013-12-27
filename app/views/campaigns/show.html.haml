@@ -5,7 +5,7 @@
 - content_for :count_me_in do
   #countmein= count_me_in_button(request.host, @team.try(:id))
 - content_for :video do
-  = video_link
+  = video_link(@campaign.youtube_video_id)
 - content_for :progress_text do
   #progresstext
     %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')

@@ -25,8 +25,8 @@ module CampaignsHelper
     url
   end
 
-  def video_link
-    content_tag(:iframe, allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: youtube_url('IiBEj8j9g8c')) {}
+  def video_link(youtube_video_id)
+    content_tag(:iframe, allowfullscreen: '', frameborder: 0, height: 390, width: 640, src: youtube_url(youtube_video_id)) {}
   end
 
   def share_this_button(team, display_text, summary_type = nil)

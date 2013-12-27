@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624181848) do
+ActiveRecord::Schema.define(:version => 20131227202659) do
 
   create_table "campaigns", :force => true do |t|
-    t.decimal  "donation_target", :precision => 20, :scale => 2
-    t.datetime "created_at",                                                          :null => false
-    t.datetime "updated_at",                                                          :null => false
+    t.decimal  "donation_target",  :precision => 20, :scale => 2
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
     t.string   "name"
     t.string   "subdomain"
     t.date     "ends_on"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(:version => 20130624181848) do
     t.string   "contact_email"
     t.string   "contact_phone"
     t.date     "starts_on"
-    t.integer  "match_amount",                                   :default => 1
-    t.string   "campaign_type",                                  :default => "penny"
+    t.integer  "match_amount",                                    :default => 1
+    t.string   "campaign_type",                                   :default => "penny"
     t.string   "url"
     t.integer  "donor_target"
+    t.string   "youtube_video_id"
   end
 
   create_table "donors", :force => true do |t|
