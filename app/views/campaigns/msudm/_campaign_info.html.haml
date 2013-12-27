@@ -1,0 +1,58 @@
+#campaigninfo.roundbox.tabblock
+  %h3 Campaign Information
+  %p
+    My name is Mark Biery, founder of
+    = succeed '.' do
+      = link_to 'LTS Chicago', "http://www.livetosupport.com", target: "_blank"
+  %p
+    Since LTS began in 2010, our mission has been to generate awareness 
+    and contributions through sporting and social events for Chicago charities.
+    To date, we have raised over $90,000 for local Chicago and national charities.
+  %p
+    We partnered with Kiindly to create the LTS Fundraising Challenge.
+  %p
+    For the duration of our Summer Leagues, each team will compete to raise
+    the most amount of donors, and donations, for their charity.
+    Our sponsor, Athletico, will also be donating to our best performing teams.
+
+  %ul
+    %li
+      %strong
+        Awareness Prize:
+      $250
+      = link_to 'Athletico', 'http://www.athletico.com', target: "_blank"
+      donation to the team with the most PEOPLE donating to their charity.
+    %li
+      %strong
+        Donation Prize:
+      $150
+      = link_to 'Athletico', 'http://www.athletico.com', target: "_blank"
+      donation to the team with the most MONEY RAISED for their charity.
+
+  %p
+    Because of Kiindly, every donation, big or small, is matched. You can donate
+    $10, $25, or more to the team and charity of your choice.
+    Every cent will be matched by another donor.
+
+  %p
+    We have over 150 teams supporting over 50 charities, locally and nationally,
+    this season. Our goal is to get at least 500 donors supporting any of the charities.
+
+  %p
+    Campaign period: #{start_date(@campaign)} - #{end_date(@campaign)}
+    %br
+    Goal:
+    = number_with_delimiter @campaign.donor_target, precision: 0, delimiter: ','
+    donors
+  %p
+    Visit us online:
+    = link_to 'livetosupport.com', 'http://www.livetosupport.com', target: '_blank'
+    %br
+    Find us on Facebook:
+    = link_to 'facebook.com/LTSChicago', 'http://www.facebook.com/LTSChicago', target: '_blank'
+    %br
+    Follow us on Twitter:
+    = link_to 'twitter.com/LTSChicago', 'http://www.twitter.com/LTSChicago', target: '_blank'
+  %br{:style => "clear:both;"}
+
+  = link_to 'Back to the top', '#tabs'

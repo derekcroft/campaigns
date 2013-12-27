@@ -1,0 +1,9 @@
+#social.roundbox
+  %span.socialtitle Share
+  = share_this_button(@team, 'Facebook', :long)
+  = share_this_button(@team, 'Tweet', :short)
+  = share_this_button(@team, 'Pinterest')
+  = share_this_button(@team, 'LinkedIn', :long)
+  = share_this_button(@team, 'ShareThis')
+  %div{:style => "height:1px; width:1px; padding:0; margin:0; overflow:hidden;"}
+    = image_tag 'lts/pinterest.jpg', alt: 'Pinterest', height: 600, width: 350

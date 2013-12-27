@@ -30,17 +30,6 @@ ActiveRecord::Schema.define(:version => 20130624181848) do
     t.integer  "donor_target"
   end
 
-  create_table "charities", :force => true do |t|
-    t.string   "name"
-    t.string   "contact_name"
-    t.string   "contact_email"
-    t.string   "contact_phone"
-    t.string   "stripe_access_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "stripe_refresh_token"
-  end
-
   create_table "donors", :force => true do |t|
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false

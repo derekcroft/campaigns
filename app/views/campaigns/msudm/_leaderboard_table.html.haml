@@ -1,0 +1,23 @@
+%div.leaderboards{id: div_id, style: "display:#{hidden ? 'none' : 'block'}"}
+  %table#leaderboard-table{summary: "LTS Spring Fundraiser Leader Board"}
+    %colgroup
+      %col.oce-first/
+    %thead
+      %tr
+        %th{:scope => "col"} Rank
+        %th{:scope => "col"} Team
+        %th{:scope => "col"} Charity
+        %th{:scope => "col"} Donors
+        %th{:scope => "col"} $&nbsp;Raised
+    %tbody
+      - if leaders.present?
+        - leaders.each_with_index do |leader, i|
+          %tr
+            %td.ct= i+1
+            %td= leader.name
+            %td= leader.charity
+            %td.rt.bd= number_with_delimiter leader.num_donors, precision: 0, delimiter: ','
+            %td.rt= number_to_currency leader.amount_raised, precision: 0
+      - else
+        %tr
+          %td{colspan: 5} No pledges for this sport yet.  Be the first!

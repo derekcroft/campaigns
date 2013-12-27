@@ -1,3 +1,4 @@
+ruby "1.9.3"
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.16'
@@ -55,7 +56,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'thin'
 end
 
@@ -77,4 +77,3 @@ gem 'capistrano'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 #
 #
-ruby "1.9.3"
