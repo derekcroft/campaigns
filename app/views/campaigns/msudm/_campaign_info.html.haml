@@ -1,34 +1,15 @@
 #campaigninfo.roundbox.tabblock
   %h3 Campaign Information
   %p
-    My name is Mark Biery, founder of
-    = succeed '.' do
-      = link_to 'LTS Chicago', "http://www.livetosupport.com", target: "_blank"
+    = link_to @campaign.name, @campaign.url, target: '_blank'
+    is an event in which participants, more affectionately known as "dancers,"
+    raise money to benefit The Cassie Hines Shoes Cancer Foundation. At the conclusion of
+    the fundraising, dancers take part in a 12-hour celebration by staying on their feet
+    to commemorate the struggles that young adults with cancer go through every single day.
   %p
-    Since LTS began in 2010, our mission has been to generate awareness 
-    and contributions through sporting and social events for Chicago charities.
-    To date, we have raised over $90,000 for local Chicago and national charities.
-  %p
-    We partnered with Kiindly to create the LTS Fundraising Challenge.
-  %p
-    For the duration of our Summer Leagues, each team will compete to raise
-    the most amount of donors, and donations, for their charity.
-    Our sponsor, Athletico, will also be donating to our best performing teams.
-
-  %ul
-    %li
-      %strong
-        Awareness Prize:
-      $250
-      = link_to 'Athletico', 'http://www.athletico.com', target: "_blank"
-      donation to the team with the most PEOPLE donating to their charity.
-    %li
-      %strong
-        Donation Prize:
-      $150
-      = link_to 'Athletico', 'http://www.athletico.com', target: "_blank"
-      donation to the team with the most MONEY RAISED for their charity.
-
+    The event includes live performances, dancing, games, contests, interaction with other
+    student groups and much more! Young adults with cancer that will benefit from our funds
+    and have overcome incredible odds inspire dancers by sharing their testimonies at the event.
   %p
     Because of Kiindly, every donation, big or small, is matched. You can donate
     $10, $25, or more to the team and charity of your choice.
@@ -46,13 +27,13 @@
     donors
   %p
     Visit us online:
-    = link_to 'livetosupport.com', 'http://www.livetosupport.com', target: '_blank'
+    = link_to 'msudm.org', @campaign.url , target: '_blank'
     %br
     Find us on Facebook:
-    = link_to 'facebook.com/LTSChicago', 'http://www.facebook.com/LTSChicago', target: '_blank'
+    = link_to 'facebook.com/msudm', 'https://www.facebook.com/msudm', target: '_blank'
     %br
     Follow us on Twitter:
-    = link_to 'twitter.com/LTSChicago', 'http://www.twitter.com/LTSChicago', target: '_blank'
+    = link_to 'twitter.com/TheMSUDM', 'http://www.twitter.com/TheMSUDM', target: '_blank'
   %br{:style => "clear:both;"}
 
-  = link_to 'Back to the top', '#tabs'
+  = link_to 'Back to the top', '#'
