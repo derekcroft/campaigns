@@ -1,0 +1,27 @@
+#donationstatus.roundbox
+  #progresstext
+    %h3 Donation Summary
+    %ul#donation-summary
+      %li Campaign Goal:
+      %li.donsum-right #{@campaign.donor_target} donors
+      %li Your Donation Cap:
+      %li.donsum-right
+        = precede '$' do
+          %span.pledge_cap{value: '0'}= number_with_precision(@pledge.cap, precision: 2)
+      %li Per Person Donation:
+      %li.donsum-right
+        = precede '$' do
+          %span.pledge_amount= number_with_precision(@pledge.cap, precision: 2)
+      %li Stretch Goal:
+      %li.donsum-right
+        %span.pledge_donate_bonus= yes_no(@pledge.donate_bonus)
+        (125%)
+      %li Donate My Full Cap:
+      %li.donsum-right
+        %span.pledge_donate_cap= yes_no(@pledge.donate_cap)
+      %li Campaign Ends:
+      %li.donsum-right= end_date(@campaign)
+    %hr.clear/
+    %br/
+    %br/
+

@@ -1,0 +1,22 @@
+- if p.object.errors.has_key?(:'donor.terms_of_service')
+  %h4.field_with_errors You must agree to the terms and conditions to proceed.
+= p.fields_for :donor do |d|
+  .optincheck
+    = d.check_box :terms_of_service, class: 'rad'
+  .optintext
+    = d.label :terms_of_service, "I agree to the #{link_to "Terms & Conditions", popup_path("Content" => "Terms"), class: "popup_link"}".html_safe
+  .optincheck
+    = d.check_box :email_opt_in, class: 'rad'
+  .optintext
+    = d.label :email_opt_in, "I would like to receive emails regarding new projects, special events, news and information from Live To Support Chicago."
+  .optincheck
+    = p.check_box :donate_cap, class: 'rad'
+  .optintext
+    = p.label :donate_cap do
+      %strong
+        If the campaign doesn't reach the donor goal I'm willing to donate the value of my maximum donation amount of
+        = surround '$', '.' do
+          %span.pledge_cap{value: '0'}= number_to_currency(@pledge.cap, precision: 0)
+%span.button_to
+  = submit_tag "SUBMIT", id: 'submit_donation', class: 'submitbtn', style: 'width:114px'
+%hr.clear/

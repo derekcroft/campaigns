@@ -1,0 +1,10 @@
+.contentpageblock{align: "center"}
+  #payinfo-left
+    .paymentcontentblock.roundbox= render partial: 'pledges/msudm/stretch_goal', locals: { p: p }
+    .paymentcontentblock.roundbox= render partial: 'colorpicker', locals: { p: p }
+    .paymentcontentblock.roundbox= render partial: 'pledges/msudm/billing_information', locals: { p: p }
+    .paymentcontentblock.roundbox= render partial: 'pledges/msudm/payment_form'
+    .paymentcontentblock.roundbox= render partial: 'pledges/msudm/opt_ins', locals: { p: p }
+  #infopage-right
+    = render 'donor_dots'
+    = render 'pledges/msudm/donation_status'

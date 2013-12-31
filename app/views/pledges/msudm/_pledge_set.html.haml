@@ -1,0 +1,21 @@
+/ ** Calculate **
+#pledgeset-l
+  %h6 Set Your Match
+  .roundbox.pledgeshort
+    %p.ltgray.buck
+      = p.text_field :amount, maxlength: 5, class: 'positive-decimal', data: { goal: @campaign.donor_target }
+  %p
+    This will be your
+    %br/
+    contribution per donor.
+#pledgeset-r
+  %h6.ltgray2 Your Max. Donation
+  .roundbox.pledgeshort.ltgray2bg.mpd
+    %p.ltgray.buck
+      = p.hidden_field :cap, class: 'pledge_cap'
+      %span.pledge_cap.mpdresult{value: '0'}= number_with_precision(p.object.cap, precision: 2)
+      \&nbsp;
+  %p.ltgray2
+    Your maximum donation when
+    %br/
+    we reach #{@campaign.donor_target} donors.

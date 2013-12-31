@@ -1,0 +1,16 @@
+%h3 Billing information
+- if p.object.errors.any?
+  %h4.field_with_errors INFORMATION INCOMPLETE - Please fill out the fields below marked in red.
+= p.fields_for :donor do |d|
+  = d.hidden_field :campaign_id, value: p.object.campaign_id
+  %ul#billingform
+    %li#billing-fname
+      = d.label :first_name, 'First Name'
+      = d.text_field :first_name
+    %li#billing-lname
+      = d.label :last_name, 'Last Name'
+      = d.text_field :last_name
+    %li#billing-email{:style => "width:500px;"}
+      = d.label :email, "Email Address #{content_tag(:span, class: 'x10') { '(so we can send you a receipt)' }}".html_safe
+      = d.text_field :email, class: 'long'
+%hr.clear/

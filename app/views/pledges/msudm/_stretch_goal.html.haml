@@ -1,0 +1,14 @@
+%h3 STRETCH GOAL = #{@campaign.stretch_goal} donors (125% of our goal)
+= p.hidden_field :stretch_goal_donors, value: @campaign.stretch_goal
+.optincheck
+  = p.check_box :donate_bonus, class: 'rad'
+.optintext
+  %label{:for => "pledge_bonus125_cap"}
+    %strong
+      I'd like to pledge an additional
+      %span.green
+        = precede '$' do
+          %span.pledge_stretch_goal_amount
+            = number_with_precision(@pledge.stretch_goal_amount, precision: 2)
+      = p.hidden_field :stretch_goal_amount, class: 'pledge_stretch_goal_amount'
+    should the campaign reach the stretch goal.
