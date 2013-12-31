@@ -1,5 +1,5 @@
-%div.leaderboards{id: div_id, style: "display:#{hidden ? 'none' : 'block'}"}
-  %table#leaderboard-table{summary: "LTS Spring Fundraiser Leader Board"}
+%div.leaderboards{id: div_id}
+  %table#leaderboard-table{summary: "#{@campaign.name} Leader Board"}
     %colgroup
       %col.oce-first/
     %thead
@@ -20,4 +20,4 @@
             %td.rt= number_to_currency leader.amount_raised, precision: 0
       - else
         %tr
-          %td{colspan: 5} No pledges for this sport yet.  Be the first!
+          %td{colspan: 5} No pledges yet.  Be the first!

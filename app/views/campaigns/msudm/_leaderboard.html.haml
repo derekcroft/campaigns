@@ -1,10 +1,3 @@
 #leaderboard.roundbox.tabblock.hidden
-  = select_tag "sport", options_for_select(Team.sports.collect { |t| ["#{t} only", t] }), prompt: 'Show All Sports'
-  %br/
-  %br/
-  = render partial: 'campaigns/lts/leaderboard_table', locals: { leaders: @leaders, div_id: 'leaderboard-table-all', hidden: false }
-  = render partial: 'campaigns/lts/leaderboard_table', locals: { leaders: @leaders_by_sport["Kickball"], div_id: 'leaderboard-table-kickball', hidden: true }
-  = render partial: 'campaigns/lts/leaderboard_table', locals: { leaders: @leaders_by_sport["Soccer"], div_id: 'leaderboard-table-soccer', hidden: true }
-  = render partial: 'campaigns/lts/leaderboard_table', locals: { leaders: @leaders_by_sport["Softball"], div_id: 'leaderboard-table-softball', hidden: true }
-  = render partial: 'campaigns/lts/leaderboard_table', locals: { leaders: @leaders_by_sport["Volleyball"], div_id: 'leaderboard-table-volleyball', hidden: true }
+  = render partial: 'campaigns/msudm/leaderboard_table', locals: { leaders: @leaders, div_id: 'leaderboard-table-all' }
   = link_to 'Back to the top', '#tabs'
