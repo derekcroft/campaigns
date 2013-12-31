@@ -2,8 +2,8 @@
   - content_for :page_title do
     = title(@campaign, 'Payment Information')
   - content_for :video do
-    = render partial: 'pledges/lts/charity_picker', locals: { p: p }
-    = render partial: 'pledges/lts/pledge_set', locals: { p: p }
+    = render partial: "pledges/#{@campaign.subdomain}/charity_picker", locals: { p: p }
+    = render partial: "pledges/#{@campaign.subdomain}/pledge_set", locals: { p: p }
   - content_for :progress_text do
     #progresstext
       %span#hardcount= number_with_delimiter(@campaign.donors.count, precision: 0, delimiter: ',')
