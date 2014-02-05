@@ -8,7 +8,7 @@
   .optincheck
     = d.check_box :email_opt_in, class: 'rad'
   .optintext
-    = d.label :email_opt_in, "I would like to receive emails regarding new projects, special events, news and information from Live To Support Chicago."
+    = d.label :email_opt_in, "I would like to receive emails regarding new projects, special events, news and information from #{@campaign.name}"
   .optincheck
     = p.check_box :donate_cap, class: 'rad'
   .optintext

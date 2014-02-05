@@ -5,12 +5,14 @@ class Dancer < ActiveRecord::Base
 
   has_many :pledges
 
+  validates :last_name, uniqueness: { scope: :first_name }
+
   class << self
     def import!
       CSV.foreach(File.join(Rails.root, 'db',  'msudm', 'msudm_dancers.csv'), headers: :first_row) do |row|
         Dancer.where(confirmation: row['Confirmation']).first_or_create(
-          first_name: row['FirstName'],
-          last_name: row['LastName'],
+          first_name: row['FirstName'].titleize,
+          last_name: row['LastName'].titleize,
           email: row['E-Mail'],
           address1: row['Address1'],
           address2: row['Address1'],
@@ -27,7 +29,7 @@ class Dancer < ActiveRecord::Base
     end
 
     def dropdown_order
-      order(:last_name, :first_name).all.collect {|t| ["#{t.last_name} / #{t.first_name}", t.id]}
+      order(:last_name, :first_name).all.collect {|t| ["#{t.last_name},  #{t.first_name}", t.id]}
     end
 
     def leaders

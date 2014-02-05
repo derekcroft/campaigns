@@ -1,7 +1,4 @@
 %h6 Select a dancer to support
 #charitypicker.roundbox
-  :javascript
-    window.teamsAll = #{Team.teams_and_charities_all.to_json}
-    window.teamsBySport = #{Team.teams_and_charities_by_sport.to_json}
-  = p.select :team_id, options_for_select(Team.teams_and_charities, params[:team_id])
+  = p.select :team_id, options_for_select(Dancer.dropdown_order, params[:dancer_id])
   %br/
