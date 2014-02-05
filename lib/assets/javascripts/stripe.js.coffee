@@ -7,14 +7,15 @@ $(document).ready ->
     "September", "October", "November", "December"
   ]
 
+  endOfCampaign = new Date(2014, 3, 1)
+
   $("#submit_donation").click ->
     unless card.validCardNumber()
       $("#stripe_error").html("The card number you entered does not appear to be valid.").show()
       $("#card_number").focus()
       return false
-    unless card.validExpiration()
-      today = new Date
-      $("#stripe_error").html("Card expiration must be #{monthNames[today.getMonth()+1]} #{today.getFullYear()} or later").show()
+    unless card.validExpiration(endOfCampaign)
+      $("#stripe_error").html("Card expiration must be #{monthNames[endOfCampaign.getMonth()]} #{endOfCampaign.getFullYear()} or later").show()
       $("#card_month").focus()
       return false
     unless card.validCVC()
@@ -31,10 +32,23 @@ $(document).ready ->
   pledge.setupForm()
 
 card =
-  validExpiration: ->
-    expYear = parseInt $('#card_year').val()
-    expMonth = parseInt($('#card_month').val()) - 1
-    Stripe.card.validateExpiry expMonth, expYear
+  expirationYear: ->
+    parseInt $('#card_year').val()
+
+  expirationMonth: ->
+    parseInt($('#card_month').val()) - 1
+
+  expirationDate: ->
+    new Date(@expirationYear(), @expirationMonth())
+
+  expiresAfter: (date) ->
+    @expirationDate() >= date
+
+  validExpiration: (endOfCampaign) ->
+    @expiresAfter(endOfCampaign) and @validStripeExpiration()
+
+  validStripeExpiration: ->
+    Stripe.card.validateExpiry @expirationMonth(), @expirationYear()
 
   validCardNumber: ->
     cardNumber = $('#card_number').val()

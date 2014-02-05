@@ -32,7 +32,7 @@
     Expiration
     %span.x10 (mm/yy)
     %br/
-    = select_month nil, { add_month_numbers_true: true }, { name: nil, id: 'card_month', maxlength: 2, class: 'short' }
+    = select_month @campaign.ends_on, { add_month_numbers_true: true }, { name: nil, id: 'card_month', maxlength: 2, class: 'short' }
     = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", maxlength: 2, class: 'short'}
 %hr.clear/
 
