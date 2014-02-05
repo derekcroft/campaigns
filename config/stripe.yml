@@ -19,4 +19,14 @@ api_key:
     publishable:
       test: pk_test_nF6pGtowUM7oGXQKUNG2AA0f
       live: pk_live_T6y5ApiKEtF9bAZiaZ9bAuQg
-    mode: live
+    mode: test
+  msudm:
+    stripe_user_id: acct_1zIGqUbwXH8i6kdEkLB6
+    refresh: rt_1zIQP7kRDzEr6pxfEGbjU3QQ3AZ94nRmGnFJ5cAWSXrKi517
+    secret:
+      test: sk_test_S8YDTCUv95se0pE9lOH4SS5H
+      live: sk_live_7yJsE6pwOsubBDKZadXcGQuV
+    publishable:
+      test: pk_test_DBWOz95RwXdeGckOOD0hSUjc
+      live: pk_live_PYsAYMMyFwSwfMnuIg6v8Uu3
+    mode: test
