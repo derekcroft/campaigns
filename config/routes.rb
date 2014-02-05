@@ -1,4 +1,7 @@
 KiindlyCom::Application.routes.draw do
+  resources :dancers
+
+
   root :to => 'campaigns#index'
   match 'popup' => 'campaigns#popup', as: :popup
 

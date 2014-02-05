@@ -17,7 +17,9 @@
 
   %p
     We have over 150 teams supporting over 50 charities, locally and nationally,
-    this season. Our goal is to get at least 500 donors supporting any of the charities.
+    this season. Our goal is to get at least
+    = number_with_delimiter @campaign.donor_target, precision: 0, delimiter: ','
+    donors supporting any of the charities.
 
   %p
     Campaign period: #{start_date(@campaign)} - #{end_date(@campaign)}
