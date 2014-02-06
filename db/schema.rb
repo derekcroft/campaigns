@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20131231212129) do
     t.integer  "team_id"
     t.integer  "stretch_goal_donors"
     t.decimal  "stretch_goal_amount",              :precision => 10, :scale => 2
+    t.integer  "dancer_id"
   end
 
   create_table "teams", :force => true do |t|

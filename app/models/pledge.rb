@@ -3,6 +3,7 @@ class Pledge < ActiveRecord::Base
   belongs_to :donor, autosave: true
   belongs_to :campaign
   belongs_to :team
+  belongs_to :dancer
 
   accepts_nested_attributes_for :donor
 
@@ -10,11 +11,13 @@ class Pledge < ActiveRecord::Base
   attr_accessible :stripe_card_token, :pledge_type, :amount,
     :cap, :donor_attributes, :donate_cap, :donate_bonus,
     :dot_color, :dot_comment, :team_id, :stretch_goal_amount,
-    :stretch_goal_donors
+    :stretch_goal_donors, :dancer_id
 
   validates :pledge_type, inclusion: { in: %w{fixed penny dollar} }
   validates :donor, :campaign, presence: true
   validates :donor, associated: true
+
+  validates :dancer, presence: true
 
   scope :fixed, where(["pledge_type = 'fixed' or donate_cap = ?", true])
   scope :matching, where("pledge_type <> 'fixed'").where(donate_cap: false)

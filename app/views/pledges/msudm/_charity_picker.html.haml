@@ -1,4 +1,4 @@
 %h6 Select a dancer to support
 #charitypicker.roundbox
-  = p.select :team_id, options_for_select(Dancer.dropdown_order, params[:dancer_id])
+  = p.select :dancer_id, options_for_select(Dancer.dropdown_order, params[:dancer_id])
   %br/
