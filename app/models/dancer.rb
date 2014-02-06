@@ -44,6 +44,10 @@ class Dancer < ActiveRecord::Base
     url.split('/').last
   end
 
+  def url
+    first_name.downcase + sprintf("%03d", sequence)
+  end
+
   def set_sequence
     self.sequence = Dancer.unscoped.count + 1
   end
