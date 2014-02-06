@@ -6,6 +6,9 @@ class Dancer < ActiveRecord::Base
   has_many :pledges
 
   validates :last_name, uniqueness: { scope: :first_name }
+  validates :sequence, presence: true
+
+  before_validation :set_sequence, on: :create
 
   class << self
     def import!
@@ -39,5 +42,9 @@ class Dancer < ActiveRecord::Base
 
   def subdomain
     url.split('/').last
+  end
+
+  def set_sequence
+    self.sequence = Dancer.unscoped.count + 1
   end
 end
