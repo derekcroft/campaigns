@@ -9,7 +9,7 @@ module CampaignsHelper
 
   def count_me_in_button(host, team_id)
     protocol = Rails.configuration.ssl_enabled ? 'https' : 'http'
-    render partial: 'campaigns/lts/count_me_in', locals: { team_id: team_id, protocol: protocol, host: host }
+    render partial: "campaigns/#{@campaign.subdomain}/count_me_in", locals: { team_id: team_id, protocol: protocol, host: host }
   end
 
   def share_this_url(team)

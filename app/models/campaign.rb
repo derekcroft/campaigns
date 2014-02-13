@@ -37,6 +37,10 @@ class Campaign < ActiveRecord::Base
     (donor_target * 1.25).ceil
   end
 
+  def url
+    "http://#{subdomain}.kiindly.com"
+  end
+
   private
   def fixed_total
     total_row = pledges.where(pledge_type: 'fixed').group("campaign_id").sum(:amount)
